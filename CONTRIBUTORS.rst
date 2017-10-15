@@ -11,8 +11,7 @@ and Atmospheric Sciences (EOAS) at the University of British Columbia.
 
 .. _Susan Allen: https://www.eoas.ubc.ca/~sallen/
 
-The following people have contributed to this documentation.
-etc. to the Salish Sea MEOPAR project repositories hosted on Bitbucket_:
+The following people have contributed to this documentation:
 
 * Susan Allen <sallen@eoas.ubc.ca>
 * Doug Latornell <dlatornell@eoas.ubc.ca>
