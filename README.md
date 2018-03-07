@@ -13,4 +13,5 @@ These docs are rendered at [https://ubc-moad-docs.readthedocs.io/en/latest/](htt
 License
 -------
 
-The UBC EOAS MOAD Group Documentation by the [EOAS MOAD group](https://bitbucket.org/UBC_MOAD/docs/src/tip/CONTRIBUTORS.rst) and The University of British Columbia is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/).
+The UBC EOAS MOAD Group Documentation is copyright 2018 by the [EOAS MOAD group](https://bitbucket.org/UBC_MOAD/docs/src/tip/CONTRIBUTORS.rst) and The University of British Columbia.
+It is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/).
