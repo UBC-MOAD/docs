@@ -24,7 +24,3 @@ License
     <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
       Creative Commons Attribution 4.0 International License
     </a>.
-    Permissions beyond the scope of this license may be available at
-    <a xmlns:cc="http://creativecommons.org/ns#" href="https://ubc-moad-docs.readthedocs.io/en/latest/CONTRIBUTORS.html" rel="cc:morePermissions">
-      https://ubc-moad-docs.readthedocs.io/en/latest/CONTRIBUTORS.html
-    </a>.
