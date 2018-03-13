@@ -1,0 +1,214 @@
+.. Copyright 2018 The UBC EOAS MOAD Group
+.. and The University of British Columbia
+..
+.. Licensed under a Creative Commons Attribution 4.0 International License
+..
+..   http://creativecommons.org/licenses/by/4.0/
+
+
+.. XIOS-2-docs:
+
+******
+XIOS-2
+******
+
+`XIOS`_ is the IO management library that is used by NEMO to produce netCDF results files.
+NEMO-3.6 uses XIOS-2.
+
+.. _XIOS: http://forge.ipsl.jussieu.fr/ioserver/wiki
+
+XIOS operates as a server process that multiple NEMO calculation processes communicate with to write results to netCDF files.
+XIOS buffers the output from NEMO in memory while the much slower process of writing to disk happens.
+That means that the NEMO processes can do calculations almost continuously without having to periodically pause to write results to disk.
+
+In many cases,
+especially on the ComputeCanada HPC clusters with large memory per node,
+it is possible to configure NEMO runs with tens to a hundred or more processors to use a single XIOS process.
+The XIOS process must be started in the same :command:`mpirun` command as NEMO.
+Fortunately,
+the :ref:`nemocmd:NEMO-CommandProcessor` and :ref:`salishseacmd:SalishSeaCmdProcessor` tools take care of doing that for you.
+
+
+.. _GettingXIOS-2:
+
+Getting XIOS-2
+==============
+
+The MOAD group maintains our own Mercurial repositories on Bitbucket of the `XIOS-2 code`_ and `build configuration files`_ for building XIOS-2 on the compute platforms that we use.
+Our XIOS-2 code repo is accessible only by members of the MOAD group so as to respect the sign-up requirement of the upstream `XIOS`_ repository.
+The architecture file repo is public so that other researchers can make use of the build system options that we have figured out for various system.
+
+.. _XIOS-2 code: https://bitbucket.org/salishsea/xios-2
+.. _build configuration files: https://bitbucket.org/salishsea/xios-arch
+
+To get the XIOS-2 code and build configuration files repos you need to clone them into you research project directory
+(typically one of :file:`MEOPAR/`,
+:file:`GEOTRACES/`,
+or :file:`CANYONS`).
+Here are some examples of commands to do that on various platforms that we use.
+*You should substitute your own research project directory name as appropriate.*
+
+
+:kbd:`cedar` or :kbd:`graham`
+-----------------------------
+
+.. code-block:: bash
+
+    cd $PROJECT/$USER/GEOTRACES
+    hg clone ssh://hg@bitbucket.org/salishsea/xios-2 XIOS-2
+    hg clone ssh://hg@bitbucket.org/salishsea/xios-arch XIOS-ARCH
+
+
+:kbd:`orcinus`
+--------------
+
+.. code-block:: bash
+
+    cd $HOME/MEOPAR
+    hg clone ssh://hg@bitbucket.org/salishsea/xios-2 XIOS-2
+    hg clone ssh://hg@bitbucket.org/salishsea/xios-arch XIOS-ARCH
+
+
+:kbd:`salish`
+-------------
+
+.. code-block:: bash
+
+    cd /data/$USER/CANYONS
+    hg clone ssh://hg@bitbucket.org/salishsea/xios-2 XIOS-2
+    hg clone ssh://hg@bitbucket.org/salishsea/xios-arch XIOS-ARCH
+
+
+.. _BuildingXIOS-2:
+
+Building XIOS-2
+===============
+
+First symlink the XIOS-2 build configuration files for the machine that you are working on from the :file:`XIOS-ARCH` repo clone into the :file:`XIOS-2/arch/` directory,
+then compile and link XIOS-2.
+*You should substitute your own research project directory name as appropriate.*
+
+:kbd:`cedar`:
+-------------
+
+.. code-block:: bash
+
+    cd $PROJECT/$USER/MEOPAR/XIOS-2/arch
+    ln -sf $PROJECT/$USER/MEOPAR/XIOS-ARCH/WESTGRID/arch-X64_CEDAR.env
+    ln -sf $PROJECT/$USER/MEOPAR/XIOS-ARCH/WESTGRID/arch-X64_CEDAR.fcm
+    ln -sf $PROJECT/$USER/MEOPAR/XIOS-ARCH/WESTGRID/arch-X64_CEDAR.path
+    cd $PROJECT/$USER/MEOPAR/XIOS-2
+    ./make_xios --arch X64_CEDAR --job 8
+
+
+:kbd:`graham`:
+--------------
+
+.. code-block:: bash
+
+    cd $PROJECT/$USER/GEOTRACES/XIOS-2/arch
+    ln -sf $PROJECT/$USER/GEOTRACES/XIOS-ARCH/WESTGRID/arch-X64_GRAHAM.env
+    ln -sf $PROJECT/$USER/GEOTRACES/XIOS-ARCH/WESTGRID/arch-X64_GRAHAM.fcm
+    ln -sf $PROJECT/$USER/GEOTRACES/XIOS-ARCH/WESTGRID/arch-X64_GRAHAM.path
+    cd $PROJECT/$USER/GEOTRACES/XIOS-2
+    ./make_xios --arch X64_GRAHAM --job 8
+
+
+:kbd:`orcinus`
+--------------
+
+.. code-block:: bash
+
+    cd $HOME/MEOPAR/XIOS-2/arch
+    ln -sf $HOME/MEOPAR/XIOS-ARCH/WESTGRID/arch-X64_ORCINUS.env
+    ln -sf $HOME/MEOPAR/XIOS-ARCH/WESTGRID/arch-X64_ORCINUS.fcm
+    ln -sf $HOME/MEOPAR/XIOS-ARCH/WESTGRID/arch-X64_ORCINUS.path
+    cd $HOME/MEOPAR/XIOS-2
+    ./make_xios --arch X64_ORCINUS --netcdf_lib netcdf4_par --job 8
+
+
+:kbd:`salish`
+-------------
+
+.. code-block:: bash
+
+    cd /data/$USER/CANYONS/XIOS-2/arch
+    ln -sf /data/$USER/CANYONS/XIOS-ARCH/UBC-EOAS/arch-GCC_SALISH.fcm
+    ln -sf /data/$USER/CANYONS/XIOS-ARCH/UBC-EOAS/arch-GCC_SALISH.path
+    cd /data/$USER/CANYONS/XIOS-2
+    ./make_xios --arch GCC_SALISH --netcdf_lib netcdf4_seq --job 8
+
+
+.. _XIOS-2CleanBuild:
+
+Doing a Clean Build
+-------------------
+
+If you need to do a clean build of XIOS-2,
+you can use:
+
+.. code-block:: bash
+
+    cd $PROJECT/$USER/MEOPAR/XIOS-2
+    ./tools/FCM/bin/fcm build --clean
+    ./make_xios --arch X64_CEDAR --job 8
+
+to clear away all artifacts of the previous build.
+
+*Be sure to substitute the appropriate research project directory name and machine name.*
+
+
+.. _XIOS-2ConfigurationFiles:
+
+XIOS-2 Configuration Files
+==========================
+
+To use XIOS-2 with NEMO,
+four configuration files written in `XML`_ are required:
+
+.. _XML: https://en.wikipedia.org/wiki/XML
+
+* :file:`field_def.xml` defines the variables that can be output and the grids on which they are defined.
+  Field definition element may
+  (and generally should)
+  also contain metadata attributes such as long name,
+  standard name,
+  and units.
+
+* :file:`domain_def.xml` defines "zoomed" sub-domains of the model domain and the grids on which they are defined.
+  The "zooms" are defined on the i-j (x-y) directions,
+  regardless of the depth of the sub-domain.
+
+* :file:`iodef.xml` defines the vertical extent of output grids in the :kbd:`axis` elements,
+  and the output grids.
+  It also contains a separate :kbd:`context` element for :kbd:`xios` in which a few settings that control XIOS-2 are declared.
+
+* :file:`file_def.xml` defines the files into which field variables are output and the frequency of output of those files.
+  Variable names can be transformed from the internal NEMO names to more user friendly names in the :kbd:`field` elements in this file.
+  This is also where on-the-fly deflation of output files is enabled via the :kbd:`compression_level="4"` attribute of :kbd:`file_group` elements.
+
+.. warning::
+    XML syntax is very exacting,
+    so care is required when you edit XML files to ensure that tags are correctly closed,
+    attribute values are correctly quoted,
+    etc.
+
+    Annoyingly,
+    NEMO will fail *with no diagnostic messages* if your XML files contain errors.
+    If you suspect that you have made an error in editing an XML file,
+    one way of checking is to use an online validator like https://www.xmlvalidation.com/.
+
+
+Customizing XML Files
+---------------------
+
+The `NEMO-3.6-code`_ repositories contains sample XIOS-2 configuration files in the :file:`NEMOGCM/CONFIG/SHARED/` and some of the :file:`NEMOGCM/CONFIG/*/EXP00/` directories.
+*Please* **do not** *modify and commit those files.*
+Doing so will cause conflicts when changes to NEMO are pulled in from the upstream repository,
+and your changes will be overwritten.
+Instead,
+put copies of the XML files that you want to change under version control in your runs configuration repo
+(for example, the `SS-run-sets`_ repo for people working on MEOPAR).
+
+.. _NEMO-3.6-code: https://bitbucket.org/salishsea/nemo-3.6-code
+.. _SS-run-sets: https://bitbucket.org/salishsea/ss-run-sets
