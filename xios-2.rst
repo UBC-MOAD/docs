@@ -212,3 +212,59 @@ put copies of the XML files that you want to change under version control in you
 
 .. _NEMO-3.6-code: https://bitbucket.org/salishsea/nemo-3.6-code
 .. _SS-run-sets: https://bitbucket.org/salishsea/ss-run-sets
+
+
+.. _CommandProcessorsAndXML-Files:
+
+Command Processors and XML Files
+--------------------------------
+
+The :ref:`nemocmd:NEMO-CommandProcessor` and :ref:`salishseacmd:SalishSeaCmdProcessor` tools provide a way,
+via YAML run description files,
+to map XML files with arbitrary file names and directory paths on to the file names that NEMO requires in the directory from which NEMO is executed.
+
+The :kbd:`output` section of the YAML description file is where the XML file mappings and other XIOS-2 settings are specified.
+Please see the `salishsea YAML file output section`_ docs if you are working on the Salish Sea configurations of NEMO,
+or the `nemo YAML file output section`_ docs if you use another NEMO configuration.
+There are also examples of complete YAML run description files in those docs.
+
+.. _salishsea YAML file output section: https://salishseacmd.readthedocs.io/en/latest/run_description_file/3.6_yaml_file.html#output-section
+.. _nemo YAML file output section: https://nemo-cmd.readthedocs.io/en/latest/run_description_file/3.6_yaml_file.html#output-section
+
+The simplest possible YAML file :kbd:`output` section is:
+
+.. code-block:: yaml
+
+    output:
+      iodefs: iodef.xml
+      filedefs: file_def.xml
+      domaindefs: domain_def.xml
+      fielddefs: field_def.xml
+      separate XIOS server: True
+      XIOS servers: 1
+
+In this case,
+the XML files are all in the same directory as the YAML file.
+If you use relative paths,
+they have to be relative to the directory where the YAML file is.
+
+A more complicated example is:
+
+.. code-block:: yaml
+
+    output:
+      separate XIOS server: True
+      XIOS servers: 1
+      iodefs: iodef.xml
+      filedefs: $HOME/CANYONS/mackenzie_canyon/output/file_def_realistic.xml
+      domaindefs: ../domain_def.xml
+      fielddefs: $HOME/CANYONS/mackenzie_canyon/output/field_def.xml
+
+Note the use of:
+
+* A relative path for :kbd:`domaindefs`
+* Absolute paths containing the environment variable :envvar:`$HOME` for :kbd:`filedefs` and :kbd:`fielddefs`.
+  Other environment variables like :envvar:`$USER`,
+  :envvar:`$PROJECT`,
+  and :envvar:`$SCRATCH` can also be used in XML file paths.
+* The more descriptive file name :file:`file_def_realistic.xml` for :kbd:`filedefs`
