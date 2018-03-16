@@ -85,8 +85,10 @@ Building XIOS-2
 ===============
 
 First symlink the XIOS-2 build configuration files for the machine that you are working on from the :file:`XIOS-ARCH` repo clone into the :file:`XIOS-2/arch/` directory,
-then compile and link XIOS-2.
-*You should substitute your own research project directory name as appropriate.*
+then compile and link XIOS-2. *You should substitute your own research project directory name as appropriate.* Define the destination of your XIOS home directory as a variable in your :file:`.bashrc`, by adding the line:
+
+.. code-block:: bash
+    export XIOS_HOME=$PROJECT/$USER/GEOTRACES/XIOS-2/
 
 :kbd:`cedar`:
 -------------
