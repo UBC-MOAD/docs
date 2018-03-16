@@ -85,7 +85,7 @@ Building XIOS-2
 ===============
 
 First symlink the XIOS-2 build configuration files for the machine that you are working on from the :file:`XIOS-ARCH` repo clone into the :file:`XIOS-2/arch/` directory,
-then compile and link XIOS-2. *You should substitute your own research project directory name as appropriate.* Define the destination of your XIOS home directory as a variable in your :file:`.bashrc`, by adding the line:
+then compile and link XIOS-2. *You should substitute your own research project directory name as appropriate.* Define the destination of your XIOS home directory as an environment variable by adding the following line to your :file:`.bashrc`:
 
 .. code-block:: bash
 
@@ -271,3 +271,85 @@ Note the use of:
   :envvar:`$PROJECT`,
   and :envvar:`$SCRATCH` can also be used in XML file paths.
 * The more descriptive file name :file:`file_def_realistic.xml` for :kbd:`filedefs`
+
+.. _SwitchingFromXIOS-1toXIOS-2:
+Switching from XIOS-1 to XIOS-2:
+================================
+
+The main changes that need to be made when switching from XIOS-1 to XIOS-2 are to the XML configuration files.
+
+Make changes to iodef.xml:
+--------------------------------
+First, remove the file definition section from :file:`iodef.xml` and move it to a new file named :file:`file_def.xml` (see the following section for more information). The file definition will now be loaded similar to :file:`domain_def.xml` and :file:`field_def.xml`. To do this, add the following lines to :file:`iodef.xml`:
+
+.. code-block:: XML
+
+    -->
+    <file_definition src="./file_def.xml"/>
+    <!--
+
+The formatting of the grid definition section is also changed. In XIOS-1 the grid is defined as:
+
+.. code-block:: XML
+    
+    <grid id="grid_T_2D" domain_ref="grid_T"/> 
+    <grid id="grid_T_3D" domain_ref="grid_T" axis_ref="deptht"/>
+
+While, in XIOS-2 it becomes:
+
+.. code-block:: XML
+
+    <grid id="grid_T_2D"> <domain domain_ref="grid_T"> </domain> </grid>
+    <grid id="grid_T_3D"> <domain domain_ref="grid_T"> </domain> <axis id="deptht"> </axis> </grid>
+
+Another difference is that XIOS-2 calculates buffersize, compared to XIOS-1 where it is user-specified. The following lines are changed/added in the context XIOS section in XIOS-2 to specify variables to do with the buffersize:
+
+.. code-block:: XML
+
+  <context id="xios">
+    <variable_definition>
+      <variable id="optimal_buffer_size"       type="string">performance</variable>
+      <variable id="buffer_size_factor"        type="double">1.0</variable>
+      <variable id="info_level"                type="int" >10</variable>
+    </variable_definition>
+  </context>
+
+Create file_def.xml:
+--------------------------------
+
+The content of the file_definition section of :file:`iodef.xml` in XIOS-1 is moved to a seperate file: :file:`file_def.xml`, in XIOS-2. At the top of the file definition, the file definition needs to be changed from:
+
+.. code-block:: XML
+
+   <file_definition type="multiple_files" name="@expname@_@freq@_@startdate@_@enddate@" sync_freq="1d" min_digits="4">
+To:
+
+.. code-block:: XML
+
+   <file_definition type="one_file" name="@expname@_@freq@_@startdate@_@enddate@" sync_freq="1d" min_digits="4">
+
+Additionally, you will want to specify the compression level for each file group:
+
+.. code-block:: XML 
+
+   <file_group id="1ts" output_freq="1ts" output_level="10" compression_level="4" enabled=".TRUE."> </file_group>
+
+Make changes to domain_def.xml:
+--------------------------------
+
+:file:`domain_def.xml` requires reformatting of the domain statements between XIOS-1 and XIOS-2. In XIOS-1 we had:
+
+.. code-block:: XML
+        <domain_group id="grid_T">
+                <domain id="grid_T" long_name="grid T"/>
+                <domain id="test_T" domain_ref="grid_T"/>
+        </domain_group>
+In XIOS-2 this becomes:
+
+.. code-block:: XML
+        <domain_group id="grid_T">
+                <domain id="grid_T" long_name="grid T"/>
+                <domain id="test_T" domain_ref="grid_T"> </domain>
+        </domain_group>
+
+
