@@ -280,7 +280,7 @@ The main changes that need to be made when switching from XIOS-1 to XIOS-2 are t
 
 Make changes to iodef.xml
 --------------------------------
-First, remove the file definition section from :file:`iodef.xml` and move it to a new file named :file:`file_def.xml` (see the following section for more information). The file definition will now be loaded similar to :file:`domain_def.xml` and :file:`field_def.xml`. To do this, add the following lines to :file:`iodef.xml`
+First, remove the file definition section from :file:`iodef.xml` and move it to a new file named :file:`file_def.xml` (see the following section for more information). The file definition will now be loaded similar to :file:`domain_def.xml` and :file:`field_def.xml`. To do this, add the following lines to :file:`iodef.xml`:
 
 .. code-block:: XML
 
@@ -288,21 +288,21 @@ First, remove the file definition section from :file:`iodef.xml` and move it to 
     <file_definition src="./file_def.xml"/>
     <!--
 
-The formatting of the grid definition section is also changed. In XIOS-1 the grid is defined as
+The formatting of the grid definition section is also changed. In XIOS-1 the grid is defined as:
 
 .. code-block:: XML
     
     <grid id="grid_T_2D" domain_ref="grid_T"/> 
     <grid id="grid_T_3D" domain_ref="grid_T" axis_ref="deptht"/>
 
-While, in XIOS-2 it becomes
+While, in XIOS-2 it becomes:
 
 .. code-block:: XML
 
     <grid id="grid_T_2D"> <domain domain_ref="grid_T"> </domain> </grid>
     <grid id="grid_T_3D"> <domain domain_ref="grid_T"> </domain> <axis id="deptht"> </axis> </grid>
 
-Another difference is that XIOS-2 calculates buffersize, compared to XIOS-1 where it is user-specified. The following lines are changed/added in the context XIOS section in XIOS-2 to specify variables to do with the buffersize
+Another difference is that XIOS-2 calculates buffersize, compared to XIOS-1 where it is user-specified. The following lines are changed/added in the context XIOS section in XIOS-2 to specify variables to do with the buffersize:
 
 .. code-block:: XML
 
@@ -317,7 +317,7 @@ Another difference is that XIOS-2 calculates buffersize, compared to XIOS-1 wher
 Create file_def.xml
 --------------------------------
 
-The content of the file_definition section of :file:`iodef.xml` in XIOS-1 is moved to a seperate file: :file:`file_def.xml`, in XIOS-2. At the top of the file definition, the file definition needs to be changed from
+The content of the file_definition section of :file:`iodef.xml` in XIOS-1 is moved to a seperate file: :file:`file_def.xml`, in XIOS-2. At the top of the file definition, the file definition needs to be changed from:
 
 .. code-block:: XML
 
@@ -328,7 +328,8 @@ to
 
    <file_definition type="one_file" name="@expname@_@freq@_@startdate@_@enddate@" sync_freq="1d" min_digits="4">
 
-Additionally, you will want to specify the compression level for each file group
+Additionally, you will want to specify the compression level for each file group:
+
 .. code-block:: XML 
 
    <file_group id="1ts" output_freq="1ts" output_level="10" compression_level="4" enabled=".TRUE."> </file_group>
@@ -336,7 +337,7 @@ Additionally, you will want to specify the compression level for each file group
 Make changes to domain_def.xml
 --------------------------------
 
-:file:`domain_def.xml` requires reformatting of the domain statements between XIOS-1 and XIOS-2. In XIOS-1 we had
+:file:`domain_def.xml` requires reformatting of the domain statements between XIOS-1 and XIOS-2. In XIOS-1 we had:
 
 .. code-block:: XML
 
@@ -345,7 +346,7 @@ Make changes to domain_def.xml
                 <domain id="test_T" domain_ref="grid_T"/>
         </domain_group>
 
-In XIOS-2 this becomes
+In XIOS-2 this becomes:
 
 .. code-block:: XML
 
