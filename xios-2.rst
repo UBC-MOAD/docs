@@ -272,14 +272,17 @@ Note the use of:
   and :envvar:`$SCRATCH` can also be used in XML file paths.
 * The more descriptive file name :file:`file_def_realistic.xml` for :kbd:`filedefs`
 
-.. _SwitchingFromXIOS-1toXIOS-2
+
+.. _SwitchingFromXIOS-1toXIOS-2:
+
 Switching from XIOS-1 to XIOS-2
-================================
+===============================
 
 The main changes when switching from XIOS-1 to XIOS-2 are to the XML configuration files. These changes are described in the sections below. In addition, you will need to add "key_xios2" to your list of cpp keys in your NEMO configuration, and if you are using NEMO-cmd, you will need to link the location of your :file:`file_def.xml` and XIOS-2 folder in your :file:`config.yaml`.
 
 Changes to iodef.xml
---------------------------------
+--------------------
+
 First, remove the file definition section from :file:`iodef.xml` and move it to a new file named :file:`file_def.xml` (see the following section for more information). The file definition will now be loaded similar to :file:`domain_def.xml` and :file:`field_def.xml`. To do this, add the following lines to :file:`iodef.xml`:
 
 .. code-block:: XML
@@ -289,8 +292,8 @@ First, remove the file definition section from :file:`iodef.xml` and move it to 
 The formatting of the grids within the grid definition section will also need to be changed. As an example, in XIOS-1 grid_T is defined as:
 
 .. code-block:: XML
-    
-    <grid id="grid_T_2D" domain_ref="grid_T"/> 
+
+    <grid id="grid_T_2D" domain_ref="grid_T"/>
     <grid id="grid_T_3D" domain_ref="grid_T" axis_ref="deptht"/>
 
 While, in XIOS-2 it becomes:
@@ -312,14 +315,16 @@ Another difference is that XIOS-2 calculates buffersize, compared to XIOS-1 wher
     </variable_definition>
   </context>
 
+
 Create file_def.xml
---------------------------------
+-------------------
 
 The content of the file_definition section of :file:`iodef.xml` in XIOS-1 is moved to a seperate file: :file:`file_def.xml` in XIOS-2. In addition, the file definition needs to be changed from:
 
 .. code-block:: XML
 
    <file_definition type="multiple_files" name="@expname@_@freq@_@startdate@_@enddate@" sync_freq="1d" min_digits="4">
+
 to:
 
 .. code-block:: XML
@@ -328,12 +333,13 @@ to:
 
 For each file group, you will want to specify a compression level:
 
-.. code-block:: XML 
+.. code-block:: XML
 
    <file_group id="1ts" output_freq="1ts" output_level="10" compression_level="4" enabled=".TRUE."> </file_group>
 
+
 Changes to domain_def.xml
---------------------------------
+-------------------------
 
 The only changes to :file:`domain_def.xml` occur in the domain statements which need to be reformatted for XIOS-2. For example, for grid_T in XIOS-1 we had:
 

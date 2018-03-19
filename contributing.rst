@@ -131,8 +131,7 @@ The output looks something like::
   building [mo]: targets for 0 po files that are out of date
   building [html]: targets for 4 source files that are out of date
   updating environment: 4 added, 0 changed, 0 removed
-  reading sources... [100%] xios-2
-  looking for now-outdated files... none found
+  reading sources... [100%] xios-2looking for now-outdated files... none found
   pickling environment... done
   checking consistency... done
   preparing documents... done
