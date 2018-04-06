@@ -172,11 +172,12 @@ four configuration files written in `XML`_ are required:
 .. _XML: https://en.wikipedia.org/wiki/XML
 
 * :file:`field_def.xml` defines the variables that can be output and the grids on which they are defined.
-  Field definition element may
+  Field definition elements may
   (and generally should)
   also contain metadata attributes such as long name,
   standard name,
   and units.
+  Please see the :ref:`field_def.xmlFile` section below for more information about the structure and contents of :file:`field_def.xml` files.
 
 * :file:`domain_def.xml` defines "zoomed" sub-domains of the model domain and the grids on which they are defined.
   The "zooms" are defined on the i-j (x-y) directions,
@@ -201,6 +202,8 @@ four configuration files written in `XML`_ are required:
     If you suspect that you have made an error in editing an XML file,
     one way of checking is to use an online validator like https://www.xmlvalidation.com/.
 
+
+.. _CustomizingXML-Files:
 
 Customizing XML Files
 ---------------------
@@ -271,6 +274,130 @@ Note the use of:
   :envvar:`$PROJECT`,
   and :envvar:`$SCRATCH` can also be used in XML file paths.
 * The more descriptive file name :file:`file_def_realistic.xml` for :kbd:`filedefs`
+
+
+.. _field_def.xmlFile:
+
+:file:`field_def.xml`
+---------------------
+
+This section provides some information about the structure and contents of a :file:`field_def.xml` file.
+This is *not* an exhaustive reference guide for all of the possible attribute values;
+for that,
+please see chapter 3 of the `XIOS User Guide`_.
+
+.. _XIOS User Guide: http://forge.ipsl.jussieu.fr/ioserver/raw-attachment/wiki/WikiStart/XIOS_user_guide.pdf
+
+:file:`NEMO-3.6-code/NEMOGCM/CONFIG/SHARED/field_def.xml` is the reference version of the file that is provided with the NEMO code.
+In many cases,
+you can use that reference file by putting its path as the value of the :kbd:`filedefs` element in the :kbd:`output` section of your run description YAML file
+(see :ref:`CommandProcessorsAndXML-Files`).
+Reasons why you might want to create your own customized version
+(see :ref:`CustomizingXML-Files`)
+of :file:`field_def.xml` include:
+
+* Adding new variable(s) to NEMO that you want to include in your output files
+* Adjusting/correcting the values of variable field attributes such as :kbd:`long_name`,
+  :kbd:`standard_name`,
+  :kbd:`unit`,
+  etc.
+  Those attributes provide variable-level metadata items in output files.
+
+Here is an example fragment of a :file:`field_def.xml` file:
+
+.. code-block:: xml
+
+   <field_definition level="1" prec="4" operation="average" enabled=".TRUE." default_value="1.e20">
+    <field_group id="grid_T" grid_ref="grid_T_2D" >
+      <field id="sst" long_name="sea surface temperature" standard_name="sea_surface_temperature" unit="degC"/>
+      <field id="toce" long_name="temperature" standard_name="sea_water_conservative_temperature" unit="degC" grid_ref="grid_T_3D"/>
+
+      <field id="sss" long_name="sea surface salinity" standard_name="sea_surface_reference_salinity" unit="g kg-1"/>
+      <field id="soce" long_name="salinity" standard_name="sea_water_reference_salinity" unit="g kg-1" grid_ref="grid_T_3D"/>
+
+      <field id="sst2" long_name="square of sea surface temperature" standard_name="square_of_sea_surface_temperature" unit="degC2">
+        sst * sst
+      </field >
+
+      <field id="sstmax" long_name="max of sea surface temperature" field_ref="sst" operation="maximum"/>
+      ...
+    </field_group>
+    ...
+   </field_definition>
+
+:file:`field_def.xml` files contain 3 types of tags:
+
+* :kbd:`field_definition`
+* :kbd:`field_group`
+* :kbd:`field`
+
+:kbd:`field` tags must be contained within a :kbd:`field_group` tag,
+which must me contained within a :kbd:`field_definition` tag.
+
+Attributes included in a tag apply to all contained tags unless they are explicitly overridden in a contained tag.
+So the :kbd:`operation="average"` attribute in:
+
+.. code-block:: xml
+
+   <field_definition level="1" prec="4" operation="average" enabled=".TRUE." default_value="1.e20">
+
+means that all field values will be averaged over the output time interval unless a different :kbd:`operation` is specified in the :kbd:`field` tag,
+for example:
+
+.. code-block:: xml
+
+      <field id="sstmax" long_name="max of sea surface temperature" field_ref="sst" operation="maximum"/>
+
+in which case the maximum value over the output time interval of the :kbd:`sst` field
+(specified by the :kbd:`field_ref` attribute)
+will be calculated by XIOS.
+
+The :kbd:`operation` attribute enables the burden of calculating various temporal quantities on field variables to be shifted from NEMO to XIOS.
+Please see section 3.2 of the `XIOS User Guide`_ for details.
+
+Another way of doing field operations in XIOS is to specify them in the :kbd:`field` tag,
+for example:
+
+.. code-block:: xml
+
+    <field id="sst2" long_name="square of sea surface temperature" standard_name="square_of_sea_surface_temperature" unit="degC2">
+      sst * sst
+    </field >
+
+Here again,
+the burden of declaration,
+memory allocation,
+and calculation of the :kbd:`sst2` variable is shifted from NEMO to XIOS.
+This form of field calculation can be useful for calculating fluxes.
+
+:kbd:`field_group` tags specify the default grid on which the contained :kbd:`field` tags are defined via the :kbd:`grid_ref` attribute.
+That attribute can,
+of course,
+be overridden in the contained :kbd:`field` tags.
+
+All :kbd:`field` tags should have the following attributes:
+
+* :kbd:`long_name`
+* :kbd:`standard_name`
+* :kbd:`unit`
+
+Those attributes are passed through to the netCDF output files as field variable metadata.
+
+Values for the :kbd:`standard_name` attribute should be chosen from the `CF conventions standard names table`_.
+Standard names are written in "snake case"
+(words separated by :kbd:`_` characters).
+That table also provides canonical units that should be used at the value of the :kbd:`unit` attribute.
+
+.. _CF conventions standard names table: http://cfconventions.org/Data/cf-standard-names/29/build/cf-standard-name-table.html
+
+The value of the :kbd:`long_name` attribute can be more free-from and descriptive. It is typically used for plot axis labels,
+table headings,
+etc.
+
+In addition to :file:`NEMO-3.6-code/NEMOGCM/CONFIG/SHARED/field_def.xml`,
+there are examples of :file:`field_def.xml` files in the `SS-run-sets/v201702/`_ directory tree.
+
+.. _SS-run-sets/v201702/: https://bitbucket.org/salishsea/ss-run-sets/src/tip/v201702/
 
 
 .. _SwitchingFromXIOS-1toXIOS-2:
