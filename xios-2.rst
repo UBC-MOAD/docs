@@ -6,7 +6,7 @@
 ..   http://creativecommons.org/licenses/by/4.0/
 
 
-.. XIOS-2-docs:
+.. _XIOS-2-docs:
 
 ******
 XIOS-2
