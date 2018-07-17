@@ -56,7 +56,7 @@ if you don't have `ssh key authentication`_ set up on Bitbucket
 (replace :kbd:`you_userid` with you Bitbucket userid,
 or copy the link from the :guilabel:`Clone` action pop-up on the `repository`_ page).
 
-.. _ssh key authentication: https://confluence.atlassian.com/bitbucket/set-up-ssh-for-mercurial-728138122.html
+.. _ssh key authentication: https://confluence.atlassian.com/bitbucket/set-up-an-ssh-key-728138079.html
 
 
 .. _MOAD-DocsBuildEnvironment:
@@ -68,9 +68,9 @@ Setting up an isolated docs build environment using `Conda`_ is recommended.
 Assuming that you have the `Anaconda Python Distribution`_ or `Miniconda3`_ installed,
 you can create and activate an environment called :kbd:`moad-docs` that will have all of the Python packages necessary for building the documentation with the commands:
 
-.. _Conda: http://conda.pydata.org/docs/
-.. _Anaconda Python Distribution: https://www.continuum.io/downloads
-.. _Miniconda3: http://conda.pydata.org/docs/install/quick.html
+.. _Conda: https://conda.io/docs/
+.. _Anaconda Python Distribution: https://www.anaconda.com/download/
+.. _Miniconda3: https://conda.io/docs/install/quick.html
 
 .. code-block:: bash
 
@@ -112,8 +112,8 @@ Building the documentation is driven by the :file:`docs/Makefile`.
 With your :kbd:`moad-docs` environment activated,
 use:
 
-.. _reStructuredText: http://sphinx-doc.org/rest.html
-.. _Sphinx: http://sphinx-doc.org/
+.. _reStructuredText: http://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html
+.. _Sphinx: http://www.sphinx-doc.org/en/master/
 
 .. code-block:: bash
 
