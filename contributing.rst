@@ -156,3 +156,66 @@ To preview in Firefox from the command-line you can do:
 
 If you have write access to the `repository`_ on Bitbucket,
 whenever you push changes to Bitbucket the documentation is automatically re-built and rendered at http://ubc-moad-docs.readthedocs.io/en/latest/.
+
+
+.. _MOAD-DocsLinkCheckingTheDocumentation:
+
+Link Checking the Documentation
+===============================
+
+Use the commmand:
+
+.. code-block:: bash
+
+    (midoss-docs)$ make linkcheck
+
+to check the documentation for broken links.
+The output looks something like::
+
+  Running Sphinx v1.7.1
+  loading pickled environment... done
+  building [mo]: targets for 0 po files that are out of date
+  building [linkcheck]: targets for 4 source files that are out of date
+  updating environment: 0 added, 1 changed, 0 removed
+  reading sources... [100%] contributing
+  looking for now-outdated files... none found
+  pickling environment... done
+  checking consistency... done
+  preparing documents... done
+  writing output... [ 25%] CONTRIBUTORS
+  (line    7) ok        https://www.eoas.ubc.ca/~sallen/
+  writing output... [ 50%] contributing
+  (line   25) ok        https://bitbucket.org/UBC_MOAD/docs
+  (line   41) ok        https://bitbucket.org/UBC_MOAD/docs
+  (line   19) ok        https://bitbucket.org/UBC_MOAD/docs
+  (line   27) ok        https://readthedocs.org/projects/ubc-moad-docs/builds/
+  (line   67) ok        https://www.anaconda.com/download/
+  (line   67) ok        https://conda.io/docs/
+  (line   67) ok        https://conda.io/docs/install/quick.html
+  (line  109) ok        http://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html
+  (line   55) ok        https://confluence.atlassian.com/bitbucket/set-up-an-ssh-key-728138079.html
+  (line  109) ok        http://www.sphinx-doc.org/en/master/
+  (line  157) ok        http://ubc-moad-docs.readthedocs.io/en/latest/
+  writing output... [ 75%] index
+  writing output... [100%] xios-2
+  (line   24) ok        http://nemo-cmd.readthedocs.io/en/latest/index.html#nemo-commandprocessor
+  (line   24) ok        http://salishseacmd.readthedocs.io/en/latest/index.html#salishseacmdprocessor
+  (line  169) ok        https://en.wikipedia.org/wiki/XML
+  (line   15) ok        http://forge.ipsl.jussieu.fr/ioserver/wiki
+  (line   37) ok        https://bitbucket.org/salishsea/xios-arch
+  (line  201) ok        https://www.xmlvalidation.com/
+  (line   37) ok        http://forge.ipsl.jussieu.fr/ioserver/wiki
+  (line  233) ok        https://salishseacmd.readthedocs.io/en/latest/run_description_file/3.6_yaml_file.html#output-section
+  (line   37) redirect  https://bitbucket.org/salishsea/xios-2 - with Found to https://bitbucket.org/socialauth/login/atlassianid/?next=%2Fsalishsea%2Fxios-2
+  (line  233) ok        https://nemo-cmd.readthedocs.io/en/latest/run_description_file/3.6_yaml_file.html#output-section
+  (line  387) ok        http://cfconventions.org/Data/cf-standard-names/29/build/cf-standard-name-table.html
+  (line  212) ok        https://bitbucket.org/salishsea/ss-run-sets
+  (line  212) redirect  https://bitbucket.org/salishsea/nemo-3.6-code - with Found to https://bitbucket.org/socialauth/login/atlassianid/?next=%2Fsalishsea%2Fnemo-3.6-code
+  (line  398) ok        https://bitbucket.org/salishsea/ss-run-sets/src/tip/v201702/
+  (line  411) ok        https://bitbucket.org/salishsea/ss-run-sets/src/tip/v201702/
+  (line  285) ok        http://forge.ipsl.jussieu.fr/ioserver/raw-attachment/wiki/WikiStart/XIOS_user_guide.pdf
+  (line  356) ok        http://forge.ipsl.jussieu.fr/ioserver/raw-attachment/wiki/WikiStart/XIOS_user_guide.pdf
+
+  build succeeded.
+
+  Look for any errors in the above output or in _build/linkcheck/output.txt
