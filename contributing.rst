@@ -101,7 +101,7 @@ To deactivate the environment use:
     You can check what version of :command:`conda` you are using with :command:`conda --version`.
 
 
-.. MOAD-DocsBuildingAndPreviewingTheDocumentation:
+.. _MOAD-DocsBuildingAndPreviewingTheDocumentation:
 
 Building and Previewing the Documentation
 =========================================
