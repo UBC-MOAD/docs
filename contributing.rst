@@ -155,7 +155,7 @@ To preview in Firefox from the command-line you can do:
     (moad-docs)$ firefox _build/html/index.html
 
 If you have write access to the `repository`_ on Bitbucket,
-whenever you push changes to Bitbucket the documentation is automatically re-built and rendered at http://ubc-moad-docs.readthedocs.io/en/latest/.
+whenever you push changes to Bitbucket the documentation is automatically re-built and rendered at https://ubc-moad-docs.readthedocs.io/en/latest/.
 
 
 .. _MOAD-DocsLinkCheckingTheDocumentation:
@@ -195,7 +195,7 @@ The output looks something like::
   (line  109) ok        http://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html
   (line   55) ok        https://confluence.atlassian.com/bitbucket/set-up-an-ssh-key-728138079.html
   (line  109) ok        http://www.sphinx-doc.org/en/master/
-  (line  157) ok        http://ubc-moad-docs.readthedocs.io/en/latest/
+  (line  157) ok        https://ubc-moad-docs.readthedocs.io/en/latest/
   writing output... [ 75%] index
   writing output... [100%] xios-2
   (line   24) ok        http://nemo-cmd.readthedocs.io/en/latest/index.html#nemo-commandprocessor
