@@ -182,6 +182,7 @@ four configuration files written in `XML`_ are required:
 * :file:`domain_def.xml` defines "zoomed" sub-domains of the model domain and the grids on which they are defined.
   The "zooms" are defined on the i-j (x-y) directions,
   regardless of the depth of the sub-domain.
+  Please see the :ref:`domain_def.xmlFile` section below for more information about the structure and contents of :file:`domain_def.xml` files.
 
 * :file:`iodef.xml` defines the vertical extent of output grids in the :kbd:`axis` elements,
   and the output grids.
@@ -281,6 +282,13 @@ Note the use of:
 :file:`field_def.xml`
 ---------------------
 
+:file:`field_def.xml` defines the variables that can be output and the grids on which they are defined.
+Field definition elements may
+(and generally should)
+also contain metadata attributes such as long name,
+standard name,
+and units.
+
 This section provides some information about the structure and contents of a :file:`field_def.xml` file.
 This is *not* an exhaustive reference guide for all of the possible attribute values;
 for that,
@@ -308,7 +316,7 @@ Here is an example fragment of a :file:`field_def.xml` file:
 .. code-block:: xml
 
    <field_definition level="1" prec="4" operation="average" enabled=".TRUE." default_value="1.e20">
-    <field_group id="grid_T" grid_ref="grid_T_2D" >
+    <field_group id="grid_T" grid_ref="grid_T_2D">
       <field id="sst" long_name="sea surface temperature" standard_name="sea_surface_temperature" unit="degC"/>
       <field id="toce" long_name="temperature" standard_name="sea_water_conservative_temperature" unit="degC" grid_ref="grid_T_3D"/>
 
@@ -332,7 +340,7 @@ Here is an example fragment of a :file:`field_def.xml` file:
 * :kbd:`field`
 
 :kbd:`field` tags must be contained within a :kbd:`field_group` tag,
-which must me contained within a :kbd:`field_definition` tag.
+which must be contained within a :kbd:`field_definition` tag.
 
 Attributes included in a tag apply to all contained tags unless they are explicitly overridden in a contained tag.
 So the :kbd:`operation="average"` attribute in:
@@ -396,6 +404,116 @@ etc.
 
 In addition to :file:`NEMO-3.6-code/NEMOGCM/CONFIG/SHARED/field_def.xml`,
 there are examples of :file:`field_def.xml` files in the `SS-run-sets/v201702/`_ directory tree.
+
+.. _SS-run-sets/v201702/: https://bitbucket.org/salishsea/ss-run-sets/src/tip/v201702/
+
+
+.. _domain_def.xmlFile:
+
+:file:`domain_def.xml`
+----------------------
+
+:file:`domain_def.xml` defines "zoomed" sub-domains of the model domain and the grids on which they are defined.
+The "zooms" are defined on the i-j (x-y) directions,
+regardless of the depth of the sub-domain.
+
+This section provides some information about the structure and contents of a :file:`domain_def.xml` file.
+This is *not* an exhaustive reference guide for all of the possible attribute values;
+for that,
+please see chapter 5 of the `XIOS User Guide`_.
+
+.. _XIOS User Guide: http://forge.ipsl.jussieu.fr/ioserver/raw-attachment/wiki/WikiStart/XIOS_user_guide.pdf
+
+:file:`NEMO-3.6-code/NEMOGCM/CONFIG/SHARED/domain_def.xml` is the reference version of the file that is provided with the NEMO code.
+In many cases,
+you can use that reference file by putting its path as the value of the :kbd:`domaindefs` element in the :kbd:`output` section of your run description YAML file
+(see :ref:`CommandProcessorsAndXML-Files`).
+The main reason why you might want to create your own customized version
+(see :ref:`CustomizingXML-Files`)
+of :file:`domain_def.xml` is to define your own "zoomed" sub-domain of the model domain.
+Assuming that your "zoomed" sub-domain is significantly smaller than the full model domain,
+the output files you produce form it will be significantly smaller than full domain files.
+Examples of uses of "zoomed" sub-domains in the SalishSeaCast NEMO configuration are:
+
+* single point sub-domains for sea surface height output at tide gauge station locations
+* single point sub-domains for model output at the ONC VENUS instrument platform locations
+* sub-domains encompassing the southern Strait of Georgia for velocity fields outputs to compare against drifter tracks
+* sub-domains encompassing the Baynes Sound AGRIF sub-grid for tracer outputs for visualization of the transition between the full domain grid and the AGRIF sub-grid
+* sub-domains that provide boundary condition fields for the Vancouver Harbour and Lower Fraser River FVCOM model
+
+Here is an example fragment of a :file:`domain_def.xml` file:
+
+.. code-block:: xml
+
+    <domain_definition>
+      <domain_group id="grid_T">
+        <domain id="grid_T" long_name="grid T"></domain>
+
+        <!-- Tide Gauge Stations -->
+        <domain id="PortRenfrew" domain_ref="grid_T">
+          <zoom_domain ibegin="61" jbegin="401" ni="1" nj="1"/>
+        </domain>
+        ...
+      </domain_group>
+      ...
+    </domain_definition>
+
+:file:`domain_def.xml` files contain 4 types of tags:
+
+* :kbd:`domain_definition`
+* :kbd:`domain_group`
+* :kbd:`domain`
+* :kbd:`zoom_domain`
+
+:kbd:`domain` tags must be contained within a :kbd:`domain_group` tag,
+which must be contained within a :kbd:`domain_definition` tag.
+:kbd:`zoom_domain` tags must be contained within a :kbd:`domain` tag.
+
+A minimal, complete :file:`domain_def.xml` file would contain domain definitions for the full domain T, U, V, and W grids:
+
+.. code-block:: xml
+
+    <domain_definition>
+      <domain_group id="grid_T">
+        <domain id="grid_T" long_name="grid T"></domain>
+      </domain_group>
+
+      <domain_group id="grid_U">
+        <domain id="grid_U" long_name="grid U"></domain>
+      </domain_group>
+
+      <domain_group id="grid_V">
+        <domain id="grid_V" long_name="grid V"></domain>
+      </domain_group>
+
+      <domain_group id="grid_W">
+        <domain id="grid_W" long_name="grid W"></domain>
+      </domain_group>
+    </domain_definition>
+
+Zoomed sub-domains are defined by adding a :kbd:`domain` tag that contains a :kbd:`zoom_domain` tag.
+The :kbd:`domain` tag for the sub-domain must be contained within the :kbd:`domain_groug` tag with the appropriate :kbd:`id` attribute,
+and the :kbd:`domain` tag must have a :kbd:`domain_ref` attribute whose value matches the :kbd:`domain_group` id value.
+So,
+since sea surface height is calculated on the T grid,
+we add a tide gauge station sub-domain to the :kbd:`grid_T` :kbd:`domain_group` tag:
+
+.. code-block:: xml
+
+    <domain_group id="grid_T">
+      ...
+      <!-- Tide Gauge Stations -->
+      <domain id="PortRenfrew" domain_ref="grid_T">
+        <zoom_domain ibegin="61" jbegin="401" ni="1" nj="1"/>
+      </domain>
+      ...
+    </domain_group>
+
+The :kbd:`zoom_domain` tab defines the lower left corner of the sub-domain with grid point numbers in its :kbd:`ibegin` and :kbd:`jbegin` attributes.
+The extent of the sub-domain is defined by counts of grid points in the :kbd:`ni` and :kbd:`nj` attributes.
+
+In addition to :file:`NEMO-3.6-code/NEMOGCM/CONFIG/SHARED/domain_def.xml`,
+there are examples of :file:`domain_def.xml` files in the `SS-run-sets/v201702/`_ directory tree.
 
 .. _SS-run-sets/v201702/: https://bitbucket.org/salishsea/ss-run-sets/src/tip/v201702/
 
