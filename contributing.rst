@@ -12,6 +12,22 @@
 Contributing to These Docs
 **************************
 
+.. image:: https://img.shields.io/badge/license-CC--BY-lightgrey.svg
+    :target: http://creativecommons.org/licenses/by/4.0/
+    :alt: Licensed under the Creative Commons Attribution 4.0 International License
+.. image:: https://img.shields.io/badge/version%20control-hg-blue.svg
+    :target: https://bitbucket.org/ubc_moad/docs/
+    :alt: Mercurial on Bitbucket
+.. image:: https://readthedocs.org/projects/ubc-moad-docs/badge/?version=latest
+    :target: https://ubc-moad-docs.readthedocs.io/en/latest/
+    :alt: Documentation Status
+.. image:: https://img.shields.io/bitbucket/issues/ubc_moad/docs.svg
+    :target: https://bitbucket.org/ubc_moad/docs/issues?status=new&status=open
+    :alt: Issue Tracker
+.. image:: https://img.shields.io/badge/python-3.6-blue.svg
+    :target: https://docs.python.org/3.6/
+    :alt: Python Version
+
 Additions,
 improvements,
 and corrections to these docs are *always* welcome.
@@ -38,6 +54,10 @@ the instructions below explain how to:
 Getting the Repo
 ================
 
+.. image:: https://img.shields.io/badge/version%20control-hg-blue.svg
+    :target: https://bitbucket.org/ubc_moad/docs/
+    :alt: Mercurial on Bitbucket
+
 Clone the MOAD documentation `repository`_ from Bitbucket with:
 
 .. _repository: https://bitbucket.org/UBC_MOAD/docs
@@ -63,6 +83,10 @@ or copy the link from the :guilabel:`Clone` action pop-up on the `repository`_ p
 
 Docs Build Environment
 ======================
+
+.. image:: https://img.shields.io/badge/python-3.6-blue.svg
+    :target: https://docs.python.org/3.6/
+    :alt: Python Version
 
 Setting up an isolated docs build environment using `Conda`_ is recommended.
 Assuming that you have the `Anaconda Python Distribution`_ or `Miniconda3`_ installed,
@@ -105,6 +129,10 @@ To deactivate the environment use:
 
 Building and Previewing the Documentation
 =========================================
+
+.. image:: https://readthedocs.org/projects/ubc-moad-docs/badge/?version=latest
+    :target: https://ubc-moad-docs.readthedocs.io/en/latest/
+    :alt: Documentation Status
 
 The MOAD documentation is written in `reStructuredText`_ and converted to HTML using `Sphinx`_.
 Creating a :ref:`MOAD-DocsBuildEnvironment` as described above includes the installation of Sphinx.
@@ -219,3 +247,45 @@ The output looks something like::
   build succeeded.
 
   Look for any errors in the above output or in _build/linkcheck/output.txt
+
+
+.. _MOAD-DocsVersionControlRepository:
+
+Version Control Repository
+==========================
+
+.. image:: https://img.shields.io/badge/version%20control-hg-blue.svg
+    :target: https://bitbucket.org/ubc_moad/docs/
+    :alt: Mercurial on Bitbucket
+
+The MOAD documentation source files are available as a `Mercurial`_ repository at https://bitbucket.org/ubc_moad/docs/.
+
+.. _Mercurial: https://www.mercurial-scm.org/
+
+
+.. _MOAD-DocsIssueTracker:
+
+Issue Tracker
+=============
+
+.. image:: https://img.shields.io/bitbucket/issues/ubc_moad/docs.svg
+    :target: https://bitbucket.org/ubc_moad/docs/issues?status=new&status=open
+    :alt: Issue Tracker
+
+Documentation tasks,
+bug reports,
+and enhancement ideas are recorded and managed in the issue tracker at https://bitbucket.org/ubc_moad/docs/issues.
+
+
+License
+=======
+
+.. image:: https://img.shields.io/badge/license-CC--BY-lightgrey.svg
+    :target: http://creativecommons.org/licenses/by/4.0/
+    :alt: Licensed under the Creative Commons Attribution 4.0 International License
+
+The UBC EOAS MOAD Group Documentation is copyright 2018 by the `EOAS MOAD group`_ and The University of British Columbia.
+
+.. _EOAS MOAD group: https://bitbucket.org/UBC_MOAD/docs/src/tip/CONTRIBUTORS.rst
+
+It is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/).
