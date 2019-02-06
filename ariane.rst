@@ -109,7 +109,8 @@ Configuring your run
 ====================
 
 :kbd:`intitial_positions.txt`
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+-----------------------------
+
 The :file:`initial_positions.txt` file specifies the initial positions and initial times of the particles that you are tracking. This file consists of 5 columns and a row for each particle that you are running.
 
 .. note::
@@ -129,7 +130,8 @@ Here is an example :file:`initial_positions.txt` file:
     310.01 400.01 15.0 0.5 1.0
 
 :kbd:`namelist`
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+---------------
+
 The :file:`namelist` file specifies . It is made up out of multiple sections.
 
 The general Ariane parameters can be specified within :kbd:`Ariane`; the main ones that you are likely to change: 
@@ -146,7 +148,8 @@ The general Ariane parameters can be specified within :kbd:`Ariane`; the main on
 | :kbd:`ntfic`                           | Number of :kbd:`tunit` in each model file |
 +----------------------------------------+-------------------------------------------+
 
-The parameters of your model run are specified in :kbd:`OPAPARAM`
+The parameters of your model run are specified in :kbd:`OPAPARAM`:
+
 +----------------------------------------+---------------------------------------------+
 |    Parameter                           |              Description                    |
 +========================================+=============================================+
@@ -184,6 +187,8 @@ For the sections where you read the U, V, and W velocity files, the parameters a
 +----------------------------------------+-----------------------------------------+
 | :kbd:`maxsize_zo`                      | Maximum number of integers in file name |
 +----------------------------------------------------------------------------------+
+
+Of course this is not a comprehensive list of all the parameters you can set in the :file:`namelist`.
 
 .. _Analyzing output:
 
