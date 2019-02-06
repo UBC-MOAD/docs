@@ -94,14 +94,14 @@ For instance, try:
 
 .. code-block:: bash
 
-        cd /ocean/$USER/$PROJECT/ariane-2.2.8_04/examples/qualitative
+    cd /ocean/$USER/$PROJECT/ariane-2.2.8_04/examples/qualitative
     ariane
 
-You should notice several new files, such as :kbd:`ariane_trajectories_qualitative.nc` and :kbd:`traj.txt`.
+You should notice several new files, such as :file:`ariane_trajectories_qualitative.nc` and :file:`traj.txt`.
 These files contain the trajectory information.
 
-* :kbd:`ariane_trajectories_qualitative.nc` can be loaded into a notebook to plot the particle locations over time and starting/finishing points, etc.
-* :kbd:`traj.txt` is helpful if you want to get a general idea of what the resulting trajectory coordinates look like or to check if the simulation ran properly.
+* :file:`ariane_trajectories_qualitative.nc` can be loaded into a notebook to plot the particle locations over time and starting/finishing points, etc.
+* :file:`traj.txt` is helpful if you want to get a general idea of what the resulting trajectory coordinates look like or to check if the simulation ran properly.
 
 .. _Configuring your run:
 
@@ -110,15 +110,15 @@ Configuring your run
 
 :kbd:`intitial_positions.txt`
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-The :kbd:`initial_positions.txt` file specifies the initial positions and initial times of the particles that you are tracking. This file consists of 5 columns and a row for each particle that you are running.
+The :file:`initial_positions.txt` file specifies the initial positions and initial times of the particles that you are tracking. This file consists of 5 columns and a row for each particle that you are running.
 
 .. note::
 
-    Ariane uses FORTAN indexing, which counts starting at 1. If you used Python to look up initial positions, which starts counting at 0, then you should add 1 to your initial positions.
+    Ariane uses FORTAN indexing, which counts starting at 1. If you used Python to look up initial positions, you should add 1 to your initial positions.
 
 
 The first three columns represent the initial X, Y, and Z coordinate point of your particle. A negative Z coordinate tells Ariane to confine the particle to its original depth throughout the trajectory. Note that these coordinate points need to be offset by 0.01, otherwise Ariane struggles at the boundaries between two grid boxes. The fourth column is the time index (use 0.5 if you want to start at NEMO time 00:00). The last column parameter is always set to 1.0.
-Here is an example :kbd:`initial_positions.txt` file:
+Here is an example :file:`initial_positions.txt` file:
 
 .. code-block:: text
 
@@ -130,7 +130,7 @@ Here is an example :kbd:`initial_positions.txt` file:
 
 :kbd:`namelist`
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-The :kbd:`namelist` file specifies .
+The :file:`namelist` file specifies 
 
 
 .. _Analyzing output:
