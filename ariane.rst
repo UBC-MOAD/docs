@@ -97,7 +97,14 @@ These files contain the trajectory information.
 Configuring your run
 ====================
 
-insert text here
+:kbd:`intitial_positions.txt`
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The :kbd:`initial_positions.txt` file specifies the initial positions and initial times of the particles that you are tracking. This file consists of 5 columns and a row for each particle that you are running.
+
+.. note::
+
+    Ariane uses FORTAN indexing, which counts starting at 1. If you used Python to look up initial positions, which starts counting at 0, then you should add 1 to your initial positions.
+
 
 .. _Analyzing_output:
 
@@ -105,8 +112,6 @@ Analyzing output
 ================================
 
 The NetCDF file that contains the particle tracks is named :file:`ariane_trajectories_qualitative.nc`. The variables in this file include the initial and final x, y, z, and time for the particles. It is a good idea to double check that these agree with the locations you listed in :file:`initial_positions.txt`. To plot and analyze the output, you will generally want to read in traj_lon, traj_lat, traj_depth, and traj_time. These variables have the shape (number of particles, positions in time). The output can look something like this:
-
-
 
 If you would like to see some examples of particle tracking, feel free to look at the following notebooks:
 
