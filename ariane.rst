@@ -17,6 +17,8 @@ Ariane
 .. _Ariane: http://stockage.univ-brest.fr/~grima/Ariane/whatsariane.html
 
 References:
+-----------
+
 * Manual: `Compilation and Installation`_
 * Manual: `Ariane Namelist`_
 * Manual: `Ariane Tutorial`_
@@ -74,8 +76,8 @@ Add the path for the Ariane executable to your :kbd:`PATH` environment variable:
 
 Now you can run Ariane from any directory by typing :kbd:`ariane`.
 
-Testing Ariane:
----------------
+Testing Ariane installation
+---------------------------
 
 To test that you have everything set up correctly, run one of the Ariane examples.
 For instance, try:
@@ -91,23 +93,16 @@ These files contain the trajectory information.
 * :kbd:`ariane_trajectories_qualitative.nc` can be loaded into a notebook to plot the particle locations over time and starting/finishing points, etc.
 * :kbd:`traj.txt` is helpful if you want to get a general idea of what the resulting trajectory coordinates look like or to check if the simulation ran properly.
 
-.. _ConfiguringyourArianerun:
+.. _Configuringyourrun:
 
-Configuring your Ariane run:
-================================
-
-insert text here
-
-.. _Running_Ariane:
-
-Running Ariane
-================================
+Configuring your run
+====================
 
 insert text here
 
-.. _Analyzing_output_files:
+.. _Analyzing_output:
 
-Analyzing output files
+Analyzing output
 ================================
 
 insert text here
