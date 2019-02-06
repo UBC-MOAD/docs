@@ -16,6 +16,8 @@ Ariane
 
 .. _Ariane: http://stockage.univ-brest.fr/~grima/Ariane/whatsariane.html
 
+Ariane can be run in two modes: quantitative and qualitative. For the rest of the documentation below, we are running in qualitative mode. 
+
 References
 ----------
 * Manual: `Compilation and Installation`_
@@ -29,12 +31,21 @@ References
 .. _Ariane Namelist: http://stockage.univ-brest.fr/~grima/Ariane/ariane_namelist_2.x.x_oct08.pdf
 .. _Ariane Tutorial: http://stockage.univ-brest.fr/~grima/Ariane/ariane_tutorial_2.x.x_sep08.pdf
 
-.. _GettingAriane:
+.. _Getting Ariane:
 
 Getting Ariane
 ==============
 
-The MOAD group maintains our own Mercurial repository on Bitbucket of the Ariane code base; this repository is accessible only by members of the MOAD group so as to respect the sign-up requirement of the upstream Ariane repository.
+The MOAD group maintains our own Mercurial repository on Bitbucket of the Ariane code base; this repository is accessible only by members of the MOAD group so as to respect the sign-up requirement of the upstream Ariane repository. The general Ariane code is available via the `Ariane website`_ . Modifications made by the MOAD group to the Ariane source code can be found on `Bitbucket`_. To add this to your own Ariane installation, clone the repository from Bitbucket to your $PROJECT space and replace the changed files in your Ariane source folder.
+
+.. _Ariane website: http://stockage.univ-brest.fr/~grima/Ariane/download.php
+.. _Bitbucket: http://www.bitbucket.org/eliseolsen/arianesrc-2.2.8_04
+
+.. code-block:: bash
+
+    cd /ocean/$USER/$PROJECT/
+    hg clone ssh://hg@bitbucket.org/eliseolsen/arianesrc-2.2.8_04
+
 
 Installing on :kbd:`salish`
 --------------------------------
@@ -92,7 +103,7 @@ These files contain the trajectory information.
 * :kbd:`ariane_trajectories_qualitative.nc` can be loaded into a notebook to plot the particle locations over time and starting/finishing points, etc.
 * :kbd:`traj.txt` is helpful if you want to get a general idea of what the resulting trajectory coordinates look like or to check if the simulation ran properly.
 
-.. _Configuringyourrun:
+.. _Configuring your run:
 
 Configuring your run
 ====================
@@ -106,7 +117,23 @@ The :kbd:`initial_positions.txt` file specifies the initial positions and initia
     Ariane uses FORTAN indexing, which counts starting at 1. If you used Python to look up initial positions, which starts counting at 0, then you should add 1 to your initial positions.
 
 
-.. _Analyzing_output:
+The first three columns represent the initial X, Y, and Z coordinate point of your particle. A negative Z coordinate tells Ariane to confine the particle to its original depth throughout the trajectory. Note that these coordinate points need to be offset by 0.01, otherwise Ariane struggles at the boundaries between two grid boxes. The fourth column is the time index (use 0.5 if you want to start at NEMO time 00:00). The last column parameter is always set to 1.0.
+Here is an example :kbd:`initial_positions.txt` file:
+
+.. code-block:: text
+
+    310.01 360.01 5.0  0.5 1.0
+    310.01 360.01 10.0 0.5 1.0
+    310.01 400.01 5.0  0.5 1.0
+    310.01 400.01 10.0 0.5 1.0
+    310.01 400.01 15.0 0.5 1.0
+
+:kbd:`namelist`
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The :kbd:`namelist` file specifies .
+
+
+.. _Analyzing output:
 
 Analyzing output
 ================================
