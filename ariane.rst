@@ -19,7 +19,7 @@ Ariane
 Ariane can be run in two modes: quantitative and qualitative. For the rest of the documentation below, we are running in qualitative mode. 
 
 References
-----------
+
 * Manual: `Compilation and Installation`_
 * Manual: `Ariane Namelist`_
 * Manual: `Ariane Tutorial`_
