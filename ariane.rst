@@ -16,19 +16,18 @@ Ariane
 
 .. _Ariane: http://stockage.univ-brest.fr/~grima/Ariane/whatsariane.html
 
-References:
------------
-
+References
+----------
 * Manual: `Compilation and Installation`_
 * Manual: `Ariane Namelist`_
 * Manual: `Ariane Tutorial`_
 * Blanke, B., and S. Raynaud, 1997: Kinematics of the Pacific Equatorial Undercurrent: a Eulerian and Lagrangian approach from GCM results. J. Phys. Oceanogr., 27, 1038-1053.
 * Blanke, B., M. Arhan, G. Madec, and S. Roche, 1999: Warm water paths in the equatorial Atlantic as diagnosed with a general circulation model. J. Phys. Oceanogr., 29, 2753-2768.
 * Blanke, B., S. Speich, G. Madec, and K. Döös, 2001: A global diagnostic of interocean mass transfers. J. Phys. Oceanogr., 31, 1623-1632.
+
 .. _Compilation and Installation: http://stockage.univ-brest.fr/~grima/Ariane/ariane_install_2.x.x_sep08.pdf
 .. _Ariane Namelist: http://stockage.univ-brest.fr/~grima/Ariane/ariane_namelist_2.x.x_oct08.pdf
 .. _Ariane Tutorial: http://stockage.univ-brest.fr/~grima/Ariane/ariane_tutorial_2.x.x_sep08.pdf
-
 
 .. _GettingAriane:
 
@@ -105,4 +104,13 @@ insert text here
 Analyzing output
 ================================
 
-insert text here
+The NetCDF file that contains the particle tracks is named :file:`ariane_trajectories_qualitative.nc`. The variables in this file include the initial and final x, y, z, and time for the particles. It is a good idea to double check that these agree with the locations you listed in :file:`initial_positions.txt`. To plot and analyze the output, you will generally want to read in traj_lon, traj_lat, traj_depth, and traj_time. These variables have the shape (number of particles, positions in time). The output can look something like this:
+
+
+
+If you would like to see some examples of particle tracking, feel free to look at the following notebooks:
+
+* `ParticleTracking.ipynb`_
+
+.. _ParticleTracking.ipynb: https://nbviewer.jupyter.org/urls/bitbucket.org/salishsea/analysis/raw/tip/Idalia/ParticleTracking.ipynb
+
