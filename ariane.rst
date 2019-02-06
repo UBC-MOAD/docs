@@ -16,8 +16,7 @@ Ariane
 
 .. _Ariane: http://stockage.univ-brest.fr/~grima/Ariane/whatsariane.html
 
-References
--------------------------------
+References:
 * Manual: `Compilation and Installation`_
 * Manual: `Ariane Namelist`_
 * Manual: `Ariane Tutorial`_
@@ -30,6 +29,7 @@ References
 
 
 .. _GettingAriane:
+
 Getting Ariane
 ==============
 
@@ -37,6 +37,7 @@ The MOAD group maintains our own Mercurial repository on Bitbucket of the Ariane
 
 Installing on :kbd:`salish`
 --------------------------------
+
 Specify the locations of the :kbd:`netcdf` libraries to help the :kbd:`configure` script find them:
 
 .. code-block:: bash
@@ -73,8 +74,9 @@ Add the path for the Ariane executable to your :kbd:`PATH` environment variable:
 
 Now you can run Ariane from any directory by typing :kbd:`ariane`.
 
-Testing Ariane
-------------------------
+Testing Ariane:
+---------------
+
 To test that you have everything set up correctly, run one of the Ariane examples.
 For instance, try:
 
@@ -90,14 +92,22 @@ These files contain the trajectory information.
 * :kbd:`traj.txt` is helpful if you want to get a general idea of what the resulting trajectory coordinates look like or to check if the simulation ran properly.
 
 .. _ConfiguringyourArianerun:
+
 Configuring your Ariane run:
 ================================
 
+insert text here
 
 .. _Running_Ariane:
+
 Running Ariane
 ================================
 
+insert text here
+
 .. _Analyzing_output_files:
+
 Analyzing output files
 ================================
+
+insert text here
