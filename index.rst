@@ -20,6 +20,7 @@ This is documentation by and for members of the MOAD (Mesoscale Ocean and Atmosp
    :caption: Contents:
 
    xios-2
+   ariane
    contributing
    CONTRIBUTORS
 
