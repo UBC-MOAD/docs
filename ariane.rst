@@ -16,17 +16,13 @@ Ariane
 
 .. _Ariane: http://stockage.univ-brest.fr/~grima/Ariane/whatsariane.html
 
-Ariane can be run in two modes: quantitative and qualitative. For the rest of the documentation below, we are running in qualitative mode. 
+Ariane can be run in two modes: quantitative and qualitative. In quantitative mode, you release particles and end up with a distribution function for each grid cell quantifying where your particles end up and the mass transfer, while in qualitative mode you specify each of the particles that you release and trace their exact track. For the rest of the documentation below, we are running in qualitative mode. 
 
 References
 
-* Manual: `Compilation and Installation`_
-* Manual: `Ariane Namelist`_
-* Manual: `Ariane Tutorial`_
-* Blanke, B., and S. Raynaud, 1997: Kinematics of the Pacific Equatorial Undercurrent: a Eulerian and Lagrangian approach from GCM results. J. Phys. Oceanogr., 27, 1038-1053.
-* Blanke, B., M. Arhan, G. Madec, and S. Roche, 1999: Warm water paths in the equatorial Atlantic as diagnosed with a general circulation model. J. Phys. Oceanogr., 29, 2753-2768.
-* Blanke, B., S. Speich, G. Madec, and K. Döös, 2001: A global diagnostic of interocean mass transfers. J. Phys. Oceanogr., 31, 1623-1632.
-
+* `Compilation and Installation`_
+* `Ariane Namelist`_
+* `Ariane Tutorial`_
 .. _Compilation and Installation: http://stockage.univ-brest.fr/~grima/Ariane/ariane_install_2.x.x_sep08.pdf
 .. _Ariane Namelist: http://stockage.univ-brest.fr/~grima/Ariane/ariane_namelist_2.x.x_oct08.pdf
 .. _Ariane Tutorial: http://stockage.univ-brest.fr/~grima/Ariane/ariane_tutorial_2.x.x_sep08.pdf
@@ -76,8 +72,6 @@ Make and install Ariane (you will need to do this every time you make changes to
         make check
         make install
 
-:kbd:`make` compiles source files, :kbd:`make check` tests Ariane's qualitative and quantitative modes, and :kbd:`make install` installs Ariane.
-
 Add the path for the Ariane executable to your :kbd:`PATH` environment variable:
 
 .. code-block:: bash
@@ -100,8 +94,8 @@ For instance, try:
 You should notice several new files, such as :file:`ariane_trajectories_qualitative.nc` and :file:`traj.txt`.
 These files contain the trajectory information.
 
-* :file:`ariane_trajectories_qualitative.nc` can be loaded into a notebook to plot the particle locations over time and starting/finishing points, etc.
-* :file:`traj.txt` is helpful if you want to get a general idea of what the resulting trajectory coordinates look like or to check if the simulation ran properly.
+* :file:`ariane_trajectories_qualitative.nc` contains the particle positions at each time step and the initial positions
+* :file:`traj.txt` gives a general idea of what the resulting trajectory coordinates look like or to check if the simulation ran properly
 
 .. _Configuring your run:
 
@@ -111,14 +105,13 @@ Configuring your run
 :kbd:`intitial_positions.txt`
 -----------------------------
 
-The :file:`initial_positions.txt` file specifies the initial positions and initial times of the particles that you are tracking. This file consists of 5 columns and a row for each particle that you are running.
+The :file:`initial_positions.txt` file specifies the initial positions and release times of the particles that you are tracking. This file consists of 5 columns and a row for each particle that you are running.
 
 .. note::
 
     Ariane uses FORTAN indexing, which counts starting at 1. If you used Python to look up initial positions, you should add 1 to your initial positions.
 
-
-The first three columns represent the initial X, Y, and Z coordinate point of your particle. A negative Z coordinate tells Ariane to confine the particle to its original depth throughout the trajectory. Note that these coordinate points need to be offset by 0.01, otherwise Ariane struggles at the boundaries between two grid boxes. The fourth column is the time index (use 0.5 if you want to start at NEMO time 00:00). The last column parameter is always set to 1.0.
+Within this file, the first three columns represent the initial X, Y, and Z coordinate point of your particle. A negative Z coordinate tells Ariane to confine the particle to its original depth throughout the trajectory. Note that these coordinate points should not be at the exact grid point coordinate, but rather offset by a little bit, otherwise Ariane may struggle at the boundaries between two grid boxes. The fourth column is the time index (use 0.5 if you want to start at NEMO time 00:00, if 0.0 it will interpolate between your data files), note that if you are running backwards, the time index here should be your end time step (so if you have a total of 330 time steps, you should release the particles at 329.5). The last column parameter is always set to 1.0.
 Here is an example :file:`initial_positions.txt` file:
 
 .. code-block:: text
@@ -132,9 +125,7 @@ Here is an example :file:`initial_positions.txt` file:
 :kbd:`namelist`
 ---------------
 
-The :file:`namelist` file specifies . It is made up out of multiple sections.
-
-The general Ariane parameters can be specified within :kbd:`Ariane`; the main ones that you are likely to change: 
+The :file:`namelist` file specifies a variety of the run settings. The general Ariane parameters can be specified within :kbd:`Ariane`; the main ones that you are likely to change are: 
 
 +----------------------------------------+-------------------------------------------+
 |    Parameter                           |              Description                  |
@@ -155,47 +146,47 @@ The parameters of your model run are specified in :kbd:`OPAPARAM`:
 +========================================+=============================================+
 | :kbd:`imt`, :kbd:`jmt`, :kbd:`kmt`     | x, y, and z dimensions of your model domain |
 +----------------------------------------+---------------------------------------------+
-| :kbd:`lmt`                             | Time dimension                              |
+| :kbd:`lmt`                             | Time dimension (total number of time steps) |
 +----------------------------------------+---------------------------------------------+
 
 In qualitative mode, the frequency of calculation of the trajectory and of writing to the output file is set within :kbd:`QUALITATIVE`:
 
-+----------------------------------------+----------------------------------------------------+
-|    Parameter                           |              Description                           |
-+========================================+====================================================+
-| :kbd:`delta_t`                         | Time step size (seconds)                           |
-+----------------------------------------+----------------------------------------------------+
-| :kbd:`frequency`                       | Number of :kbd:`delta_t` to calculate              |
-+----------------------------------------+----------------------------------------------------+
-| :kbd:`nb_output`                       | Number of output time steps (delta_t x frequency)  |
-+----------------------------------------+----------------------------------------------------+
++----------------------------------------+-----------------------------------------------------------------+
+|    Parameter                           |              Description                                        |
++========================================+=================================================================+
+| :kbd:`delta_t`                         | Time step size (seconds)                                        |
++----------------------------------------+-----------------------------------------------------------------+
+| :kbd:`frequency`                       | Number of :kbd:`delta_t` to calculate                           |
++----------------------------------------+-----------------------------------------------------------------+
+| :kbd:`nb_output`                       | Number of output time steps ( in units of delta_t x frequency)  |
++----------------------------------------+-----------------------------------------------------------------+
 
-For the sections where you read the U, V, and W velocity files, the parameters are indicated in :kbd:`ZONALCRT`, :kbd:`MERIDCRT`, :kbd:`sdf`:
+The parameters for reading in the U, V, and W velocity files are indicated in :kbd:`ZONALCRT`, :kbd:`MERIDCRT`, and :kbd:`VERTICRT`. The parameters are roughly the same, for example in the :kbd:`ZONALCRT` section:
 
-+----------------------------------------+-----------------------------------------+
-|    Parameter                           |              Description                |
-+========================================+=========================================+
-| :kbd:`c_dir_zo`                        | Directory where data is store           |
-+----------------------------------------+-----------------------------------------+
-| :kbd:`c_prefix_zo`                     | NetCDF file name with velocity data     |
-+----------------------------------------+-----------------------------------------+
-| :kbd:`nc_var_zo`                       | Variable name for velocity component    |
-+----------------------------------------+-----------------------------------------+
-| :kbd:`ind0_zo`                         | First number of file to read            |
-+----------------------------------------+-----------------------------------------+
-| :kbd:`indn_zo`                         | Last number of file to read             |
-+----------------------------------------+-----------------------------------------+
-| :kbd:`maxsize_zo`                      | Maximum number of integers in file name |
-+----------------------------------------------------------------------------------+
++----------------------------------------+------------------------------------------------+
+|    Parameter                           |              Description                       |
++========================================+================================================+
+| :kbd:`c_dir_zo`                        | Directory where data is stored                 |
++----------------------------------------+------------------------------------------------+
+| :kbd:`c_prefix_zo`                     | NetCDF file name with velocity data            |
++----------------------------------------+------------------------------------------------+
+| :kbd:`nc_var_zo`                       | Variable name for velocity component           |
++----------------------------------------+------------------------------------------------+
+| :kbd:`ind0_zo`                         | First number of file to read                   |
++----------------------------------------+------------------------------------------------+
+| :kbd:`indn_zo`                         | Last number of file to read                    |
++----------------------------------------+------------------------------------------------+
+| :kbd:`maxsize_zo`                      | Maximum number of integers in file name number |
++-----------------------------------------------------------------------------------------+
 
-Of course this is not a comprehensive list of all the parameters you can set in the :file:`namelist`.
+Note that even in backwards mode, the first and last number of the files to read are in the forwards direction, i.e. from 1 to your last file number. Of course this is not a comprehensive list of all the parameters you can set in the :file:`namelist`. More information can be found in the references listed at the start.
 
 .. _Analyzing output:
 
 Analyzing output
 ================================
 
-The NetCDF file that contains the particle tracks is named :file:`ariane_trajectories_qualitative.nc`. The variables in this file include the initial and final x, y, z, and time for the particles. It is a good idea to double check that these agree with the locations you listed in :file:`initial_positions.txt`. To plot and analyze the output, you will generally want to read in traj_lon, traj_lat, traj_depth, and traj_time. These variables have the shape (number of particles, positions in time). The output can look something like this:
+The NetCDF file that contains the particle tracks is named :file:`ariane_trajectories_qualitative.nc`. The variables in this file include the initial and final x, y, z, and time for the particles. It is a good idea to double check that these agree with the locations you listed in :file:`initial_positions.txt`. To plot and analyze the output, you read in traj_lon, traj_lat, traj_depth, and traj_time. These variables have the shape (number of particles, positions in time). 
 
 If you would like to see some examples of particle tracking, feel free to look at the following notebooks:
 
