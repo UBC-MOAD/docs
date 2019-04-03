@@ -6,16 +6,19 @@
 # For a full list see the documentation:
 # http://www.sphinx-doc.org/en/stable/config
 
+import datetime
+
 
 # -- Project information -----------------------------------------------------
 
 project = 'UBC MOAD Docs'
-copyright = (
-    '2018, '
-    'The UBC EOAS MOAD Group '
-    'and The University of British Columbia'
+author = 'The UBC EOAS MOAD Group and The University of British Columbia'
+copyright_years = (
+    "2018"
+    if datetime.date.today().year == 2018
+    else f"2018-{datetime.date.today():%Y}"
 )
-author = 'The UBC EOAS MOAD Group'
+copyright = f"{copyright_years}, {author}"
 
 # The short X.Y version
 version = ''
