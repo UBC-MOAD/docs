@@ -6,7 +6,7 @@
 ..   http://creativecommons.org/licenses/by/4.0/
 
 
-.. _ComputeCanadaDocs
+.. _ComputeCanadaDocs:
 
 **********************************
 Working on Compute Canada Clusters
@@ -16,7 +16,7 @@ Working on Compute Canada Clusters
 
 .. _Compute Canada: https://www.computecanada.ca/
 
-Before you can use Compute Canada compute clusters and high capacity storage resources you need to :ref:`Create Compute Canada & WestGrid Accounts`.
+Before you can use Compute Canada compute clusters and high capacity storage resources you need to :ref:`ComputeCanadaAccount`.
 You only need to do that once when you join the MOAD group,
 no matter how many different compute clusters you end up working on.
 
