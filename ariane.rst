@@ -16,13 +16,14 @@ Ariane
 
 .. _Ariane: http://stockage.univ-brest.fr/~grima/Ariane/whatsariane.html
 
-Ariane can be run in two modes: quantitative and qualitative. In quantitative mode, you release particles and end up with a distribution function for each grid cell quantifying where your particles end up and the mass transfer, while in qualitative mode you specify each of the particles that you release and trace their exact track. For the rest of the documentation below, we are running in qualitative mode. 
+Ariane can be run in two modes: quantitative and qualitative. In quantitative mode, you release particles and end up with a distribution function for each grid cell quantifying where your particles end up and the mass transfer, while in qualitative mode you specify each of the particles that you release and trace their exact track. For the rest of the documentation below, we are running in qualitative mode.
 
 References
 
 * `Compilation and Installation`_
 * `Ariane Namelist`_
 * `Ariane Tutorial`_
+
 .. _Compilation and Installation: http://stockage.univ-brest.fr/~grima/Ariane/ariane_install_2.x.x_sep08.pdf
 .. _Ariane Namelist: http://stockage.univ-brest.fr/~grima/Ariane/ariane_namelist_2.x.x_oct08.pdf
 .. _Ariane Tutorial: http://stockage.univ-brest.fr/~grima/Ariane/ariane_tutorial_2.x.x_sep08.pdf
@@ -125,7 +126,7 @@ Here is an example :file:`initial_positions.txt` file:
 :kbd:`namelist`
 ---------------
 
-The :file:`namelist` file specifies a variety of the run settings. The general Ariane parameters can be specified within :kbd:`Ariane`; the main ones that you are likely to change are: 
+The :file:`namelist` file specifies a variety of the run settings. The general Ariane parameters can be specified within :kbd:`Ariane`; the main ones that you are likely to change are:
 
 +----------------------------------------+-------------------------------------------+
 |    Parameter                           |              Description                  |
@@ -186,7 +187,7 @@ Note that even in backwards mode, the first and last number of the files to read
 Analyzing output
 ================================
 
-The NetCDF file that contains the particle tracks is named :file:`ariane_trajectories_qualitative.nc`. The variables in this file include the initial and final x, y, z, and time for the particles. It is a good idea to double check that these agree with the locations you listed in :file:`initial_positions.txt`. To plot and analyze the output, you read in traj_lon, traj_lat, traj_depth, and traj_time. These variables have the shape (number of particles, positions in time). 
+The NetCDF file that contains the particle tracks is named :file:`ariane_trajectories_qualitative.nc`. The variables in this file include the initial and final x, y, z, and time for the particles. It is a good idea to double check that these agree with the locations you listed in :file:`initial_positions.txt`. To plot and analyze the output, you read in traj_lon, traj_lat, traj_depth, and traj_time. These variables have the shape (number of particles, positions in time).
 
 If you would like to see some examples of particle tracking, feel free to look at the following notebooks:
 
