@@ -89,7 +89,7 @@ These are the setup steps that you need to do when you start using :kbd:`beluga`
        $ ssh-copy-id -i $HOME/.ssh/id_rsa beluga
 
    You should see output like
-   (except that :kbd:`/home/doug/.ssh/id_rsa.pub` in the 1st line should show your EOAS user id,
+   (except that :kbd:`/home/dlatorne/.ssh/id_rsa.pub` in the 1st line should show your EOAS user id,
    not Doug's)::
 
       /usr/bin/ssh-copy-id: INFO: Source of key(s) to be installed: "/home/dlatorne/.ssh/id_rsa.pub"
@@ -135,3 +135,23 @@ These are the setup steps that you need to do when you start using :kbd:`beluga`
        $ ssh beluga
 
    No userid, password, or lengthy host name required! :-)
+
+3. Create a :envvar:`PROJECT` environment variable that points to our allocated storage on the :file:`/project/` file system.
+   To ensure that :envvar:`PROJECT` is set correctly every time you sign in to :kbd:`beluga`,
+   use an editor to add the following line to your :file:`$HOME/.bash_profile` file::
+
+     export PROJECT=$HOME/projects/def-allen
+
+   Exit your session on :kbd:`beluga` with :command:`exit`,
+   then :command:`ssh` in again,
+   and confirm that :envvar:`PROJECT` is set correctly with:
+
+   .. code-block:: bash
+
+       $ echo $PROJECT
+
+   The output should be::
+
+     /home/dlatorne/projects/def-allen/
+
+   except with your Compute Canada userid instead of Doug's.
