@@ -155,3 +155,6 @@ These are the setup steps that you need to do when you start using :kbd:`beluga`
      /home/dlatorne/projects/def-allen/
 
    except with your Compute Canada userid instead of Doug's.
+
+4. Follow the :ref:`MercurialConfiguration` docs to create your :file:`$HOME/.hgrc` Mercurial configuration file,
+   and your :file:`$HOME/.hgignore` global ignore file for Mercurial.
