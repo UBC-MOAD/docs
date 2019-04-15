@@ -19,6 +19,7 @@ This is documentation by and for members of the MOAD (Mesoscale Ocean and Atmosp
    :maxdepth: 2
    :caption: Contents:
 
+   hg_version_control
    compute-canada
    xios-2
    ariane
