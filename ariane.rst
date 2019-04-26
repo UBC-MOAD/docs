@@ -32,15 +32,15 @@ References
 Getting Ariane
 ==============
 
-The MOAD group maintains our own Mercurial repository on Bitbucket of the Ariane code base; this repository is accessible only by members of the MOAD group so as to respect the sign-up requirement of the upstream Ariane repository. The general Ariane code is available via the `Ariane website`_ . Modifications made by the MOAD group to the Ariane source code can be found on `Bitbucket`_. To add this to your own Ariane installation, clone the repository from Bitbucket to your $PROJECT space and replace the changed files in your Ariane source folder.
+The MOAD group maintains our own Mercurial repository on Bitbucket of the Ariane code base; this repository is accessible only by members of the MOAD group so as to respect the sign-up requirement of the upstream Ariane repository. The general Ariane code is available via the `Ariane website`_ . Modifications made by the MOAD group to the Ariane source code can be found on `Bitbucket`_. To download the MOAD Ariane code base, clone the repository from Bitbucket to your $PROJECT space:
 
 .. _Ariane website: http://stockage.univ-brest.fr/~grima/Ariane/download.php
-.. _Bitbucket: http://www.bitbucket.org/eliseolsen/arianesrc-2.2.8_04
+.. _Bitbucket: http://www.bitbucket.org/UBC_MOAD/ariane-2.2.8-code
 
 .. code-block:: bash
 
     cd /ocean/$USER/$PROJECT/
-    hg clone ssh://hg@bitbucket.org/eliseolsen/arianesrc-2.2.8_04
+    hg clone ssh://hg@bitbucket.org/UBC_MOAD/ariane-2.2.8-code
 
 
 Installing on :kbd:`salish`
@@ -50,7 +50,7 @@ Specify the locations of the :kbd:`netcdf` libraries to help the :kbd:`configure
 
 .. code-block:: bash
 
-        cd /ocean/$USER/$PROJECT/ariane-2.2.8_04/
+        cd /ocean/$USER/$PROJECT/ariane-2.2.8-code/
     export NETCDF_INC=/usr/include
     export NETCDF_LIB=/usr/lib
 
@@ -58,8 +58,8 @@ Configure the installation by going to the folder of your downloaded Ariane code
 
 .. code-block:: bash
 
-    cd /ocean/$USER/$PROJECT/ariane-2.2.8_04
-        ./configure --prefix=/ocean/$USER/$PROJECT/ariane-2.2.8_04
+    cd /ocean/$USER/$PROJECT/ariane-2.2.8-code
+        ./configure --prefix=/ocean/$USER/$PROJECT/ariane-2.2.8-code
 
 The :kbd:`prefix` argument overwrites the default install directory into a customized directory.
 
@@ -67,7 +67,7 @@ Make and install Ariane (you will need to do this every time you make changes to
 
 .. code-block:: bash
 
-    cd /ocean/$USER/$PROJECT/ariane-2.2.8_04
+    cd /ocean/$USER/$PROJECT/ariane-2.2.8-code
         make
         make check
         make install
@@ -76,7 +76,7 @@ Add the path for the Ariane executable to your :kbd:`PATH` environment variable:
 
 .. code-block:: bash
 
-        export PATH=/ocean/$USER/$PROJECT/ariane-2.2.8_04/bin:$PATH
+        export PATH=/ocean/$USER/$PROJECT/ariane-2.2.8-code/bin:$PATH
 
 Now you can run Ariane from any directory by typing :kbd:`ariane`.
 
@@ -88,7 +88,7 @@ For instance, try:
 
 .. code-block:: bash
 
-    cd /ocean/$USER/$PROJECT/ariane-2.2.8_04/examples/qualitative
+    cd /ocean/$USER/$PROJECT/ariane-2.2.8-code/examples/qualitative
     ariane
 
 You should notice several new files, such as :file:`ariane_trajectories_qualitative.nc` and :file:`traj.txt`.
