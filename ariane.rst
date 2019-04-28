@@ -6,7 +6,7 @@
 ..   http://creativecommons.org/licenses/by/4.0/
 
 
-.. Ariane-docs:
+.. _Ariane-docs:
 
 ******
 Ariane
@@ -28,6 +28,7 @@ References
 .. _Ariane Namelist: http://stockage.univ-brest.fr/~grima/Ariane/ariane_namelist_2.x.x_oct08.pdf
 .. _Ariane Tutorial: http://stockage.univ-brest.fr/~grima/Ariane/ariane_tutorial_2.x.x_sep08.pdf
 
+
 .. _Getting Ariane:
 
 Getting Ariane
@@ -45,13 +46,13 @@ The MOAD group maintains our own Mercurial repository on Bitbucket of the Ariane
 
 
 Installing on :kbd:`salish`
---------------------------------
+---------------------------
 
 Specify the locations of the :kbd:`netcdf` libraries to help the :kbd:`configure` script find them:
 
 .. code-block:: bash
 
-        cd /ocean/$USER/$PROJECT/ariane-2.2.8-code/
+    cd /ocean/$USER/$PROJECT/ariane-2.2.8-code/
     export NETCDF_INC=/usr/include
     export NETCDF_LIB=/usr/lib
 
@@ -60,7 +61,7 @@ Configure the installation by going to the folder of your downloaded Ariane code
 .. code-block:: bash
 
     cd /ocean/$USER/$PROJECT/ariane-2.2.8-code
-        ./configure --prefix=/ocean/$USER/$PROJECT/ariane-2.2.8-code
+    ./configure --prefix=/ocean/$USER/$PROJECT/ariane-2.2.8-code
 
 The :kbd:`prefix` argument overwrites the default install directory into a customized directory.
 
@@ -69,17 +70,18 @@ Make and install Ariane (you will need to do this every time you make changes to
 .. code-block:: bash
 
     cd /ocean/$USER/$PROJECT/ariane-2.2.8-code
-        make
-        make check
-        make install
+    make
+    make check
+    make install
 
 Add the path for the Ariane executable to your :kbd:`PATH` environment variable:
 
 .. code-block:: bash
 
-        export PATH=/ocean/$USER/$PROJECT/ariane-2.2.8-code/bin:$PATH
+    export PATH=/ocean/$USER/$PROJECT/ariane-2.2.8-code/bin:$PATH
 
 Now you can run Ariane from any directory by typing :kbd:`ariane`.
+
 
 Testing Ariane installation
 ---------------------------
@@ -97,6 +99,7 @@ These files contain the trajectory information.
 
 * :file:`ariane_trajectories_qualitative.nc` contains the particle positions at each time step and the initial positions
 * :file:`traj.txt` gives a general idea of what the resulting trajectory coordinates look like or to check if the simulation ran properly
+
 
 .. _Configuring your run:
 
@@ -122,6 +125,7 @@ Here is an example :file:`initial_positions.txt` file:
     310.01 400.01 5.0  0.5 1.0
     310.01 400.01 10.0 0.5 1.0
     310.01 400.01 15.0 0.5 1.0
+
 
 :kbd:`namelist`
 ---------------
@@ -181,6 +185,7 @@ The parameters for reading in the U, V, and W velocity files are indicated in :k
 +-----------------------------------------------------------------------------------------+
 
 Note that even in backwards mode, the first and last number of the files to read are in the forwards direction, i.e. from 1 to your last file number. Of course this is not a comprehensive list of all the parameters you can set in the :file:`namelist`. More information can be found in the references listed at the start.
+
 
 .. _Analyzing output:
 
