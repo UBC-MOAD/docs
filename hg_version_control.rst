@@ -49,7 +49,6 @@ Installing Mercurial
 Obviously,
 you need to have Mercurial installed on your computer.
 It is already installed on the Waterhole workstations,
-:kbd:`sable`,
 and :kbd:`salish` at UBC.
 It is also installed on :kbd:`orcinus` on WestGrid,
 and :kbd:`beluga`,
@@ -104,9 +103,11 @@ Replace that with:
 
 .. code-block:: ini
 
+    [alias]
+    glog = log --graph
+
     [extensions]
     color =
-    graphlog =
     pager =
     progress =
     rebase =
@@ -121,13 +122,16 @@ Replace that with:
 
 Please to be sure to replace :kbd:`Your Name <your_email_address>` with your name and email address.
 
+The :kbd:`[alias]` section defines command aliases within Mercurial:
+
+* :kbd:`glog = log --graph` make :command:`hg glog` an alias for the :command:`hg log --graph` command that formats the output as a graph representing the revision history using ASCII characters to the left of the log.
+  That functionality and the :command:`hg glog` command were previously provided by the now-deprecated :kbd:`graphlog` extension.
+
 The :kbd:`[extensions]` section enables several useful Mercurial extensions:
 
 * :kbd:`color` shows log listing,
   diffs,
   etc. in colour
-
-* :kbd:`graphlog` provides the :kbd:`hg glog` command and the synonymous :kbd:`hg log -G` command that formats the output as a graph representing the revision history using ASCII characters to the left of the log
 
 * :kbd:`pager` sends output of Mercurial commands through the pager that you specify in the :kbd:`[pager]` section so that long output is displayed one page at a time
 
