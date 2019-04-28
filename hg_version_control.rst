@@ -315,3 +315,31 @@ Here are recommendations for commit message style::
     single space, with blank lines in between
 
   - Use a hanging indent
+
+
+.. _WorkAroundForCloningTimeout:
+
+Work-around for Cloning Timeout
+-------------------------------
+
+If you have the problem of :command:`hg clone` commands repeatedly timing out
+(as was experienced on :kbd:`beluga` in the spring of 2019)
+you may be able to work around the issue by cloning the first changeset of the repo from Bitbucket and then pulling the remaining changesets and updating your working copy in a separate step.
+For example,
+for the :kbd:`NEMO-3.6-code` repo,
+the process to do that is:
+
+.. code-block:: bash
+
+    hg clone --rev 1 ssh://hg@bitbucket.org/salishsea/nemo-3.6-code NEMO-3.6-code
+    cd NEMO-3.6-code
+    hg pull --update
+
+We think that the root cause of the timeout during cloning is that after the initial repo bundle is downloaded from Bitbucket the local processing of the bundle is so slow on the $PROJECT file systems of some HPC clusters that Bitbucket assumes that the network connection being used for the cloning operation has failed.
+Clone just the first changeset avoids the bundle download operation.
+Subsequently pulling additional changesets requires a more continuous stream of network communication between the local system and Bitbucket.
+That keeps the network connection alive,
+and makes the process more robust to slow local file system operations.
+The pulling operation is also incremental,
+so if there is a timeout while it is in progress,
+repeating the :command:`hg pull --update` command will resume at the point of failure instead of starting over again at the beginning.
