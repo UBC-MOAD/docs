@@ -56,7 +56,7 @@ Initial Setup on :kbd:`beluga.computecanada.ca`
 
 These are the setup steps that you need to do when you start using :kbd:`beluga` for the first time:
 
-1. Add an entry for :kbd:`beluga` to your :file:`$HOME/.ssh/config` file.
+#. Add an entry for :kbd:`beluga` to your :file:`$HOME/.ssh/config` file.
    This will enable you to connect to :kbd:`beluga` by typing :command:`ssh beluga` instead of
    having to type :command:`ssh your-user-id@beluga.computecanada.ca`.
 
@@ -81,7 +81,7 @@ These are the setup steps that you need to do when you start using :kbd:`beluga`
    after you type your :command:`ssh` key passphrase into your Waterhole machine once,
    you should not have to type it again until you log off and log in again.
 
-2. Copy your :command:`ssh` public key into your :file:`$HOME/.ssh/authorized_keys` file on :kbd:`beluga` and set the permissions on that file so that only you can read, write, or delete it.
+#. Copy your :command:`ssh` public key into your :file:`$HOME/.ssh/authorized_keys` file on :kbd:`beluga` and set the permissions on that file so that only you can read, write, or delete it.
    The :command:`copy-ssh-id` command makes that a lot easier than it sounds:
 
    .. code-block:: bash
@@ -136,7 +136,7 @@ These are the setup steps that you need to do when you start using :kbd:`beluga`
 
    No userid, password, or lengthy host name required! :-)
 
-3. Create a :envvar:`PROJECT` environment variable that points to our allocated storage on the :file:`/project/` file system.
+#. Create a :envvar:`PROJECT` environment variable that points to our allocated storage on the :file:`/project/` file system.
    To ensure that :envvar:`PROJECT` is set correctly every time you sign in to :kbd:`beluga`,
    use an editor to add the following line to your :file:`$HOME/.bash_profile` file::
 
@@ -156,5 +156,24 @@ These are the setup steps that you need to do when you start using :kbd:`beluga`
 
    except with your Compute Canada userid instead of Doug's.
 
-4. Follow the :ref:`MercurialConfiguration` docs to create your :file:`$HOME/.hgrc` Mercurial configuration file,
+#. Set the permissions in your :file:`$PROJECT/$USER/` directory so that other members of the :kbd:`def-allen` group have access,
+   and permissions from the top-level directory are inherited downward in the tree:
+
+   .. code-block:: bash
+
+       $ cd $PROJECT/$USER
+       $ chmod g+rwxs .
+       $ chmod o+rx .
+
+   Check the results of those operations with :command:`ls -al $PROJECT/$USER`.
+   They should look like::
+
+     $ ls -al $PROJECT/$USER
+     total 90
+     drwxrwsr-x  3 dlatorne def-allen 33280 Apr  9 15:04 ./
+     drwxrws--- 16 allen    def-allen 33280 Apr  8 18:14 ../
+
+   with your user id instead of Doug's in the :file:`./` line.
+
+#. Follow the :ref:`MercurialConfiguration` docs to create your :file:`$HOME/.hgrc` Mercurial configuration file,
    and your :file:`$HOME/.hgignore` global ignore file for Mercurial.
