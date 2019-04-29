@@ -40,6 +40,8 @@ intersphinx_mapping = {
         ('http://nemo-cmd.readthedocs.io/en/latest/', None),
     'salishseacmd':
         ('http://salishseacmd.readthedocs.io/en/latest/', None),
+    "salishseadocs":
+        ("https://salishsea-meopar-docs.readthedocs.io/en/latest/", None),
 }
 
 # Add any paths that contain templates here, relative to this directory.
