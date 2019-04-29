@@ -197,3 +197,16 @@ These are the setup steps that you need to do when you start using :kbd:`beluga`
 
 #. Follow the :ref:`MercurialConfiguration` docs to create your :file:`$HOME/.hgrc` Mercurial configuration file,
    and your :file:`$HOME/.hgignore` global ignore file for Mercurial.
+
+#. Compute Canada clusters use the :command:`module load` command to load software components.
+   On :kbd:`beluga` the module loads that are required to build and run NEMO are:
+
+.. code-block:: bash
+
+    module load netcdf-fortran-mpi/4.4.4
+    module load perl/5.22.4
+    module load python/3.7.0
+
+You can manually load the modules each time you log in,
+or you can add the above lines to your :file:`$HOME/.bashrc` file so that they are automatically loaded upon login.
+
