@@ -210,3 +210,10 @@ These are the setup steps that you need to do when you start using :kbd:`beluga`
 You can manually load the modules each time you log in,
 or you can add the above lines to your :file:`$HOME/.bashrc` file so that they are automatically loaded upon login.
 
+#. Follow the docs for the project that you are working on to set up your :file:`$PROJECT/$USER/` workspace and clone the repositories required to build and run NEMO:
+
+   * For the MOEPAR SalishSeaCast project,
+     follow the :ref:`salishseadocs:CreateWorkspaceAndCloneRepositories` and then the :ref:`salishseadocs:InstallCommandProcessorPackages` docs
+
+   If you have trouble with cloning of some repositories repeatedly timing out,
+   see the :ref:`WorkAroundForCloningTimeout` section of the :ref:`vc-with-hg` docs
