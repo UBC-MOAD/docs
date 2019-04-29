@@ -175,5 +175,25 @@ These are the setup steps that you need to do when you start using :kbd:`beluga`
 
    with your user id instead of Doug's in the :file:`./` line.
 
+#. Set the group and permissions in your :file:`$SCRATCH/` directory so that other members of the :kbd:`def-allen` group have access,
+   and permissions from the top-level directory are inherited downward in the tree:
+
+   .. code-block:: bash
+
+       $ cd $SCRATCH
+       $ chgrp def-allen .
+       $ chmod g+rwxs .
+       $ chmod o+rx .
+
+   Check the results of those operations with :command:`ls -al $SCRATCH`.
+   They should look like::
+
+     $ ls -al $SCRATCH
+     total 3015
+     drwxrwsr-x    26 dlatorne def-allen   41472 Apr 26 17:23 ./
+     drwxr-xr-x 16366 root     root      2155008 Apr 29 15:31 ../
+
+   with your user id instead of Doug's in the :file:`./` line.
+
 #. Follow the :ref:`MercurialConfiguration` docs to create your :file:`$HOME/.hgrc` Mercurial configuration file,
    and your :file:`$HOME/.hgignore` global ignore file for Mercurial.
