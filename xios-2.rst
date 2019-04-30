@@ -49,8 +49,8 @@ Here are some examples of commands to do that on various platforms that we use.
 *You should substitute your own research project directory name as appropriate.*
 
 
-:kbd:`cedar` or :kbd:`graham`
------------------------------
+:kbd:`beluga`, :kbd:`cedar`, or :kbd:`graham`
+---------------------------------------------
 
 .. code-block:: bash
 
@@ -85,14 +85,219 @@ Building XIOS-2
 ===============
 
 First symlink the XIOS-2 build configuration files for the machine that you are working on from the :file:`XIOS-ARCH` repo clone into the :file:`XIOS-2/arch/` directory,
-then compile and link XIOS-2. *You should substitute your own research project directory name as appropriate.* Define the destination of your XIOS home directory as an environment variable by adding the following line to your :file:`.bashrc`:
+then compile and link XIOS-2.
+See the section below for the project and machine combination that applies to you.
+
+
+.. _BuildXIOS-CANYONS-beluga:
+
+:kbd:`CANYONS` on :kbd:`beluga`
+-------------------------------
 
 .. code-block:: bash
 
-    export XIOS_HOME=$PROJECT/$USER/GEOTRACES/XIOS-2/
+    cd $PROJECT/$USER/CANYONS/XIOS-2/arch
+    ln -sf $PROJECT/$USER/CANYONS/XIOS-ARCH/COMPUTECANADA/arch-X64_BELUGA.env
+    ln -sf $PROJECT/$USER/CANYONS/XIOS-ARCH/COMPUTECANADA/arch-X64_BELUGA.fcm
+    ln -sf $PROJECT/$USER/CANYONS/XIOS-ARCH/COMPUTECANADA/arch-X64_BELUGA.path
+    cd $PROJECT/$USER/CANYONS/XIOS-2
+    ./make_xios --arch X64_BELUGA --job 8
 
-:kbd:`cedar`:
--------------
+To build NEMO you will need an environment variable named :envvar:`XIOS_HOME` whose value is the absolute path to you :file:`XIOS-2` directory.
+For the :kbd:`CANYONS` project it is:
+
+.. code-block:: bash
+
+    XIOS_HOME=$PROJECT/$USER/CANYONS/XIOS-2
+
+You can add the line:
+
+.. code-block:: bash
+
+    export XIOS_HOME=$PROJECT/$USER/CANYONS/XIOS-2
+
+to your :file:`$HOME/.bash_profile` file if you want the :envvar:`XIOS_HOME` environment variable to be set automatically whenever you :command:`ssh` in.
+
+If you need to do a clean build of XIOS-2,
+you can use:
+
+.. code-block:: bash
+
+    cd $PROJECT/$USER/CANYONS/XIOS-2
+    ./tools/FCM/bin/fcm build --clean
+    ./make_xios --arch X64_BELUGA --job 8
+
+to clear away all artifacts of the previous build and do a fresh one.
+
+
+.. _BuildXIOS-GEOTRACES-beluga:
+
+:kbd:`GEOTRACES` on :kbd:`beluga`
+---------------------------------
+
+.. code-block:: bash
+
+    cd $PROJECT/$USER/GEOTRACES/XIOS-2/arch
+    ln -sf $PROJECT/$USER/GEOTRACES/XIOS-ARCH/COMPUTECANADA/arch-X64_BELUGA.env
+    ln -sf $PROJECT/$USER/GEOTRACES/XIOS-ARCH/COMPUTECANADA/arch-X64_BELUGA.fcm
+    ln -sf $PROJECT/$USER/GEOTRACES/XIOS-ARCH/COMPUTECANADA/arch-X64_BELUGA.path
+    cd $PROJECT/$USER/GEOTRACES/XIOS-2
+    ./make_xios --arch X64_BELUGA --job 8
+
+To build NEMO you will need an environment variable named :envvar:`XIOS_HOME` whose value is the absolute path to you :file:`XIOS-2` directory.
+For the :kbd:`GEOTRACES` project it is:
+
+.. code-block:: bash
+
+    XIOS_HOME=$PROJECT/$USER/GEOTRACES/XIOS-2
+
+You can add the line:
+
+.. code-block:: bash
+
+    export XIOS_HOME=$PROJECT/$USER/GEOTRACES/XIOS-2
+
+to your :file:`$HOME/.bash_profile` file if you want the :envvar:`XIOS_HOME` environment variable to be set automatically whenever you :command:`ssh` in.
+
+If you need to do a clean build of XIOS-2,
+you can use:
+
+.. code-block:: bash
+
+    cd $PROJECT/$USER/GEOTRACES/XIOS-2
+    ./tools/FCM/bin/fcm build --clean
+    ./make_xios --arch X64_BELUGA --job 8
+
+to clear away all artifacts of the previous build and do a fresh one.
+
+
+.. _BuildXIOS-MEOPAR-beluga:
+
+:kbd:`MEOPAR` on :kbd:`beluga`
+------------------------------
+
+.. code-block:: bash
+
+    cd $PROJECT/$USER/MEOPAR/XIOS-2/arch
+    ln -sf $PROJECT/$USER/MEOPAR/XIOS-ARCH/COMPUTECANADA/arch-X64_BELUGA.env
+    ln -sf $PROJECT/$USER/MEOPAR/XIOS-ARCH/COMPUTECANADA/arch-X64_BELUGA.fcm
+    ln -sf $PROJECT/$USER/MEOPAR/XIOS-ARCH/COMPUTECANADA/arch-X64_BELUGA.path
+    cd $PROJECT/$USER/MEOPAR/XIOS-2
+    ./make_xios --arch X64_BELUGA --job 8
+
+To build NEMO you will need an environment variable named :envvar:`XIOS_HOME` whose value is the absolute path to you :file:`XIOS-2` directory.
+For the :kbd:`MEOPAR` project it is:
+
+.. code-block:: bash
+
+    XIOS_HOME=$PROJECT/$USER/MEOPAR/XIOS-2
+
+You can add the line:
+
+.. code-block:: bash
+
+    export XIOS_HOME=$PROJECT/$USER/MEOPAR/XIOS-2
+
+to your :file:`$HOME/.bash_profile` file if you want the :envvar:`XIOS_HOME` environment variable to be set automatically whenever you :command:`ssh` in.
+
+If you need to do a clean build of XIOS-2,
+you can use:
+
+.. code-block:: bash
+
+    cd $PROJECT/$USER/MEOPAR/XIOS-2
+    ./tools/FCM/bin/fcm build --clean
+    ./make_xios --arch X64_BELUGA --job 8
+
+to clear away all artifacts of the previous build and do a fresh one.
+
+
+.. _BuildXIOS-CANYONS-cedar:
+
+:kbd:`CANYONS` on :kbd:`cedar`
+------------------------------
+
+.. code-block:: bash
+
+    cd $PROJECT/$USER/CANYONS/XIOS-2/arch
+    ln -sf $PROJECT/$USER/CANYONS/XIOS-ARCH/WESTGRID/arch-X64_CEDAR.env
+    ln -sf $PROJECT/$USER/CANYONS/XIOS-ARCH/WESTGRID/arch-X64_CEDAR.fcm
+    ln -sf $PROJECT/$USER/CANYONS/XIOS-ARCH/WESTGRID/arch-X64_CEDAR.path
+    cd $PROJECT/$USER/CANYONS/XIOS-2
+    ./make_xios --arch X64_CEDAR --job 8
+
+To build NEMO you will need an environment variable named :envvar:`XIOS_HOME` whose value is the absolute path to you :file:`XIOS-2` directory.
+For the :kbd:`CANYONS` project it is:
+
+.. code-block:: bash
+
+    XIOS_HOME=$PROJECT/$USER/CANYONS/XIOS-2
+
+You can add the line:
+
+.. code-block:: bash
+
+    export XIOS_HOME=$PROJECT/$USER/CANYONS/XIOS-2
+
+to your :file:`$HOME/.bash_profile` file if you want the :envvar:`XIOS_HOME` environment variable to be set automatically whenever you :command:`ssh` in.
+
+If you need to do a clean build of XIOS-2,
+you can use:
+
+.. code-block:: bash
+
+    cd $PROJECT/$USER/CANYONS/XIOS-2
+    ./tools/FCM/bin/fcm build --clean
+    ./make_xios --arch X64_CEDAR --job 8
+
+to clear away all artifacts of the previous build and do a fresh one.
+
+
+.. _BuildXIOS-GEOTRACES-cedar:
+
+:kbd:`GEOTRACES` on :kbd:`cedar`
+--------------------------------
+
+.. code-block:: bash
+
+    cd $PROJECT/$USER/GEOTRACES/XIOS-2/arch
+    ln -sf $PROJECT/$USER/GEOTRACES/XIOS-ARCH/WESTGRID/arch-X64_CEDAR.env
+    ln -sf $PROJECT/$USER/GEOTRACES/XIOS-ARCH/WESTGRID/arch-X64_CEDAR.fcm
+    ln -sf $PROJECT/$USER/GEOTRACES/XIOS-ARCH/WESTGRID/arch-X64_CEDAR.path
+    cd $PROJECT/$USER/GEOTRACES/XIOS-2
+    ./make_xios --arch X64_CEDAR --job 8
+
+To build NEMO you will need an environment variable named :envvar:`XIOS_HOME` whose value is the absolute path to you :file:`XIOS-2` directory.
+For the :kbd:`GEOTRACES` project it is:
+
+.. code-block:: bash
+
+    XIOS_HOME=$PROJECT/$USER/GEOTRACES/XIOS-2
+
+You can add the line:
+
+.. code-block:: bash
+
+    export XIOS_HOME=$PROJECT/$USER/GEOTRACES/XIOS-2
+
+to your :file:`$HOME/.bash_profile` file if you want the :envvar:`XIOS_HOME` environment variable to be set automatically whenever you :command:`ssh` in.
+
+If you need to do a clean build of XIOS-2,
+you can use:
+
+.. code-block:: bash
+
+    cd $PROJECT/$USER/GEOTRACES/XIOS-2
+    ./tools/FCM/bin/fcm build --clean
+    ./make_xios --arch X64_CEDAR --job 8
+
+to clear away all artifacts of the previous build and do a fresh one.
+
+
+.. _BuildXIOS-MEOPAR-cedar:
+
+:kbd:`MEOPAR` on :kbd:`cedar`
+-----------------------------
 
 .. code-block:: bash
 
@@ -103,49 +308,20 @@ then compile and link XIOS-2. *You should substitute your own research project d
     cd $PROJECT/$USER/MEOPAR/XIOS-2
     ./make_xios --arch X64_CEDAR --job 8
 
-
-:kbd:`graham`:
---------------
-
-.. code-block:: bash
-
-    cd $PROJECT/$USER/GEOTRACES/XIOS-2/arch
-    ln -sf $PROJECT/$USER/GEOTRACES/XIOS-ARCH/WESTGRID/arch-X64_GRAHAM.env
-    ln -sf $PROJECT/$USER/GEOTRACES/XIOS-ARCH/WESTGRID/arch-X64_GRAHAM.fcm
-    ln -sf $PROJECT/$USER/GEOTRACES/XIOS-ARCH/WESTGRID/arch-X64_GRAHAM.path
-    cd $PROJECT/$USER/GEOTRACES/XIOS-2
-    ./make_xios --arch X64_GRAHAM --job 8
-
-
-:kbd:`orcinus`
---------------
+To build NEMO you will need an environment variable named :envvar:`XIOS_HOME` whose value is the absolute path to you :file:`XIOS-2` directory.
+For the :kbd:`MEOPAR` project it is:
 
 .. code-block:: bash
 
-    cd $HOME/MEOPAR/XIOS-2/arch
-    ln -sf $HOME/MEOPAR/XIOS-ARCH/WESTGRID/arch-X64_ORCINUS.env
-    ln -sf $HOME/MEOPAR/XIOS-ARCH/WESTGRID/arch-X64_ORCINUS.fcm
-    ln -sf $HOME/MEOPAR/XIOS-ARCH/WESTGRID/arch-X64_ORCINUS.path
-    cd $HOME/MEOPAR/XIOS-2
-    ./make_xios --arch X64_ORCINUS --netcdf_lib netcdf4_par --job 8
+    XIOS_HOME=$PROJECT/$USER/MEOPAR/XIOS-2
 
-
-:kbd:`salish`
--------------
+You can add the line:
 
 .. code-block:: bash
 
-    cd /data/$USER/CANYONS/XIOS-2/arch
-    ln -sf /data/$USER/CANYONS/XIOS-ARCH/UBC-EOAS/arch-GCC_SALISH.fcm
-    ln -sf /data/$USER/CANYONS/XIOS-ARCH/UBC-EOAS/arch-GCC_SALISH.path
-    cd /data/$USER/CANYONS/XIOS-2
-    ./make_xios --arch GCC_SALISH --netcdf_lib netcdf4_seq --job 8
+    export XIOS_HOME=$PROJECT/$USER/MEOPAR/XIOS-2
 
-
-.. _XIOS-2CleanBuild:
-
-Doing a Clean Build
--------------------
+to your :file:`$HOME/.bash_profile` file if you want the :envvar:`XIOS_HOME` environment variable to be set automatically whenever you :command:`ssh` in.
 
 If you need to do a clean build of XIOS-2,
 you can use:
@@ -156,9 +332,373 @@ you can use:
     ./tools/FCM/bin/fcm build --clean
     ./make_xios --arch X64_CEDAR --job 8
 
-to clear away all artifacts of the previous build.
+to clear away all artifacts of the previous build and do a fresh one.
 
-*Be sure to substitute the appropriate research project directory name and machine name.*
+
+.. _BuildXIOS-CANYONS-graham:
+
+:kbd:`CANYONS` on :kbd:`graham`
+-------------------------------
+
+.. code-block:: bash
+
+    cd $PROJECT/$USER/CANYONS/XIOS-2/arch
+    ln -sf $PROJECT/$USER/CANYONS/XIOS-ARCH/WESTGRID/arch-X64_GRAHAM.env
+    ln -sf $PROJECT/$USER/CANYONS/XIOS-ARCH/WESTGRID/arch-X64_GRAHAM.fcm
+    ln -sf $PROJECT/$USER/CANYONS/XIOS-ARCH/WESTGRID/arch-X64_GRAHAM.path
+    cd $PROJECT/$USER/CANYONS/XIOS-2
+    ./make_xios --arch X64_GRAHAM --job 8
+
+To build NEMO you will need an environment variable named :envvar:`XIOS_HOME` whose value is the absolute path to you :file:`XIOS-2` directory.
+For the :kbd:`CANYONS` project it is:
+
+.. code-block:: bash
+
+    XIOS_HOME=$PROJECT/$USER/CANYONS/XIOS-2
+
+You can add the line:
+
+.. code-block:: bash
+
+    export XIOS_HOME=$PROJECT/$USER/CANYONS/XIOS-2
+
+to your :file:`$HOME/.bash_profile` file if you want the :envvar:`XIOS_HOME` environment variable to be set automatically whenever you :command:`ssh` in.
+
+If you need to do a clean build of XIOS-2,
+you can use:
+
+.. code-block:: bash
+
+    cd $PROJECT/$USER/CANYONS/XIOS-2
+    ./tools/FCM/bin/fcm build --clean
+    ./make_xios --arch X64_GRAHAM --job 8
+
+to clear away all artifacts of the previous build and do a fresh one.
+
+
+.. _BuildXIOS-GEOTRACES-graham:
+
+:kbd:`GEOTRACES` on :kbd:`graham`
+---------------------------------
+
+.. code-block:: bash
+
+    cd $PROJECT/$USER/GEOTRACES/XIOS-2/arch
+    ln -sf $PROJECT/$USER/GEOTRACES/XIOS-ARCH/WESTGRID/arch-X64_GRAHAM.env
+    ln -sf $PROJECT/$USER/GEOTRACES/XIOS-ARCH/WESTGRID/arch-X64_GRAHAM.fcm
+    ln -sf $PROJECT/$USER/GEOTRACES/XIOS-ARCH/WESTGRID/arch-X64_GRAHAM.path
+    cd $PROJECT/$USER/GEOTRACES/XIOS-2
+    ./make_xios --arch X64_GRAHAM --job 8
+
+To build NEMO you will need an environment variable named :envvar:`XIOS_HOME` whose value is the absolute path to you :file:`XIOS-2` directory.
+For the :kbd:`GEOTRACES` project it is:
+
+.. code-block:: bash
+
+    XIOS_HOME=$PROJECT/$USER/GEOTRACES/XIOS-2
+
+You can add the line:
+
+.. code-block:: bash
+
+    export XIOS_HOME=$PROJECT/$USER/GEOTRACES/XIOS-2
+
+to your :file:`$HOME/.bash_profile` file if you want the :envvar:`XIOS_HOME` environment variable to be set automatically whenever you :command:`ssh` in.
+
+If you need to do a clean build of XIOS-2,
+you can use:
+
+.. code-block:: bash
+
+    cd $PROJECT/$USER/GEOTRACES/XIOS-2
+    ./tools/FCM/bin/fcm build --clean
+    ./make_xios --arch X64_GRAHAM --job 8
+
+to clear away all artifacts of the previous build and do a fresh one.
+
+
+.. _BuildXIOS-MEOPAR-graham:
+
+:kbd:`MEOPAR` on :kbd:`graham`
+------------------------------
+
+.. code-block:: bash
+
+    cd $PROJECT/$USER/MEOPAR/XIOS-2/arch
+    ln -sf $PROJECT/$USER/MEOPAR/XIOS-ARCH/WESTGRID/arch-X64_GRAHAM.env
+    ln -sf $PROJECT/$USER/MEOPAR/XIOS-ARCH/WESTGRID/arch-X64_GRAHAM.fcm
+    ln -sf $PROJECT/$USER/MEOPAR/XIOS-ARCH/WESTGRID/arch-X64_GRAHAM.path
+    cd $PROJECT/$USER/MEOPAR/XIOS-2
+    ./make_xios --arch X64_GRAHAM --job 8
+
+To build NEMO you will need an environment variable named :envvar:`XIOS_HOME` whose value is the absolute path to you :file:`XIOS-2` directory.
+For the :kbd:`MEOPAR` project it is:
+
+.. code-block:: bash
+
+    XIOS_HOME=$PROJECT/$USER/MEOPAR/XIOS-2
+
+You can add the line:
+
+.. code-block:: bash
+
+    export XIOS_HOME=$PROJECT/$USER/MEOPAR/XIOS-2
+
+to your :file:`$HOME/.bash_profile` file if you want the :envvar:`XIOS_HOME` environment variable to be set automatically whenever you :command:`ssh` in.
+
+If you need to do a clean build of XIOS-2,
+you can use:
+
+.. code-block:: bash
+
+    cd $PROJECT/$USER/MEOPAR/XIOS-2
+    ./tools/FCM/bin/fcm build --clean
+    ./make_xios --arch X64_GRAHAM --job 8
+
+to clear away all artifacts of the previous build and do a fresh one.
+
+
+.. _BuildXIOS-CANYONS-orcinus:
+
+:kbd:`CANYONS` on :kbd:`orcinus`
+--------------------------------
+
+.. code-block:: bash
+
+    cd $PROJECT/$USER/CANYONS/XIOS-2/arch
+    ln -sf $PROJECT/$USER/CANYONS/XIOS-ARCH/WESTGRID/arch-X64_ORCINUS.env
+    ln -sf $PROJECT/$USER/CANYONS/XIOS-ARCH/WESTGRID/arch-X64_ORCINUS.fcm
+    ln -sf $PROJECT/$USER/CANYONS/XIOS-ARCH/WESTGRID/arch-X64_ORCINUS.path
+    cd $PROJECT/$USER/CANYONS/XIOS-2
+    ./make_xios --arch X64_ORCINUS --job 8
+
+To build NEMO you will need an environment variable named :envvar:`XIOS_HOME` whose value is the absolute path to you :file:`XIOS-2` directory.
+For the :kbd:`CANYONS` project it is:
+
+.. code-block:: bash
+
+    XIOS_HOME=$PROJECT/$USER/CANYONS/XIOS-2
+
+You can add the line:
+
+.. code-block:: bash
+
+    export XIOS_HOME=$PROJECT/$USER/CANYONS/XIOS-2
+
+to your :file:`$HOME/.bash_profile` file if you want the :envvar:`XIOS_HOME` environment variable to be set automatically whenever you :command:`ssh` in.
+
+If you need to do a clean build of XIOS-2,
+you can use:
+
+.. code-block:: bash
+
+    cd $PROJECT/$USER/CANYONS/XIOS-2
+    ./tools/FCM/bin/fcm build --clean
+    ./make_xios --arch X64_ORCINUS --job 8
+
+to clear away all artifacts of the previous build and do a fresh one.
+
+
+.. _BuildXIOS-GEOTRACES-orcinus:
+
+:kbd:`GEOTRACES` on :kbd:`orcinus`
+----------------------------------
+
+.. code-block:: bash
+
+    cd $PROJECT/$USER/GEOTRACES/XIOS-2/arch
+    ln -sf $PROJECT/$USER/GEOTRACES/XIOS-ARCH/WESTGRID/arch-X64_ORCINUS.env
+    ln -sf $PROJECT/$USER/GEOTRACES/XIOS-ARCH/WESTGRID/arch-X64_ORCINUS.fcm
+    ln -sf $PROJECT/$USER/GEOTRACES/XIOS-ARCH/WESTGRID/arch-X64_ORCINUS.path
+    cd $PROJECT/$USER/GEOTRACES/XIOS-2
+    ./make_xios --arch X64_ORCINUS --job 8
+
+To build NEMO you will need an environment variable named :envvar:`XIOS_HOME` whose value is the absolute path to you :file:`XIOS-2` directory.
+For the :kbd:`GEOTRACES` project it is:
+
+.. code-block:: bash
+
+    XIOS_HOME=$PROJECT/$USER/GEOTRACES/XIOS-2
+
+You can add the line:
+
+.. code-block:: bash
+
+    export XIOS_HOME=$PROJECT/$USER/GEOTRACES/XIOS-2
+
+to your :file:`$HOME/.bash_profile` file if you want the :envvar:`XIOS_HOME` environment variable to be set automatically whenever you :command:`ssh` in.
+
+If you need to do a clean build of XIOS-2,
+you can use:
+
+.. code-block:: bash
+
+    cd $PROJECT/$USER/GEOTRACES/XIOS-2
+    ./tools/FCM/bin/fcm build --clean
+    ./make_xios --arch X64_ORCINUS --job 8
+
+to clear away all artifacts of the previous build and do a fresh one.
+
+
+.. _BuildXIOS-MEOPAR-orcinus:
+
+:kbd:`MEOPAR` on :kbd:`orcinus`
+-------------------------------
+
+.. code-block:: bash
+
+    cd $PROJECT/$USER/MEOPAR/XIOS-2/arch
+    ln -sf $PROJECT/$USER/MEOPAR/XIOS-ARCH/WESTGRID/arch-X64_ORCINUS.env
+    ln -sf $PROJECT/$USER/MEOPAR/XIOS-ARCH/WESTGRID/arch-X64_ORCINUS.fcm
+    ln -sf $PROJECT/$USER/MEOPAR/XIOS-ARCH/WESTGRID/arch-X64_ORCINUS.path
+    cd $PROJECT/$USER/MEOPAR/XIOS-2
+    ./make_xios --arch X64_ORCINUS --job 8
+
+To build NEMO you will need an environment variable named :envvar:`XIOS_HOME` whose value is the absolute path to you :file:`XIOS-2` directory.
+For the :kbd:`MEOPAR` project it is:
+
+.. code-block:: bash
+
+    XIOS_HOME=$PROJECT/$USER/MEOPAR/XIOS-2
+
+You can add the line:
+
+.. code-block:: bash
+
+    export XIOS_HOME=$PROJECT/$USER/MEOPAR/XIOS-2
+
+to your :file:`$HOME/.bash_profile` file if you want the :envvar:`XIOS_HOME` environment variable to be set automatically whenever you :command:`ssh` in.
+
+If you need to do a clean build of XIOS-2,
+you can use:
+
+.. code-block:: bash
+
+    cd $PROJECT/$USER/MEOPAR/XIOS-2
+    ./tools/FCM/bin/fcm build --clean
+    ./make_xios --arch X64_ORCINUS --job 8
+
+to clear away all artifacts of the previous build and do a fresh one.
+
+
+.. _BuildXIOS-CANYONS-salish:
+
+:kbd:`CANYONS` on :kbd:`salish`
+-------------------------------
+
+.. code-block:: bash
+
+    cd $PROJECT/$USER/CANYONS/XIOS-2/arch
+    ln -sf $PROJECT/$USER/CANYONS/XIOS-ARCH/UBC-EOAS/arch-GCC_SALISH.fcm
+    ln -sf $PROJECT/$USER/CANYONS/XIOS-ARCH/UBC-EOAS/arch-GCC_SALISH.path
+    cd $PROJECT/$USER/CANYONS/XIOS-2
+    ./make_xios --arch GCC_SALISH --netcdf_lib netcdf4_seq --job 8
+
+To build NEMO you will need an environment variable named :envvar:`XIOS_HOME` whose value is the absolute path to you :file:`XIOS-2` directory.
+For the :kbd:`CANYONS` project it is:
+
+.. code-block:: bash
+
+    XIOS_HOME=$PROJECT/$USER/CANYONS/XIOS-2
+
+You can add the line:
+
+.. code-block:: bash
+
+    export XIOS_HOME=$PROJECT/$USER/CANYONS/XIOS-2
+
+to your :file:`$HOME/.bash_profile` file if you want the :envvar:`XIOS_HOME` environment variable to be set automatically whenever you :command:`ssh` in.
+
+If you need to do a clean build of XIOS-2,
+you can use:
+
+.. code-block:: bash
+
+    cd $PROJECT/$USER/CANYONS/XIOS-2
+    ./tools/FCM/bin/fcm build --clean
+    ./make_xios --arch GCC_SALISH --netcdf_lib netcdf4_seq --job 8
+
+to clear away all artifacts of the previous build and do a fresh one.
+
+
+.. _BuildXIOS-GEOTRACES-salish:
+
+:kbd:`GEOTRACES` on :kbd:`salish`
+---------------------------------
+
+.. code-block:: bash
+
+    cd $PROJECT/$USER/GEOTRACES/XIOS-2/arch
+    ln -sf $PROJECT/$USER/GEOTRACES/XIOS-ARCH/UBC-EOAS/arch-GCC_SALISH.fcm
+    ln -sf $PROJECT/$USER/GEOTRACES/XIOS-ARCH/UBC-EOAS/arch-GCC_SALISH.path
+    cd $PROJECT/$USER/GEOTRACES/XIOS-2
+    ./make_xios --arch GCC_SALISH --netcdf_lib netcdf4_seq --job 8
+
+To build NEMO you will need an environment variable named :envvar:`XIOS_HOME` whose value is the absolute path to you :file:`XIOS-2` directory.
+For the :kbd:`GEOTRACES` project it is:
+
+.. code-block:: bash
+
+    XIOS_HOME=$PROJECT/$USER/GEOTRACES/XIOS-2
+
+You can add the line:
+
+.. code-block:: bash
+
+    export XIOS_HOME=$PROJECT/$USER/GEOTRACES/XIOS-2
+
+to your :file:`$HOME/.bash_profile` file if you want the :envvar:`XIOS_HOME` environment variable to be set automatically whenever you :command:`ssh` in.
+
+If you need to do a clean build of XIOS-2,
+you can use:
+
+.. code-block:: bash
+
+    cd $PROJECT/$USER/GEOTRACES/XIOS-2
+    ./tools/FCM/bin/fcm build --clean
+    ./make_xios --arch GCC_SALISH --netcdf_lib netcdf4_seq --job 8
+
+to clear away all artifacts of the previous build and do a fresh one.
+
+
+.. _BuildXIOS-MEOPAR-salish:
+
+:kbd:`MEOPAR` on :kbd:`salish`
+------------------------------
+
+.. code-block:: bash
+
+    cd $PROJECT/$USER/MEOPAR/XIOS-2/arch
+    ln -sf $PROJECT/$USER/MEOPAR/XIOS-ARCH/UBC-EOAS/arch-GCC_SALISH.fcm
+    ln -sf $PROJECT/$USER/MEOPAR/XIOS-ARCH/UBC-EOAS/arch-GCC_SALISH.path
+    cd $PROJECT/$USER/MEOPAR/XIOS-2
+    ./make_xios --arch GCC_SALISH --netcdf_lib netcdf4_seq --job 8
+
+To build NEMO you will need an environment variable named :envvar:`XIOS_HOME` whose value is the absolute path to you :file:`XIOS-2` directory.
+For the :kbd:`MEOPAR` project it is:
+
+.. code-block:: bash
+
+    XIOS_HOME=$PROJECT/$USER/MEOPAR/XIOS-2
+
+You can add the line:
+
+.. code-block:: bash
+
+    export XIOS_HOME=$PROJECT/$USER/MEOPAR/XIOS-2
+
+to your :file:`$HOME/.bash_profile` file if you want the :envvar:`XIOS_HOME` environment variable to be set automatically whenever you :command:`ssh` in.
+
+If you need to do a clean build of XIOS-2,
+you can use:
+
+.. code-block:: bash
+
+    cd $PROJECT/$USER/MEOPAR/XIOS-2
+    ./tools/FCM/bin/fcm build --clean
+    ./make_xios --arch GCC_SALISH --netcdf_lib netcdf4_seq --job 8
+
+to clear away all artifacts of the previous build and do a fresh one.
 
 
 .. _XIOS-2ConfigurationFiles:
