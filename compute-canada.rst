@@ -217,3 +217,8 @@ or you can add the above lines to your :file:`$HOME/.bashrc` file so that they a
 
    If you have trouble with cloning of some repositories repeatedly timing out,
    see the :ref:`WorkAroundForCloningTimeout` section of the :ref:`vc-with-hg` docs
+
+#. Follow the docs for the project you are working on to build :kbd:`XIOS-2`:
+
+   * For the MEOPAR SalishSeaCast project,
+     follow the :ref:`BuildXIOS-MEOPAR-beluga` docs
