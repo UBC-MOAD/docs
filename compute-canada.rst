@@ -222,3 +222,8 @@ or you can add the above lines to your :file:`$HOME/.bashrc` file so that they a
 
    * For the MEOPAR SalishSeaCast project,
      follow the :ref:`BuildXIOS-MEOPAR-beluga` docs
+
+#. Follow the docs for the project you are working on to build :kbd:`NEMO-3.6`:
+
+   * For the MEOPAR SalishSeaCast project,
+     follow the :ref:`salishseadocs:CompileNEMO-3.6-computecanada` docs
