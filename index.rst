@@ -23,6 +23,7 @@ This is documentation by and for members of the MOAD (Mesoscale Ocean and Atmosp
    compute-canada
    xios-2
    ariane
+   python_packaging/index
    contributing
    CONTRIBUTORS
 
