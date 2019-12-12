@@ -21,6 +21,7 @@ This is documentation by and for members of the MOAD (Mesoscale Ocean and Atmosp
 
    hg_version_control
    compute-canada
+   globus
    xios-2
    ariane
    python_packaging/index
