@@ -44,4 +44,5 @@ As an example, let's say you want to transfer files from graham to beluga. These
 #. While still on the panel on the right, click "Transfer or Sync to..." and the program will highlight the left panel.
 
 #. Press the blue Start button at the bottom of the screen. 
+
 Your files will start transferring and you'll receive an email when they're done!
