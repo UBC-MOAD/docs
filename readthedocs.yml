@@ -1,11 +1,10 @@
-# Configuration for builds on readthedocs.org
+version: 2
 
-formats:
-  # Only build HTML and JSON
-  - none
+# Only build HTML and JSON formats
+formats: []
+
+conda:
+  environment: environment.yaml
 
 build:
   image: latest
-
-python:
-  version: 3.6
