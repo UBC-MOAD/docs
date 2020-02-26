@@ -15,37 +15,37 @@ Contributing to These Docs
 .. image:: https://img.shields.io/badge/license-CC--BY-lightgrey.svg
     :target: http://creativecommons.org/licenses/by/4.0/
     :alt: Licensed under the Creative Commons Attribution 4.0 International License
-.. image:: https://img.shields.io/badge/version%20control-hg-blue.svg
-    :target: https://bitbucket.org/ubc_moad/docs/
-    :alt: Mercurial on Bitbucket
+.. image:: https://img.shields.io/badge/version%20control-git-blue.svg?logo=github
+    :target: https://github.com/UBC-MOAD/docs
+    :alt: Git on GitHub
 .. image:: https://readthedocs.org/projects/ubc-moad-docs/badge/?version=latest
     :target: https://ubc-moad-docs.readthedocs.io/en/latest/
     :alt: Documentation Status
-.. image:: https://img.shields.io/bitbucket/issues/ubc_moad/docs.svg
-    :target: https://bitbucket.org/ubc_moad/docs/issues?status=new&status=open
+.. image:: https://img.shields.io/github/issues/UBC-MOAD/docs?logo=github
+    :target: https://github.com/UBC-MOAD/docs/issues
     :alt: Issue Tracker
-.. image:: https://img.shields.io/badge/python-3.6-blue.svg
-    :target: https://docs.python.org/3.6/
+.. image:: https://img.shields.io/badge/python-3.6+-blue.svg
+    :target: https://docs.python.org/3.8/
     :alt: Python Version
 
 Additions,
 improvements,
 and corrections to these docs are *always* welcome.
 
-The quickest way to fix typos, etc. on existing pages is to use the :guilabel:`Edit on Bitbucket` link in the upper right corner of the page to get to the online editor for the page on `Bitbucket`_.
+The quickest way to fix typos, etc. on existing pages is to use the :guilabel:`Edit on GitHub` link in the upper right corner of the page to get to the online editor for the page on `GitHub`_.
 
 For more substantial work,
 and to add new pages,
 the instructions below explain how to:
 
-* clone the repository from `Bitbucket`_
+* clone the repository from `GitHub`_
 
-* set up a conda environment in which you can build the docs locally instead of having to push commits to Bitbucket to trigger a `build on readthedocs.org`_
+* set up a conda environment in which you can build the docs locally instead of having to push commits to GitHub to trigger a `build on readthedocs.org`_
 
 * build the docs with your changes,
   and preview them in Firefox
 
-.. _Bitbucket: https://bitbucket.org/UBC_MOAD/docs
+.. _GitHub: https://github.com/UBC-MOAD/docs
 .. _build on readthedocs.org: https://readthedocs.org/projects/ubc-moad-docs/builds/
 
 
@@ -54,29 +54,29 @@ the instructions below explain how to:
 Getting the Repo
 ================
 
-.. image:: https://img.shields.io/badge/version%20control-hg-blue.svg
-    :target: https://bitbucket.org/ubc_moad/docs/
-    :alt: Mercurial on Bitbucket
+.. image:: https://img.shields.io/badge/version%20control-git-blue.svg?logo=github
+    :target: https://github.com/UBC-MOAD/docs
+    :alt: Git on GitHub
 
-Clone the MOAD documentation `repository`_ from Bitbucket with:
+Clone the MOAD documentation `repository`_ from GitHub with:
 
-.. _repository: https://bitbucket.org/UBC_MOAD/docs
+.. _repository: https://github.com/UBC-MOAD/docs
 
 .. code-block:: bash
 
-    $ hg clone ssh://hg@bitbucket.org/UBC_MOAD/docs
+    $ git clone git@github.com:UBC-MOAD/docs.git
 
 or
 
 .. code-block:: bash
 
-    $ hg clone https://you_userid@bitbucket.org/UBC_MOAD/docs
+    $ git clone https://github.com/UBC-MOAD/docs.git
 
-if you don't have `ssh key authentication`_ set up on Bitbucket
-(replace :kbd:`you_userid` with you Bitbucket userid,
-or copy the link from the :guilabel:`Clone` action pop-up on the `repository`_ page).
+if you don't have `ssh key authentication`_ set up on GitHub
+(replace :kbd:`you_userid` with you GitHub userid,
+or copy the link from the :guilabel:`Clone or download` button on the `repository`_ page).
 
-.. _ssh key authentication: https://confluence.atlassian.com/bitbucket/set-up-an-ssh-key-728138079.html
+.. _ssh key authentication: https://help.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh
 
 
 .. _MOAD-DocsBuildEnvironment:
@@ -84,8 +84,8 @@ or copy the link from the :guilabel:`Clone` action pop-up on the `repository`_ p
 Docs Build Environment
 ======================
 
-.. image:: https://img.shields.io/badge/python-3.6-blue.svg
-    :target: https://docs.python.org/3.6/
+.. image:: https://img.shields.io/badge/python-3.6+-blue.svg
+    :target: https://docs.python.org/3.8/
     :alt: Python Version
 
 Setting up an isolated docs build environment using `Conda`_ is recommended.
@@ -182,8 +182,8 @@ To preview in Firefox from the command-line you can do:
 
     (moad-docs)$ firefox _build/html/index.html
 
-If you have write access to the `repository`_ on Bitbucket,
-whenever you push changes to Bitbucket the documentation is automatically re-built and rendered at https://ubc-moad-docs.readthedocs.io/en/latest/.
+If you have write access to the `repository`_ on GitHub,
+whenever you push changes to GitHub the documentation is automatically re-built and rendered at https://ubc-moad-docs.readthedocs.io/en/latest/.
 
 
 .. _MOAD-DocsLinkCheckingTheDocumentation:
@@ -254,13 +254,13 @@ The output looks something like::
 Version Control Repository
 ==========================
 
-.. image:: https://img.shields.io/badge/version%20control-hg-blue.svg
-    :target: https://bitbucket.org/ubc_moad/docs/
-    :alt: Mercurial on Bitbucket
+.. image:: https://img.shields.io/badge/version%20control-git-blue.svg?logo=github
+    :target: https://github.com/UBC-MOAD/docs
+    :alt: Git on GitHub
 
-The MOAD documentation source files are available as a `Mercurial`_ repository at https://bitbucket.org/ubc_moad/docs/.
+The MOAD documentation source files are available as a `Git`_ repository at https://github.com/UBC-MOAD/docs.
 
-.. _Mercurial: https://www.mercurial-scm.org/
+.. _Git: https://git-scm.com/
 
 
 .. _MOAD-DocsIssueTracker:
@@ -268,13 +268,13 @@ The MOAD documentation source files are available as a `Mercurial`_ repository a
 Issue Tracker
 =============
 
-.. image:: https://img.shields.io/bitbucket/issues/ubc_moad/docs.svg
-    :target: https://bitbucket.org/ubc_moad/docs/issues?status=new&status=open
+.. image:: https://img.shields.io/github/issues/UBC-MOAD/docs?logo=github
+    :target: https://github.com/UBC-MOAD/docs/issues
     :alt: Issue Tracker
 
 Documentation tasks,
 bug reports,
-and enhancement ideas are recorded and managed in the issue tracker at https://bitbucket.org/ubc_moad/docs/issues.
+and enhancement ideas are recorded and managed in the issue tracker at https://github.com/UBC-MOAD/docs/issues.
 
 
 License
@@ -286,6 +286,8 @@ License
 
 The UBC EOAS MOAD Group Documentation is copyright 2018-2020 by the `EOAS MOAD group`_ and The University of British Columbia.
 
-.. _EOAS MOAD group: https://bitbucket.org/UBC_MOAD/docs/src/tip/CONTRIBUTORS.rst
+.. _EOAS MOAD group: https://github.com/UBC-MOAD/docs/blob/master/CONTRIBUTORS.rst
 
-It is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/).
+It is licensed under a `Creative Commons Attribution 4.0 International License`_.
+
+_Creative Commons Attribution 4.0 International License: http://creativecommons.org/licenses/by/4.0/
