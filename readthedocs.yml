@@ -1,3 +1,5 @@
+# Configuration for builds on readthedocs.org
+
 version: 2
 
 # Only build HTML and JSON formats
