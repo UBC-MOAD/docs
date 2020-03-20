@@ -19,6 +19,7 @@ This is documentation by and for members of the MOAD (Mesoscale Ocean and Atmosp
    :maxdepth: 2
    :caption: Contents:
 
+   vcs_repos
    hg_version_control
    compute-canada
    globus
