@@ -230,7 +230,7 @@ The output looks something like::
   (line   24) ok        http://salishseacmd.readthedocs.io/en/latest/index.html#salishseacmdprocessor
   (line  169) ok        https://en.wikipedia.org/wiki/XML
   (line   15) ok        http://forge.ipsl.jussieu.fr/ioserver/wiki
-  (line   37) ok        https://bitbucket.org/salishsea/xios-arch
+  (line   37) ok        https://github.com/SalishSeaCast/XIOS-ARCH
   (line  201) ok        https://www.xmlvalidation.com/
   (line   37) ok        http://forge.ipsl.jussieu.fr/ioserver/wiki
   (line  233) ok        https://salishseacmd.readthedocs.io/en/latest/run_description_file/3.6_yaml_file.html#output-section

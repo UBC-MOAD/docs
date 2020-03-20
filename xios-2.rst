@@ -39,7 +39,7 @@ Our XIOS-2 code repo is accessible only by members of the MOAD group so as to re
 The architecture file repo is public so that other researchers can make use of the build system options that we have figured out for various system.
 
 .. _XIOS-2 code: https://bitbucket.org/salishsea/xios-2
-.. _build configuration files: https://bitbucket.org/salishsea/xios-arch
+.. _build configuration files: https://github.com/SalishSeaCast/XIOS-ARCH
 
 To get the XIOS-2 code and build configuration files repos you need to clone them into you research project directory
 (typically one of :file:`MEOPAR/`,
@@ -56,7 +56,7 @@ Here are some examples of commands to do that on various platforms that we use.
 
     cd $PROJECT/$USER/GEOTRACES
     hg clone ssh://hg@bitbucket.org/salishsea/xios-2 XIOS-2
-    hg clone ssh://hg@bitbucket.org/salishsea/xios-arch XIOS-ARCH
+    git clone git@github.com:SalishSeaCast/XIOS-ARCH.git
 
 
 :kbd:`orcinus`
@@ -66,7 +66,7 @@ Here are some examples of commands to do that on various platforms that we use.
 
     cd $HOME/MEOPAR
     hg clone ssh://hg@bitbucket.org/salishsea/xios-2 XIOS-2
-    hg clone ssh://hg@bitbucket.org/salishsea/xios-arch XIOS-ARCH
+    git clone git@github.com:SalishSeaCast/XIOS-ARCH.git
 
 
 :kbd:`salish`
@@ -76,7 +76,7 @@ Here are some examples of commands to do that on various platforms that we use.
 
     cd /data/$USER/CANYONS
     hg clone ssh://hg@bitbucket.org/salishsea/xios-2 XIOS-2
-    hg clone ssh://hg@bitbucket.org/salishsea/xios-arch XIOS-ARCH
+    git clone git@github.com:SalishSeaCast/XIOS-ARCH.git
 
 
 .. _BuildingXIOS-2:
