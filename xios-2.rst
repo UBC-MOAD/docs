@@ -220,9 +220,9 @@ to clear away all artifacts of the previous build and do a fresh one.
 .. code-block:: bash
 
     cd $PROJECT/$USER/CANYONS/XIOS-2/arch
-    ln -sf $PROJECT/$USER/CANYONS/XIOS-ARCH/WESTGRID/arch-X64_CEDAR.env
-    ln -sf $PROJECT/$USER/CANYONS/XIOS-ARCH/WESTGRID/arch-X64_CEDAR.fcm
-    ln -sf $PROJECT/$USER/CANYONS/XIOS-ARCH/WESTGRID/arch-X64_CEDAR.path
+    ln -sf $PROJECT/$USER/CANYONS/XIOS-ARCH/COMPUTECANADA/arch-X64_CEDAR.env
+    ln -sf $PROJECT/$USER/CANYONS/XIOS-ARCH/COMPUTECANADA/arch-X64_CEDAR.fcm
+    ln -sf $PROJECT/$USER/CANYONS/XIOS-ARCH/COMPUTECANADA/arch-X64_CEDAR.path
     cd $PROJECT/$USER/CANYONS/XIOS-2
     ./make_xios --arch X64_CEDAR --job 8
 
@@ -261,9 +261,9 @@ to clear away all artifacts of the previous build and do a fresh one.
 .. code-block:: bash
 
     cd $PROJECT/$USER/GEOTRACES/XIOS-2/arch
-    ln -sf $PROJECT/$USER/GEOTRACES/XIOS-ARCH/WESTGRID/arch-X64_CEDAR.env
-    ln -sf $PROJECT/$USER/GEOTRACES/XIOS-ARCH/WESTGRID/arch-X64_CEDAR.fcm
-    ln -sf $PROJECT/$USER/GEOTRACES/XIOS-ARCH/WESTGRID/arch-X64_CEDAR.path
+    ln -sf $PROJECT/$USER/GEOTRACES/XIOS-ARCH/COMPUTECANADA/arch-X64_CEDAR.env
+    ln -sf $PROJECT/$USER/GEOTRACES/XIOS-ARCH/COMPUTECANADA/arch-X64_CEDAR.fcm
+    ln -sf $PROJECT/$USER/GEOTRACES/XIOS-ARCH/COMPUTECANADA/arch-X64_CEDAR.path
     cd $PROJECT/$USER/GEOTRACES/XIOS-2
     ./make_xios --arch X64_CEDAR --job 8
 
@@ -302,9 +302,9 @@ to clear away all artifacts of the previous build and do a fresh one.
 .. code-block:: bash
 
     cd $PROJECT/$USER/MEOPAR/XIOS-2/arch
-    ln -sf $PROJECT/$USER/MEOPAR/XIOS-ARCH/WESTGRID/arch-X64_CEDAR.env
-    ln -sf $PROJECT/$USER/MEOPAR/XIOS-ARCH/WESTGRID/arch-X64_CEDAR.fcm
-    ln -sf $PROJECT/$USER/MEOPAR/XIOS-ARCH/WESTGRID/arch-X64_CEDAR.path
+    ln -sf $PROJECT/$USER/MEOPAR/XIOS-ARCH/COMPUTECANADA/arch-X64_CEDAR.env
+    ln -sf $PROJECT/$USER/MEOPAR/XIOS-ARCH/COMPUTECANADA/arch-X64_CEDAR.fcm
+    ln -sf $PROJECT/$USER/MEOPAR/XIOS-ARCH/COMPUTECANADA/arch-X64_CEDAR.path
     cd $PROJECT/$USER/MEOPAR/XIOS-2
     ./make_xios --arch X64_CEDAR --job 8
 
@@ -343,9 +343,9 @@ to clear away all artifacts of the previous build and do a fresh one.
 .. code-block:: bash
 
     cd $PROJECT/$USER/CANYONS/XIOS-2/arch
-    ln -sf $PROJECT/$USER/CANYONS/XIOS-ARCH/WESTGRID/arch-X64_GRAHAM.env
-    ln -sf $PROJECT/$USER/CANYONS/XIOS-ARCH/WESTGRID/arch-X64_GRAHAM.fcm
-    ln -sf $PROJECT/$USER/CANYONS/XIOS-ARCH/WESTGRID/arch-X64_GRAHAM.path
+    ln -sf $PROJECT/$USER/CANYONS/XIOS-ARCH/COMPUTECANADA/arch-X64_GRAHAM.env
+    ln -sf $PROJECT/$USER/CANYONS/XIOS-ARCH/COMPUTECANADA/arch-X64_GRAHAM.fcm
+    ln -sf $PROJECT/$USER/CANYONS/XIOS-ARCH/COMPUTECANADA/arch-X64_GRAHAM.path
     cd $PROJECT/$USER/CANYONS/XIOS-2
     ./make_xios --arch X64_GRAHAM --job 8
 
@@ -384,9 +384,9 @@ to clear away all artifacts of the previous build and do a fresh one.
 .. code-block:: bash
 
     cd $PROJECT/$USER/GEOTRACES/XIOS-2/arch
-    ln -sf $PROJECT/$USER/GEOTRACES/XIOS-ARCH/WESTGRID/arch-X64_GRAHAM.env
-    ln -sf $PROJECT/$USER/GEOTRACES/XIOS-ARCH/WESTGRID/arch-X64_GRAHAM.fcm
-    ln -sf $PROJECT/$USER/GEOTRACES/XIOS-ARCH/WESTGRID/arch-X64_GRAHAM.path
+    ln -sf $PROJECT/$USER/GEOTRACES/XIOS-ARCH/COMPUTECANADA/arch-X64_GRAHAM.env
+    ln -sf $PROJECT/$USER/GEOTRACES/XIOS-ARCH/COMPUTECANADA/arch-X64_GRAHAM.fcm
+    ln -sf $PROJECT/$USER/GEOTRACES/XIOS-ARCH/COMPUTECANADA/arch-X64_GRAHAM.path
     cd $PROJECT/$USER/GEOTRACES/XIOS-2
     ./make_xios --arch X64_GRAHAM --job 8
 
@@ -425,9 +425,9 @@ to clear away all artifacts of the previous build and do a fresh one.
 .. code-block:: bash
 
     cd $PROJECT/$USER/MEOPAR/XIOS-2/arch
-    ln -sf $PROJECT/$USER/MEOPAR/XIOS-ARCH/WESTGRID/arch-X64_GRAHAM.env
-    ln -sf $PROJECT/$USER/MEOPAR/XIOS-ARCH/WESTGRID/arch-X64_GRAHAM.fcm
-    ln -sf $PROJECT/$USER/MEOPAR/XIOS-ARCH/WESTGRID/arch-X64_GRAHAM.path
+    ln -sf $PROJECT/$USER/MEOPAR/XIOS-ARCH/COMPUTECANADA/arch-X64_GRAHAM.env
+    ln -sf $PROJECT/$USER/MEOPAR/XIOS-ARCH/COMPUTECANADA/arch-X64_GRAHAM.fcm
+    ln -sf $PROJECT/$USER/MEOPAR/XIOS-ARCH/COMPUTECANADA/arch-X64_GRAHAM.path
     cd $PROJECT/$USER/MEOPAR/XIOS-2
     ./make_xios --arch X64_GRAHAM --job 8
 
