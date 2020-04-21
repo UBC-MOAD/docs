@@ -236,10 +236,10 @@ The output looks something like::
   (line   37) redirect  https://bitbucket.org/salishsea/xios-2 - with Found to https://bitbucket.org/socialauth/login/atlassianid/?next=%2Fsalishsea%2Fxios-2
   (line  233) ok        https://nemo-cmd.readthedocs.io/en/latest/run_description_file/3.6_yaml_file.html#output-section
   (line  387) ok        http://cfconventions.org/Data/cf-standard-names/29/build/cf-standard-name-table.html
-  (line  212) ok        https://bitbucket.org/salishsea/ss-run-sets
+  (line  212) ok        https://github.com/SalishSeaCast/SS-run-sets
   (line  212) redirect  https://bitbucket.org/salishsea/nemo-3.6-code - with Found to https://bitbucket.org/socialauth/login/atlassianid/?next=%2Fsalishsea%2Fnemo-3.6-code
-  (line  398) ok        https://bitbucket.org/salishsea/ss-run-sets/src/tip/v201702/
-  (line  411) ok        https://bitbucket.org/salishsea/ss-run-sets/src/tip/v201702/
+  (line  398) ok        https://github.com/SalishSeaCast/SS-run-sets/tree/master/v201702
+  (line  411) ok        https://github.com/SalishSeaCast/SS-run-sets/tree/master/v201702
   (line  285) ok        http://forge.ipsl.jussieu.fr/ioserver/raw-attachment/wiki/WikiStart/XIOS_user_guide.pdf
   (line  356) ok        http://forge.ipsl.jussieu.fr/ioserver/raw-attachment/wiki/WikiStart/XIOS_user_guide.pdf
 

@@ -758,7 +758,7 @@ put copies of the XML files that you want to change under version control in you
 (for example, the `SS-run-sets`_ repo for people working on MEOPAR).
 
 .. _NEMO-3.6-code: https://bitbucket.org/salishsea/nemo-3.6-code
-.. _SS-run-sets: https://bitbucket.org/salishsea/ss-run-sets
+.. _SS-run-sets: https://github.com/SalishSeaCast/SS-run-sets
 
 
 .. _CommandProcessorsAndXML-Files:
@@ -945,7 +945,7 @@ etc.
 In addition to :file:`NEMO-3.6-code/NEMOGCM/CONFIG/SHARED/field_def.xml`,
 there are examples of :file:`field_def.xml` files in the `SS-run-sets/v201702/`_ directory tree.
 
-.. _SS-run-sets/v201702/: https://bitbucket.org/salishsea/ss-run-sets/src/tip/v201702/
+.. _SS-run-sets/v201702/: https://github.com/SalishSeaCast/SS-run-sets/tree/master/v201702
 
 
 .. _domain_def.xmlFile:
@@ -1055,7 +1055,7 @@ The extent of the sub-domain is defined by counts of grid points in the :kbd:`ni
 In addition to :file:`NEMO-3.6-code/NEMOGCM/CONFIG/SHARED/domain_def.xml`,
 there are examples of :file:`domain_def.xml` files in the `SS-run-sets/v201702/`_ directory tree.
 
-.. _SS-run-sets/v201702/: https://bitbucket.org/salishsea/ss-run-sets/src/tip/v201702/
+.. _SS-run-sets/v201702/: https://github.com/SalishSeaCast/SS-run-sets/tree/master/v201702
 
 
 .. _SwitchingFromXIOS-1toXIOS-2:
