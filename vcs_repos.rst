@@ -26,9 +26,15 @@ General Guidelines
   or use feature branches and GitHub pull requests as they see fit.
   External contributors should fork repos and create pull requests to provide changes so that they are reviewed.
 
-* Many repos have issue trackers enabled on GitHub
+* All repos have issue trackers on GitHub.
+  Please use the issue trackers to report bugs,
+  suggest changes,
+  etc.
 
-* GitHub wikis are disabled on all repos to force documentation into repo docs directories
+* Please *do not* use GitHub wikis.
+  Instead,
+  please write documentation into :file:`docs` repos,
+  or in the :file:`docs/` directories of Python package repos.
 
 * Docs use Sphinx_
 
