@@ -45,7 +45,7 @@ References
     #. We rely heavily on `"Editable" Installs`_
        (also known as `setuptools develop mode`_).
        That is,
-       we install our packages from Mercurial clones of the repositories using the :command:`pip install --editable`
+       we install our packages from Mercurial clones of the repositories using the :command:`python3 -m pip install --editable`
        (or :command:`pip install -e`) command.
        That makes the workflow for getting updates into our installed packages a simple :command:`hg pull --rebase` in the package repository clone directory.
 
@@ -61,7 +61,7 @@ References
 
     #. On HPC clusters we use the system-provided Python 3 module and install our packages using the `"user scheme" for installation`_ in combination with `"Editable" Installs`_,
        that is,
-       :command:`pip install --user -e`.
+       :command:`python3 -m pip install --user -e`.
 
        .. _"user scheme" for installation: https://packaging.python.org/tutorials/installing-packages/#installing-to-the-user-site
 
@@ -226,7 +226,7 @@ looks like:
         retrying
         scipy
         xarray
-        ; pip install --editable ../tools/SalishSeaTools
+        ; python3 -m pip install --editable ../tools/SalishSeaTools
 
 
 .. _PkgSetupPyFile:
@@ -519,8 +519,8 @@ the :file:`environment-dev.yaml` file for the `rpn-to-gemlam tool`_ package look
     #
     #   $ conda env create -f rpn-to-gemlam/environment-dev.yaml
     #   $ conda activate rpn-to-gemlam
-    #   (rpn-to-gemlam)$ pip install --editable ../tools/SalishSeaTools
-    #   (rpn-to-gemlam)$ pip install --editable rpn-to-gemlam
+    #   (rpn-to-gemlam)$ python3 -m pip install --editable ../tools/SalishSeaTools
+    #   (rpn-to-gemlam)$ python3 -m pip install --editable rpn-to-gemlam
     #
     # The environment will include all of the tools used to develop,
     # test, and document the rpn-to-gemlam package.
@@ -656,7 +656,7 @@ Discussion by the Python Packaging Authority of how to resolve this issue is ong
 
 The :file:`src/` layout advocated by `Hynek Schlawack's Testing & Packaging blog post`_ and `Ionel Cristian Mărieș's Packaging a python library blog post`_ was rejected pending a strong recommendation in its favour by the Python Packaging Authority and support for it in packaging tools like `the Flit packaging and publisher tool`_.
 
-The benefits that :file:`src/` layout provides are not important to us because always install our group-developed packages via :command:`pip install -e`,
+The benefits that :file:`src/` layout provides are not important to us because always install our group-developed packages via :command:`python3 -m pip install -e`,
 and we don't use `tox`_ to test our packages with different Python versions and interpreters.
 
 .. _tox: https://tox.readthedocs.io/en/latest/
