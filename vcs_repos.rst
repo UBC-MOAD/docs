@@ -8,8 +8,9 @@
 
 .. _team-repos:
 
+****************************
 Version Control Repositories
-============================
+****************************
 
 Our Git version control repositories are collected in organizations on GitHub:
 
@@ -17,15 +18,9 @@ Our Git version control repositories are collected in organizations on GitHub:
 * https://github.com/SalishSeaCast/
 * https://github.com/MIDOSS/
 
-In early 2020 we are in the process of migrating all of our Mercurial repositories from Bitbucket to Git repositories on GitHub due to Bitbucket's decision to end support for Mercurial.
-While they still exist,
-our Mercurial repositories are collected in teams on Bitbucket:
 
-* https://bitbucket.org/UBC_MOAD/
-* https://bitbucket.org/SalishSea-MEOPAR/
-* https://bitbucket.org/CanyonsUBC/
-* https://bitbucket.org/CCAR-modeling/
-* https://bitbucket.org/MIDOSS/
+General Guidelines
+==================
 
 * People in the group are free to push changes to :kbd:`master` branches,
   or use feature branches and GitHub pull requests as they see fit.
