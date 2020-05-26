@@ -3,7 +3,7 @@
 ..
 .. Licensed under a Creative Commons Attribution 4.0 International License
 ..
-..   http://creativecommons.org/licenses/by/4.0/
+..   https://creativecommons.org/licenses/by/4.0/
 
 
 .. _MOAD-DocsContributing:
@@ -13,7 +13,7 @@ Contributing to These Docs
 **************************
 
 .. image:: https://img.shields.io/badge/license-CC--BY-lightgrey.svg
-    :target: http://creativecommons.org/licenses/by/4.0/
+    :target: https://creativecommons.org/licenses/by/4.0/
     :alt: Licensed under the Creative Commons Attribution 4.0 International License
 .. image:: https://img.shields.io/badge/version%20control-git-blue.svg?logo=github
     :target: https://github.com/UBC-MOAD/docs
@@ -280,7 +280,7 @@ License
 =======
 
 .. image:: https://img.shields.io/badge/license-CC--BY-lightgrey.svg
-    :target: http://creativecommons.org/licenses/by/4.0/
+    :target: https://creativecommons.org/licenses/by/4.0/
     :alt: Licensed under the Creative Commons Attribution 4.0 International License
 
 The UBC EOAS MOAD Group Documentation is copyright 2018-2020 by the `EOAS MOAD group`_ and The University of British Columbia.
@@ -289,4 +289,4 @@ The UBC EOAS MOAD Group Documentation is copyright 2018-2020 by the `EOAS MOAD g
 
 It is licensed under a `Creative Commons Attribution 4.0 International License`_.
 
-.. _Creative Commons Attribution 4.0 International License: http://creativecommons.org/licenses/by/4.0/
+.. _Creative Commons Attribution 4.0 International License: https://creativecommons.org/licenses/by/4.0/
