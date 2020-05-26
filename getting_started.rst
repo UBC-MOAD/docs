@@ -3,7 +3,7 @@
 ..
 .. Licensed under a Creative Commons Attribution 4.0 International License
 ..
-..   http://creativecommons.org/licenses/by/4.0/
+..   https://creativecommons.org/licenses/by/4.0/
 
 
 .. _GettingStarted:
@@ -31,6 +31,7 @@ please create an issue about it in the `issue tracker on GitHub`_.
 Here's the Getting Started checklist:
 
 #. :ref:`GetSetUpOnGitHub`
+#. :ref:`GetComputeCanadaAccount`
 
 
 .. _GetSetUpOnGitHub:
@@ -47,3 +48,13 @@ Doug will probably also invite you to at least one of the other project-specific
 
 .. _GitHub: https://github.com/
 .. _UBC-MOAD GitHub organization: https://github.com/UBC-MOAD
+
+
+.. _GetComputeCanadaAccount:
+
+Get a Compute Canada Account
+============================
+
+You will need to have an :kbd:`eoas.ubc.ca` email address,
+and Susan's Compute Canada CCRI code before you can :ref:`CreateComputeCanadaAccount`.
+
