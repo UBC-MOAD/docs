@@ -289,4 +289,4 @@ The UBC EOAS MOAD Group Documentation is copyright 2018-2020 by the `EOAS MOAD g
 
 It is licensed under a `Creative Commons Attribution 4.0 International License`_.
 
-_Creative Commons Attribution 4.0 International License: http://creativecommons.org/licenses/by/4.0/
+.. _Creative Commons Attribution 4.0 International License: http://creativecommons.org/licenses/by/4.0/
