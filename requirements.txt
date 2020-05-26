@@ -1,35 +1,38 @@
 # Python packages and versions used in recent docs development environment
 #
 # Create/update this file with:
-#   (moad-docs)$ python3 -m pip freeze --path $CONDA_PREFIX/lib/python3*/site-packages >> requirements.txt
+#   (moad-docs)$ python3 -m pip list --format=freeze >> requirements.txt
 
 alabaster==0.7.12
 Babel==2.8.0
-certifi==2019.11.28
-cffi==1.13.2
+certifi==2020.4.5.1
+cffi==1.14.0
 chardet==3.0.4
-cryptography==2.8
+cryptography==2.9.2
 docutils==0.16
 idna==2.9
 imagesize==1.2.0
-Jinja2==2.11.1
+Jinja2==2.11.2
 MarkupSafe==1.1.1
-packaging==20.1
-pycparser==2.19
-Pygments==2.5.2
+packaging==20.3
+pip==20.0.2
+pycparser==2.20
+Pygments==2.6.1
 pyOpenSSL==19.1.0
-pyparsing==2.4.6
+pyparsing==2.4.7
 PySocks==1.7.1
-pytz==2019.3
+pytz==2020.1
 requests==2.23.0
+setuptools==46.4.0.post20200518
 six==1.14.0
 snowballstemmer==2.0.0
-Sphinx==2.4.3
+Sphinx==3.0.3
 sphinx-rtd-theme==0.4.3
-sphinxcontrib-applehelp==1.0.1
-sphinxcontrib-devhelp==1.0.1
+sphinxcontrib-applehelp==1.0.2
+sphinxcontrib-devhelp==1.0.2
 sphinxcontrib-htmlhelp==1.0.3
 sphinxcontrib-jsmath==1.0.1
-sphinxcontrib-qthelp==1.0.2
-sphinxcontrib-serializinghtml==1.1.3
-urllib3==1.25.7
+sphinxcontrib-qthelp==1.0.3
+sphinxcontrib-serializinghtml==1.1.4
+urllib3==1.25.8
+wheel==0.34.2
