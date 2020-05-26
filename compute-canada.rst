@@ -76,7 +76,7 @@ These are the setup steps that you need to do when you start using :kbd:`beluga`
    which is convenient if it differs from your EOAS user id.
 
    The last line enables agent forwarding so that authentication requests received on the remote system are passed back to your Waterhole machine for handling.
-   That means that connections to Bitbucket (for instance) in your session on :kbd:`beluga` will be authenticated by your Waterhole machine.
+   That means that connections to GitHub (for instance) in your session on :kbd:`beluga` will be authenticated by your Waterhole machine.
    So,
    after you type your :command:`ssh` key passphrase into your Waterhole machine once,
    you should not have to type it again until you log off and log in again.

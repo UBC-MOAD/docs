@@ -34,15 +34,15 @@ References
 Getting Ariane
 ==============
 
-The MOAD group maintains our own Mercurial repository on Bitbucket of the Ariane code base; this repository is accessible only by members of the MOAD group so as to respect the sign-up requirement of the upstream Ariane repository. The general Ariane code is available via the `Ariane website`_ . Modifications made by the MOAD group to the Ariane source code can be found on `Bitbucket`_. To download the MOAD Ariane code base, clone the repository from Bitbucket to your $PROJECT space:
+The MOAD group maintains our own Mercurial repository on GitHub of the Ariane code base; this repository is accessible only by members of the MOAD group so as to respect the sign-up requirement of the upstream Ariane repository. The general Ariane code is available via the `Ariane website`_ . Modifications made by the MOAD group to the Ariane source code can be found on `GitHub`_. To download the MOAD Ariane code base, clone the repository from GitHub to your $PROJECT space:
 
 .. _Ariane website: http://stockage.univ-brest.fr/~grima/Ariane/download.php
-.. _Bitbucket: http://www.bitbucket.org/UBC_MOAD/ariane-2.2.8-code
+.. _GitHub: https://github.com/UBC-MOAD/ariane-2.2.8-code
 
 .. code-block:: bash
 
     cd /ocean/$USER/$PROJECT/
-    hg clone ssh://hg@bitbucket.org/UBC_MOAD/ariane-2.2.8-code
+    git clone git@github.com:UBC-MOAD/ariane-2.2.8-code.git
 
 
 Installing on :kbd:`salish`
