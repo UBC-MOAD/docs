@@ -22,7 +22,6 @@ This is documentation by and for members of the MOAD (Mesoscale Ocean and Atmosp
    getting_started
    vcs_repos
    hg_version_control
-   computecanada_acct
    compute-canada
    globus
    xios-2

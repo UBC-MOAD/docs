@@ -16,7 +16,7 @@ Working on Compute Canada Clusters
 
 .. _Compute Canada: https://www.computecanada.ca/
 
-Before you can use Compute Canada compute clusters and high capacity storage resources you need to :ref:`ComputeCanadaAccount`.
+Before you can use Compute Canada compute clusters and high capacity storage resources you need to :ref:`CreateComputeCanadaAccount`.
 You only need to do that once when you join the MOAD group,
 no matter how many different compute clusters you end up working on.
 
@@ -29,24 +29,29 @@ There are instructions below for each cluster that we use:
   see
 
 
-.. _ComputeCanadaAccount:
+.. _CreateComputeCanadaAccount:
 
 Create Compute Canada & WestGrid Accounts
 =========================================
 
-WestGrid is a computing resource shared by western Canadian universities. We use WestGrid for computationally intensive simulations. The large number of processors available often reduces simulation run-time considerably.
+`Compute Canada`_ is the national network of shared advanced research computing (ARC) and storage that we use for most of our ocean model calculations.
+`WestGrid`_ is the regional organization that coordinates the western Canadian universities partnership with Compute Canada.
 
-Compute Canada is an organization coordinating access to computing resources provided by WestGrid and three other regional HPC consortia (Compute Ontario, Calcul Québec, and ACENET).
+.. _Compute Canada: https://www.computecanada.ca/
+.. _WestGrid: https://www.westgrid.ca/
 
-In order to use those resources you need to create Compute Canada and WestGrid accounts.
-To create those accounts follow the steps on this page:
-
-https://www.westgrid.ca/support/accounts/registering_ccdb .
+To access Compute Canada and WestGrid compute clusters and storage you need to register a Compute Canada account at https://ccdb.computecanada.ca/account_application.
+To do so you will need an :kbd:`eoas.ubc.ca` email address,
+and Susan's Compute Canada CCRI code.
 
 .. note::
    When prompted to select an institution, choose :kbd:`WestGrid: University of British Columbia`.
 
-   If you are creating an account as a sponsored user ask your supervisor for their CCRI code.
+There are detailed information about the account creation process,
+and step by step instructions
+(with screenshots)
+for completing it at
+https://www.computecanada.ca/research-portal/account-management/apply-for-an-account/
 
 
 .. _InitialSetupOnBeluga:

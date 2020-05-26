@@ -52,8 +52,8 @@ Doug will probably also invite you to at least one of the other project-specific
 
 .. _GetComputeCanadaAccount:
 
-Get a Compute Canada Account
-============================
+Get Compute Canada Account & WestGrid Accounts
+==============================================
 
 You will need to have an :kbd:`eoas.ubc.ca` email address,
 and Susan's Compute Canada CCRI code before you can :ref:`CreateComputeCanadaAccount`.
