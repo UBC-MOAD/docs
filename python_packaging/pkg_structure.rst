@@ -57,7 +57,7 @@ References
        or project-specific environments.
 
        .. _conda environments: https://docs.conda.io/projects/conda/en/latest/
-       .. _Anaconda Python distribution: https://www.anaconda.com/distribution/
+       .. _Anaconda Python distribution: https://www.anaconda.com/products/individual
 
     #. On HPC clusters we use the system-provided Python 3 module and install our packages using the `"user scheme" for installation`_ in combination with `"Editable" Installs`_,
        that is,
@@ -116,7 +116,7 @@ The 4 sub-directories are:
 * :ref:`PkgPackageCodeSubDirectory` that contains the code modules
 * :ref:`PkgDocsSubDirectory` that contains the `Sphinx`_ source files for the package documentation
 
-  .. _Sphinx: https://www.sphinx-doc.org/
+  .. _Sphinx: https://www.sphinx-doc.org/en/master/
 
 * :ref:`PkgEnvSubDirectory` that contains the `conda environments`_ description YAML files for the package development and docs building environments,
   and a :file:`requirements.txt` file that records the full list of packages and their versions used for recent development work

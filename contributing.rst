@@ -91,9 +91,9 @@ Setting up an isolated docs build environment using `Conda`_ is recommended.
 Assuming that you have the `Anaconda Python Distribution`_ or `Miniconda3`_ installed,
 you can create and activate an environment called :kbd:`moad-docs` that will have all of the Python packages necessary for building the documentation with the commands:
 
-.. _Conda: https://conda.io/docs/
-.. _Anaconda Python Distribution: https://www.anaconda.com/download/
-.. _Miniconda3: https://conda.io/docs/install/quick.html
+.. _Conda: https://conda.io/en/latest/
+.. _Anaconda Python Distribution: https://www.anaconda.com/products/individual
+.. _Miniconda3: https://docs.conda.io/en/latest/miniconda.html
 
 .. code-block:: bash
 
@@ -139,8 +139,8 @@ Building the documentation is driven by the :file:`docs/Makefile`.
 With your :kbd:`moad-docs` environment activated,
 use:
 
-.. _reStructuredText: http://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html
-.. _Sphinx: http://www.sphinx-doc.org/en/master/
+.. _reStructuredText: https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html
+.. _Sphinx: https://www.sphinx-doc.org/en/master/
 
 .. code-block:: bash
 

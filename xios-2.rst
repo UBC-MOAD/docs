@@ -756,7 +756,7 @@ Instead,
 put copies of the XML files that you want to change under version control in your runs configuration repo
 (for example, the `SS-run-sets`_ repo for people working on MEOPAR).
 
-.. _NEMO-3.6-code: https://bitbucket.org/salishsea/nemo-3.6-code
+.. _NEMO-3.6-code: https://github.com/SalishSeaCast/NEMO-3.6-code
 .. _SS-run-sets: https://github.com/SalishSeaCast/SS-run-sets
 
 

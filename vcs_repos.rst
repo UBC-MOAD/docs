@@ -38,7 +38,7 @@ General Guidelines
 
 * Docs use Sphinx_
 
-  .. _Sphinx: http://sphinx-doc.org/
+  .. _Sphinx: https://www.sphinx-doc.org/en/master/
 
 * Docs from public repos will be rendered as HTML on readthedocs.org.
 
