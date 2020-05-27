@@ -80,13 +80,13 @@ the directories and files layout of a MOAD package looks like::
   │   ├── ...
   │   └── _static/
   │       ├── ...
-  ├── env/
+  ├── envs/
   │   ├── environment-dev.yaml
   │   ├── environment-rtd.yaml
-  │   └── requirements.txt
   ├── LICENSE
   ├── README.rst
   ├── readthedocs.yml
+  ├── requirements.txt
   ├── rpn_to_gemlam/
   │   ├── __init__.py
   │   ├── ...
@@ -100,9 +100,9 @@ In summary
 
 * the :ref:`PkgTopLevelDirectory` is a clone of the package's Mercurial repository.
 
-It typically contains 5 files and 4 sub-directories.
+It typically contains 6 files and 4 sub-directories.
 
-The 5 files are:
+The 6 files are:
 
 * :ref:`PkgSetupCfgFile` that contains the package metadata and :kbd:`setuptools` options for creation of the package
 * :ref:`PkgSetupPyFile` that is the Python module that the :kbd:`setuptools` packaging utility uses to create the package,
@@ -110,6 +110,7 @@ The 5 files are:
 * :ref:`PkgReadmeRstFile` that provides the long description of the package
 * :ref:`PkgLicenseFile` that contains the legal text of the Apache License, Version 2.0 license for the package
 * :ref:`PkgReadthedocsYmlFile` that provides configuration for building the docs to the https://readthedocs.org service
+* :ref:`RequirementsTxtFile` that records the full list of packages and their versions used for recent development work
 
 The 4 sub-directories are:
 
@@ -118,8 +119,7 @@ The 4 sub-directories are:
 
   .. _Sphinx: https://www.sphinx-doc.org/en/master/
 
-* :ref:`PkgEnvSubDirectory` that contains the `conda environments`_ description YAML files for the package development and docs building environments,
-  and a :file:`requirements.txt` file that records the full list of packages and their versions used for recent development work
+* :ref:`PkgEnvsSubDirectory` that contains the `conda environments`_ description YAML files for the package development and docs building environments,
 * :ref:`PkgTestsSubDirectory` that contains the unit test suite for the package
 
 The :file:`__init__.py` file in the :ref:`PkgPackageCodeSubDirectory` provides the package version identifier string as a variable named :py:obj:`__version__`.
@@ -325,7 +325,7 @@ we include a :file:`readthedocs.yml` file in the top-level directory
 (the file name and location are stipulated by readthedocs).
 That file `declares the features of the environment`_ that we want readthedocs to use to build our docs,
 specifically,
-a conda environment that we describe in the :file:`env/environment-rtd.yaml` file
+a conda environment that we describe in the :file:`envs/environment-rtd.yaml` file
 (described below),
 and the most recent version of Python.
 
@@ -345,10 +345,22 @@ and looks like:
       version: 3.7
 
     conda:
-      environment: env/environment-rtd.yaml
+      environment: envs/environment-rtd.yaml
 
     build:
       image: latest
+
+
+.. _RequirementsTxtFile:
+
+:file:`requirements.txt` File
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The :file:`requirements.txt` file records the full list of packages and their versions used for recent development work.
+It is generated using the :command:`python3 -m pip list --format=freeze` command.
+When new package dependenies are added to the project,
+or the dev environment is updated via :command:`conda update --all`,
+a new :file:`requirements.txt` file should be generated and merged with the previously committed version so that the dev environment changes are tracked by Mercurial.
 
 
 Package Sub-Directories
@@ -358,7 +370,7 @@ The top-level directory must contain a package sub-directory in which the Python
 There are also usually 3 other sub-directories that contain:
 
 * the package documentation (:file:`docs/`)
-* descriptions of the conda enviroments used for development of the package and building its documentation (:file:`env/`)
+* descriptions of the conda enviroments used for development of the package and building its documentation (:file:`envs/`)
 * the unit test suite for the package (:file:`tests/`)
 
 
@@ -487,12 +499,12 @@ The key things that need to be done are:
   Be sure to replace :py:obj:`package_name` with the package name you chose for the :ref:`PkgPackageCodeSubDirectory`.
 
 
-.. _PkgEnvSubDirectory:
+.. _PkgEnvsSubDirectory:
 
-:file:`env/` Sub-directory
---------------------------
+:file:`envs/` Sub-directory
+---------------------------
 
-The :file:`env/` sub-directory contains at least 2 files that described the `conda environments`_ for the package development and docs building environments,
+The :file:`envs/` sub-directory contains at least 2 files that described the `conda environments`_ for the package development and docs building environments,
 and a file that records the full list of packages and their versions used for recent development work.
 
 
@@ -604,16 +616,6 @@ The only reason to add more packages to the :kbd:`dependencies` list is if :py:e
 .. _autodoc_mock_imports: https://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html#confval-autodoc_mock_imports
 
 
-:file:`requirements.txt` File
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-The :file:`requirements.txt` file records the full list of packages and their versions used for recent development work.
-It is generated using the :command:`pip freeze` command.
-When new package dependenies are added to the project,
-or the dev environment is updated via :command:`conda update --all`,
-a new :file:`requirements.txt` file should be generated and merged with the previously committed version so that the dev environment changes are tracked by Mercurial.
-
-
 .. _PkgTestsSubDirectory:
 
 :file:`tests/` Sub-directory
@@ -645,7 +647,7 @@ The changes that resulted from Doug's August 2019 review of then current opinion
 
 * Define the package version identifier in the :file:`__init__.py` file in the :ref:`PkgPackageCodeSubDirectory`.
 
-* Move the dev and docs environment description files in the :ref:`PkgEnvSubDirectory`.
+* Move the dev and docs environment description files in the :ref:`PkgEnvsSubDirectory`.
 
 The :ref:`PkgSetupCfgFile` was chosen over the `pyproject.toml file`_ because,
 as of :kbd:`pip-19.1` in the spring of 2019,
