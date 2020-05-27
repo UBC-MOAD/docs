@@ -45,9 +45,9 @@ References
     #. We rely heavily on `"Editable" Installs`_
        (also known as `setuptools develop mode`_).
        That is,
-       we install our packages from Mercurial clones of the repositories using the :command:`python3 -m pip install --editable`
+       we install our packages from Git clones of the repositories using the :command:`python3 -m pip install --editable`
        (or :command:`pip install -e`) command.
-       That makes the workflow for getting updates into our installed packages a simple :command:`hg pull --rebase` in the package repository clone directory.
+       That makes the workflow for getting updates into our installed packages a simple :command:`git pull` in the package repository clone directory.
 
        .. _"Editable" Installs: https://pip.pypa.io/en/stable/reference/pip_install/#editable-installs
        .. _setuptools develop mode: https://setuptools.readthedocs.io/en/latest/setuptools.html#development-mode
@@ -98,7 +98,7 @@ the directories and files layout of a MOAD package looks like::
 In summary
 (please see the sections below for detail explanations):
 
-* the :ref:`PkgTopLevelDirectory` is a clone of the package's Mercurial repository.
+* the :ref:`PkgTopLevelDirectory` is a clone of the package's Git repository.
 
 It typically contains 6 files and 4 sub-directories.
 
@@ -140,7 +140,7 @@ Other examples of MOAD project and package names are:
 * the :file:`SalishSeaTools` package is named :kbd:`salishsea_tools`
 * the :file:`SalishSeaNowcast` package is named :kbd:`nowcast`
 
-The top-level directory "project name" is generally the name of the project's Mercurial repository,
+The top-level directory "project name" is generally the name of the project's Git repository,
 however, keep in mind that Bitbucket converts repository names to all-lowercase.
 
 
@@ -360,7 +360,7 @@ The :file:`requirements.txt` file records the full list of packages and their ve
 It is generated using the :command:`python3 -m pip list --format=freeze` command.
 When new package dependenies are added to the project,
 or the dev environment is updated via :command:`conda update --all`,
-a new :file:`requirements.txt` file should be generated and merged with the previously committed version so that the dev environment changes are tracked by Mercurial.
+a new :file:`requirements.txt` file should be generated and merged with the previously committed version so that the dev environment changes are tracked by Git.
 
 
 Package Sub-Directories
