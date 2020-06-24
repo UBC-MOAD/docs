@@ -44,6 +44,14 @@ intersphinx_mapping = {
         ("https://salishsea-meopar-docs.readthedocs.io/en/latest/", None),
 }
 
+Private GitHub repositories that linkcheck will ignore
+linkcheck_ignore = [
+    'https://github.com/SalishSeaCast/NEMO-3.6-code',
+    'https://github.com/SalishSeaCast/rpn-to-gemlam',
+    'https://github.com/SalishSeaCast/XIOS-2',
+    'https://github.com/UBC-MOAD/ariane-2.2.8-code',
+]
+
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
 
