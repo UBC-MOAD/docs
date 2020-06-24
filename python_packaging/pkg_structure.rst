@@ -16,7 +16,7 @@ In August 2019 Doug reviewed current opinions and recommended practices for Pyth
 The `rpn-to-gemlam tool`_ package was the first package that was converted from the previously used package layout to what is recommended here,
 so its files are used as examples below.
 
-.. _rpn-to-gemlam tool: https://bitbucket.org/salishsea/rpn-to-gemlam/
+.. _rpn-to-gemlam tool: https://github.com/SalishSeaCast/rpn-to-gemlam
 
 
 References
@@ -189,7 +189,7 @@ looks like:
     description = ECCC RPN to SalishSeaCast NEMO Atmospheric Forcing Conversion Tool
     author = Doug Latornell
     author_email = dlatornell@eoas.ubc.ca
-    url=https://bitbucket.org/salishsea/rpn-to-gemlam/
+    url=https://github.com/SalishSeaCast/rpn-to-gemlam
     long_description = file: README.rst
     license = Apache License, Version 2.0
     platform = Linux

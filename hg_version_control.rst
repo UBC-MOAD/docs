@@ -40,7 +40,7 @@ you should:
 
 .. _Bitbucket.org: https://bitbucket.org/
 .. _SalishSea-MEOPAR: https://bitbucket.org/salishsea/
-.. _Bitbucket ssh Set-up: https://confluence.atlassian.com/bitbucket/set-up-an-ssh-key-728138079.html
+.. _Bitbucket ssh Set-up: https://support.atlassian.com/bitbucket-cloud/docs/set-up-an-ssh-key/
 
 
 Installing Mercurial
