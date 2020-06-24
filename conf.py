@@ -44,7 +44,7 @@ intersphinx_mapping = {
         ("https://salishsea-meopar-docs.readthedocs.io/en/latest/", None),
 }
 
-Private GitHub repositories that linkcheck will ignore
+# Private GitHub repositories that linkcheck will ignore
 linkcheck_ignore = [
     'https://github.com/SalishSeaCast/NEMO-3.6-code',
     'https://github.com/SalishSeaCast/rpn-to-gemlam',
