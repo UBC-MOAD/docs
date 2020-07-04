@@ -75,7 +75,7 @@ or
 if you don't have `ssh key authentication`_ set up on GitHub
 (or copy the link from the :guilabel:`Clone or download` button on the `repository`_ page).
 
-.. _ssh key authentication: https://help.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh
+.. _ssh key authentication: https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh
 
 
 .. _MOAD-DocsBuildEnvironment:
