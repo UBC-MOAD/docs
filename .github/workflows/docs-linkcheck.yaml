@@ -7,6 +7,8 @@ on:
   pull_request:
     branches:
     - '*'
+  schedule:
+    - cron: 43 4 5 * *  # 04:43 UTC on the 5th day of each month
 
 jobs:
   sphinx-linkcheck:
