@@ -21,8 +21,8 @@ Contributing to These Docs
 .. image:: https://readthedocs.org/projects/ubc-moad-docs/badge/?version=latest
     :target: https://ubc-moad-docs.readthedocs.io/en/latest/
     :alt: Documentation Status
-.. image::
-    :target: https://github.com/UBC-MOAD/docs/workflows/sphinx-linkcheck/badge.svg
+.. image:: https://github.com/UBC-MOAD/docs/workflows/sphinx-linkcheck/badge.svg
+    :target: https://github.com/UBC-MOAD/docs/actions?query=workflow%3Asphinx-linkcheck
     :alt: Sphinx linkcheck
 .. image:: https://img.shields.io/github/issues/UBC-MOAD/docs?logo=github
     :target: https://github.com/UBC-MOAD/docs/issues
@@ -193,8 +193,8 @@ whenever you push changes to GitHub the documentation is automatically re-built 
 Link Checking the Documentation
 ===============================
 
-.. image::
-    :target: https://github.com/UBC-MOAD/docs/workflows/sphinx-linkcheck/badge.svg
+.. image:: https://github.com/UBC-MOAD/docs/workflows/sphinx-linkcheck/badge.svg
+    :target: https://github.com/UBC-MOAD/docs/actions?query=workflow%3Asphinx-linkcheck
     :alt: Sphinx linkcheck
 
 Use the commmand:

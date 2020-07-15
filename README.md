@@ -6,13 +6,12 @@ UBC EOAS MOAD Group Documentation
 [![Creative Commons Attribution International 4.0 License](https://img.shields.io/badge/license-CC--BY-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 [![Git on GitHub](https://img.shields.io/badge/version%20control-git-blue.svg?logo=github)](https://github.com/UBC-MOAD/docs)
 [![Documentation Status](https://readthedocs.org/projects/ubc-moad-docs/badge/?version=latest)](https://ubc-moad-docs.readthedocs.io/en/latest/)
-![sphinx-linkcheck](https://github.com/UBC-MOAD/docs/workflows/sphinx-linkcheck/badge.svg)[![Issue Tracker](https://img.shields.io/github/issues/UBC-MOAD/docs?logo=github)](https://github.com/UBC-MOAD/docs/issues)
+[![sphinx-linkcheck](https://github.com/UBC-MOAD/docs/workflows/sphinx-linkcheck/badge.svg)](https://github.com/UBC-MOAD/docs/actions?query=workflow%3Asphinx-linkcheck)
+[![Issue Tracker](https://img.shields.io/github/issues/UBC-MOAD/docs?logo=github)](https://github.com/UBC-MOAD/docs/issues)
 
 This is documentation by and for members of the MOAD (Mesoscale Ocean and Atmospheric Dynamics) group in the EOAS (Earth, Ocean, and Atmospheric Sciences) department at UBC (the University of British Columbia).
 
 These docs are rendered at [https://ubc-moad-docs.readthedocs.io/en/latest/](https://ubc-moad-docs.readthedocs.io/en/latest/).
-
-[![Documentation Status](https://readthedocs.org/projects/ubc-moad-docs/badge/?version=latest)](https://ubc-moad-docs.readthedocs.io/en/latest/)
 
 
 License
