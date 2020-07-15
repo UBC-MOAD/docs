@@ -21,6 +21,9 @@ Contributing to These Docs
 .. image:: https://readthedocs.org/projects/ubc-moad-docs/badge/?version=latest
     :target: https://ubc-moad-docs.readthedocs.io/en/latest/
     :alt: Documentation Status
+.. image::
+    :target: https://github.com/UBC-MOAD/docs/workflows/sphinx-linkcheck/badge.svg
+    :alt: Sphinx linkcheck
 .. image:: https://img.shields.io/github/issues/UBC-MOAD/docs?logo=github
     :target: https://github.com/UBC-MOAD/docs/issues
     :alt: Issue Tracker
@@ -190,6 +193,10 @@ whenever you push changes to GitHub the documentation is automatically re-built 
 Link Checking the Documentation
 ===============================
 
+.. image::
+    :target: https://github.com/UBC-MOAD/docs/workflows/sphinx-linkcheck/badge.svg
+    :alt: Sphinx linkcheck
+
 Use the commmand:
 
 .. code-block:: bash
@@ -341,6 +348,10 @@ The output looks something like::
   build succeeded.
 
   Look for any errors in the above output or in _build/linkcheck/output.txt
+
+:command:`make linkcheck` is run monthly via a `scheduled GitHub Actions workflow`_
+
+.. _scheduled GitHub Actions workflow: https://github.com/UBC-MOAD/docs/actions?query=workflow%3Asphinx-linkcheck
 
 
 .. _MOAD-DocsVersionControlRepository:
