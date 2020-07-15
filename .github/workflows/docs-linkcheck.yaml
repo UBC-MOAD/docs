@@ -8,7 +8,7 @@ on:
     branches:
     - '*'
   schedule:
-    - cron: 43 4 5 * *  # 04:43 UTC on the 5th day of each month
+    - cron: 43 11 15 * *  # 04:43 UTC on the 5th day of each month
 
 jobs:
   sphinx-linkcheck:
@@ -45,16 +45,11 @@ jobs:
         run: |
           make linkcheck
 
-      - uses: pioug/le-slack-message@v1.0.0
+      - uses: 8398a7/action-slack@v3
         with:
-          ACTION_NAME: ${{ github.repository }} Sphinx linkcheck
-          JOB: ${{ toJson(job) }}
+          status: ${{ job.status }}
+          author_name: Sphinx linkcheck
+          fields: repo,eventName,ref,workflow
+        env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_SALISHSEACAST_WEBHOOK_URL }}
-        if: always()
-
-      - uses: pioug/le-slack-message@v1.0.0
-        with:
-          ACTION_NAME: ${{ github.repository }} Sphinx linkcheck
-          JOB: ${{ toJson(job) }}
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_MIDOSS_WEBHOOK_URL }}
         if: always()
