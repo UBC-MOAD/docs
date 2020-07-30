@@ -504,8 +504,7 @@ The key things that need to be done are:
 :file:`envs/` Sub-directory
 ---------------------------
 
-The :file:`envs/` sub-directory contains at least 2 files that described the `conda environments`_ for the package development and docs building environments,
-and a file that records the full list of packages and their versions used for recent development work.
+The :file:`envs/` sub-directory contains at least 2 files that described the `conda environments`_ for the package development and docs building environments.
 
 
 :file:`environment-dev.yaml` File
