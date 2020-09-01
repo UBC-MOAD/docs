@@ -87,7 +87,7 @@ These are the setup steps that you need to do when you start using :kbd:`beluga`
    you should not have to type it again until you log off and log in again.
 
 #. Copy your :command:`ssh` public key into your :file:`$HOME/.ssh/authorized_keys` file on :kbd:`beluga` and set the permissions on that file so that only you can read, write, or delete it.
-   The :command:`copy-ssh-id` command makes that a lot easier than it sounds:
+   The :command:`ssh-copy-id` command makes that a lot easier than it sounds:
 
    .. code-block:: bash
 
