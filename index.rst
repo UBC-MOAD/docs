@@ -20,6 +20,7 @@ This is documentation by and for members of the MOAD (Mesoscale Ocean and Atmosp
    :caption: Contents:
 
    getting_started
+   ssh_access
    vcs_repos
    hg_version_control
    compute-canada

@@ -32,6 +32,7 @@ Here's the Getting Started checklist:
 
 #. :ref:`GetSetUpOnGitHub`
 #. :ref:`GetComputeCanadaAccount`
+#. :ref:`SetUpSecureRemoteAccess`
 
 
 .. _GetSetUpOnGitHub:
@@ -58,3 +59,18 @@ Get Compute Canada Account & WestGrid Accounts
 You will need to have an :kbd:`eoas.ubc.ca` email address,
 and Susan's Compute Canada CCRI code before you can :ref:`CreateComputeCanadaAccount`.
 
+
+.. _SetUpSecureRemoteAccess:
+
+Set Up Secure Remote Access
+===========================
+
+You will need to have:
+
+#. Your Compute Canada user id and password
+#. An account,
+   user id,
+   and password on the EOAS Ocean collection of Linux computers
+   (which should happen at the same time as getting your :kbd:`eoas.ubc.ca` email address)
+
+before you can set up your :command:`ssh` keys and configuration for :ref:`SecureRemoteAccess`.
