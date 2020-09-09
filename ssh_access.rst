@@ -16,6 +16,14 @@ This section is the about setting up secure,
 easy to use,
 terminal (command-line) access from your laptop to the EOAS Ocean Linux computers,
 and the Compute Canada :kbd:`graham` High Performance Computing (HPC) cluster.
+
+The software technology we use to do that is called :kbd:`ssh` (sometime lowercase, sometimes uppercase).
+:command:`ssh` is also the command that makes terminal/command-line connections between computers.
+:command:`ssh` stands for "secure shell".
+The first :kbd:`s` is for secure,
+and the :kbd:`sh` is in tribute to the original Unix command-line interface called "shell".
+That's why people often say or write "open a shell" or "go to shell" when they mean open or switch to your Terminal program.
+
 This brief `Introduction to SSH`_ explains some of the concepts and terminology about the software that we use to accomplish easy,
 secure access.
 
@@ -452,3 +460,185 @@ If you are curious about what :command:`ssh-copy-id` is doing,
 it is automating a bunch of steps to store your public key in a file called :file:`~/.ssh/authorized_keys`.
 We used to have to do those steps one by one.
 Life is much better with :command:`ssh-copy-id`...
+
+
+.. _SSHCommands:
+
+SSH Commands
+============
+
+There is a collection of commands associated with SSH:
+
+The ones you used above to get things set up:
+
+* :command:`ssh-keygen` - generate and work with authentication key pairs for SSH
+* :command:`ssh-copy-id` - copy a local public key to a remote computer so that SSH key pair authentication can be used to log in
+
+The one you will most often use:
+
+:command:`ssh` - log into a remote machine, or execute commands on a remote machine
+
+Commands for copying files to/from/among your local computer and remote machines:
+
+* :command:`scp` - an SSH-secured version of the :command:`cp` command that lets you copy files from one machine to another;
+  local to/from remote,
+  or remote to remote
+* :command:`sftp` - an SSH-secured version of the FTP file transfer protocol that provides a command-line interface for doing things navigating and creating directories on remote machines, and copying files between your local file system and that of a remote machine
+
+To get a short reminder of the option flags for any of these commands
+(or most any Linux command),
+use the :kbd:`--help` option;
+e.g.
+
+.. code-block:: bash
+
+    $ ssh --help
+
+To get a detailed description of a command
+(again, this works for most any Linux command)
+use the :command:`man` command;
+e.g.
+
+.. code-block:: bash
+
+    $ man scp
+
+or use Google or another search engine in your browser.
+Searching for "man scp" should give you hits for nicely formatted versions of the same information that :command:`man scp` gives you;
+e.g. https://linux.die.net/man/1/scp
+
+The :command:`man` command is short for "manual",
+and the information it shows you is known as a "manpage".
+
+
+.. _sshCommand:
+
+:command:`ssh` Command
+----------------------
+
+Most often you will use :command:`ssh` to open a terminal session
+(also knowns command-line interface, CLI, or shell)
+on a remote computer;
+e.g.
+
+.. code-block:: bash
+
+    $ ssh graham
+
+You can also use :command:`ssh` to execute a command on a remote computer without actually opening the terminal session;
+e.g.
+
+.. code-block:: bash
+
+    $ ssh salish ls -lh /results2/SalishSea/nowcast-green.201905/09sep20/
+
+That command means:
+"Use :command:`ssh` to connect to :kbd:`salish` and show me the long listing
+(including permissions, ownership, human-readable sizes, and date/time stamps)
+of the files in the directory there called :file:`/results2/SalishSea/nowcast-green.201905/09sep20/`".
+
+If you get too fancy with the command that you want to execute remotely you may have to enclose it in quotes to prevent your local shell from messing it up;
+e.g.
+
+.. code-block:: bash
+
+    $ ssh salish "find /results/forcing/atmospheric/GEM2.5/GRIB/20200909/12 -type f | wc -l"
+
+Please see :command:`ssh --help`,
+:command:`man ssh`,
+ask on the `SalishSeaCast #general`_ Slack channel,
+or Google for more information about how to use :command:`ssh`.
+
+.. _SalishSeaCast #general: https://salishseacast.slack.com/archives/CFR6VU70S
+
+
+.. _scpCommand:
+
+:command:`scp` Command
+----------------------
+
+:command:`scp` lets you copy one or more files between your local machine and a remove machine,
+or between 2 remote machines without bringing the file to your local machine.
+
+.. note::
+
+    If you need to copy files between 2 Compute Canada cluster you should use :ref:`Globus-docs` because it is at least 4 times faster than :command:`scp` on the high performance network connections among the Compute Canada clusters.
+
+To copy a file from your current directory on your local computer to your home directory on :command:`graham` use:
+
+.. code-block:: bash
+
+    $ scp my-local-file graham:
+
+You can also include a path in place of :file:`my-local-file`,
+and/or after the colon in :kbd:`graham:`.
+If you give several paths/files in place of :file:`my-local-file`,
+all of those files will get copied to :kbd:`graham`.
+
+To copy a file from your current directory on your local computer to your scratch space on :command:`graham` use:
+
+.. code-block:: bash
+
+    $ scp my-local-file "graham:$SCRATCH/"
+
+The quotes around :kbd:`"graham:$SCRATCH/"` are necessary to prevent your local shell from expanding the :envvar:`SCRATCH` environment variable.
+
+To copy a file from your scratch space on :kbd:`graham` to your current directory on your local computer use:
+
+.. code-block:: bash
+
+    $ scp "graham:$SCRATCH/my-remote-file" ./
+
+The :file:`./` at the end means,
+this directory.
+It could also be some other directory path.
+Unlike :command:`cp`,
+:command:`scp` always has to have a destination directory for the file.
+Including a file name in the destination is an easy way to combine copying and renaming the copied file in one operation.
+
+To copy a file from your scratch space on :kbd:`graham` to your MOAD :file:`/data/` space via :kbd:`salish` use:
+
+.. code-block:: bash
+
+    $ scp "graham:$SCRATCH/my-remote-file" "salish:/data/$USER/"
+
+The quotes around :kbd:`"salish:/data/$USER/"` are necessary to prevent your local shell from expanding the :envvar:`USER` environment variable.
+
+Please see :command:`scp --help`,
+:command:`man scp`,
+ask on the `SalishSeaCast #general`_ Slack channel,
+or Google for more information about how to use :command:`scp`.
+
+
+.. _sftpCommand:
+
+:command:`sftp` Command
+-----------------------
+
+:command:`sftp` can be used to do the same job of copying files to/form remote machines as :command:`scp`.
+But it also provides a command-line interface to do other operations on the remote and local file systems,
+such as navigating directories
+(:kbd:`cd` and :kbd:`lcd`),
+and creating directories on the remote file system (:kbd:`mkdir`).
+The command for uploading a file is :kbd:`put`,
+and for downloading :kbd:`get`.
+:kbd:`help` or :kbd:`?` will give you a list of the available command.
+
+Please see :command:`sftp --help`,
+:command:`man sftp`,
+ask on the `SalishSeaCast #general`_ Slack channel,
+or Google for more information about how to use :command:`sftp`.
+
+Here is a sample :command:`sftp` session to copy a file from your scratch space on :kbd:`graham` to your current directory on your local computer:
+
+.. code-block:: text
+
+    $ sftp graham
+    Connected to graham.
+    sftp> cd /scratch/username/
+    sftp> get my-remote-file
+    get my-remote-file
+    Fetching /home/username/my-remote-file to my-remote-file
+    /home/username/my-remote-file                 100%  954     7.0KB/s   00:00
+    sftp> quit
+
