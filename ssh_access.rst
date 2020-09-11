@@ -558,11 +558,11 @@ or Google for more information about how to use :command:`ssh`.
 ----------------------
 
 :command:`scp` lets you copy one or more files between your local machine and a remove machine,
-or between 2 remote machines without bringing the file to your local machine.
+or between two remote machines without bringing the file to your local machine.
 
 .. note::
 
-    If you need to copy files between 2 Compute Canada cluster you should use :ref:`Globus-docs` because it is at least 4 times faster than :command:`scp` on the high performance network connections among the Compute Canada clusters.
+    If you need to copy files between two Compute Canada cluster you should use :ref:`Globus-docs` because it is at least 4 times faster than :command:`scp` on the high performance network connections among the Compute Canada clusters.
 
 To copy a file from your current directory on your local computer to your home directory on :command:`graham` use:
 
