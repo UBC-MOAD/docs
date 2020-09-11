@@ -544,12 +544,28 @@ e.g.
 
     $ ssh salish "find /results/forcing/atmospheric/GEM2.5/GRIB/20200909/12 -type f | wc -l"
 
+If you have trouble with :command:`ssh` not making a connection,
+you can tell it to output debugging messages its progress by using the :kbd:`-v` option;
+e.g.
+
+.. code-block:: bash
+
+    $ ssh -v graham
+
+This is helpful in debugging connection, authentication, and configuration problems.
+Adding more :kbd:`v`s
+(up to 3) e.g. :kbd:`-vv`,
+or :kbd:`-vvv`,
+increases the verbosity of the messages.
+If you need help interpreting the output of :command:`ssh -v`,
+paste it into a message on the `SalishSeaCast #general`_ Slack channel.
+
+.. _SalishSeaCast #general: https://salishseacast.slack.com/archives/CFR6VU70S
+
 Please see :command:`ssh --help`,
 :command:`man ssh`,
 ask on the `SalishSeaCast #general`_ Slack channel,
 or Google for more information about how to use :command:`ssh`.
-
-.. _SalishSeaCast #general: https://salishseacast.slack.com/archives/CFR6VU70S
 
 
 .. _scpCommand:
@@ -604,6 +620,18 @@ To copy a file from your scratch space on :kbd:`graham` to your MOAD :file:`/dat
 
 The quotes around :kbd:`"salish:/data/$USER/"` are necessary to prevent your local shell from expanding the :envvar:`USER` environment variable.
 
+If you have trouble with :command:`scp` not making a connection,
+you can tell it to output debugging messages its progress by using the :kbd:`-v` option;
+e.g.
+
+.. code-block:: bash
+
+    $ scp -v my-local-file graham:
+
+This is helpful in debugging connection, authentication, and configuration problems.
+If you need help interpreting the output of :command:`scp -v`,
+paste it into a message on the `SalishSeaCast #general`_ Slack channel.
+
 Please see :command:`scp --help`,
 :command:`man scp`,
 ask on the `SalishSeaCast #general`_ Slack channel,
@@ -642,3 +670,14 @@ Here is a sample :command:`sftp` session to copy a file from your scratch space 
     /home/username/my-remote-file                 100%  954     7.0KB/s   00:00
     sftp> quit
 
+If you have trouble with :command:`sftp` not making a connection,
+you can tell it to output debugging messages its progress by using the :kbd:`-v` option;
+e.g.
+
+.. code-block:: bash
+
+    $ sftp -v graham
+
+This is helpful in debugging connection, authentication, and configuration problems.
+If you need help interpreting the output of :command:`sftp -v`,
+paste it into a message on the `SalishSeaCast #general`_ Slack channel.
