@@ -104,7 +104,7 @@ The output should look like:
     Generating public/private rsa key pair.
     Enter file in which to save the key (/home/username/.ssh/id_rsa):
 
-but with with your user id instead of :kbd:`username` in the key file path in the parentheses.
+but with with your laptop user id instead of :kbd:`username` in the key file path in the parentheses.
 
 Hit enter to accept the default key file path and name.
 
@@ -180,7 +180,7 @@ When the key pair generation is finished you should see output like:
 
 except that you will see:
 
-* your user id instead of :kbd:`username` in the key files paths
+* yourlaptop user id instead of :kbd:`username` in the key files paths
 * a different key fingerprint,
   ending with your user id and computer name instead of :kbd:`username@host`
 * a different "randomart image"
@@ -345,6 +345,8 @@ and one for our compute server,
     Host salish
       HostName salish.eos.ubc.ca
       User username
+
+.. note:: Please be sure to replace :kbd:`username` with your EOAS user id.
 
 Save your file with :kbd:`Ctrl-w`,
 and exit :program:`nano` with :kbd:`Ctrl-x`.
@@ -681,3 +683,67 @@ e.g.
 This is helpful in debugging connection, authentication, and configuration problems.
 If you need help interpreting the output of :command:`sftp -v`,
 paste it into a message on the `SalishSeaCast #general`_ Slack channel.
+
+
+.. _X2GoRemoteDesktop:
+
+X2Go Remote Desktop
+===================
+
+A last resort for remote access to MOAD workstations is to use `X2Go`_.
+It is a last resort because it is very bandwidth-hungry,
+so it can be painfully slow to use on home WiFi.
+It also relies on password authentication rather than key-based authentication,
+so it is less secure.
+Once authentication is completed X2Go uses SSH to secure all of the data between your local machine and the remote one.
+
+.. _X2Go: https://wiki.x2go.org/doku.php
+
+.. warning::
+
+    Please be particularly cautious of X2Go's weaker authentication security on public Wifi connections such as coffee shops,
+    or public libraries.
+    Since bandwidth on those types of connections is often very limited,
+    X2Go is likely an all-round bad choice on public WiFi.
+
+One use case that X2Go is helpful for is accessing UBC sites like the payroll system that require VPN for access from outside the UBC network.
+Connecting to a MOAD workstation desktop puts you inside the UBC network,
+so you can use Firefox on that desktop to connect to UBC the payroll system without the need for VPN on your laptop.
+
+Please see the `X2Go`_ documentation for instructions on how to install the X2Go client for your operating system.
+
+Once you have the client installed and running,
+use the :guilabel:`Session` menu to create a :guilabel:`New Session` for a specific workstation;
+we'll use :kbd:`chum` as an example.
+
+In the :guilabel:`Session preferences` dialog enter:
+
+* :guilabel:`Session name:` :kbd:`chum`
+* :guilabel:`Host:` :kbd:`chum.eos.ubc.ca`
+* :guilabel:`Login`: Your EOAS user id
+* :guilabel:`Session type` drop-down: choose :kbd:`Mate`
+
+After you click the :guilabel:`Okay` button you should see a new session tile called :guilabel:`chum` on the right side of the X2Go window.
+
+.. note::
+
+    Finding a :guilabel:`Session type` that works can take some trial and error.
+    Most MOAD workstations have the Mate window manager installed,
+    but you may have to try others.
+    Feel free to ask for help on the `SalishSeaCast #general`_ Slack channel,
+
+To connect to :kbd:`chum`,
+click the :guilabel:`chum` session tile on the right side of the X2Go window,
+enter your password,
+and click the :guilabel:`Okay` button.
+If it is your first time connecting to :kbd:`chum` you will get a :guilabel:`Host Key verification failed` alert that shows :kbd:`chum`'s public host key hash:
+:kbd:`85:41:ab:c4:a4:f3:7f:7b:c0:4c:8b:48:da:66:c9:5c:ec:8a:2b:69`;
+click the :guilabel:`Yes` button to add :kbd:`chum`'s public key to your :file:`~/.ssh/known_hosts` file.
+
+After some time,
+and some logging messages appearing in a session status dialog in the main part of the X2Go window,
+a new window showing :kbd:`chum`'s desktop should appear.
+
+When you are finished with your desktop session,
+close the remote desktop window,
+and click the :guilabel:`Cancel` button in the session login dialog that replaces the session status dialog in the main part of the X2Go window.
