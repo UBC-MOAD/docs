@@ -464,6 +464,20 @@ We used to have to do those steps one by one.
 Life is much better with :command:`ssh-copy-id`...
 
 
+.. _CopyYourPublicSshKeyToGitHub:
+
+Copy Your Public ssh Key to GitHub
+==================================
+
+You can,
+and should,
+also use key-based authentication to access our :ref:`team-repos` and your personal repositories on GitHub.
+Doing so lets your ssh agent handle authentication when you do :command:`git pull` and :command:`git push` commands to copy committed changes between your local repository clones and GitHub.
+Please follow the `instructions provided by GitHub`_ to put your public key into your account settings on GitHub.
+
+.. _instructions provided by GitHub: https://docs.github.com/en/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account
+
+
 .. _SSHCommands:
 
 SSH Commands
