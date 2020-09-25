@@ -1,8 +1,22 @@
+.. Copyright 2018-2020 The UBC EOAS MOAD Group
+.. and The University of British Columbia
+..
+.. Licensed under a Creative Commons Attribution 4.0 International License
+..
+..   https://creativecommons.org/licenses/by/4.0/
+
+
 .. _vc-with-hg:
 
 ******************************
 Version Control with Mercurial
 ******************************
+
+.. warning::
+
+    We changed our version control tool to Git and moved hosting of our repositories to GitHub in early 2020 due to Bitbucket's ending of support for Mercurial.
+    Please see :ref:`vc-with-git` for the up to date version of this section.
+
 
 We use Mercurial_ (:command:`hg`) for version control of code,
 documentation,

@@ -22,7 +22,7 @@ This is documentation by and for members of the MOAD (Mesoscale Ocean and Atmosp
    getting_started
    ssh_access
    vcs_repos
-   hg_version_control
+   git_version_control
    compute-canada
    globus
    xios-2
@@ -30,5 +30,6 @@ This is documentation by and for members of the MOAD (Mesoscale Ocean and Atmosp
    python_packaging/index
    contributing
    CONTRIBUTORS
+   zzz_archival_docs/index
 
 .. include:: license_description.txt
