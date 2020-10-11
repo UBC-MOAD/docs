@@ -475,7 +475,7 @@ also use key-based authentication to access our :ref:`team-repos` and your perso
 Doing so lets your ssh agent handle authentication when you do :command:`git pull` and :command:`git push` commands to copy committed changes between your local repository clones and GitHub.
 Please follow the `instructions provided by GitHub`_ to put your public key into your account settings on GitHub.
 
-.. _instructions provided by GitHub: https://docs.github.com/en/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account
+.. _instructions provided by GitHub: https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account
 
 
 .. _SSHCommands:
@@ -576,7 +576,7 @@ increases the verbosity of the messages.
 If you need help interpreting the output of :command:`ssh -v`,
 paste it into a message on the `SalishSeaCast #general`_ Slack channel.
 
-.. _SalishSeaCast #general: https://salishseacast.slack.com/archives/CFR6VU70S
+.. _SalishSeaCast #general: https://salishseacast.slack.com/?redir=%2Farchives%2FCFR6VU70S
 
 Please see :command:`ssh --help`,
 :command:`man ssh`,

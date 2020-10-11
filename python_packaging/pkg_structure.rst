@@ -42,15 +42,13 @@ References
 .. note::
     There are 3 key things that people who are familiar with Python packaging need to understand about how the UBC EOAS MOAD group uses its internally developed packages:
 
-    #. We rely heavily on `"Editable" Installs`_
-       (also known as `setuptools develop mode`_).
+    #. We rely heavily on `"Editable" Installs`_.
        That is,
        we install our packages from Git clones of the repositories using the :command:`python3 -m pip install --editable`
        (or :command:`pip install -e`) command.
        That makes the workflow for getting updates into our installed packages a simple :command:`git pull` in the package repository clone directory.
 
        .. _"Editable" Installs: https://pip.pypa.io/en/stable/reference/pip_install/#editable-installs
-       .. _setuptools develop mode: https://setuptools.readthedocs.io/en/latest/setuptools.html#development-mode
 
     #. On our local workstations and laptops we work in `conda environments`_,
        either the :kbd:`base` environment created by installing the `Anaconda Python distribution`_,
@@ -157,7 +155,17 @@ It also contains a file to tell https://readthedocs.org/ how to configure an env
 ^^^^^^^^^^^^^^^^^^^^^^
 
 The :file:`setup.cfg` contains the package metadata and :kbd:`setuptools` options for creation of the package.
-It is documented at https://setuptools.readthedocs.io/en/latest/setuptools.html#configuring-setup-using-setup-cfg-files.
+
+.. warning::
+    The documentation for :file:`setup.cfg` files has disappeared as of early October 2020,
+    seemingly as part of the `Setuptools Documentation`_ overhaul.
+    The :kbd:`https://setuptools.readthedocs.io/en/latest/setuptools.html#configuring-setup-using-setup-cfg-files` link is broken,
+    but it is to be hoped that it,
+    or a redirect,
+    will re-appear soon.
+
+    In the meantime,
+    the examples below and the :file:`setup.cfg` files in out packages are the best guidance we have.
 
 A minimal :file:`setup.cfg` file looks like:
 
@@ -251,7 +259,7 @@ the :file:`setup.py` file is as simple as:
 
 An exception to that simplicity occurs when a package uses `entry points`_ in conjunction with a framework like `Click`_ or `Cliff`_ to provide a command-line interface
 
-.. _entry points: https://setuptools.readthedocs.io/en/latest/setuptools.html#dynamic-discovery-of-services-and-plugins
+.. _entry points: https://packaging.python.org/guides/creating-and-discovering-plugins/#using-package-metadata
 .. _Click: https://click.palletsprojects.com/en/7.x/
 .. _Cliff: https://docs.openstack.org/cliff/latest/
 

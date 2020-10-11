@@ -120,7 +120,7 @@ where :kbd:`your favourite editor` is the command that Git should use to open yo
 If you are having trouble figuring out what that command should be,
 ask for help on the `SalishSeaCast #general`_ Slack channel.
 
-.. _SalishSeaCast #general: https://salishseacast.slack.com/archives/CFR6VU70S
+.. _SalishSeaCast #general: https://salishseacast.slack.com/?redir=%2Farchives%2FCFR6VU70S
 
 You can also use :command:`git config` to create aliases for complicated Git commands,
 or commands that you want to give a short name to.
