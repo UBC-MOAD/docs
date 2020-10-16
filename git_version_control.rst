@@ -144,7 +144,7 @@ i.e. :command:`git out --stat`.
 
 .. code-block:: bash
 
-    $ git config --global alias.out '!git fetch && git log --pretty=oneline --abbrev-commit --graph ..@{u}'
+    $ git config --global alias.in '!git fetch && git log --pretty=oneline --abbrev-commit --graph ..@{u}'
 
 makes :command:`git in` show you the commits from GitHub that have not yet been merged into your local repo.
 Again,
