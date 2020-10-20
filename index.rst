@@ -23,6 +23,7 @@ This is documentation by and for members of the MOAD (Mesoscale Ocean and Atmosp
    ssh_access
    vcs_repos
    git_version_control
+   jupyter
    compute-canada
    globus
    xios-2
