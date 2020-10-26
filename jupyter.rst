@@ -108,11 +108,11 @@ The client part of Jupyter should have opened in a new browser tab.
 If not,
 follow the instructions in the terminal window that say something like::
 
-      To access the notebook, open this file in a browser:
-        file:///home/doug/.local/share/jupyter/runtime/nbserver-3581193-open.html
-    Or copy and paste one of these URLs:
-        http://localhost:8889/?token=f8b14419fc17ff93240a914930566fad4c2f69f064d4fdb9
-     or http://127.0.0.1:8889/?token=f8b14419fc17ff93240a914930566fad4c2f69f064d4fdb9
+  To access the notebook, open this file in a browser:
+    file:///home/doug/.local/share/jupyter/runtime/nbserver-3581193-open.html
+  Or copy and paste one of these URLs:
+    http://localhost:8889/?token=f8b14419fc17ff93240a914930566fad4c2f69f064d4fdb9
+  or http://127.0.0.1:8889/?token=f8b14419fc17ff93240a914930566fad4c2f69f064d4fdb9
 
 For the older :kbd:`notebook` interface,
 the instructions are much the same,
@@ -126,10 +126,46 @@ and use :kbd:`Ctrl-C` in the terminal window to shut down the Jupyter server.
 Don't forget to commit your work in :program:`git` and push your changes to GitHub!
 
 
+.. _RunningJupyterRemotely:
+
+Running Jupyter Remotely
+========================
+
+:ref:`RunningJupyterLocally` is fine if your laptop has enough compute power for the code you are trying to run,
+and if you have the data or model results files you want to work on stored on your drive.
+However,
+it is often better to "take the compute to the data" rather than download large data files to your laptop,
+and rely on its CPU cores for calculations.
+Remote machines like the MOAD workstations,
+our development server :kbd:`salish`,
+and the compute nodes on the Compute Candaa :kbd:`graham` cluster
+have more and faster CPU cores than most laptops,
+and access to far larger storage.
+
+Fortunately,
+the server-client structure of Jupyter makes it relatively easy to use the CPU cores and storage of a remote system with the user interface in the browser on your laptop.
+We do that by running the server part on a remote system,
+and using :command:`ssh` to create a secure access "tunnel" between the server and our laptop to allow the client part running in our local browser to connect to the remote server part.
+
+Apart from access to more compute power and avoiding the need to move large files around,
+using :command:`jupyter lab` on a remote system has other advantages:
+
+* You can open terminal panes in the :kbd:`lab` interface to give you a terminal session on the remote machine for things like file system tasks: copying or moving files, managing permissions, etc.,
+  for :command:`git` version control tasks: pulls, commits, and pushes,
+  or anything else you need to do in a command-line interface.
+
+* You can open editor panes in the :kbd:`lab` interface to work on files stored on the remote system.
+  Doing that avoids the need to copy files back and forth between your laptop and the remote system,
+  or deal with network lag when you try to use a full-screen editor in a remote desktop session.
+  You can use the :guilabel:`Settings > Text Editor Key Map` menu in :kbd:`lab` to set the editor keyboard mapping to your choice of :program:`vim`,
+  :program:`emacs`,
+  or :program:`Sublime Text`.
+
+
 .. _RunningJupyterRemotely-MOAD:
 
 Running Jupyter Remotely on :kbd:`salish` or a MOAD Workstation
-===============================================================
+---------------------------------------------------------------
 
 **TODO**
 
@@ -137,6 +173,6 @@ Running Jupyter Remotely on :kbd:`salish` or a MOAD Workstation
 .. _RunningJupyterRemotely-ComputeCanada:
 
 Running Jupyter Remotely on :kbd:`graham`
-=========================================
+-----------------------------------------
 
 **TODO**
