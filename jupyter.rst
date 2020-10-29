@@ -231,10 +231,11 @@ You should see output in that terminal window that looks something like:
             http://localhost:8888/?token=bbd686ffaa5398aacaee25c9fa44b5f9424889a81ad7d9f1
          or http://127.0.0.1:8888/?token=bbd686ffaa5398aacaee25c9fa44b5f9424889a81ad7d9f1
 
-Keep this terminal window open.
-It is where the Jupyter server part is running.
-If you close it,
-you will shutdown the Jupyter server and your :command:`jupyter lab` session will stop working.
+.. note::
+    Keep this terminal window open.
+    It is where the Jupyter server part is running.
+    If you close it,
+    you will shutdown the Jupyter server and your :command:`jupyter lab` session will stop working.
 
 The URLs on the last 2 lines are the important bit that we need to use to get the client running on our laptop.
 Those 2 URLs are just two different ways of spelling the same thing.
@@ -269,6 +270,11 @@ The :kbd:`-L` option tells :program:`ssh` that the next blob of text is the deta
 You can use any number :kbd:`≥1024` you want instead of :kbd:`4343` as the local port number on your laptop.
 The number after :kbd:`:localhost:` has to be the same as the port number in the message that the Jupyter server printed out.
 
+.. note::
+    Keep this terminal window open too.
+    If you close it,
+    you will collapse the :program:`ssh` port forwarding tunnel and your Jupyter server and client will stop being able to talk to each other.
+
 Finally,
 open a new tab in the browser on your laptop and go to http:://localhost:4343/ to bring up the Jupyter client.
 Use whatever port number you chose,
@@ -283,12 +289,14 @@ do it in a terminal session on the remote machine
 (either inside Jupyter,
 or in a new :program:`ssh` session).
 
-When you are finished using Jupyter,
-save your notebooks,
-close the browser tab,
-go to the terminal window on the remote machine where the Jupyter server is running,
-and hit :kbd:`Ctrl-c` to stop the Jupyter server.
-The :program:`ssh` port forwarding will get cleaned up automatically when the server and client stop using the ports.
+When you are finished using Jupyter:
+
+#. save your notebooks
+#. close the browser tab
+#. go to the terminal window on the remote machine where the Jupyter server is running,
+   and hit :kbd:`Ctrl-c` to stop the Jupyter server
+#. go to the terminal window on your laptop where you ran :command:`ssh -N -L ...`,
+   and hit :kbd:`Ctrl-c` to end the port forwarding
 
 
 .. _RunningJupyterRemotely-ComputeCanada:
