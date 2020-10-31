@@ -276,7 +276,7 @@ The number after :kbd:`:localhost:` has to be the same as the port number in the
     you will collapse the :program:`ssh` port forwarding tunnel and your Jupyter server and client will stop being able to talk to each other.
 
 Finally,
-open a new tab in the browser on your laptop and go to http://localhost:4343/ to bring up the Jupyter client.
+open a new tab in the browser on your laptop and go to :kbd:`http://localhost:4343/` to bring up the Jupyter client.
 Use whatever port number you chose,
 if you chose to use something other than :kbd:`4343` in the :command:`ssh -N -L ...` command.
 
