@@ -207,10 +207,11 @@ the commands would be like:
 .. code-block:: bash
 
     $ cd analysis-doug/
-    $ jupyter lab --no-browser
+    $ jupyter lab --no-browser --ip $(hostname -f)
 
 The :kbd:`--no-browser` option in that command tells :program:`jupyter` to start the server part only,
 and not to start the client part in a browser.
+The :kbd:`--ip $(hostname -f)` causes the name of the machine you are running the server on to be used in the URLs that Jupyter sets up for the server.
 
 You should see output in that terminal window that looks something like:
 
@@ -220,7 +221,7 @@ You should see output in that terminal window that looks something like:
     [I 09:30:01.332 LabApp] JupyterLab application directory is /home/dlatorne/conda_envs/dask-expts/share/jupyter/lab
     [I 09:30:01.362 LabApp] Serving notebooks from local directory: /data/dlatorne/analysis-doug/
     [I 09:30:01.362 LabApp] Jupyter Notebook 6.1.4 is running at:
-    [I 09:30:01.363 LabApp] http://localhost:8888/?token=bbd686ffaa5398aacaee25c9fa44b5f9424889a81ad7d9f1
+    [I 09:30:01.363 LabApp] http://salish:8888/?token=bbd686ffaa5398aacaee25c9fa44b5f9424889a81ad7d9f1
     [I 09:30:01.363 LabApp]  or http://127.0.0.1:8888/?token=bbd686ffaa5398aacaee25c9fa44b5f9424889a81ad7d9f1
     [I 09:30:01.363 LabApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
     [C 09:30:01.381 LabApp]
@@ -228,7 +229,7 @@ You should see output in that terminal window that looks something like:
         To access the notebook, open this file in a browser:
             file:///home/dlatorne/.local/share/jupyter/runtime/nbserver-1998772-open.html
         Or copy and paste one of these URLs:
-            http://localhost:8888/?token=bbd686ffaa5398aacaee25c9fa44b5f9424889a81ad7d9f1
+            http://salish:8888/?token=bbd686ffaa5398aacaee25c9fa44b5f9424889a81ad7d9f1
          or http://127.0.0.1:8888/?token=bbd686ffaa5398aacaee25c9fa44b5f9424889a81ad7d9f1
 
 .. note::
@@ -238,11 +239,14 @@ You should see output in that terminal window that looks something like:
     you will shutdown the Jupyter server and your :command:`jupyter lab` session will stop working.
 
 The URLs on the last 2 lines are the important bit that we need to use to get the client running on our laptop.
-Those 2 URLs are just two different ways of spelling the same thing.
-:kbd:`localhost` is a synonym for the IP address :kbd:`127.0.0.1`.
-They both mean "the computer where this process is running"; i.e. :kbd:`salish` in this case.
+The second last one that contains the name of the machine that the server is running on is the important one for the reset of this setup.
+That is::
 
-The number after the colon in the URLs
+  http://salish:8888/?token=bbd686ffaa5398aacaee25c9fa44b5f9424889a81ad7d9f1
+
+in the example output above.
+
+The number after :kbd:`salish:` in the URL
 (:kbd:`8888` above)
 is the port number that the Jupyter server is running on.
 :kbd:`8888` is the default,
@@ -257,23 +261,27 @@ and enter the command:
 
 .. code-block:: bash
 
-    ssh -N -L 4343:localhost:8888 salish
+    ssh -N -L 4343:salish:8888 salish
 
 This use of :program:`ssh` is called "port forwarding", or "ssh tunnelling".
 It creates an ssh encrypted connection between a port on your laptop
-(port :kbd:`4343` on :kbd:`localhost` in this case)
+(port :kbd:`4343` in this case)
 and a port on the remote host
 (port :kbd:`8888` on :kbd:`salish` in this case).
 The :kbd:`-N` option tells :program:`ssh` not to execute a command on the remote system because all we want to do is set up the port forwarding.
 The :kbd:`-L` option tells :program:`ssh` that the next blob of text is the details of the port forwarding to set up.
 
 You can use any number :kbd:`≥1024` you want instead of :kbd:`4343` as the local port number on your laptop.
-The number after :kbd:`:localhost:` has to be the same as the port number in the message that the Jupyter server printed out.
+The number after :kbd:`:salish:` has to be the same as the port number in the message that the Jupyter server printed out.
 
 .. note::
     Keep this terminal window open too.
     If you close it,
     you will collapse the :program:`ssh` port forwarding tunnel and your Jupyter server and client will stop being able to talk to each other.
+
+.. note::
+    Remember that if you are running the server part of Jupyter on a MOAD workstation like :kbd:`char` rather than on :kbd:`salish`,
+    you need to use the workstation name in 2 places in the :command:`ssh -N -L ...` command.
 
 Finally,
 open a new tab in the browser on your laptop and go to :kbd:`http://localhost:4343/` to bring up the Jupyter client.
@@ -283,11 +291,11 @@ You may land on a Jupyter page that asks you to enter a :guilabel:`Password or t
 If so,
 copy the the long string of digits and letters from the URL in the Jupyter server terminal windows.
 For example,
-the token in the URL::
+the in the URL::
 
-  http://localhost:8888/?token=bbd686ffaa5398aacaee25c9fa44b5f9424889a81ad7d9f1
+  http://sailsh:8888/?token=bbd686ffaa5398aacaee25c9fa44b5f9424889a81ad7d9f1
 
-is :kbd:`bbd686ffaa5398aacaee25c9fa44b5f9424889a81ad7d9f1`.
+the token is :kbd:`bbd686ffaa5398aacaee25c9fa44b5f9424889a81ad7d9f1`.
 
 When you run Jupyter in this way,
 remember that all of the notebooks and files you are working with are on the remote computer (:kbd:`salish`) file system,
