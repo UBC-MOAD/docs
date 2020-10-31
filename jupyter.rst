@@ -279,6 +279,15 @@ Finally,
 open a new tab in the browser on your laptop and go to :kbd:`http://localhost:4343/` to bring up the Jupyter client.
 Use whatever port number you chose,
 if you chose to use something other than :kbd:`4343` in the :command:`ssh -N -L ...` command.
+You may land on a Jupyter page that asks you to enter a :guilabel:`Password or token` to log in.
+If so,
+copy the the long string of digits and letters from the URL in the Jupyter server terminal windows.
+For example,
+the token in the URL::
+
+  http://localhost:8888/?token=bbd686ffaa5398aacaee25c9fa44b5f9424889a81ad7d9f1
+
+is :kbd:`bbd686ffaa5398aacaee25c9fa44b5f9424889a81ad7d9f1`.
 
 When you run Jupyter in this way,
 remember that all of the notebooks and files you are working with are on the remote computer (:kbd:`salish`) file system,
