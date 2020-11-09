@@ -200,8 +200,7 @@ These are the setup steps that you need to do when you start using :kbd:`beluga`
 
    with your user id instead of Doug's in the :file:`./` line.
 
-#. Follow the :ref:`MercurialConfiguration` docs to create your :file:`$HOME/.hgrc` Mercurial configuration file,
-   and your :file:`$HOME/.hgignore` global ignore file for Mercurial.
+#. Follow the :ref:`GitConfiguration` docs to create your :file:`$HOME/.gitconfig` Git configuration file.
 
 #. Compute Canada clusters use the :command:`module load` command to load software components.
    On :kbd:`beluga` the module loads that are required to build and run NEMO are:
