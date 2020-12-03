@@ -19,6 +19,7 @@ The following people have contributed to this documentation:
 * Kate Le Souef <klesouef@eoas.ubc.ca>
 * Idalia Machuca <imachuca@eoas.ubc.ca>
 * Elise Olson <eolson@eoas.ubc.ca>
+* Karyn Suchy <ksuchy@eoas.ubc.ca>
 * Michael Dunphy <mdunphy@eoas.ubc.ca>
 * Muriel Dunn <mdunn@eoas.ubc.ca>
 * Tereza Jarníková <tjarniko@eoas.ubc.ca>
