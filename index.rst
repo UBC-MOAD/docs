@@ -24,6 +24,7 @@ This is documentation by and for members of the MOAD (Mesoscale Ocean and Atmosp
    vcs_repos
    git_version_control
    jupyter
+   github_notebooks_readme
    compute-canada
    globus
    xios-2
