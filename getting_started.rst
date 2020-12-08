@@ -33,6 +33,7 @@ Here's the Getting Started checklist:
 #. :ref:`GetSetUpOnGitHub`
 #. :ref:`GetComputeCanadaAccount`
 #. :ref:`SetUpSecureRemoteAccess`
+#. :ref:`SetUpGit`
 
 
 .. _GetSetUpOnGitHub:
@@ -74,3 +75,15 @@ You will need to have:
    (which should happen at the same time as getting your :kbd:`eoas.ubc.ca` email address)
 
 before you can set up your :command:`ssh` keys and configuration for :ref:`SecureRemoteAccess`.
+
+
+.. _SetUpGit:
+
+Set Up Git
+==========
+
+You will need to:
+
+#. Learn about :ref:`vc-with-git`
+#. :ref:`Install Git<InstallingGit>` on your laptop
+#. Set up your :ref:`GitConfiguration` on each of the machines you use

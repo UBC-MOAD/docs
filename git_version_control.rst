@@ -58,10 +58,13 @@ the installation method depends on your operating system.
 Please follow the instructions for your OS on the `Git Downloads`_ page:
 
 * For MacOS,
+  trying the command :command:`git --version` will tell you what version of :program:`git` you have installed,
+  or perhaps install it via :kbd:`Commandline Tools` for you.
+  If it is not installed,
   `homebrew`_ is probably the best option,
   unless you already have Xcode installed.
 * For Windows,
-  the exectable installer that downloads automatically should be straight-forward.
+  the executable installer that downloads automatically should be straight-forward.
 * For Linux,
   use your system package manager.
 
@@ -75,7 +78,13 @@ Git Configuration
 =================
 
 Git uses configuration settings in your :file:`$HOME/.gitconfig` file as global settings for everything you do with it.
-You need to set up this configuration on each machine that you use Git on.
+You need to set up this configuration on each machine that you use Git on;
+i.e. on your laptop,
+on the Waterhole workstation that you use
+(which will cover all of the Waterhole/Ocean machines),
+and on :kbd:`graham`,
+if you use it.
+
 The :command:`git config --global` command is how you interact with the :file:`$HOME/.gitconfig` file.
 Start by telling Git who you are.
 It will include this information as part of the metadata in every commit you make.
@@ -89,10 +98,19 @@ Also do:
 
 .. code-block:: bash
 
+    $ git config --global init.defaultbranch main
     $ git config --global pull.rebase false
 
-This tells Git to merge changes that it pulls in from remote repositories instead of rebasing them.
-Don't worry if you don't understand what that means right now; you will learn ater.
+The first of those lines tells Git that when you create a new repository with the :command:`git init` command,
+it should call the default branch :kbd:`main`.
+This is consistent with the default we have set on GitHub as of mid-2020.
+Don't worry if you don't understand what "default branch" means;
+you will learn soon.
+
+The second tells Git to merge changes that it pulls in from remote repositories instead of rebasing them.
+Again,
+don't worry if you don't understand what that means right now;
+you will learn.
 We just have to tell Git what to do by default after :command:`git pull` so that it does constantly tell us that we haven't specified a default.
 
 If you want to see what is in your :file:`$HOME/.gitconfig` file,
@@ -105,6 +123,20 @@ you can use:
 You can also have per-repository config files that are stored in the :file:`.git/config` file in a repo.
 You interact with that file with :command:`git config --local`.
 An example of when you might use that is to set a different email address from you EOAS one for a personal project repo.
+
+There are many,
+many things that you can configure in Git.
+If you want to see all of the gory details,
+please see the `git config docs`_.
+The following sections delve into a few of those other configuration settings that you should consider using.
+
+.. _git config docs: https://git-scm.com/docs/git-config
+
+
+.. _GitCommitMessageEditor:
+
+Commit Message Editor
+---------------------
 
 To write informative commit messages it is usually a good idea to have Git open your favourite text editor for you to type the message in.
 By default,
@@ -121,6 +153,21 @@ If you are having trouble figuring out what that command should be,
 ask for help on the `SalishSeaCast #general`_ Slack channel.
 
 .. _SalishSeaCast #general: https://salishseacast.slack.com/?redir=%2Farchives%2FCFR6VU70S
+
+
+Examples
+^^^^^^^^
+
+.. code-block:: bash
+
+    # Sublime Text
+    $ git config --global core.editor "subl --wait"
+
+
+.. _GitCommandAliases:
+
+Command Aliases
+---------------
 
 You can also use :command:`git config` to create aliases for complicated Git commands,
 or commands that you want to give a short name to.
@@ -149,10 +196,3 @@ i.e. :command:`git out --stat`.
 makes :command:`git in` show you the commits from GitHub that have not yet been merged into your local repo.
 Again,
 adding the :kbd:`--stat` option add information about the files that were changed in each commit and the number of added and deleted lines in each.
-
-There are many,
-many things that you can configure in Git.
-If you want to see all of the gory details,
-please see the `git config docs`_.
-
-.. _git config docs: https://git-scm.com/docs/git-config
