@@ -34,6 +34,7 @@ Here's the Getting Started checklist:
 #. :ref:`GetComputeCanadaAccount`
 #. :ref:`SetUpSecureRemoteAccess`
 #. :ref:`SetUpGit`
+#. :ref:`CreateYourAnalysisRepository`
 
 
 .. _GetSetUpOnGitHub:
@@ -87,3 +88,9 @@ You will need to:
 #. Learn about :ref:`vc-with-git`
 #. :ref:`Install Git<InstallingGit>` on your laptop
 #. Set up your :ref:`GitConfiguration` on each of the machines you use
+
+
+.. _CreateYourAnalysisRepository:
+
+Create Your Analysis Repository
+===============================
