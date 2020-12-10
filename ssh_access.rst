@@ -83,7 +83,7 @@ but that has not been tested.
 .. _GenerateSshKeys:
 
 Generate ssh Keys
-===================
+=================
 
 The first step is to generate an ssh key pair on you local computer.
 That is done using the :command:`ssh-keygen` command.
