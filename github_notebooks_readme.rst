@@ -56,12 +56,12 @@ Here is a prototype :file:`make_readme.py` module that provides that automation:
 
     NBVIEWER = "https://nbviewer.jupyter.org/github"
     GITHUB_ORG = "SalishSeaCast"
-    REPO = "analysis-casey"
+    REPO_NAME = "analysis-casey"
     TITLE_PATTERN = re.compile("#{1,6} ?")
 
 
     def main():
-        url = f"{NBVIEWER}/{GITHUB_ORG}/{REPO}/blob/master/{Path.cwd().name}"
+        url = f"{NBVIEWER}/{GITHUB_ORG}/{REPO_NAME}/blob/master/{Path.cwd().name}"
 
         readme = """\
     The Jupyter Notebooks in this directory are made by
@@ -147,13 +147,13 @@ Here's how to set up and use this script:
 
    .. code-block:: python
 
-       REPO = "analysis-casey"
+       REPO_NAME = "analysis-casey"
 
    to:
 
    .. code-block:: python
 
-       REPO = "ch3-paper"
+       REPO_NAME = "ch3-paper"
 
 #. Edit lines 43-45 to describe what your notebooks are about.
    You can put as much text as you want there.
