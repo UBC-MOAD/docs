@@ -49,9 +49,7 @@ Here is a prototype :file:`make_readme.py` module that provides that automation:
 
     and commit and push the updated `README.md` to GitHub.
     """
-    import datetime
     import json
-    import os
     from pathlib import Path
     import re
 
