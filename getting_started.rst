@@ -30,11 +30,20 @@ please create an issue about it in the `issue tracker on GitHub`_.
 
 Here's the Getting Started checklist:
 
+#. :ref:`GetYourEOASEmailAddressAndUserId`
 #. :ref:`GetSetUpOnGitHub`
 #. :ref:`GetComputeCanadaAccount`
 #. :ref:`SetUpSecureRemoteAccess`
 #. :ref:`SetUpGit`
 #. :ref:`CreateYourAnalysisRepository`
+
+
+.. _GetYourEOASEmailAddressAndUserId:
+
+Get Your EOAS Email Address and User Id
+=======================================
+
+Susan will take you through the form to get your EOAS email address and Linux computer user id setup during your first meeting with her when you join the group.
 
 
 .. _GetSetUpOnGitHub:
