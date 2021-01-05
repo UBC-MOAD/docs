@@ -22,7 +22,7 @@ Contributing to These Docs
     :target: https://ubc-moad-docs.readthedocs.io/en/latest/
     :alt: Documentation Status
 .. image:: https://github.com/UBC-MOAD/docs/workflows/sphinx-linkcheck/badge.svg
-    :target: https://github.com/UBC-MOAD/docs/actions?query=workflow%3Asphinx-linkcheck
+    :target: https://github.com/UBC-MOAD/docs/actions?query=workflow:sphinx-linkcheck
     :alt: Sphinx linkcheck
 .. image:: https://img.shields.io/github/issues/UBC-MOAD/docs?logo=github
     :target: https://github.com/UBC-MOAD/docs/issues
@@ -195,7 +195,7 @@ Link Checking the Documentation
 ===============================
 
 .. image:: https://github.com/UBC-MOAD/docs/workflows/sphinx-linkcheck/badge.svg
-    :target: https://github.com/UBC-MOAD/docs/actions?query=workflow%3Asphinx-linkcheck
+    :target: https://github.com/UBC-MOAD/docs/actions?query=workflow:sphinx-linkcheck
     :alt: Sphinx linkcheck
 
 Use the commmand:
@@ -352,7 +352,7 @@ The output looks something like::
 
 :command:`make linkcheck` is run monthly via a `scheduled GitHub Actions workflow`_
 
-.. _scheduled GitHub Actions workflow: https://github.com/UBC-MOAD/docs/actions?query=workflow%3Asphinx-linkcheck
+.. _scheduled GitHub Actions workflow: https://github.com/UBC-MOAD/docs/actions?query=workflow:sphinx-linkcheck
 
 
 .. _MOAD-DocsVersionControlRepository:
