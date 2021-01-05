@@ -7,7 +7,7 @@ Jupyter Notebook READMEs on GitHub
 GitHub.com has a feature whereby a :file:`README.md` file containing text and `Markdown`_ markup present in any directory is rendered to HTML below the list of files in that directory.
 See https://github.com/SalishSeaCast/analysis-ben/tree/master/notebooks as an example.
 
-.. _Markdown: http://commonmark.org/
+.. _Markdown: https://commonmark.org/
 
 We can use that feature in directories that contain `Jupyter Notebook`_ files to provide links to our notebooks rendered to HTML by the `Jupyter nbviewer`_ service.
 Doing so makes the notebooks easily visible to anyone without having to run Jupyter Notebook.
