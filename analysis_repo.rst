@@ -57,12 +57,12 @@ Create Your Analysis Repository on GitHub
 -----------------------------------------
 
 #. In your browser,
-   go to the `UBC-MOAD`_ GitHub organization page,
+   go to the `SalishSeaCast`_ GitHub organization page,
    and use the green :guilabel:`New` button to start creating your analysis repository.
 
-   .. _UBC-MOAD: https://github.com/UBC-MOAD
+   .. _SalishSeaCast: https://github.com/SalishSeaCast
 
-#. Make sure the the :guilabel:`Owner` selection box on the ``Create a new repository`` page shows the :guilabel:`UBC-MOAD` organization.
+#. Make sure the the :guilabel:`Owner` selection box on the ``Create a new repository`` page shows the :guilabel:`SalishSeaCast` organization.
 
 #. Type ``analysis-yourfirstname`` into the the :guilabel:`Repository name` text box;
    for example ``analysis-casey``.
@@ -106,7 +106,7 @@ Clone Your Analysis Repository
    Please ensure that the :guilabel:`SSH` button is enabled,
    and copy the repository URI string of text beside it that looks like::
 
-     git@github.com:UBC-MOAD/analysis-casey.git
+     git@github.com:SalishSeaCast/analysis-casey.git
 
 #. Use that repository URI string to clone your analysis repository from GitHub.
    On your laptop do:
@@ -114,14 +114,14 @@ Clone Your Analysis Repository
    .. code-block:: bash
 
        $ cd $HOME/MOAD
-       $ git clone git@github.com:UBC-MOAD/analysis-casey.git
+       $ git clone git@github.com:SalishSeaCast/analysis-casey.git
 
-   On a Waterhole workstation do
+   On a Waterhole workstation do:
 
    .. code-block:: bash
 
        $ cd /ocean/$USER/MOAD
-       $ git clone git@github.com:UBC-MOAD/analysis-casey.git
+       $ git clone git@github.com:SalishSeaCast/analysis-casey.git
 
 
 Populate Your Analysis Repository
@@ -178,8 +178,8 @@ Populate Your Analysis Repository
 
       researcher_name [Casey Lawrence]:
       Select github_org:
-      1 - UBC-MOAD
-      2 - SalishSeaCast
+      1 - SalishSeaCast
+      2 - UBC-MOAD
       Choose from 1, 2 [1]:
       analysis_repo [analysis-casey]:
 
