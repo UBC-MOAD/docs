@@ -35,6 +35,7 @@ Here's the Getting Started checklist:
 #. :ref:`GetComputeCanadaAccount`
 #. :ref:`SetUpSecureRemoteAccess`
 #. :ref:`SetUpGit`
+#. :ref:`SetUpBash`
 #. :ref:`CreateYourAnalysisRepository`
 
 
@@ -98,6 +99,25 @@ You will need to:
 #. Learn about :ref:`vc-with-git`
 #. :ref:`Install Git<InstallingGit>` on your laptop
 #. Set up your :ref:`GitConfiguration` on each of the machines you use
+
+
+.. _SetUpBash:
+
+Set Up `bash`
+=============
+
+You will need to have:
+
+#. A user id on the EOAS Ocean collection of Linux computers
+   (which should happen at the same time as getting your :kbd:`eoas.ubc.ca` email address)
+#. Completed the process of :ref:`copying your public ssh key to a Waterhole workstation <CopyYourPublicSshKeyToRemoteComputers>`
+
+before you can:
+
+#. :ref:`Create-.bash_profile`
+#. :ref:`Create-.bashrc`
+
+on a Waterhole workstation.
 
 
 .. _CreateYourAnalysisRepository:
