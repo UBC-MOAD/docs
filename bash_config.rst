@@ -50,8 +50,8 @@ For quick reminders about some of the most often used Linux commands this `Unix 
 
 .. _Create-.bash_profile:
 
-Create file:`.bash_profile`
-===========================
+Create :file:`.bash_profile`
+============================
 
 New MOAD accounts on the Waterhole workstations are created completely empty.
 So,
