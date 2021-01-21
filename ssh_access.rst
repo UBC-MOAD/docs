@@ -475,7 +475,7 @@ also use key-based authentication to access our :ref:`team-repos` and your perso
 Doing so lets your ssh agent handle authentication when you do :command:`git pull` and :command:`git push` commands to copy committed changes between your local repository clones and GitHub.
 Please follow the `instructions provided by GitHub`_ to put your public key into your account settings on GitHub.
 
-.. _instructions provided by GitHub: https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account
+.. _instructions provided by GitHub: https://docs.github.com/en/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account
 
 
 .. _SSHCommands:
@@ -704,7 +704,7 @@ paste it into a message on the `SalishSeaCast #general`_ Slack channel.
 X2Go Remote Desktop
 ===================
 
-A last resort for remote access to MOAD workstations is to use `X2Go`_.
+A last resort for remote access to MOAD workstations is to use X2Go (:kbd:`https://wiki.x2go.org/doku.php`).
 It is a last resort because it is very bandwidth-hungry,
 so it can be painfully slow to use on home WiFi.
 It also relies on password authentication rather than key-based authentication,
@@ -724,7 +724,7 @@ One use case that X2Go is helpful for is accessing UBC sites like the payroll sy
 Connecting to a MOAD workstation desktop puts you inside the UBC network,
 so you can use Firefox on that desktop to connect to UBC the payroll system without the need for VPN on your laptop.
 
-Please see the `X2Go`_ documentation for instructions on how to install the X2Go client for your operating system.
+Please see the X2Go documentation for instructions on how to install the X2Go client for your operating system.
 
 Once you have the client installed and running,
 use the :guilabel:`Session` menu to create a :guilabel:`New Session` for a specific workstation;
