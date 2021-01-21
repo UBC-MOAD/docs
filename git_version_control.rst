@@ -149,19 +149,12 @@ you can tell Git that with:
     $ git config --global core.editor "your favourite editor"
 
 where :kbd:`your favourite editor` is the command that Git should use to open your editor.
+The commands for many popular editors are tabulated in `Appendix 3.1 of the ProGit book`_.
 If you are having trouble figuring out what that command should be,
 ask for help on the `SalishSeaCast #general`_ Slack channel.
 
+.. _Appendix 3.1 of the ProGit book: https://git-scm.com/book/en/v2/Appendix-C%3A-Git-Commands-Setup-and-Config#ch_core_editor
 .. _SalishSeaCast #general: https://salishseacast.slack.com/?redir=%2Farchives%2FCFR6VU70S
-
-
-Examples
-^^^^^^^^
-
-.. code-block:: bash
-
-    # Sublime Text
-    $ git config --global core.editor "subl --wait"
 
 
 .. _GitCommandAliases:
