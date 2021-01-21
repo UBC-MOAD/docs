@@ -147,6 +147,18 @@ or copy/paste the following lines into the file:
 
 TODO: Add explanation of each of the commands above.
 
+.. warning::
+    :kbd:`alias ls="ls --color=auto -F"` does note work on MacOS.
+    It produces an error.
+    Instead,
+    to get coloured output from :command:`ls` you have to set the :envvar:`CLICOLOR` environment variable to :kbd:`True` by putting:
+
+    .. code-block:: bash
+
+         export CLICOLOR=True
+
+    in your :file:`.bashrc` file.
+
 When you are done,
 save the file,
 and exit :command:`nano`.
