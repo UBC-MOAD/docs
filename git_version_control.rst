@@ -189,3 +189,32 @@ i.e. :command:`git out --stat`.
 makes :command:`git in` show you the commits from GitHub that have not yet been merged into your local repo.
 Again,
 adding the :kbd:`--stat` option add information about the files that were changed in each commit and the number of added and deleted lines in each.
+
+
+.. _GitIgnoreFiles:
+
+:file:`.gitignore` Files
+========================
+
+There are lots of kinds of files that we *don't* generally want to track with :command:`git`,
+and,
+in fact,
+don't even want :command:`git` to show us that they are untracked.
+Examples include:
+
+* byte-compiled Python files that are stored in :file:`__pychache__/` directories,
+  or have extensions like :file:`.pyc`
+* Jupyter notebook checkpoint files stored in :file:`.ipynb_checkpoints/` directories
+* rendered Sphinx documentation files stored in :file:`_build/` directories
+* etc.
+
+A list of patterns in a file called :file:`.gitignore` in the top level directory of your repository tells :command:`git` to never show files that match those patterns in the :command:`git status` command so that they don't clutter up your view of changes that you need to add/commit.
+
+There is more information about :file:`.gitignore` files in the "Ignoring Files" section of https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository.
+
+You can create your own :file:`.gitignore` files by hand,
+or use a template like https://github.com/github/gitignore/blob/master/Python.gitignore as a starting point.
+
+.. note::
+    Be sure to add and commit your :file:`.gitignore` file after you create it,
+    and any time you change it.
