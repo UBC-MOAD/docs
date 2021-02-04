@@ -57,15 +57,17 @@ Here is a prototype :file:`make_readme.py` module that provides that automation:
     NBVIEWER = "https://nbviewer.jupyter.org/github"
     GITHUB_ORG = "SalishSeaCast"
     REPO_NAME = "analysis-casey"
+    DEFAULT_BRANCH_NAME = "main"
+    CREATOR_NAME = "Casey Lawrence"
     TITLE_PATTERN = re.compile("#{1,6} ?")
 
 
     def main():
-        url = f"{NBVIEWER}/{GITHUB_ORG}/{REPO_NAME}/blob/master/{Path.cwd().name}"
+        url = f"{NBVIEWER}/{GITHUB_ORG}/{REPO_NAME}/blob/{DEFAULT_BRANCH_NAME}/{Path.cwd().name}"
 
-        readme = """\
+        readme = f"""\
     The Jupyter Notebooks in this directory are made by
-    Casey Lawrence for sharing of Python code techniques
+    {CREATOR_NAME} for sharing of Python code techniques
     and notes.
 
     The links below are to static renderings of the notebooks via
@@ -155,7 +157,35 @@ Here's how to set up and use this script:
 
        REPO_NAME = "ch3-paper"
 
-#. Edit lines 43-45 to describe what your notebooks are about.
+#. Edit line 36 to the name of your repository's default branch.
+   (You can check the name of your default branch with :kbd:`git symbolic-ref --short HEAD`)
+   If the name of your default branch is :kbd:`master`,
+   you should change line 36 from:
+
+   .. code-block:: python
+
+        DEFAULT_BRANCH_NAME = "main"
+
+   to:
+
+   .. code-block:: python
+
+       DEFAULT_BRANCH_NAME = "master"
+
+#. Edit line 37 to your name for the "notebooks made by ..." message;
+   i.e. change line 37 from:
+
+   .. code-block:: python
+
+        CREATOR_NAME = "Casey Lawrence"
+
+   to:
+
+   .. code-block:: python
+
+       CREATOR_NAME = "Your Name"
+
+#. Edit lines 45-47 to describe what your notebooks are about.
    You can put as much text as you want there.
    It is the beginning of the text that will appear between the list of files on the GitHub page and the list of links to the nbviewer renderings of your notebooks.
    *Don't forget to change line 44 to your name!*
