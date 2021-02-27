@@ -61,7 +61,7 @@ for completing it at
 https://www.computecanada.ca/research-portal/account-management/apply-for-an-account/
 
 
-.. _InitialSetupOnBeluga:
+.. _InitialSetupOnGraham:
 
 Initial Setup on :kbd:`graham.computecanada.ca`
 ===============================================
