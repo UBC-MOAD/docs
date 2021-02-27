@@ -145,8 +145,6 @@ or copy/paste the following lines into the file:
     alias ll="ls -al"
     alias rm="rm -i"
 
-TODO: Add explanation of each of the commands above.
-
 .. warning::
     :kbd:`alias ls="ls --color=auto -F"` does note work on MacOS.
     It produces an error.
@@ -170,3 +168,112 @@ You will have to leave the shell by typing the command:
     $ exit
 
 and then :command:`ssh` into the workstation again in order for :command:`bash` to use your new :file:`.bash_profile` and :file:`.bashrc` files.
+
+
+.. _.bashrcCommandExplanations:
+
+:file:`.bashrc` Command Explanations
+------------------------------------
+
+This section briefly explains what each of the command in the section above mean.
+
+.. code-block:: bash
+
+    PS1="\h:\W$ "
+
+shortens your command-line prompt so that it shows just the name of the machine that you are on and the directory that you are currently in instead of the whole path to that directory.
+
+.. code-block:: bash
+
+    export PAGER=less
+
+forces programs and commands that want to display output page by page to use :command:`less` as their pager.
+
+.. code-block:: bash
+
+    export LESS=-R
+
+forces :command:`less` to allow control sequences that change the colour of its output
+
+If you are not a fan of the :command:`vi` editor you can set the :envvar:`EDITOR` and :envvar:`VISUAL` environment variables to the command for your favourite editor and export them.
+For :command:`emacs` use:
+
+.. code-block:: bash
+
+    export EDITOR=nano
+    export VISUAL=nano
+
+tells the system to use :command:`nano` as your default editor.
+If you prefer a different editor,
+substitute its name.
+Other common choices are :command:`emacs`,
+:command:`vim`,
+or :command:`vi`.
+
+.. code-block:: bash
+
+    alias df="df -h"
+
+modifies the :command:`df` command that shows how much disk space is free to use human-friendly units like :kbd:`G` for gigabytes instead of its default of 1K blocks.
+
+.. code-block:: bash
+
+    alias du="du -h"
+
+similarly modifies the :command:`du` command that shows disk space usage.
+
+.. code-block:: bash
+
+    alias grep="grep --color=auto"
+
+modifies the :command:`grep` command for finding strings in files to show its output in colour.
+
+.. code-block:: bash
+
+    alias ls="ls --color=auto -F"
+
+modifies the :command:`ls` command for listing directory contents to show its output in colour.
+It also make :command:`ls` show extra characters after the file/directory names to indicate special properties;
+e.g. append :kbd:`/` to directory names,
+:kbd:`*` to executable files,
+:kbd:`@` to symbolic links,
+etc.
+
+.. code-block:: bash
+
+    alias la="ls -a"
+
+creates a new command,
+:command:`la`,
+that is an alias for :command:`ls -a` to make :command:`ls` show hidden files and directories
+(whose names start with the :kbd:`.` character).
+Aliases are cumulative,
+so,
+:command:`la` will also be in colour and have appended indicator characters because of the way :command:`ls` is aliased in the line above.
+
+.. code-block:: bash
+
+    alias ll="ls -al"
+
+creates a new command,
+:command:`ll`,
+that is an alias for :command:`ls -al` to make :command:`ls` show lots of details
+(permissions,
+owner and group,
+file size,
+and last modification date/time)
+about files
+(often called a long listing)
+and include hidden files/directories in the listing.
+
+.. code-block:: bash
+
+    alias rm="rm -i"
+
+modifies the :command:`rm` command for removing files to always prompt you to confirm that you really want to delete the file(s).
+
+.. note::
+  You can find more information about any of the commands in the aliases above by using the :command:`man` command;
+  e.g. to find out more about the options available to control file and directory listings that the :command:`ls` produces,
+  use :command:`man ls`,
+  or Google something like "linux ls" or "man ls".
