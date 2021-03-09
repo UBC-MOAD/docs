@@ -37,10 +37,12 @@ extensions = [
 ]
 
 intersphinx_mapping = {
+    'moadtools':
+        ('https://ubc-moad-tools.readthedocs.io/en/latest/', None),
     'nemocmd':
-        ('http://nemo-cmd.readthedocs.io/en/latest/', None),
+        ('https://nemo-cmd.readthedocs.io/en/latest/', None),
     'salishseacmd':
-        ('http://salishseacmd.readthedocs.io/en/latest/', None),
+        ('https://salishseacmd.readthedocs.io/en/latest/', None),
     "salishseadocs":
         ("https://salishsea-meopar-docs.readthedocs.io/en/latest/", None),
 }
