@@ -48,7 +48,7 @@ or `SalishSeaCast/NEMO-Cmd`_).
 .. _SalishSeaCast/NEMO-Cmd: https://github.com/SalishSeaCast/NEMO-Cmd
 
 Most of our repositories are configured so that when changes that have been committed and  pushed to GitHub a signal is sent to `readthedocs.org`_ to automatically rebuild and render the docs at a :kbd:`readthedocs.io` sub-domain.
-There is a very good chance that you are presently reading the result of that processing pipeline at https://ubc-moad-docs.readthedocs.io/en/latest/#documentation-with-sphinx.
+There is a very good chance that you are presently reading the result of that processing pipeline at https://ubc-moad-docs.readthedocs.io/en/latest/sphinx_docs.html#documentation-with-sphinx.
 
 .. _readthedocs.org: https://readthedocs.org/
 
