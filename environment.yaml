@@ -19,7 +19,8 @@
 name: moad-docs
 
 channels:
-  - defaults
+  - conda-forge
+  - nodefaults
 
 dependencies:
   - pip
