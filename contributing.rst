@@ -392,7 +392,7 @@ License
 
 The UBC EOAS MOAD Group Documentation is Copyright 2018-2021 by the `EOAS MOAD group`_ and The University of British Columbia.
 
-.. _EOAS MOAD group: https://github.com/UBC-MOAD/docs/blob/master/CONTRIBUTORS.rst
+.. _EOAS MOAD group: https://github.com/UBC-MOAD/docs/blob/main/CONTRIBUTORS.rst
 
 It is licensed under a `Creative Commons Attribution 4.0 International License`_.
 
