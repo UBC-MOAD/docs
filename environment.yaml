@@ -23,6 +23,7 @@ channels:
   - nodefaults
 
 dependencies:
+  - nbsphinx
   - pip
   - python>=3.6
   - sphinx
