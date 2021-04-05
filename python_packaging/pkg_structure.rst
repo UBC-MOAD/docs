@@ -638,7 +638,7 @@ The :file:`tests/` sub-directory,
 nor any other directories that may be created in its tree *should not* contain :file:`__init__.py` files.
 Please see `the discussion of test layout/import rules in the pytest docs`_ for explanation.
 
-.. _the discussion of test layout/import rules in the pytest docs: https://doc.pytest.org/en/latest/goodpractices.html#tests-outside-application-code
+.. _the discussion of test layout/import rules in the pytest docs: https://doc.pytest.org/en/latest/explanation/goodpractices.html#tests-outside-application-code
 
 
 Rationale
