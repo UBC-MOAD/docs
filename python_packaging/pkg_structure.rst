@@ -48,7 +48,7 @@ References
        (or :command:`pip install -e`) command.
        That makes the workflow for getting updates into our installed packages a simple :command:`git pull` in the package repository clone directory.
 
-       .. _"Editable" Installs: https://pip.pypa.io/en/stable/reference/pip_install/#editable-installs
+       .. _"Editable" Installs: https://pip.pypa.io/en/stable/cli/pip_install/#editable-installs
 
     #. On our local workstations and laptops we work in `conda environments`_,
        either the :kbd:`base` environment created by installing the `Anaconda Python distribution`_,
