@@ -202,7 +202,7 @@ in fact,
 don't even want :command:`git` to show us that they are untracked.
 Examples include:
 
-* byte-compiled Python files that are stored in :file:`__pychache__/` directories,
+* byte-compiled Python files that are stored in :file:`__pycache__/` directories,
   or have extensions like :file:`.pyc`
 * Jupyter notebook checkpoint files stored in :file:`.ipynb_checkpoints/` directories
 * rendered Sphinx documentation files stored in :file:`_build/` directories
