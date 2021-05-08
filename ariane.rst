@@ -37,31 +37,23 @@ Getting Ariane
 The MOAD group maintains our own Git repository on GitHub of the Ariane code base; this repository is accessible only by members of the MOAD group so as to respect the sign-up requirement of the upstream Ariane repository. The general Ariane code is available via the `Ariane website`_ . Modifications made by the MOAD group to the Ariane source code can be found on `GitHub`_. To download the MOAD Ariane code base, clone the repository from GitHub to your $PROJECT space:
 
 .. _Ariane website: http://stockage.univ-brest.fr/~grima/Ariane/download.php
-.. _GitHub: https://github.com/UBC-MOAD/ariane-2.2.8-code
+.. _GitHub: https://github.com/UBC-MOAD/ariane-2.3.0_03
 
 .. code-block:: bash
 
     cd /ocean/$USER/$PROJECT/
-    git clone git@github.com:UBC-MOAD/ariane-2.2.8-code.git
+    git clone git@github.com:UBC-MOAD/ariane-2.3.0_03.git
 
 
 Installing on :kbd:`salish`
 ---------------------------
 
-Specify the locations of the :kbd:`netcdf` libraries to help the :kbd:`configure` script find them:
+Configure the installation by going to the folder of your clone of the MOAD Ariane repo:
 
 .. code-block:: bash
 
-    cd /ocean/$USER/$PROJECT/ariane-2.2.8-code/
-    export NETCDF_INC=/usr/include
-    export NETCDF_LIB=/usr/lib
-
-Configure the installation by going to the folder of your downloaded Ariane code from their website:
-
-.. code-block:: bash
-
-    cd /ocean/$USER/$PROJECT/ariane-2.2.8-code
-    ./configure --prefix=/ocean/$USER/$PROJECT/ariane-2.2.8-code
+    cd /ocean/$USER/$PROJECT/ariane-2.3.0_03
+    ./configure --prefix=$PWD
 
 The :kbd:`prefix` argument overwrites the default install directory into a customized directory.
 
@@ -69,7 +61,7 @@ Make and install Ariane (you will need to do this every time you make changes to
 
 .. code-block:: bash
 
-    cd /ocean/$USER/$PROJECT/ariane-2.2.8-code
+    cd /ocean/$USER/$PROJECT/ariane-2.3.0_03
     make
     make check
     make install
@@ -78,7 +70,7 @@ Add the path for the Ariane executable to your :kbd:`PATH` environment variable:
 
 .. code-block:: bash
 
-    export PATH=/ocean/$USER/$PROJECT/ariane-2.2.8-code/bin:$PATH
+    export PATH=/ocean/$USER/$PROJECT/ariane-2.3.0_03/bin:$PATH
 
 Now you can run Ariane from any directory by typing :kbd:`ariane`.
 
@@ -91,14 +83,14 @@ For instance, try:
 
 .. code-block:: bash
 
-    cd /ocean/$USER/$PROJECT/ariane-2.2.8-code/examples/qualitative
+    cd /ocean/$USER/$PROJECT/ariane-2.3.0_03/examples/qualitative
     ariane
 
-You should notice several new files, such as :file:`ariane_trajectories_qualitative.nc` and :file:`traj.txt`.
+You should notice several new files, such as :file:`results/ariane_trajectories_qualitative.nc` and :file:`validation/traj.txt`.
 These files contain the trajectory information.
 
-* :file:`ariane_trajectories_qualitative.nc` contains the particle positions at each time step and the initial positions
-* :file:`traj.txt` gives a general idea of what the resulting trajectory coordinates look like or to check if the simulation ran properly
+* :file:`results/ariane_trajectories_qualitative.nc` contains the particle positions at each time step and the initial positions
+* :file:`validation/traj.txt` gives a general idea of what the resulting trajectory coordinates look like or to check if the simulation ran properly
 
 
 .. _Configuring your run:
@@ -199,4 +191,3 @@ If you would like to see some examples of particle tracking, feel free to look a
 * `ParticleTracking.ipynb`_
 
 .. _ParticleTracking.ipynb: https://nbviewer.jupyter.org/github/SalishSeaCast/analysis/blob/master/Idalia/ParticleTracking.ipynb
-
