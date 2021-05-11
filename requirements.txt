@@ -52,7 +52,7 @@ sphinxcontrib-qthelp==1.0.3
 sphinxcontrib-serializinghtml==1.1.4
 testpath==0.4.4
 traitlets==5.0.5
-urllib3==1.26.2
+urllib3==1.26.4
 webencodings==0.5.1
 wheel==0.36.2
 zipp==3.4.1
