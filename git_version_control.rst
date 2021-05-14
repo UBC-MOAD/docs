@@ -21,7 +21,7 @@ and pretty much any other important computer files in the UBC MOAD group.
 
 The `documentation section of the Git site`_ includes a variety of ways to learn about Git.
 A good starting point is to read at least the first two chapters of the `Pro Git book`_.
-There is also and introduction to `using Git`_ on the GitHub documentation site.
+There is also an introduction to `using Git`_ on the GitHub documentation site.
 
 .. _documentation section of the Git site: https://git-scm.com/doc
 .. _Pro Git book: https://git-scm.com/book/en/v2
@@ -111,7 +111,7 @@ The second tells Git to merge changes that it pulls in from remote repositories 
 Again,
 don't worry if you don't understand what that means right now;
 you will learn.
-We just have to tell Git what to do by default after :command:`git pull` so that it does constantly tell us that we haven't specified a default.
+We just have to tell Git what to do by default after :command:`git pull` so that it does not constantly tell us that we haven't specified a default.
 
 If you want to see what is in your :file:`$HOME/.gitconfig` file,
 you can use:
@@ -122,7 +122,7 @@ you can use:
 
 You can also have per-repository config files that are stored in the :file:`.git/config` file in a repo.
 You interact with that file with :command:`git config --local`.
-An example of when you might use that is to set a different email address from you EOAS one for a personal project repo.
+An example of when you might use that is to set a different email address from your EOAS one for a personal project repo.
 
 There are many,
 many things that you can configure in Git.
@@ -188,7 +188,7 @@ i.e. :command:`git out --stat`.
 
 makes :command:`git in` show you the commits from GitHub that have not yet been merged into your local repo.
 Again,
-adding the :kbd:`--stat` option add information about the files that were changed in each commit and the number of added and deleted lines in each.
+adding the :kbd:`--stat` option adds information about the files that were changed in each commit and the number of added and deleted lines in each.
 
 
 .. _GitIgnoreFiles:
