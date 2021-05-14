@@ -17,7 +17,7 @@ It's mostly a collection of links to other places in these and other docs in app
 
 There's lots to learn as you join the group,
 but you can also help us improve things right from Day 1.
-You are reading these docs with eyes and brain that haven't looked that them before,
+You are reading these docs with eyes and brain that haven't looked at them before,
 so you are uniquely qualified to see things that other people take for granted.
 Please help us improve our docs fixing typos,
 improving wording,
