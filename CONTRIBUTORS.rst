@@ -20,6 +20,7 @@ The following people have contributed to this documentation:
 * Idalia Machuca <imachuca@eoas.ubc.ca>
 * Elise Olson <eolson@eoas.ubc.ca>
 * Karyn Suchy <ksuchy@eoas.ubc.ca>
+* Raisha Lovindeer <rlovindeer@eoas.ubc.ca>
 * Michael Dunphy <mdunphy@eoas.ubc.ca>
 * Muriel Dunn <mdunn@eoas.ubc.ca>
 * Tereza Jarníková <tjarniko@eoas.ubc.ca>
