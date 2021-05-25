@@ -176,12 +176,12 @@ Populate Your Analysis Repository
 
    :command:`cookiecutter` will ask you for 3 pieces of input::
 
-      researcher_name [Casey Lawrence]:
+      researcher_name [Casey Lawrence]: 
       Select github_org:
       1 - SalishSeaCast
       2 - UBC-MOAD
-      Choose from 1, 2 [1]:
-      analysis_repo [analysis-casey]:
+      3 - SS-Atlantis
+      Choose from 1, 2, 3 [1]: 
 
    Type your name in at the :kbd:`researcher_name` prompt,
    and accept the defaults for the other two because they should match what you did earlier.
