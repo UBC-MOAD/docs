@@ -70,7 +70,7 @@ Clone the MOAD documentation `repository`_ from GitHub with:
     $ git clone git@github.com:UBC-MOAD/docs.git
 
 or copy the URI
-(the stuff afrer :kbd:`git clone` above)
+(the stuff after :kbd:`git clone` above)
 from the :guilabel:`Code` button on the `repository`_ page.
 
 .. note::
