@@ -70,7 +70,7 @@ Add the path for the Ariane executable to your :kbd:`PATH` environment variable:
 
 .. code-block:: bash
 
-    export PATH=/ocean/$USER/$PROJECT/ariane-2.3.0_03/bin:$PATH
+    export PATH=$PWD/bin:$PATH
 
 Now you can run Ariane from any directory by typing :kbd:`ariane`.
 
