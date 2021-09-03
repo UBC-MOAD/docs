@@ -36,6 +36,7 @@ Here's the Getting Started checklist:
 #. :ref:`SetUpSecureRemoteAccess`
 #. :ref:`SetUpGit`
 #. :ref:`SetUpBash`
+#. :ref:`InstallMiniconda`
 #. :ref:`CreateYourAnalysisRepository`
 
 
@@ -103,8 +104,8 @@ You will need to:
 
 .. _SetUpBash:
 
-Set Up `bash`
-=============
+Set Up :program:`bash`
+======================
 
 You will need to have:
 
@@ -120,7 +121,26 @@ before you can:
 on a Waterhole workstation.
 
 
+.. _InstallMiniconda:
+
+Install Miniconda
+=================
+
+You will need to:
+
+#. Learn about :ref:`MOAD-CondaPkgAndEnvMgr` 
+#. :ref:`Install Miniconda<InstallingMiniconda>` on your laptop
+#. :ref:`Install Miniconda<InstallingMiniconda>` in your workspace on the EOAS Ocean collection of Linux computers
+
+
 .. _CreateYourAnalysisRepository:
 
 Create Your Analysis Repository
 ===============================
+
+You will need to have:
+
+#. :ref:`SetUpGit`
+#. :ref:`Installed Miniconda<InstallMiniconda>`
+
+before you can create your :ref:`analysis repository<MOAD-AnalysisRepository>`.
