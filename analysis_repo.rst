@@ -62,7 +62,7 @@ Create Your Analysis Repository on GitHub
 
    .. _SalishSeaCast: https://github.com/SalishSeaCast
 
-#. Make sure the the :guilabel:`Owner` selection box on the ``Create a new repository`` page shows the :guilabel:`SalishSeaCast` organization.
+#. Make sure the :guilabel:`Owner` selection box on the ``Create a new repository`` page shows the :guilabel:`SalishSeaCast` organization.
 
 #. Type ``analysis-yourfirstname`` into the the :guilabel:`Repository name` text box;
    for example ``analysis-casey``.
