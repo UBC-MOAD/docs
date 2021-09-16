@@ -164,13 +164,13 @@ Here's how to set up and use this script:
 
    .. code-block:: python
 
-        DEFAULT_BRANCH_NAME = "main"
+        DEFAULT_BRANCH_NAME = "master"
 
    to:
 
    .. code-block:: python
 
-       DEFAULT_BRANCH_NAME = "master"
+       DEFAULT_BRANCH_NAME = "main"
 
 #. Edit line 37 to your name for the "notebooks made by ..." message;
    i.e. change line 37 from:
