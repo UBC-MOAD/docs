@@ -146,7 +146,7 @@ or copy/paste the following lines into the file:
     alias rm="rm -i"
 
 .. warning::
-    :kbd:`alias ls="ls --color=auto -F"` does note work on MacOS.
+    :kbd:`alias ls="ls --color=auto -F"` does not work on MacOS.
     It produces an error.
     Instead,
     to get coloured output from :command:`ls` you have to set the :envvar:`CLICOLOR` environment variable to :kbd:`True` by putting:
