@@ -67,7 +67,7 @@ Create Your Analysis Repository on GitHub
 #. Type ``analysis-yourfirstname`` into the the :guilabel:`Repository name` text box;
    for example ``analysis-casey``.
 
-#. Ensure the the button to make your new repository ``Public`` is set.
+#. Ensure the button to make your new repository ``Public`` is set.
 
 #. Click the green :guilabel:`Create repository` button at the bottom of the page.
 
