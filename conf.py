@@ -47,12 +47,15 @@ intersphinx_mapping = {
         ("https://salishsea-meopar-docs.readthedocs.io/en/latest/", None),
 }
 
-# Private GitHub repositories that linkcheck will ignore
+
 linkcheck_ignore = [
+    # Private GitHub repositories that linkcheck will ignore
     'https://github.com/SalishSeaCast/NEMO-3.6-code',
     'https://github.com/SalishSeaCast/rpn-to-gemlam',
     'https://github.com/SalishSeaCast/XIOS-2',
     'https://github.com/UBC-MOAD/ariane-2.3.0_03',
+    # Fails with "403 Client Error: Forbidden" when checked from GitHub Actions
+    'https://www.baeldung.com/cs/ssh-intro',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
