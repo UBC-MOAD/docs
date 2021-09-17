@@ -32,6 +32,7 @@ The following people have contributed to this documentation:
 * Karina Ramos Musalem <kramosmusalem@eoas.ubc.ca>
 * Saurav Sahu <ssahu@eoas.ubc.ca>
 * Birgit Rogalla <brogalla@eoas.ubc.ca>
+* Rebecca Beutel <rbeutel@eoas.ubc.ca>
 * Yingkai (Kyle) Sha <yingkai@eoas.ubc.ca>
 * Xiaoxin (Cindy) Yu <xiaoxiny@eoas.ubc.ca>
 * Melanie Grenier <mgrenier@eoas.ubc.ca>
