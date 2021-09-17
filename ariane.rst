@@ -133,7 +133,7 @@ The :file:`namelist` file specifies a variety of the run settings. The general A
 +----------------------------------------+-------------------------------------------+
 | :kbd:`tunit`                           | Unit of time of your model files (sec)    |
 +----------------------------------------+-------------------------------------------+
-| :kbd:`ntfic`                           | Number of :kbd:`tunit` in each model file |
+| :kbd:`ntfic`                           | Number of :kbd:`tunit` in each time step  |
 +----------------------------------------+-------------------------------------------+
 
 The parameters of your model run are specified in :kbd:`OPAPARAM`:
