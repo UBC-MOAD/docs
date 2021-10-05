@@ -31,7 +31,7 @@ References
 * `the Flit packaging and publisher tool`_
 
 .. _Python Packaging User Guide: https://packaging.python.org/
-.. _Setuptools Documentation: https://setuptools.readthedocs.io/en/latest/index.html
+.. _Setuptools Documentation: https://setuptools.pypa.io/en/latest/index.html
 .. _Hynek Schlawack's Testing & Packaging blog post: https://hynek.me/articles/testing-packaging/
 .. _Ionel Cristian Mărieș's Packaging a python library blog post: https://blog.ionelmc.ro/2014/05/25/python-packaging/
 .. _Brian Skinn's My How and Why pyproject.toml & the 'src' Project Structure blog post: https://bskinn.github.io/My-How-Why-Pyproject-Src/
@@ -668,4 +668,4 @@ The :file:`src/` layout advocated by `Hynek Schlawack's Testing & Packaging blog
 The benefits that :file:`src/` layout provides are not important to us because always install our group-developed packages via :command:`python3 -m pip install -e`,
 and we don't use `tox`_ to test our packages with different Python versions and interpreters.
 
-.. _tox: https://tox.readthedocs.io/en/latest/
+.. _tox: https://tox.wiki/en/latest/

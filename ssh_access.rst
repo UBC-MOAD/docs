@@ -475,7 +475,7 @@ also use key-based authentication to access our :ref:`team-repos` and your perso
 Doing so lets your ssh agent handle authentication when you do :command:`git pull` and :command:`git push` commands to copy committed changes between your local repository clones and GitHub.
 Please follow the `instructions provided by GitHub`_ to put your public key into your account settings on GitHub.
 
-.. _instructions provided by GitHub: https://docs.github.com/en/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account
+.. _instructions provided by GitHub: https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account
 
 
 .. _SSHCommands:

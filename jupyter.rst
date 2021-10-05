@@ -429,10 +429,9 @@ they are installed from PyPI.
 
     If you want to use :kbd:`h5netcdf` at a lower level than :kbd:`xarray`
     (as you may have used :kbd:`netCDF4` elsewhere),
-    please see its `legacy API`_ that is designed for compatibility with :kbd:`netCDF4`.
+    please see its legacy API that is designed for compatibility with :kbd:`netCDF4`.
 
     .. _h5netcdf package: https://github.com/h5netcdf/h5netcdf
-    .. _legacy API: https://github.com/h5netcdf/h5netcdf#legacy-api
 
 .. note::
     If you need to deactivate the venv,

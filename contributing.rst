@@ -79,7 +79,7 @@ from the :guilabel:`Code` button on the `repository`_ page.
     If it fails,
     please follow the instructions in our :ref:`SecureRemoteAccess` docs to set up your SSH keys and :ref:`CopyYourPublicSshKeyToGitHub`.
 
-    .. _connecting to GitHub using SSH: https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh
+    .. _connecting to GitHub using SSH: https://docs.github.com/en/authentication/connecting-to-github-with-ssh
 
 
 .. _MOAD-DocsBuildEnvironment:
