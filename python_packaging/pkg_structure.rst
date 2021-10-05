@@ -155,17 +155,7 @@ It also contains a file to tell https://readthedocs.org/ how to configure an env
 ^^^^^^^^^^^^^^^^^^^^^^
 
 The :file:`setup.cfg` contains the package metadata and :kbd:`setuptools` options for creation of the package.
-
-.. warning::
-    The documentation for :file:`setup.cfg` files has disappeared as of early October 2020,
-    seemingly as part of the `Setuptools Documentation`_ overhaul.
-    The :kbd:`https://setuptools.readthedocs.io/en/latest/setuptools.html#configuring-setup-using-setup-cfg-files` link is broken,
-    but it is to be hoped that it,
-    or a redirect,
-    will re-appear soon.
-
-    In the meantime,
-    the examples below and the :file:`setup.cfg` files in out packages are the best guidance we have.
+It is documented at https://setuptools.readthedocs.io/en/latest/setuptools.html#configuring-setup-using-setup-cfg-files.
 
 A minimal :file:`setup.cfg` file looks like:
 
