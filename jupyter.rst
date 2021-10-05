@@ -405,9 +405,9 @@ Install the :kbd:`jupyterlab` package and other packages that we routinely use f
 
 .. code-block:: bash
 
-    (jupyter)$ python3 -m pip install jupyterlab xarray netCDF4 bottleneck matplotlib cmocean
+    (jupyter)$ python3 -m pip install jupyterlab xarray h5netcdf bottleneck matplotlib cmocean
 
-This will cause the list of packages :kbd:`jupyterlab xarray netCDF4 bottleneck matplotlib cmocean` to be installed from the package collections maintained by Compute Canada,
+This will cause the list of packages :kbd:`jupyterlab xarray h5netcdf bottleneck matplotlib cmocean` to be installed from the package collections maintained by Compute Canada,
 or from the `Python Package Index (PyPI)`_.
 Ideally all of the packages will be installed from the Compute Canada package collections,
 ensuring that they have been built for best compatibility and optimization for the cluster architecture.
@@ -416,6 +416,23 @@ when packages are unavailable or not up to date in the Compute Canada collection
 they are installed from PyPI.
 
 .. _Python Package Index (PyPI): https://pypi.org/
+
+.. important:: 
+    In late Sep-2021 we discovered that the :kbd:`netCDF4` package maintained by Compute Canada had become incompatible with :kbd:`xarray`
+    (then at version 0.19.0).
+    The work-around is to change to use the `h5netcdf package`_ to access netCDF files.
+    The :command:`python3 -m pip install ...` command above will install :kbd:`h5netcdf`.
+    To use it,
+    add a :kbd:`engine="h5netcdf"` argument to your :kbd:`xarray.open_dataset()`,
+    :kbd:`xarray.Dataset.to_netcdf()`,
+    etc. calls.
+
+    If you want to use :kbd:`h5netcdf` at a lower level than :kbd:`xarray`
+    (as you may have used :kbd:`netCDF4` elsewhere),
+    please see its `legacy API`_ that is designed for compatibility with :kbd:`netCDF4`.
+
+    .. _h5netcdf package: https://github.com/h5netcdf/h5netcdf
+    .. _legacy API: https://github.com/h5netcdf/h5netcdf#legacy-api
 
 .. note::
     If you need to deactivate the venv,
