@@ -155,7 +155,7 @@ It also contains a file to tell https://readthedocs.org/ how to configure an env
 ^^^^^^^^^^^^^^^^^^^^^^
 
 The :file:`setup.cfg` contains the package metadata and :kbd:`setuptools` options for creation of the package.
-It is documented at https://setuptools.readthedocs.io/en/latest/setuptools.html#configuring-setup-using-setup-cfg-files.
+It is documented at https://setuptools.pypa.io/en/latest/userguide/declarative_config.html.
 
 A minimal :file:`setup.cfg` file looks like:
 
