@@ -63,7 +63,9 @@ Here is a prototype :file:`make_readme.py` module that provides that automation:
 
 
     def main():
-        url = f"{NBVIEWER}/{GITHUB_ORG}/{REPO_NAME}/blob/{DEFAULT_BRANCH_NAME}/{Path.cwd().name}"
+        cwd_parts = Path.cwd().parts
+        repo_path = Path(*cwd_parts[cwd_parts.index(REPO_NAME)+1:])
+        url = f"{NBVIEWER}/{GITHUB_ORG}/{REPO_NAME}/blob/{DEFAULT_BRANCH_NAME}/{repo_path}"
 
         readme = f"""\
     The Jupyter Notebooks in this directory are made by
