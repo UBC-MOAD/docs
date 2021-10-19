@@ -1,12 +1,12 @@
-# Configuration for builds on readthedocs.org
-
 version: 2
 
-# Only build HTML and JSON formats
-formats: []
+build:
+  os: ubuntu-20.04
+  tools:
+    python: "mambaforge-4.10"
 
 conda:
   environment: environment.yaml
 
-build:
-  image: latest
+# Only build HTML and JSON formats
+formats: []
