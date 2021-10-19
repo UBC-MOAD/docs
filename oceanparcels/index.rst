@@ -1,0 +1,31 @@
+.. Copyright 2018-2021 The UBC EOAS MOAD Group
+.. and The University of British Columbia
+..
+.. Licensed under a Creative Commons Attribution 4.0 International License
+..
+..   https://creativecommons.org/licenses/by/4.0/
+
+
+.. _OceanParcels:
+
+*************
+Ocean Parcels
+*************
+
+This section is about the UBC MOAD group's use of the `OceanParcels`_ package for customisable particle tracking simulations using output from ocean circulation models.
+
+.. _OceanParcels: https://oceanparcels.org/index.html
+
+Useful links:
+
+* `OceanParcels project site`_ 
+* Our `#oceanparcels Slack channel`_
+* `OceanParcels Gitter chat rooms`_ 
+* `Ocean Sciences 2021 paper comparing OceanParcels and Ariane`_ 
+* `Advection kernels`_
+
+.. _OceanParcels project site: https://oceanparcels.org/
+.. _#oceanparcels Slack channel: https://salishseacast.slack.com/archives/C02ETTPHFPX
+.. _OceanParcels Gitter chat rooms: https://gitter.im/OceanPARCELS/home
+.. _Ocean Sciences 2021 paper comparing OceanParcels and Ariane: https://os.copernicus.org/articles/17/1067/2021/
+.. _Advection kernels: https://oceanparcels.org/gh-pages/html/_modules/parcels/application_kernels/advection.html
