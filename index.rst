@@ -32,6 +32,7 @@ This is documentation by and for members of the MOAD (Mesoscale Ocean and Atmosp
    globus
    xios-2
    ariane
+   oceanparcels/index
    sphinx_docs
    python_packaging/index
    contributing

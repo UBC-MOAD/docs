@@ -12,9 +12,9 @@
 Ocean Parcels
 *************
 
-This section is about the UBC MOAD group's use of the `OceanParcels`_ package for customisable particle tracking simulations using output from ocean circulation models.
+This section is about the UBC MOAD group's use of the `OceanParcels package`_ for customisable particle tracking simulations using output from ocean circulation models.
 
-.. _OceanParcels: https://oceanparcels.org/index.html
+.. _OceanParcels package: https://oceanparcels.org/index.html
 
 Useful links:
 
