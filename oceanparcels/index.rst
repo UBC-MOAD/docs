@@ -21,7 +21,7 @@ Useful links:
 * `OceanParcels Gitter chat rooms`_ 
 * `Ocean Sciences 2021 paper comparing OceanParcels and Ariane`_ 
 * `Advection kernels`_
-* Ben's notebook that demonstrates a complete workflow of using OceanParcels simulations with SalishSeaCast and related model configurations
+* `Ben's notebook`_ that demonstrates a complete workflow of using OceanParcels simulations with SalishSeaCast and related model configurations
 
 .. _OceanParcels project site: https://oceanparcels.org/
 .. _#oceanparcels Slack channel: https://salishseacast.slack.com/archives/C02ETTPHFPX
