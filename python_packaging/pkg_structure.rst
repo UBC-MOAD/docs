@@ -338,17 +338,16 @@ and looks like:
 
     version: 2
 
-    # Only build HTML and JSON formats
-    formats: []
-
-    python:
-      version: 3.7
+    build:
+      os: ubuntu-20.04
+      tools:
+        python: "mambaforge-4.10"
 
     conda:
       environment: envs/environment-rtd.yaml
 
-    build:
-      image: latest
+    # Only build HTML and JSON formats
+    formats: []
 
 
 Package Sub-Directories
