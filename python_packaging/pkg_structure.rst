@@ -84,9 +84,9 @@ the directories and files layout of a MOAD package looks like:
     │   ├── environment-dev.yaml
     │   ├── environment-rtd.yaml
     |   ├── requirements.txt
+    ├── .readthedocs.yaml
     ├── LICENSE
     ├── README.rst
-    ├── readthedocs.yml
     ├── rpn_to_gemlam/
     │   ├── __init__.py
     │   ├── ...
@@ -317,11 +317,11 @@ in the :kbd:`[metadata]` section.
 
 .. _PkgReadthedocsYmlFile:
 
-:file:`readthedocs.yml` File
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+:file:`.readthedocs.yaml` File
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 For packages that use https://readthedocs.org/ to render and host their documentation,
-we include a :file:`readthedocs.yml` file in the top-level directory
+we include a :file:`.readthedocs.yaml` file in the top-level directory
 (the file name and location are stipulated by readthedocs).
 That file `declares the features of the environment`_ that we want readthedocs to use to build our docs,
 specifically,
@@ -331,7 +331,7 @@ and the most recent version of Python.
 
 .. _declares the features of the environment: https://docs.readthedocs.io/en/stable/config-file/v2.html
 
-The :file:`readthedocs.yml` file for the `rpn-to-gemlam tool`_ package is typical,
+The :file:`.readthedocs.yaml` file for the `rpn-to-gemlam tool`_ package is typical,
 and looks like:
 
 .. code-block:: yaml
