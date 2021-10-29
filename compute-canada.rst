@@ -73,7 +73,9 @@ These are the setup steps that you need to do when you start using :kbd:`graham`
    having to type :command:`ssh your-user-id@graham.computecanada.ca`.
 
    Create a :file:`$HOME/.ssh/config` file on your Waterhole machine containing the following
-   (or append the following if :file:`$HOME/.ssh/config` already exists)::
+   (or append the following if :file:`$HOME/.ssh/config` already exists):
+
+   .. code-block:: text   
 
        Host graham
          Hostname  graham.computecanada.ca
@@ -102,8 +104,10 @@ These are the setup steps that you need to do when you start using :kbd:`graham`
 
    You should see output like
    (except that :kbd:`/home/dlatorne/.ssh/id_rsa.pub` in the 1st line should show your EOAS user id,
-   not Doug's)::
+   not Doug's):
 
+   .. code-block:: text
+   
       /usr/bin/ssh-copy-id: INFO: Source of key(s) to be installed: "/home/dlatorne/.ssh/id_rsa.pub"
       The authenticity of host 'graham.computecanada.ca (199.241.166.2)' can't be established.
       ECDSA key fingerprint is SHA256:mf1jJ3ndpXhpo0k38xVxjH8Kjtq3o1+ZtTVbeM0xeCk.
@@ -111,8 +115,10 @@ These are the setup steps that you need to do when you start using :kbd:`graham`
 
    Type :kbd:`yes` to accept the fingerprint from :kbd:`graham`.
    Then you should see output like
-   (again with your user id, not Doug's)::
+   (again with your user id, not Doug's):
 
+   .. code-block:: text
+   
      /usr/bin/ssh-copy-id: INFO: Source of key(s) to be installed: "/home/dlatorne/.ssh/id_rsa.pub"
      /usr/bin/ssh-copy-id: INFO: attempting to log in with the new key(s), to filter out any that are already installed
      /usr/bin/ssh-copy-id: INFO: 1 key(s) remain to be installed -- if you are prompted now it is to install the new keys
@@ -120,12 +126,14 @@ These are the setup steps that you need to do when you start using :kbd:`graham`
 
    Type in your Compute Canada password.
    The output should continue login messages from :kbd:`graham`,
-   concluding with::
+   concluding with:
 
-     Number of key(s) added: 1
+   .. code-block:: text
+   
+       Number of key(s) added: 1
 
-     Now try logging into the machine, with:   "ssh graham"
-     and check to make sure that only the key(s) you wanted were added.
+       Now try logging into the machine, with:   "ssh graham"
+       and check to make sure that only the key(s) you wanted were added.
 
    Finally,
    as the output above suggests,
@@ -139,9 +147,11 @@ These are the setup steps that you need to do when you start using :kbd:`graham`
 
 #. Create a :envvar:`PROJECT` environment variable that points to our allocated storage on the :file:`/project/` file system.
    To ensure that :envvar:`PROJECT` is set correctly every time you sign in to :kbd:`graham`,
-   use an editor to add the following line to your :file:`$HOME/.bash_profile` file::
+   use an editor to add the following line to your :file:`$HOME/.bash_profile` file:
 
-     export PROJECT=$HOME/projects/def-allen
+   .. code-block:: text
+   
+       export PROJECT=$HOME/projects/def-allen
 
    Exit your session on :kbd:`graham` with :command:`exit`,
    then :command:`ssh` in again,
@@ -151,9 +161,11 @@ These are the setup steps that you need to do when you start using :kbd:`graham`
 
        $ echo $PROJECT
 
-   The output should be::
+   The output should be:
 
-     /home/dlatorne/projects/def-allen/
+   .. code-block:: text
+
+       /home/dlatorne/projects/def-allen/
 
    except with your Compute Canada userid instead of Doug's.
 
@@ -167,12 +179,14 @@ These are the setup steps that you need to do when you start using :kbd:`graham`
        $ chmod o+rx .
 
    Check the results of those operations with :command:`ls -al $PROJECT/$USER`.
-   They should look like::
+   They should look like:
 
-     $ ls -al $PROJECT/$USER
-     total 90
-     drwxrwsr-x  3 dlatorne def-allen 33280 Apr  9 15:04 ./
-     drwxrws--- 16 allen    def-allen 33280 Apr  8 18:14 ../
+   .. code-block:: text
+   
+       $ ls -al $PROJECT/$USER
+       total 90
+       drwxrwsr-x  3 dlatorne def-allen 33280 Apr  9 15:04 ./
+       drwxrws--- 16 allen    def-allen 33280 Apr  8 18:14 ../
 
    with your user id instead of Doug's in the :file:`./` line.
 
@@ -187,12 +201,14 @@ These are the setup steps that you need to do when you start using :kbd:`graham`
        $ chmod o+rx .
 
    Check the results of those operations with :command:`ls -al $SCRATCH`.
-   They should look like::
+   They should look like:
 
-     $ ls -al $SCRATCH
-     total 3015
-     drwxrwsr-x    26 dlatorne def-allen   41472 Apr 26 17:23 ./
-     drwxr-xr-x 16366 root     root      2155008 Apr 29 15:31 ../
+   .. code-block:: text
+
+        $ ls -al $SCRATCH
+        total 3015
+        drwxrwsr-x    26 dlatorne def-allen   41472 Apr 26 17:23 ./
+        drwxr-xr-x 16366 root     root      2155008 Apr 29 15:31 ../
 
    with your user id instead of Doug's in the :file:`./` line.
 
