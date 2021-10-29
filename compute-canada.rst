@@ -203,12 +203,24 @@ These are the setup steps that you need to do when you start using :kbd:`graham`
 
 .. code-block:: bash
 
-    module load netcdf-fortran-mpi/4.4.4
-    module load perl/5.22.4
-    module load python/3.8.2
+    module load StdEnv/2020
+    module load netcdf-fortran-mpi/4.5.2
+    module load perl/5.30.2
+    module load python/3.9.6
 
 You can manually load the modules each time you log in,
 or you can add the above lines to your :file:`$HOME/.bashrc` file so that they are automatically loaded upon login.
+
+.. note::
+    If you need to use the Compute Canada StdEnv/2016.4 environment that was the default prior to 1-Apr-2021,
+    you should use the following module loads instead:
+
+    .. code-block:: bash
+
+        module load StdEnv/2016.4
+        module load netcdf-fortran-mpi/4.4.4
+        module load perl/5.22.4
+        module load python/3.8.2
 
 #. Follow the docs for the project that you are working on to set up your :file:`$PROJECT/$USER/` workspace and clone the repositories required to build and run NEMO:
 
