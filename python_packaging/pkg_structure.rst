@@ -83,10 +83,10 @@ the directories and files layout of a MOAD package looks like:
     ├── envs/
     │   ├── environment-dev.yaml
     │   ├── environment-rtd.yaml
+    |   ├── requirements.txt
     ├── LICENSE
     ├── README.rst
     ├── readthedocs.yml
-    ├── requirements.txt
     ├── rpn_to_gemlam/
     │   ├── __init__.py
     │   ├── ...
@@ -351,18 +351,6 @@ and looks like:
       image: latest
 
 
-.. _RequirementsTxtFile:
-
-:file:`requirements.txt` File
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-The :file:`requirements.txt` file records the full list of packages and their versions used for recent development work.
-It is generated using the :command:`python3 -m pip list --format=freeze` command.
-When new package dependenies are added to the project,
-or the dev environment is updated via :command:`conda update --all`,
-a new :file:`requirements.txt` file should be generated and merged with the previously committed version so that the dev environment changes are tracked by Git.
-
-
 Package Sub-Directories
 -----------------------
 
@@ -504,7 +492,7 @@ The key things that need to be done are:
 :file:`envs/` Sub-directory
 ---------------------------
 
-The :file:`envs/` sub-directory contains at least 2 files that described the `conda environments`_ for the package development and docs building environments.
+The :file:`envs/` sub-directory contains at least 3 files that described the `conda environments`_ for the package development and docs building environments.
 
 
 :file:`environment-dev.yaml` File
@@ -536,7 +524,7 @@ the :file:`environment-dev.yaml` file for the `rpn-to-gemlam tool`_ package look
     # The environment will include all of the tools used to develop,
     # test, and document the rpn-to-gemlam package.
     #
-    # See the requirements.txt file for an exhaustive list of all of the
+    # See the envs/requirements.txt file for an exhaustive list of all of the
     # packages installed in the environment and their versions used in
     # recent development.
 
@@ -613,6 +601,18 @@ The only reason to add more packages to the :kbd:`dependencies` list is if :py:e
 
 .. _Sphinx autodoc: https://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html
 .. _autodoc_mock_imports: https://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html#confval-autodoc_mock_imports
+
+
+.. _RequirementsTxtFile:
+
+:file:`requirements.txt` File
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The :file:`requirements.txt` file records the full list of packages and their versions used for recent development work.
+It is generated using the :command:`python3 -m pip list --format=freeze` command.
+When new package dependencies are added to the project,
+or the dev environment is updated via :command:`conda update --all`,
+a new :file:`requirements.txt` file should be generated and merged with the previously committed version so that the dev environment changes are tracked by Git.
 
 
 .. _PkgTestsSubDirectory:
