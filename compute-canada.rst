@@ -44,7 +44,6 @@ Create Compute Canada & WestGrid Accounts
 `Compute Canada`_ is the national network of shared advanced research computing (ARC) and storage that we use for most of our ocean model calculations.
 `WestGrid`_ is the regional organization that coordinates the western Canadian universities partnership with Compute Canada.
 
-.. _Compute Canada: https://www.computecanada.ca/
 .. _WestGrid: https://www.westgrid.ca/
 
 To access Compute Canada and WestGrid compute clusters and storage you need to register a Compute Canada account at https://ccdb.computecanada.ca/account_application.
