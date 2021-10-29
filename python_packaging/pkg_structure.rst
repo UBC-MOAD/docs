@@ -542,7 +542,7 @@ the :file:`environment-dev.yaml` file for the `rpn-to-gemlam tool`_ package look
 
     channels:
       - conda-forge
-      - defaults
+      - nodefaults
 
     dependencies:
       - arrow
@@ -574,8 +574,8 @@ the :file:`environment-dev.yaml` file for the `rpn-to-gemlam tool`_ package look
           - angles
 
 * The comments at the top of the file include a succinct version of the commands required to create the dev environment.
-* The preferred priority order of conda channels to get packages from is :kbd:`conda-forge`,
-  then :kbd:`defaults`.
+* The recommended conda channel to get packages from is :kbd:`conda-forge`.
+  :kbd:`nodefaults` is included in the :kbd:`channels` list to speed up the packages dependency solver because it is now rare for us to require packages from any other source than :kbd:`conda-forge` .
 * Packages that are unavailable from conda channels are installed via :command:`pip`.
 
 The :file:`environment-dev.yaml` file is "hand-crafted" rather than being generated via the :command:`conda env export` command.
