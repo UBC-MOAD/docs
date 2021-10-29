@@ -68,30 +68,32 @@ Package Layout
 ==============
 
 Using the `rpn-to-gemlam tool`_ package as an example,
-the directories and files layout of a MOAD package looks like::
+the directories and files layout of a MOAD package looks like:
 
-  rpn-to-gemlam/
-  ├── docs/
-  │   ├── conf.py
-  │   ├── index.rst
-  │   ├── Makefile
-  │   ├── ...
-  │   └── _static/
-  │       ├── ...
-  ├── envs/
-  │   ├── environment-dev.yaml
-  │   ├── environment-rtd.yaml
-  ├── LICENSE
-  ├── README.rst
-  ├── readthedocs.yml
-  ├── requirements.txt
-  ├── rpn_to_gemlam/
-  │   ├── __init__.py
-  │   ├── ...
-  ├── setup.cfg
-  ├── setup.py
-  └── tests/
-      ├── ...
+.. code-block:: text
+
+    rpn-to-gemlam/
+    ├── docs/
+    │   ├── conf.py
+    │   ├── index.rst
+    │   ├── Makefile
+    │   ├── ...
+    │   └── _static/
+    │       ├── ...
+    ├── envs/
+    │   ├── environment-dev.yaml
+    │   ├── environment-rtd.yaml
+    ├── LICENSE
+    ├── README.rst
+    ├── readthedocs.yml
+    ├── requirements.txt
+    ├── rpn_to_gemlam/
+    │   ├── __init__.py
+    │   ├── ...
+    ├── setup.cfg
+    ├── setup.py
+    └── tests/
+        ├── ...
 
 In summary
 (please see the sections below for detail explanations):
