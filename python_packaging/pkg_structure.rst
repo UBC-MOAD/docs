@@ -86,6 +86,7 @@ the directories and files layout of a MOAD package looks like:
     |   ├── requirements.txt
     ├── .readthedocs.yaml
     ├── LICENSE
+    ├── pyproject.toml
     ├── README.rst
     ├── rpn_to_gemlam/
     │   ├── __init__.py
@@ -104,13 +105,13 @@ It typically contains 6 files and 4 sub-directories.
 
 The 6 files are:
 
+* :ref:`PyprojectTomlFile` that contains the build system requirements and build backend tools to use for creation of the package
 * :ref:`PkgSetupCfgFile` that contains the package metadata and :kbd:`setuptools` options for creation of the package
 * :ref:`PkgSetupPyFile` that is the Python module that the :kbd:`setuptools` packaging utility uses to create the package,
   and that :command:`pip` uses to install it
 * :ref:`PkgReadmeRstFile` that provides the long description of the package
 * :ref:`PkgLicenseFile` that contains the legal text of the Apache License, Version 2.0 license for the package
 * :ref:`PkgReadthedocsYmlFile` that provides configuration for building the docs to the https://readthedocs.org service
-* :ref:`RequirementsTxtFile` that records the full list of packages and their versions used for recent development work
 
 The 4 sub-directories are:
 
@@ -151,12 +152,38 @@ The top-level directory must contain 4 files that contain the information necess
 It also contains a file to tell https://readthedocs.org/ how to configure an environment in which to build the package documentation.
 
 
+.. _PyprojectTomlFile:
+
+:file:`pyproject.toml` File
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The :file:`pyproject.toml` file contains the build system requirements and build backend tools to use for creation of the package.
+It is documented at https://setuptools.pypa.io/en/latest/build_meta.html.
+
+We use :kbd:`setuptools` as our build backend,
+so our :file:`pyproject.toml` files always look like:
+
+.. code-block:: toml
+
+    [build-system]
+    requires = ["setuptools", "wheel"]
+    build-backend = "setuptools.build_meta"
+
+.. warning::
+    Editable installs of packages that contain a :file:`pyproject.toml` file are not supported by :command:`pip<21.3`
+    (released 11-Oct-2021).
+    At time of writing
+    (29-Oct-2021)
+    the Compute Canada clusters are using :command:`pip=20.0.2`.
+    Until they upgrade to :command:`pip>=21.3` any of our packages that need to be installable on one of those clusters *cannot* contain a :file:`pyproject.toml` file. 
+
+
 .. _PkgSetupCfgFile:
 
 :file:`setup.cfg` File
 ^^^^^^^^^^^^^^^^^^^^^^
 
-The :file:`setup.cfg` contains the package metadata and :kbd:`setuptools` options for creation of the package.
+The :file:`setup.cfg` file contains the package metadata and :kbd:`setuptools` options for creation of the package.
 It is documented at https://setuptools.pypa.io/en/latest/userguide/declarative_config.html.
 
 A minimal :file:`setup.cfg` file looks like:
@@ -357,7 +384,7 @@ The top-level directory must contain a package sub-directory in which the Python
 There are also usually 3 other sub-directories that contain:
 
 * the package documentation (:file:`docs/`)
-* descriptions of the conda enviroments used for development of the package and building its documentation (:file:`envs/`)
+* descriptions of the conda environments used for development of the package and building its documentation (:file:`envs/`)
 * the unit test suite for the package (:file:`tests/`)
 
 
@@ -491,7 +518,7 @@ The key things that need to be done are:
 :file:`envs/` Sub-directory
 ---------------------------
 
-The :file:`envs/` sub-directory contains at least 3 files that described the `conda environments`_ for the package development and docs building environments.
+The :file:`envs/` sub-directory contains at least 3 files that describe the `conda environments`_ for the package development and docs building environments.
 
 
 :file:`environment-dev.yaml` File
