@@ -92,7 +92,6 @@ the directories and files layout of a MOAD package looks like:
     │   ├── __init__.py
     │   ├── ...
     ├── setup.cfg
-    ├── setup.py
     └── tests/
         ├── ...
 
@@ -101,14 +100,12 @@ In summary
 
 * the :ref:`PkgTopLevelDirectory` is a clone of the package's Git repository.
 
-It typically contains 6 files and 4 sub-directories.
+It typically contains 5 files and 4 sub-directories.
 
-The 6 files are:
+The 5 files are:
 
 * :ref:`PyprojectTomlFile` that contains the build system requirements and build backend tools to use for creation of the package
 * :ref:`PkgSetupCfgFile` that contains the package metadata and :kbd:`setuptools` options for creation of the package
-* :ref:`PkgSetupPyFile` that is the Python module that the :kbd:`setuptools` packaging utility uses to create the package,
-  and that :command:`pip` uses to install it
 * :ref:`PkgReadmeRstFile` that provides the long description of the package
 * :ref:`PkgLicenseFile` that contains the legal text of the Apache License, Version 2.0 license for the package
 * :ref:`PkgReadthedocsYmlFile` that provides configuration for building the docs to the https://readthedocs.org service
@@ -175,7 +172,15 @@ so our :file:`pyproject.toml` files always look like:
     At time of writing
     (29-Oct-2021)
     the Compute Canada clusters are using :command:`pip=20.0.2`.
-    Until they upgrade to :command:`pip>=21.3` any of our packages that need to be installable on one of those clusters *cannot* contain a :file:`pyproject.toml` file. 
+    Until they upgrade to :command:`pip>=21.3` any of our packages that need to be installable on one of those clusters *cannot* contain a :file:`pyproject.toml` file.
+
+    In place of the :file:`pyproject.toml` file,
+    packages that have to be installed on Compute Canada clusters require a :file:`setup.py` file containing:
+
+    .. code-block:: python
+
+        import setuptools
+        setuptools.setup()
 
 
 .. _PkgSetupCfgFile:
@@ -239,8 +244,8 @@ looks like:
     packages = find:
     python_requires = >=3.6
     install_requires =
-        ; see envs/environment-dev.yaml for conda environment dev installation
-        ; see envs/requirements.txt for versions most recently used in development
+        # see envs/environment-dev.yaml for conda environment dev installation
+        # see envs/requirements.txt for versions most recently used in development
         angles
         arrow
         bottleneck
@@ -253,7 +258,7 @@ looks like:
         retrying
         scipy
         xarray
-        ; python3 -m pip install --editable ../tools/SalishSeaTools
+        # python3 -m pip install --editable ../tools/SalishSeaTools
 
     [options.entry_points]
     console_scripts =
@@ -271,49 +276,6 @@ They are used in packages that use a framework like `Click`_ or `Cliff`_ to prov
     Any newly created conda environment will include a version of :kbd:`setuptools` much newer than that.
     The same is true of the Compute Canada :kbd:`StdEnv/2020` environment.
     The only platform where we can't support this feature is :kbd:`orcinus`.
-
-
-.. _PkgSetupPyFile:
-
-:file:`setup.py` File
-^^^^^^^^^^^^^^^^^^^^^
-
-The :file:`setup.py` file is the Python module that the :kbd:`setuptools` packaging utility uses to create the package,
-and that :command:`pip` uses to install it.
-It exists to provide a :py:func:`setuptools.setup` function.
-The arguments for the :py:func:`setuptools.setup` function are collected by :kbd:`setuptools` from the :file:`setup.cfg`.
-That means that,
-in many cases,
-the :file:`setup.py` file is as simple as:
-
-.. code-block:: python
-
-    import setuptools
-
-
-    setuptools.setup()
-
-An exception to that simplicity occurs when a package uses `entry points`_ in conjunction with a framework like `Click`_ or `Cliff`_ to provide a command-line interface
-
-.. _entry points: https://packaging.python.org/guides/creating-and-discovering-plugins/#using-package-metadata
-.. _Click: https://click.palletsprojects.com/en/7.x/
-.. _Cliff: https://docs.openstack.org/cliff/latest/
-
-In that case,
-as is the case for the `rpn-to-gemlam tool`_ package,
-the :py:func:`setuptools.setup` function call must include an :kbd:`entry_points` argument:
-
-.. code-block:: python
-
-    import setuptools
-
-
-    setuptools.setup(
-        entry_points="""
-        [console_scripts]
-        rpn-to-gemlam=rpn_to_gemlam.rpn_to_gemlam:cli
-        """
-    )
 
 
 .. _PkgReadmeRstFile:
