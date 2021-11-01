@@ -255,6 +255,23 @@ looks like:
         xarray
         ; python3 -m pip install --editable ../tools/SalishSeaTools
 
+    [options.entry_points]
+    console_scripts =
+        rpn-to-gemlam = rpn_to_gemlam.rpn_to_gemlam:cli
+
+The :kbd:`[options.entry_points]` stanza is an example of the declaration of `entry points`_.
+They are used in packages that use a framework like `Click`_ or `Cliff`_ to provide a command-line interface.
+
+.. _entry points: https://packaging.python.org/guides/creating-and-discovering-plugins/#using-package-metadata
+.. _Click: https://palletsprojects.com/p/click/
+.. _Cliff: https://docs.openstack.org/cliff/latest/
+
+.. note::
+    Declaration of entry points in :file:`setup.cfg` is supported by :kbd:`setuptools>=51.0.0` released on 6-Dec-2020.
+    Any newly created conda environment will include a version of :kbd:`setuptools` much newer than that.
+    The same is true of the Compute Canada :kbd:`StdEnv/2020` environment.
+    The only platform where we can't support this feature is :kbd:`orcinus`.
+
 
 .. _PkgSetupPyFile:
 
