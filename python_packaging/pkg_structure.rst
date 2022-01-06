@@ -646,7 +646,8 @@ The changes that resulted from Doug's August 2019 review of then current opinion
 * Start using the :ref:`PkgSetupCfgFile` in packages to contain all of the package metadata.
   That eliminates the :file:`__pkg_metadata__.py` that was previously used for some of the metadata,
   and was symlinked across the :ref:`PkgTopLevelDirectory` and :ref:`PkgPackageCodeSubDirectory`.
-  It also dramatically reduces the amount of code in the :ref:`PkgSetupPyFile`,
+  It also dramatically reduces the amount of code in the :file:`setup.py`
+  (for packages that still require it),
   and changes how the package name and version are imported into the :file:`conf.py` file in the :ref:`PkgDocsSubDirectory`.
 
 * Define the package version identifier in the :file:`__init__.py` file in the :ref:`PkgPackageCodeSubDirectory`.
