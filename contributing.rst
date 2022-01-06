@@ -27,8 +27,8 @@ Contributing to These Docs
 .. image:: https://img.shields.io/github/issues/UBC-MOAD/docs?logo=github
     :target: https://github.com/UBC-MOAD/docs/issues
     :alt: Issue Tracker
-.. image:: https://img.shields.io/badge/python-3.6+-blue.svg
-    :target: https://docs.python.org/3.8/
+.. image:: https://img.shields.io/badge/python-3.8+-blue.svg
+    :target: https://docs.python.org/3.10/
     :alt: Python Version
 
 Additions,
@@ -87,8 +87,8 @@ from the :guilabel:`Code` button on the `repository`_ page.
 Docs Build Environment
 ======================
 
-.. image:: https://img.shields.io/badge/python-3.6+-blue.svg
-    :target: https://docs.python.org/3.8/
+.. image:: https://img.shields.io/badge/python-3.8+-blue.svg
+    :target: https://docs.python.org/3.10/
     :alt: Python Version
 
 Setting up an isolated docs build environment using `Conda`_ is recommended.
@@ -238,7 +238,7 @@ The output looks something like:
     (line   50) ok        https://www.computecanada.ca/research-portal/account-management/apply-for-an-account/
     (line   43) ok        https://ccdb.computecanada.ca/account_application
     writing output... [ 33%] contributing
-    (line   13) ok        https://docs.python.org/3.8/
+    (line   13) ok        https://docs.python.org/3.10/
     (line   13) ok        https://creativecommons.org/licenses/by/4.0/
     (line   13) ok        https://ubc-moad-docs.readthedocs.io/en/latest/
     (line   13) ok        https://github.com/UBC-MOAD/docs/issues
@@ -256,8 +256,8 @@ The output looks something like:
     (line  260) ok        https://git-scm.com/
     (line   90) ok        https://conda.io/en/latest/
     (line   13) ok        https://img.shields.io/badge/version%20control-git-blue.svg?logo=github
-    (line   13) ok        https://img.shields.io/badge/python-3.6+-blue.svg
-    (line   84) ok        https://img.shields.io/badge/python-3.6+-blue.svg
+    (line   13) ok        https://img.shields.io/badge/python-3.8+-blue.svg
+    (line   84) ok        https://img.shields.io/badge/python-3.8+-blue.svg
     (line   13) ok        https://readthedocs.org/projects/ubc-moad-docs/badge/?version=latest
     (line  286) ok        https://github.com/UBC-MOAD/docs/blob/master/CONTRIBUTORS.rst
     (line  130) ok        https://readthedocs.org/projects/ubc-moad-docs/badge/?version=latest
