@@ -72,6 +72,14 @@ all of the information sent both ways over the Internet between your laptop and 
 The instructions below assume that your are working on a Mac or a Linux laptop or desktop.
 They may also work on a Windows computer that is running Windows Subsystem for Linux (WSL),
 but that has not been tested.
+If you are using Windows 10,
+you will need to install the :program:`Open SSH Client` app via 
+:guilabel:`Settings > Apps > Apps > Features > Optional Features`.
+Please see `these instructions`_,
+but *only* install the "Client" part – don't try to do any of the "server" parts.
+
+.. _these instructions: https://docs.microsoft.com/en-ca/windows-server/administration/openssh/openssh_install_firstuse
+
 
 .. note:: **Help Wanted**
 
