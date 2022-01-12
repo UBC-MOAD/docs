@@ -213,7 +213,8 @@ A list of patterns in a file called :file:`.gitignore` in the top level director
 There is more information about :file:`.gitignore` files in the "Ignoring Files" section of https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository.
 
 You can create your own :file:`.gitignore` files by hand,
-or use a template like https://github.com/github/gitignore/blob/master/Python.gitignore as a starting point.
+or use a template like https://github.com/github/gitignore/blob/main/Python.gitignore
+as a starting point.
 
 .. note::
     Be sure to add and commit your :file:`.gitignore` file after you create it,

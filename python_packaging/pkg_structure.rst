@@ -30,7 +30,7 @@ References
 * `Brett Canon's Clarifying PEP 518 (a.k.a. pyproject.toml) blog post`_
 * `the Flit packaging and publisher tool`_
 
-.. _Python Packaging User Guide: https://packaging.python.org/
+.. _Python Packaging User Guide: https://packaging.python.org/en/latest/
 .. _Setuptools Documentation: https://setuptools.pypa.io/en/latest/index.html
 .. _Hynek Schlawack's Testing & Packaging blog post: https://hynek.me/articles/testing-packaging/
 .. _Ionel Cristian Mărieș's Packaging a python library blog post: https://blog.ionelmc.ro/2014/05/25/python-packaging/
@@ -61,7 +61,7 @@ References
        that is,
        :command:`python3 -m pip install --user -e`.
 
-       .. _"user scheme" for installation: https://packaging.python.org/tutorials/installing-packages/#installing-to-the-user-site
+       .. _"user scheme" for installation: https://packaging.python.org/en/latest/tutorials/installing-packages/#installing-to-the-user-site
 
 
 Package Layout
@@ -267,7 +267,7 @@ looks like:
 The :kbd:`[options.entry_points]` stanza is an example of the declaration of `entry points`_.
 They are used in packages that use a framework like `Click`_ or `Cliff`_ to provide a command-line interface.
 
-.. _entry points: https://packaging.python.org/guides/creating-and-discovering-plugins/#using-package-metadata
+.. _entry points: https://packaging.python.org/en/latest/guides/creating-and-discovering-plugins/#using-package-metadata
 .. _Click: https://palletsprojects.com/p/click/
 .. _Cliff: https://docs.openstack.org/cliff/latest/
 
