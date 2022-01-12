@@ -12,6 +12,12 @@
                 "kind": "build",
                 "isDefault": true
             }
+        },
+        {
+            "label": "sphinx linkcheck",
+            "type": "shell",
+            "command": "source activate moad-docs && make clean linkcheck",
+            "problemMatcher": [],
         }
     ]
 }
