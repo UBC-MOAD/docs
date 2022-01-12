@@ -1142,5 +1142,3 @@ In XIOS-2 this becomes:
                 <domain id="grid_T" long_name="grid T"/>
                 <domain id="test_T" domain_ref="grid_T"> </domain>
         </domain_group>
-
-
