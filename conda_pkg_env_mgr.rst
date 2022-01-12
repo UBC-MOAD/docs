@@ -65,7 +65,8 @@ On MacOS use:
 
     $ wget https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-MacOSX-x86_64.sh
 
-The installation instructions are linked from https://github.com/conda-forge/miniforge#unix-like-platforms.
+The installation instructions are in the "Unix-like platforms" section of the README of
+https://github.com/conda-forge/miniforge.
 In short:
 
 #. Run the installer script via :program:`bash`:
