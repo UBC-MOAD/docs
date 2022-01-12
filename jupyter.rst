@@ -417,7 +417,7 @@ they are installed from PyPI.
 
 .. _Python Package Index (PyPI): https://pypi.org/
 
-.. important:: 
+.. important::
     In late Sep-2021 we discovered that the :kbd:`netCDF4` package maintained by Compute Canada had become incompatible with :kbd:`xarray`
     (then at version 0.19.0).
     The work-around is to change to use the `h5netcdf package`_ to access netCDF files.

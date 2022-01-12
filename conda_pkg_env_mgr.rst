@@ -31,7 +31,7 @@ TODO: Write an intro to conda
 Installing Miniforge
 ====================
 
-.. important:: 
+.. important::
     *Do not* install Miniforge,
     Miniconda,
     or Anaconda on the Compute Canada HPC clusters or other HPC systems!
@@ -41,7 +41,7 @@ Installing Miniforge
 
 `Miniforge`_ is a minimal installer for `Conda`_ specific to `conda-forge`_.
 It installs the :program:`conda` package and environment manager tool,
-a recent version of Python, the packages that :program:`conda` depends on, 
+a recent version of Python, the packages that :program:`conda` depends on,
 and a small number of other packages that are essential for creating and managing software environments.
 
 .. _Miniforge: https://github.com/conda-forge/miniforge

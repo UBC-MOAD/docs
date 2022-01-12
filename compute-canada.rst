@@ -74,7 +74,7 @@ These are the setup steps that you need to do when you start using :kbd:`graham`
    Create a :file:`$HOME/.ssh/config` file on your Waterhole machine containing the following
    (or append the following if :file:`$HOME/.ssh/config` already exists):
 
-   .. code-block:: text   
+   .. code-block:: text
 
        Host graham
          Hostname  graham.computecanada.ca
@@ -106,7 +106,7 @@ These are the setup steps that you need to do when you start using :kbd:`graham`
    not Doug's):
 
    .. code-block:: text
-   
+
       /usr/bin/ssh-copy-id: INFO: Source of key(s) to be installed: "/home/dlatorne/.ssh/id_rsa.pub"
       The authenticity of host 'graham.computecanada.ca (199.241.166.2)' can't be established.
       ECDSA key fingerprint is SHA256:mf1jJ3ndpXhpo0k38xVxjH8Kjtq3o1+ZtTVbeM0xeCk.
@@ -117,7 +117,7 @@ These are the setup steps that you need to do when you start using :kbd:`graham`
    (again with your user id, not Doug's):
 
    .. code-block:: text
-   
+
      /usr/bin/ssh-copy-id: INFO: Source of key(s) to be installed: "/home/dlatorne/.ssh/id_rsa.pub"
      /usr/bin/ssh-copy-id: INFO: attempting to log in with the new key(s), to filter out any that are already installed
      /usr/bin/ssh-copy-id: INFO: 1 key(s) remain to be installed -- if you are prompted now it is to install the new keys
@@ -128,7 +128,7 @@ These are the setup steps that you need to do when you start using :kbd:`graham`
    concluding with:
 
    .. code-block:: text
-   
+
        Number of key(s) added: 1
 
        Now try logging into the machine, with:   "ssh graham"
@@ -149,7 +149,7 @@ These are the setup steps that you need to do when you start using :kbd:`graham`
    use an editor to add the following line to your :file:`$HOME/.bash_profile` file:
 
    .. code-block:: text
-   
+
        export PROJECT=$HOME/projects/def-allen
 
    Exit your session on :kbd:`graham` with :command:`exit`,
@@ -181,7 +181,7 @@ These are the setup steps that you need to do when you start using :kbd:`graham`
    They should look like:
 
    .. code-block:: text
-   
+
        $ ls -al $PROJECT/$USER
        total 90
        drwxrwsr-x  3 dlatorne def-allen 33280 Apr  9 15:04 ./

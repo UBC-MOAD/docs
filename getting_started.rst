@@ -128,7 +128,7 @@ Install Miniforge
 
 You will need to:
 
-#. Learn about :ref:`MOAD-CondaPkgAndEnvMgr` 
+#. Learn about :ref:`MOAD-CondaPkgAndEnvMgr`
 #. :ref:`Install Miniforge<InstallingMiniforge>` on your laptop
 #. :ref:`Install Miniforge<InstallingMiniforge>` in your workspace on the EOAS Ocean collection of Linux computers
 

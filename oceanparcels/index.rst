@@ -16,10 +16,10 @@ This section is about the UBC MOAD group's use of the `OceanParcels package`_ fo
 
 Useful links:
 
-* `OceanParcels project site`_ 
+* `OceanParcels project site`_
 * Our `#oceanparcels Slack channel`_
-* `OceanParcels Gitter chat rooms`_ 
-* `Ocean Sciences 2021 paper comparing OceanParcels and Ariane`_ 
+* `OceanParcels Gitter chat rooms`_
+* `Ocean Sciences 2021 paper comparing OceanParcels and Ariane`_
 * `Advection kernels`_
 * `Ben's notebook`_ that demonstrates a complete workflow of using OceanParcels simulations with SalishSeaCast and related model configurations
 
