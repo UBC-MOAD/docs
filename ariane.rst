@@ -190,4 +190,4 @@ If you would like to see some examples of particle tracking, feel free to look a
 
 * `ParticleTracking.ipynb`_
 
-.. _ParticleTracking.ipynb: https://nbviewer.jupyter.org/github/SalishSeaCast/analysis/blob/master/Idalia/ParticleTracking.ipynb
+.. _ParticleTracking.ipynb: https://nbviewer.org/github/SalishSeaCast/analysis/blob/master/Idalia/ParticleTracking.ipynb

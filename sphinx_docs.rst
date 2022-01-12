@@ -272,7 +272,7 @@ To link to a rendered representation of an Jupyter Notebook that has been pushed
 
   * `SalishSeaBathy.ipynb`_: Documents the full domain bathymetry used for the Salish Sea NEMO runs.
 
-  .. _SalishSeaBathy.ipynb: https://nbviewer.jupyter.org/github/SalishSeaCast/tools/blob/master/bathymetry/SalishSeaBathy.ipynb
+  .. _SalishSeaBathy.ipynb: https://nbviewer.org/github/SalishSeaCast/tools/blob/master/bathymetry/SalishSeaBathy.ipynb
 
 
 Forcing Line Breaks

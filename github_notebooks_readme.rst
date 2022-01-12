@@ -14,7 +14,7 @@ Doing so makes the notebooks easily visible to anyone without having to run Jupy
 It is also an easy way to generate notebook viewer links to paste into the Google Drive "whiteboard" documents for weekly group meetings.
 
 .. _Jupyter Notebook: https://jupyter.org/
-.. _Jupyter nbviewer: https://nbviewer.jupyter.org/
+.. _Jupyter nbviewer: https://nbviewer.org/
 
 You could hand edit the :file:`README.md` file,
 but that's tedious and error prone,
@@ -54,7 +54,7 @@ Here is a prototype :file:`make_readme.py` module that provides that automation:
     import re
 
 
-    NBVIEWER = "https://nbviewer.jupyter.org/github"
+    NBVIEWER = "https://nbviewer.org/github"
     GITHUB_ORG = "SalishSeaCast"
     REPO_NAME = "analysis-casey"
     DEFAULT_BRANCH_NAME = "main"
@@ -73,7 +73,7 @@ Here is a prototype :file:`make_readme.py` module that provides that automation:
     and notes.
 
     The links below are to static renderings of the notebooks via
-    [nbviewer.jupyter.org](https://nbviewer.jupyter.org/).
+    [nbviewer.jupyter.org](https://nbviewer.org/).
     Descriptions below the links are from the first cell of the notebooks
     (if that cell contains Markdown or raw text).
 

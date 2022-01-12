@@ -224,7 +224,7 @@ The output looks something like:
     (line   15) ok        http://stockage.univ-brest.fr/~grima/Ariane/whatsariane.html
     (line   37) -ignored- https://github.com/UBC-MOAD/ariane-2.2.8-code
     (line   37) ok        http://stockage.univ-brest.fr/~grima/Ariane/download.php
-    (line  199) ok        https://nbviewer.jupyter.org/github/SalishSeaCast/analysis/blob/master/Idalia/ParticleTracking.ipynb
+    (line  199) ok        https://nbviewer.org/github/SalishSeaCast/analysis/blob/master/Idalia/ParticleTracking.ipynb
     (line   23) ok        http://stockage.univ-brest.fr/~grima/Ariane/ariane_install_2.x.x_sep08.pdf
     (line   25) ok        http://stockage.univ-brest.fr/~grima/Ariane/ariane_tutorial_2.x.x_sep08.pdf
     (line   24) ok        http://stockage.univ-brest.fr/~grima/Ariane/ariane_namelist_2.x.x_oct08.pdf
