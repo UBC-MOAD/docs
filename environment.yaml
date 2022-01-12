@@ -28,3 +28,6 @@ dependencies:
   - python=3.10
   - sphinx
   - sphinx_rtd_theme
+
+  # For repo QA
+  - pre-commit
