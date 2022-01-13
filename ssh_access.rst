@@ -95,22 +95,21 @@ Generate ssh Keys
 
 The first step is to generate an ssh key pair on you local computer.
 That is done using the :command:`ssh-keygen` command.
-Here we tell it to use the RSA algorithm to create the keys,
-and to make them 4096 bits long.
+Here we tell it to use the Ed25519 algorithm to create the keys.
 
 Open your Terminal program to get a command-line interface,
 and type the command:
 
 .. code-block:: bash
 
-    $ ssh-keygen -t rsa -b 4096
+    $ ssh-keygen -t ed25519
 
 The output should look like:
 
 .. code-block:: text
 
     Generating public/private rsa key pair.
-    Enter file in which to save the key (/home/username/.ssh/id_rsa):
+    Enter file in which to save the key (/home/username/.ssh/id_ed25519):
 
 but with with your laptop user id instead of :kbd:`username` in the key file path in the parentheses.
 
@@ -122,7 +121,7 @@ Hit enter to accept the default key file path and name.
 
     .. code-block:: text
 
-        /home/username/.ssh/id_rsa already exists.
+        /home/username/.ssh/id_ed25519 already exists.
         Overwrite (y/n)?
 
     it means that you already have a key pair with the default name.
@@ -169,8 +168,8 @@ When the key pair generation is finished you should see output like:
 
 .. code-block:: text
 
-    Your identification has been saved in /home/username/.ssh/id_rsa
-    Your public key has been saved in /home/username/.ssh/id_rsa.pub
+    Your identification has been saved in /home/username/.ssh/id_ed25519
+    Your public key has been saved in /home/username/.ssh/id_ed25519.pub
     The key fingerprint is:
     SHA256:8lYuN0DcZra83nBgsElzsP6EYqZYEt7zzslgKhuuxT8 username@host
     The key's randomart image is:
@@ -188,7 +187,7 @@ When the key pair generation is finished you should see output like:
 
 except that you will see:
 
-* yourlaptop user id instead of :kbd:`username` in the key files paths
+* your laptop user id instead of :kbd:`username` in the key files paths
 * a different key fingerprint,
   ending with your user id and computer name instead of :kbd:`username@host`
 * a different "randomart image"
@@ -379,7 +378,7 @@ It should produce output like:
 
 .. code-block:: text
 
-    /usr/bin/ssh-copy-id: INFO: Source of key(s) to be installed: "/home/username/.ssh/id_rsa.pub"
+    /usr/bin/ssh-copy-id: INFO: Source of key(s) to be installed: "/home/username/.ssh/id_ed25519.pub"
     The authenticity of host 'graham.computecanada.ca (199.241.166.2)' can't be established.
     ED25519 key fingerprint is SHA256:mf1jJ3ndpXhpo0k38xVxjH8Kjtq3o1+ZtTVbeM0xeCk.
     Are you sure you want to continue connecting (yes/no/[fingerprint])?
