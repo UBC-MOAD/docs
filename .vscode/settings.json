@@ -1,4 +1,7 @@
 {
     "restructuredtext.confPath": "${workspaceFolder}",
-    "python.defaultInterpreterPath": "~/conda_envs/moad-docs"
+    "python.defaultInterpreterPath": "~/conda_envs/moad-docs",
+    "cSpell.words": [
+        "nbsphinx"
+    ]
 }
