@@ -22,17 +22,18 @@ The following people have contributed to this documentation:
 * Karyn Suchy <ksuchy@eoas.ubc.ca>
 * Raisha Lovindeer <rlovindeer@eoas.ubc.ca>
 * Michael Dunphy <mdunphy@eoas.ubc.ca>
-* Muriel Dunn <mdunn@eoas.ubc.ca>
-* Tereza Jarníková <tjarniko@eoas.ubc.ca>
-* Jie Liu <jieliu@eoas.ubc.ca>
 * Ben Moore-Maley <bmoorema@eoas.ubc.ca>
+* Tereza Jarníková <tjarniko@eoas.ubc.ca>
+* Birgit Rogalla <brogalla@eoas.ubc.ca>
+* Rebecca Beutel <rbeutel@eoas.ubc.ca>
+* Muriel Dunn <mdunn@eoas.ubc.ca>
 * James Petrie <jpetrie@eoas.ubc.ca>
 * Giorgio Sgarbi <gsgarbi@eoas.ubc.ca>
 * Vicky Do <vdo@eoas.ubc.ca>
+* Armaan Randhawa <arandhawa@eoas.ubc.ca>
 * Karina Ramos Musalem <kramosmusalem@eoas.ubc.ca>
 * Saurav Sahu <ssahu@eoas.ubc.ca>
-* Birgit Rogalla <brogalla@eoas.ubc.ca>
-* Rebecca Beutel <rbeutel@eoas.ubc.ca>
+* Jie Liu <jieliu@eoas.ubc.ca>
 * Yingkai (Kyle) Sha <yingkai@eoas.ubc.ca>
 * Xiaoxin (Cindy) Yu <xiaoxiny@eoas.ubc.ca>
 * Melanie Grenier <mgrenier@eoas.ubc.ca>
