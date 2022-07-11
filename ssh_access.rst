@@ -384,7 +384,7 @@ It should produce output like:
     Are you sure you want to continue connecting (yes/no/[fingerprint])?
 
 Type :kbd:`yes` to proceed.
-(You can confirm :kbd:`grahams`'s host key fingerprint at https://docs.computecanada.ca/wiki/SSH_security_improvements#SSH_host_key_fingerprints if you want to).
+(You can confirm :kbd:`grahams`'s host key fingerprint at https://docs.alliancecan.ca/wiki/SSH_security_improvements#SSH_host_key_fingerprints if you want to).
 
 The output from :command:`ssh-copy-id` should continue with:
 

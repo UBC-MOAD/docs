@@ -86,7 +86,7 @@ Jupyter is included in the `Anaconda Python Distribution`_.
 If are using `Miniconda`_ to create and manage your Python environments,
 you can install Jupyter by adding the :kbd:`jupyterlab` package to your environment description YAML file.
 
-.. _Anaconda Python Distribution: https://www.anaconda.com/products/individual
+.. _Anaconda Python Distribution: https://www.anaconda.com/products/distribution
 .. _Miniconda: https://docs.conda.io/en/latest/miniconda.html
 
 In a terminal window,
@@ -356,7 +356,7 @@ Compute Canada `explicitly stipulates`_ that we should not use Anaconda or :prog
 So,
 this section describes how to use a Python venv to install and run :command:`jupyter lab`.
 
-.. _explicitly stipulates: https://docs.computecanada.ca/wiki/Anaconda/en
+.. _explicitly stipulates: https://docs.alliancecan.ca/wiki/Anaconda/en
 
 Use the Compute Canada module system to load Python,
 preferably the most recent available version.
@@ -399,7 +399,7 @@ so we do it:
 
     (jupyter)$ python3 -m pip install --no-index --upgrade pip
 
-.. _Compute Canada venv docs: https://docs.computecanada.ca/wiki/Python#Creating_and_using_a_virtual_environment
+.. _Compute Canada venv docs: https://docs.alliancecan.ca/wiki/Python#Creating_and_using_a_virtual_environment
 
 Install the :kbd:`jupyterlab` package and other packages that we routinely use for analysis into the venv:
 
@@ -407,7 +407,8 @@ Install the :kbd:`jupyterlab` package and other packages that we routinely use f
 
     (jupyter)$ python3 -m pip install jupyterlab xarray h5netcdf bottleneck matplotlib cmocean
 
-This will cause the list of packages :kbd:`jupyterlab xarray h5netcdf bottleneck matplotlib cmocean` to be installed from the package collections maintained by Compute Canada,
+This will cause the list of packages :kbd:`jupyterlab xarray h5netcdf bottleneck matplotlib cmocean`
+to be installed from the package collections maintained by Compute Canada,
 or from the `Python Package Index (PyPI)`_.
 Ideally all of the packages will be installed from the Compute Canada package collections,
 ensuring that they have been built for best compatibility and optimization for the cluster architecture.

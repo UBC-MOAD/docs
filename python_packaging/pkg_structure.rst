@@ -36,7 +36,7 @@ References
 .. _Ionel Cristian Mărieș's Packaging a python library blog post: https://blog.ionelmc.ro/2014/05/25/python-packaging/
 .. _Brian Skinn's My How and Why pyproject.toml & the 'src' Project Structure blog post: https://bskinn.github.io/My-How-Why-Pyproject-Src/
 .. _Brett Canon's Clarifying PEP 518 (a.k.a. pyproject.toml) blog post: https://snarky.ca/clarifying-pep-518/
-.. _the Flit packaging and publisher tool: https://flit.readthedocs.io/en/latest/index.html
+.. _the Flit packaging and publisher tool: https://flit.pypa.io/en/latest/index.html
 
 
 .. note::
@@ -55,7 +55,7 @@ References
        or project-specific environments.
 
        .. _conda environments: https://docs.conda.io/projects/conda/en/latest/
-       .. _Anaconda Python distribution: https://www.anaconda.com/products/individual
+       .. _Anaconda Python distribution: https://www.anaconda.com/products/distribution
 
     #. On HPC clusters we use the system-provided Python 3 module and install our packages using the `"user scheme" for installation`_ in combination with `"Editable" Installs`_,
        that is,
@@ -410,7 +410,7 @@ After a release has been made the value of :kbd:`n` is incremented by 1,
 and :kbd:`.dev0` is appended to the version identifier to indicate changes that will be included in the next release.
 
 .. _CalVer: https://calver.org/
-.. _PEP-440: https://www.python.org/dev/peps/pep-0440
+.. _PEP-440: https://peps.python.org/pep-0440/
 
 The :py:obj:`__version__` value is included as the :kbd:`version` metadata value in the :ref:`PkgSetupCfgFile` by including the line:
 
@@ -659,7 +659,7 @@ as of :kbd:`pip-19.1` in the spring of 2019,
 `"Editable" Installs`_ are not supported for packages that contain a :file:`pyproject.toml` file.
 Discussion by the Python Packaging Authority of how to resolve this issue is ongoing.
 
-.. _pyproject.toml file: https://www.python.org/dev/peps/pep-0518/
+.. _pyproject.toml file: https://peps.python.org/pep-0518/
 
 The :file:`src/` layout advocated by `Hynek Schlawack's Testing & Packaging blog post`_ and `Ionel Cristian Mărieș's Packaging a python library blog post`_ was rejected pending a strong recommendation in its favour by the Python Packaging Authority and support for it in packaging tools like `the Flit packaging and publisher tool`_.
 

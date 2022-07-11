@@ -20,7 +20,7 @@ but we have found that using :program:`conda` and explicitly managing software e
 is more robust over time than using Anaconda.
 
 .. _Conda: https://docs.conda.io/en/latest/
-.. _Anaconda data science toolkit: https://www.anaconda.com/products/individual
+.. _Anaconda data science toolkit: https://www.anaconda.com/products/distribution
 
 
 TODO: Write an intro to conda

@@ -96,7 +96,7 @@ Assuming that you have the `Anaconda Python Distribution`_ or `Miniconda3`_ inst
 you can create and activate an environment called :kbd:`moad-docs` that will have all of the Python packages necessary for building the documentation with the commands:
 
 .. _Conda: https://conda.io/en/latest/
-.. _Anaconda Python Distribution: https://www.anaconda.com/products/individual
+.. _Anaconda Python Distribution: https://www.anaconda.com/products/distribution
 .. _Miniconda3: https://docs.conda.io/en/latest/miniconda.html
 
 .. code-block:: bash
