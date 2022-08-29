@@ -32,7 +32,7 @@ Here's the Getting Started checklist:
 
 #. :ref:`GetYourEOASEmailAddressAndUserId`
 #. :ref:`GetSetUpOnGitHub`
-#. :ref:`GetComputeCanadaAccount`
+#. :ref:`GetAllianceAccount`
 #. :ref:`SetUpSecureRemoteAccess`
 #. :ref:`SetUpGit`
 #. :ref:`SetUpBash`
@@ -56,7 +56,7 @@ Get Set Up on GitHub
 If you don't already have an account on `GitHub`_,
 please create one.
 Then,
-send your GitHub username to Doug at dlatornell@eoas.ubc.ca.
+send your GitHub username to Doug at ``dlatornell@eoas.ubc.ca``.
 He will add you to the `UBC-MOAD GitHub organization`_ and you will receive an invitation email from GitHub that you will have to accept in order to finalize your addition to the organization.
 Doug will probably also invite you to at least one of the other project-specific :ref:`GitHub organizations<team-repos>` that we have.
 
@@ -64,14 +64,15 @@ Doug will probably also invite you to at least one of the other project-specific
 .. _UBC-MOAD GitHub organization: https://github.com/UBC-MOAD
 
 
-.. _GetComputeCanadaAccount:
+.. _GetAllianceAccount:
 
-Get a Compute Canada Account
-============================
+Get a Digital Research Alliance of Canada Account
+=================================================
 
-If you are going to be using the Compute Canada clusters,
-you will need to have an :kbd:`eoas.ubc.ca` email address,
-and Susan's Compute Canada CCRI code before you can :ref:`CreateComputeCanadaAccount`.
+If you are going to be using the Digital Research Alliance of Canada
+(formerly Compute Canada) clusters,
+you will need to have an ``eoas.ubc.ca`` email address,
+and Susan's Alliance CCRI code before you can :ref:`CreateAllianceAccount`.
 
 
 .. _SetUpSecureRemoteAccess:
@@ -85,7 +86,7 @@ You will need to have:
 #. An account,
    user id,
    and password on the EOAS Ocean collection of Linux computers
-   (which should happen at the same time as getting your :kbd:`eoas.ubc.ca` email address)
+   (which should happen at the same time as getting your ``eoas.ubc.ca`` email address)
 
 before you can set up your :command:`ssh` keys and configuration for :ref:`SecureRemoteAccess`.
 
@@ -110,7 +111,7 @@ Set Up :program:`bash`
 You will need to have:
 
 #. A user id on the EOAS Ocean collection of Linux computers
-   (which should happen at the same time as getting your :kbd:`eoas.ubc.ca` email address)
+   (which should happen at the same time as getting your ``eoas.ubc.ca`` email address)
 #. Completed the process of :ref:`copying your public ssh key to a Waterhole workstation <CopyYourPublicSshKeyToRemoteComputers>`
 
 before you can:
