@@ -18,6 +18,11 @@ so its files are used as examples below.
 
 .. _rpn-to-gemlam tool: https://github.com/SalishSeaCast/rpn-to-gemlam
 
+Doug periodically reviews the Python packaging landscape and updates this section to keep pace
+with changes in the packaging tools,
+opinions,
+and recommended practices.
+
 
 References
 ==========
