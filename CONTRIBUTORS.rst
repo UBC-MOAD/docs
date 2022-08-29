@@ -26,6 +26,7 @@ The following people have contributed to this documentation:
 * Tereza Jarníková <tjarniko@eoas.ubc.ca>
 * Birgit Rogalla <brogalla@eoas.ubc.ca>
 * Rebecca Beutel <rbeutel@eoas.ubc.ca>
+* Jose Valenti <jvalenti@eoas.ubc.ca>
 * Muriel Dunn <mdunn@eoas.ubc.ca>
 * James Petrie <jpetrie@eoas.ubc.ca>
 * Giorgio Sgarbi <gsgarbi@eoas.ubc.ca>
