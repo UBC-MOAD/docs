@@ -25,6 +25,11 @@ is more robust over time than using Anaconda.
 
 TODO: Write an intro to conda
 
+Slides notebook from Dec-2020 group discussion of Python packages and environments:
+
+* nbviewer: https://nbviewer.org/github/UBC-MOAD/PythonNotes/blob/master/pkgs-envs/PythonPkgsEnvsSlides.ipynb
+* GitHub: https://github.com/UBC-MOAD/PythonNotes/blob/master/pkgs-envs/PythonPkgsEnvsSlides.ipynb
+
 
 .. _InstallingMiniforge:
 
