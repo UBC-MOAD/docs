@@ -73,6 +73,11 @@ etc.
 .. _introduction to reST concepts and syntax: https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html
 .. _collection of directives and interpreted text roles: https://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html
 
+Slides notebook from 11-Mar-2021 group tutorial about writing documentation with Sphinx:
+
+* nbviewer: https://nbviewer.org/github/UBC-MOAD/PythonNotes/blob/master/sphinx-docs/SphinxDocsTutorial.ipynb
+* GitHub: https://github.com/UBC-MOAD/PythonNotes/blob/master/sphinx-docs/SphinxDocsTutorial.ipynb
+
 
 Installing Sphinx
 =================
