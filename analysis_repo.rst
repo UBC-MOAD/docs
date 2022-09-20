@@ -40,17 +40,18 @@ Our conventions are:
    and learn from them
 
 
-.. _CreateAnalysisRepository:
+.. _SetUpAnalysisRepository:
 
-Create Your Analysis Repository
+Set Up Your Analysis Repository
 ===============================
 
-The steps to create your own analysis repository are:
+The steps to set up your own analysis repository are:
 
 #. Create an empty public repository on GitHub and clone it to your laptop or MOAD workstation
 #. Use the MOAD `analysis repository cookiecutter`_ to generate the directory structure and
    initial files for your repository
 #. Commit and push the initial files to GitHub
+#. Create the conda environment to use for working in your analysis repository
 
 .. _analysis repository cookiecutter: https://github.com/UBC-MOAD/cookiecutter-analysis-repo
 
@@ -76,6 +77,8 @@ Create Your Analysis Repository on GitHub
 
 #. Keep the browser tab open because you are going to need information from it shortly.
 
+
+.. _CloneYourAnalysisRepository:
 
 Clone Your Analysis Repository
 ------------------------------
@@ -140,6 +143,14 @@ Populate Your Analysis Repository
 
     It also assumes that you have set up your :ref:`GitConfiguration`.
 
+.. note::
+    You only need to do the steps in the section in the clone of your analysis repository
+    on *either* your laptop *or* on a Waterhole machine.
+    Once you have done these steps to create the basic directories and files in your repository,
+    committed them in Git,
+    and pushed them to GitHub,
+    you can pull the changes from GitHub into other clones of your repository.
+
 #. Create a :program:`conda` environment with the latest version of Python
    and the `cookiecutter tool`_ installed in it with the command:
 
@@ -168,7 +179,7 @@ Populate Your Analysis Repository
      #
      #     $ conda deactivate
 
-#. Activate your :kbd:`cookiecutter` environment,
+#. Activate the :kbd:`cookiecutter` environment,
    go to your :file:`MOAD/` directory,
    and populate your empty analysis repository clone with the commands:
 
@@ -178,12 +189,21 @@ Populate Your Analysis Repository
        (cookiecutter)$ cd $HOME/MOAD/
        (cookiecutter)$ cookiecutter -f gh:UBC-MOAD/cookiecutter-analysis-repo
 
-   This command uses our `analysis repository cookiecutter`_ template repository
-   to create directories and files in the empyt analysis repository that you cloned earlier.
+   .. note::
+      When you activate a conda environment the name of the environment in parentheses is
+      added to the front of your command-line prompt.
+      So,
+      in the above commands,
+      the command-line prompt changed from ``$``
+      (or perhaps ``(base)$``)
+      to ``(cookiecutter)$``.
+
+   Those command use our `analysis repository cookiecutter`_ template repository
+   to create directories and files in the empty analysis repository that you cloned earlier.
    The :kbd:`-f` option lets the :command:`cookiecutter` tool write directories and files
    into an already existing directory.
 
-   :command:`cookiecutter` will ask you for 3 pieces of input::
+   :command:`cookiecutter` will ask you for 2 pieces of input::
 
       researcher_name [Casey Lawrence]:
       Select github_org:
@@ -193,7 +213,7 @@ Populate Your Analysis Repository
       Choose from 1, 2, 3 [1]:
 
    Type your name in at the :kbd:`researcher_name` prompt,
-   and accept the defaults for the other two because they should match what you did earlier.
+   and accept the default for ``github_org`` should match what you did earlier.
 
 #. Deactivate your :kbd:`cookiecutter` environment with:
 
@@ -211,3 +231,58 @@ Populate Your Analysis Repository
        $ git add .gitignore LICENSE README.rst notebooks/
        $ git commit -m "Initialize repo from MOAD cookiecutter"
        $ git push
+
+
+Create Your Analysis Repository Conda Environment
+-------------------------------------------------
+
+.. note::
+    This section assumes that you have :ref:`Installed Miniforge <InstallingMiniforge>`
+    on whatever machine you are working on.
+
+One of the files that :command:`cookiecutter` created for you is :file:`notebooks/environment.yaml`.
+It is an environment description file that you use to tell :command:`conda` how to set up the
+environment that you will use to work in your analysis repository.
+That information includes things like the name of the environment,
+the version of Python to install in it,
+and the names of the Python packages to install in the environment.
+
+#. Go into the :file:`notebooks/` directory of your analysis repository,
+   and use :command:`conda` to create the environment:
+
+   .. code-block:: bash
+
+       $ cd $HOME/MOAD/analysis-casey/notebooks/
+       $ conda env create -f environment.yaml
+
+   As was the case when you created the ``cookiecutter`` environment above,
+   that command will do some processing and then show you a list of packages
+   that will be downloaded and installed,
+   and ask you if it is okay to proceed;
+   hit :kbd:`y` or :kbd:`Enter` to go ahead.
+
+   After some more processing you should see messages like::
+
+     Preparing transaction: done
+     Verifying transaction: done
+     Executing transaction: done
+     #
+     # To activate this environment, use
+     #
+     #     $ conda activate analysis-casey
+     #
+     # To deactivate an active environment, use
+     #
+     #     $ conda deactivate
+
+Use the :command:`conda activate` command to activate your analysis environment so that you can
+run :ref:`MOAD-Jupyter`.
+
+
+Use Your Analysis Repository on Other Machines
+----------------------------------------------
+
+Once you have created your analysis repository and pushed it to GitHub you can clone it on other
+machines,
+create a conda environment work working in it,
+and pull changes that you push to GitHub on one machine to update your repository on another machine.

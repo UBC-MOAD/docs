@@ -37,7 +37,7 @@ Here's the Getting Started checklist:
 #. :ref:`SetUpGit`
 #. :ref:`SetUpBash`
 #. :ref:`InstallMiniforge`
-#. :ref:`CreateYourAnalysisRepository`
+#. :ref:`SetUpYourAnalysisRepository`
 
 
 .. _GetYourEOASEmailAddressAndUserId:
@@ -134,9 +134,9 @@ You will need to:
 #. :ref:`Install Miniforge<InstallingMiniforge>` in your workspace on the EOAS Ocean collection of Linux computers
 
 
-.. _CreateYourAnalysisRepository:
+.. _SetUpYourAnalysisRepository:
 
-Create Your Analysis Repository
+Set Up Your Analysis Repository
 ===============================
 
 You will need to have:
@@ -144,4 +144,4 @@ You will need to have:
 #. :ref:`SetUpGit`
 #. :ref:`Installed Miniconda<InstallMiniforge>`
 
-before you can create your :ref:`analysis repository<MOAD-AnalysisRepository>`.
+before you can set up your :ref:`analysis repository<MOAD-AnalysisRepository>`.
