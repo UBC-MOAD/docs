@@ -25,7 +25,8 @@ course work,
 etc.,
 but having a default place to do work helps keep things organized,
 and helps other people find your work when you graduate and move on from MOAD to other adventures.
-Most of the links you see people sharing on the weekly meeting whiteboard are to notebooks in their analysis repositories that they have pushed to GitHub.
+Most of the links you see people sharing on the weekly meeting whiteboard are to notebooks in their
+analysis repositories that they have pushed to GitHub.
 
 Our conventions are:
 
@@ -47,7 +48,8 @@ Create Your Analysis Repository
 The steps to create your own analysis repository are:
 
 #. Create an empty public repository on GitHub and clone it to your laptop or MOAD workstation
-#. Use the MOAD `analysis repository cookiecutter`_ to generate the directory structure and initial files for your repository
+#. Use the MOAD `analysis repository cookiecutter`_ to generate the directory structure and
+   initial files for your repository
 #. Commit and push the initial files to GitHub
 
 .. _analysis repository cookiecutter: https://github.com/UBC-MOAD/cookiecutter-analysis-repo
@@ -62,7 +64,8 @@ Create Your Analysis Repository on GitHub
 
    .. _SalishSeaCast: https://github.com/SalishSeaCast
 
-#. Make sure the :guilabel:`Owner` selection box on the ``Create a new repository`` page shows the :guilabel:`SalishSeaCast` organization.
+#. Make sure the :guilabel:`Owner` selection box on the ``Create a new repository`` page shows
+   the :guilabel:`SalishSeaCast` organization.
 
 #. Type ``analysis-yourfirstname`` into the the :guilabel:`Repository name` text box;
    for example ``analysis-casey``.
@@ -78,7 +81,8 @@ Clone Your Analysis Repository
 ------------------------------
 
 .. note::
-    This section assumes that you have already followed that steps in the :ref:`SecureRemoteAccess` section to :ref:`GenerateSshKeys`,
+    This section assumes that you have already followed that steps in the
+    :ref:`SecureRemoteAccess` section to :ref:`GenerateSshKeys`,
     and to :ref:`CopyYourPublicSshKeyToGitHub`.
 
 #. Create a top level directory for MOAD work.
@@ -94,14 +98,17 @@ Clone Your Analysis Repository
 
        $ mkdir -p /ocean/$USER/MOAD
 
-   The :kbd:`-p` option tell :command:`mkdir` to not show an error message if the directory already exists,
+   The :kbd:`-p` option tell :command:`mkdir` to not show an error message
+   if the directory already exists,
    and to create any necessary parent directories as needed.
 
    :envvar:`$HOME` expands to your home directory.
 
    :envvar:`$USER` expands to your user name.
 
-#. Go back to the browser tab in which you created your analysis repository on GitHub and find the section of the page near the top that says "Quick setup — if you’ve done this kind of thing before".
+#. Go back to the browser tab in which you created your analysis repository on GitHub and find
+   the section of the page near the top that says
+   "Quick setup — if you’ve done this kind of thing before".
    Below that there are 2 buttons that say :guilabel:`HTTPS` and :guilabel:`SSH`.
    Please ensure that the :guilabel:`SSH` button is enabled,
    and copy the repository URI string of text beside it that looks like::
@@ -135,7 +142,8 @@ Populate Your Analysis Repository
 
     It also assumes that you have set up your :ref:`GitConfiguration`.
 
-#. Create a :program:`conda` environment with the latest version of Python and the `cookiecutter tool`_ installed in it with the command:
+#. Create a :program:`conda` environment with the latest version of Python
+   and the `cookiecutter tool`_ installed in it with the command:
 
    .. _cookiecutter tool: https://cookiecutter.readthedocs.io/en/latest/
 
@@ -143,7 +151,8 @@ Populate Your Analysis Repository
 
        $ conda create -n cookiecutter -c conda-forge python=3 cookiecutter
 
-   That command will do some process and then show you a list of packages that will be downloaded and installed,
+   That command will do some processing and then show you a list of packages
+   that will be downloaded and installed,
    and ask you if it is okay to proceed;
    hit :kbd:`y` or :kbd:`Enter` to go ahead.
 
@@ -171,8 +180,10 @@ Populate Your Analysis Repository
        (cookiecutter)$ cd $HOME/MOAD/
        (cookiecutter)$ cookiecutter -f gh:UBC-MOAD/cookiecutter-analysis-repo
 
-   This command uses our `analysis repository cookiecutter`_ template repository to create directories and files in the empyt analysis repository that you cloned earlier.
-   The :kbd:`-f` option lets the :command:`cookiecutter` tool write directories and files into an already existing directory.
+   This command uses our `analysis repository cookiecutter`_ template repository
+   to create directories and files in the empyt analysis repository that you cloned earlier.
+   The :kbd:`-f` option lets the :command:`cookiecutter` tool write directories and files
+   into an already existing directory.
 
    :command:`cookiecutter` will ask you for 3 pieces of input::
 
