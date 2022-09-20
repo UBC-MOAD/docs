@@ -135,10 +135,8 @@ Populate Your Analysis Repository
 ---------------------------------
 
 .. note::
-    This section assumes that you have installed `Miniconda`_ or the `Anaconda Python distribution`_ on your laptop.
-
-    .. _Miniconda: https://docs.conda.io/en/latest/miniconda.html
-    .. _Anaconda Python distribution: https://www.anaconda.com/products/distribution
+    This section assumes that you have :ref:`Installed Miniforge <InstallingMiniforge>`
+    on your laptop.
 
     It also assumes that you have set up your :ref:`GitConfiguration`.
 

@@ -55,11 +55,11 @@ References
        .. _"Editable" Installs: https://pip.pypa.io/en/stable/topics/local-project-installs/#editable-installs
 
     #. On our local workstations and laptops we work in `conda environments`_,
-       either the :kbd:`base` environment created by installing the `Anaconda Python distribution`_,
+       either the :kbd:`base` environment created by
+       :ref:`Installing Miniforge <InstallingMiniforge>`,
        or project-specific environments.
 
        .. _conda environments: https://docs.conda.io/projects/conda/en/latest/
-       .. _Anaconda Python distribution: https://www.anaconda.com/products/distribution
 
     #. On HPC clusters we use the system-provided Python 3 module and install our packages using the `"user scheme" for installation`_ in combination with `"Editable" Installs`_,
        that is,

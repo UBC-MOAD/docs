@@ -82,12 +82,11 @@ Those important things have to find a home in documentation that accompanies the
 Running Jupyter Locally
 =======================
 
-Jupyter is included in the `Anaconda Python Distribution`_.
-If are using `Miniconda`_ to create and manage your Python environments,
-you can install Jupyter by adding the :kbd:`jupyterlab` package to your environment description YAML file.
-
-.. _Anaconda Python Distribution: https://www.anaconda.com/products/distribution
-.. _Miniconda: https://docs.conda.io/en/latest/miniconda.html
+Assuming that you have :ref:`Installed Miniforge <InstallingMiniforge>` so that
+you are using :command:`conda`  to create and manage your Python environments,
+you can install Jupyter by adding the ``jupyterlab`` package to your environment description YAML file.
+For example,
+the :file:`notebooks/environment.yaml` file in your analysis repo includes ``jupyterlab``.
 
 In a terminal window,
 go to the directory that you want to be at the top level of Jupyter's file navigation,
@@ -98,8 +97,9 @@ the commands would be like:
 
 .. code-block:: bash
 
-    $ cd analysis-doug/
-    $ jupyter lab
+    $ conda activate analysis-doug
+    (analysis-doug)$ cd analysis-doug/
+    (analysis-doug)$ jupyter lab
 
 The terminal window that you typed those commands into is now running the server part of Jupyter.
 You have to keep it open until you are finished with Jupyter and want to shut it down.
@@ -167,12 +167,13 @@ using :command:`jupyter lab` on a remote system has other advantages:
 Running Jupyter Remotely on :kbd:`salish` or a MOAD Workstation
 ---------------------------------------------------------------
 
-This section assumes that you have installed the `Anaconda Python Distribution`_
+This section assumes that you have :ref:`Installed Miniforge <InstallingMiniforge>`
 in your :envvar:`$HOME` directory on a MOAD workstation,
 or that you are working in :program:`conda` environment that includes the :kbd:`jupyterlab` package on a MOAD workstation.
 
 .. note::
-    You don't need to install Anaconda Python or :kbd:`jupyterlab` explicitly on :kbd:`salish` if you have already installed it on a MOAD workstation because :kbd:`salish` uses the same :envvar:`$HOME` file system as all of the MOAD workstations.
+    You don't need to :ref:`Install Miniforge <InstallingMiniforge>` or :kbd:`jupyterlab`
+    explicitly on :kbd:`salish` if you have already installed it on a MOAD workstation because :kbd:`salish` uses the same :envvar:`$HOME` file system as all of the MOAD workstations.
 
 It is also assumed that you have followed the instructions in the :ref:`SetUpSshConfiguration` section to set up host aliases for :kbd:`salish` and any other workstations you want to run the :command:`jupyter lab` server on.
 
