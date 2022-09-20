@@ -33,6 +33,7 @@ release = ''
 # ones.
 extensions = [
     'nbsphinx',
+    "notfound.extension",
     'sphinx.ext.intersphinx',
 ]
 

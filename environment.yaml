@@ -28,6 +28,7 @@ dependencies:
   - python=3.10
   - sphinx
   - sphinx_rtd_theme
+  - sphinx-notfound-page
 
   # For repo QA
   - pre-commit
