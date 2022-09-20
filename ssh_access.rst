@@ -78,7 +78,7 @@ you will need to install the :program:`Open SSH Client` app via
 Please see `these instructions`_,
 but *only* install the "Client" part – don't try to do any of the "server" parts.
 
-.. _these instructions: https://docs.microsoft.com/en-ca/windows-server/administration/openssh/openssh_install_firstuse
+.. _these instructions: https://learn.microsoft.com/en-ca/windows-server/administration/openssh/openssh_install_firstuse
 
 
 .. note:: **Help Wanted**
