@@ -28,6 +28,7 @@ This is documentation by and for members of the MOAD (Mesoscale Ocean and Atmosp
    analysis_repo
    jupyter
    github_notebooks_readme
+   vscode
    alliance-computing
    globus
    xios-2
