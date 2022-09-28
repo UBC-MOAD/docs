@@ -271,7 +271,7 @@ or go make tea.
 Some Internet service providers (notably Shaw) are really aggressive about shutting down idle network connections.
 This directive helps a little to defend against that annoyance.
 
-If you are working on a Mac with the Sierra or later version of the operating system,
+If you are working on a Mac with the Sierra or later version of the operating system, or if you are on Windows 11,
 you should add another line to the stanza that you have already typed so that it looks like:
 
 .. code-block:: text
