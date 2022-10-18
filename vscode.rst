@@ -33,6 +33,16 @@ Of particular use in the MOAD group are:
   salish,
   and the Alliance HPC clusters.
 
+If you use the Remote - SSH extension you should increase the connection timeout
+setting because ``salish`` and some of the Waterhole workstations take >30
+seconds to establish ssh connections.
+You can change that setting by using the menu to open the settings view:
+:guilabel:`File > Preferences > Settings` and using the search bar at the top of
+the view to find :kbd:`remote ssh connect timeout`.
+Changing the value from the default of 15 seconds to 45 seconds should ensure
+successful connections to ``salish`` and the Waterhole workstations that are slow
+to connect.
+
 
 Recommended Extensions
 ======================
