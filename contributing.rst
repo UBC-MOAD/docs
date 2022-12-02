@@ -286,7 +286,7 @@ The output looks something like:
     (       vcs_repos: line   19) ok        https://github.com/MIDOSS/
     (       vcs_repos: line   18) ok        https://github.com/SalishSeaCast/
     (   analysis_repo: line   59) ok        https://github.com/SalishSeaCast
-    (          xios-2: line  944) ok        https://github.com/SalishSeaCast/SS-run-sets/tree/master/v201702
+    (          xios-2: line  944) ok        https://github.com/SalishSeaCast/SS-run-sets/tree/main/v201702
     (     sphinx_docs: line   36) ok        https://github.com/SalishSeaCast/NEMO-Cmd
     (          xios-2: line  751) ok        https://github.com/SalishSeaCast/SS-run-sets
     (github_notebooks_readme: line    7) ok        https://github.com/SalishSeaCast/analysis-ben/tree/master/notebooks
@@ -329,7 +329,7 @@ The output looks something like:
     (         jupyter: line  410) ok        https://pypi.org/
     (python_packaging/pkg_structure: line  657) ok        https://peps.python.org/pep-0518/
     (python_packaging/pkg_structure: line  148) ok        https://readthedocs.org/
-    (oceanparcels/index: line   24) ok        https://nbviewer.org/github/UBC-MOAD/PythonNotes/blob/master/OceanParcelsRecipes.ipynb
+    (oceanparcels/index: line   24) ok        https://nbviewer.org/github/UBC-MOAD/PythonNotes/blob/main/OceanParcelsRecipes.ipynb
     (oceanparcels/index: line   22) ok        https://os.copernicus.org/articles/17/1067/2021/
     (python_packaging/pkg_structure: line  111) ok        https://readthedocs.org
     (    contributing: line   46) ok        https://readthedocs.org/projects/ubc-moad-docs/builds/

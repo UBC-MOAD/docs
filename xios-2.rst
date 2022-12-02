@@ -944,7 +944,7 @@ etc.
 In addition to :file:`NEMO-3.6-code/NEMOGCM/CONFIG/SHARED/field_def.xml`,
 there are examples of :file:`field_def.xml` files in the `SS-run-sets/v201702/`_ directory tree.
 
-.. _SS-run-sets/v201702/: https://github.com/SalishSeaCast/SS-run-sets/tree/master/v201702
+.. _SS-run-sets/v201702/: https://github.com/SalishSeaCast/SS-run-sets/tree/main/v201702
 
 
 .. _domain_def.xmlFile:
@@ -1054,7 +1054,7 @@ The extent of the sub-domain is defined by counts of grid points in the :kbd:`ni
 In addition to :file:`NEMO-3.6-code/NEMOGCM/CONFIG/SHARED/domain_def.xml`,
 there are examples of :file:`domain_def.xml` files in the `SS-run-sets/v201702/`_ directory tree.
 
-.. _SS-run-sets/v201702/: https://github.com/SalishSeaCast/SS-run-sets/tree/master/v201702
+.. _SS-run-sets/v201702/: https://github.com/SalishSeaCast/SS-run-sets/tree/main/v201702
 
 
 .. _SwitchingFromXIOS-1toXIOS-2:

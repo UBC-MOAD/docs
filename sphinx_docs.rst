@@ -75,8 +75,8 @@ etc.
 
 Slides notebook from 11-Mar-2021 group tutorial about writing documentation with Sphinx:
 
-* nbviewer: https://nbviewer.org/github/UBC-MOAD/PythonNotes/blob/master/sphinx-docs/SphinxDocsTutorial.ipynb
-* GitHub: https://github.com/UBC-MOAD/PythonNotes/blob/master/sphinx-docs/SphinxDocsTutorial.ipynb
+* nbviewer: https://nbviewer.org/github/UBC-MOAD/PythonNotes/blob/main/sphinx-docs/SphinxDocsTutorial.ipynb
+* GitHub: https://github.com/UBC-MOAD/PythonNotes/blob/main/sphinx-docs/SphinxDocsTutorial.ipynb
 
 
 Installing Sphinx
@@ -277,7 +277,7 @@ To link to a rendered representation of an Jupyter Notebook that has been pushed
 
   * `SalishSeaBathy.ipynb`_: Documents the full domain bathymetry used for the Salish Sea NEMO runs.
 
-  .. _SalishSeaBathy.ipynb: https://nbviewer.org/github/SalishSeaCast/tools/blob/master/bathymetry/SalishSeaBathy.ipynb
+  .. _SalishSeaBathy.ipynb: https://nbviewer.org/github/SalishSeaCast/tools/blob/main/bathymetry/SalishSeaBathy.ipynb
 
 
 Forcing Line Breaks

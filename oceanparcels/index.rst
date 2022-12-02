@@ -28,4 +28,4 @@ Useful links:
 .. _OceanParcels Gitter chat rooms: https://gitter.im/OceanPARCELS/home
 .. _Ocean Sciences 2021 paper comparing OceanParcels and Ariane: https://os.copernicus.org/articles/17/1067/2021/
 .. _Advection kernels: https://oceanparcels.org/gh-pages/html/_modules/parcels/application_kernels/advection.html
-.. _Ben's notebook: https://nbviewer.org/github/UBC-MOAD/PythonNotes/blob/master/OceanParcelsRecipes.ipynb
+.. _Ben's notebook: https://nbviewer.org/github/UBC-MOAD/PythonNotes/blob/main/OceanParcelsRecipes.ipynb
