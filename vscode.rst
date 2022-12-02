@@ -33,15 +33,39 @@ Of particular use in the MOAD group are:
   salish,
   and the Alliance HPC clusters.
 
-If you use the Remote - SSH extension you should increase the connection timeout
-setting because ``salish`` and some of the Waterhole workstations take >30
-seconds to establish ssh connections.
-You can change that setting by using the menu to open the settings view:
-:guilabel:`File > Preferences > Settings` and using the search bar at the top of
-the view to find :kbd:`remote ssh connect timeout`.
-Changing the value from the default of 15 seconds to 45 seconds should ensure
-successful connections to ``salish`` and the Waterhole workstations that are slow
-to connect.
+
+Remote - SSH Extension Notes
+============================
+
+* If you use the Remote - SSH extension you should increase the connection timeout
+  setting because ``salish`` and some of the Waterhole workstations take >30
+  seconds to establish ssh connections.
+  You can change that setting by using the menu to open the settings view:
+  :guilabel:`File > Preferences > Settings` and using the search bar at the top of
+  the view to find :kbd:`remote ssh connect timeout`.
+  Changing the value from the default of 15 seconds to 45 seconds should ensure
+  successful connections to ``salish`` and the Waterhole workstations that are slow
+  to connect.
+
+* Extensions that you want to use on the remote machine have to be installed have to
+  be installed there.
+  When you have a Remote - SSH session running,
+  the Extensions sidebar shows extensions that you have installed locally in a
+  :guilabel:`LOCAL - INSTALLED` list.
+  If an extension can be installed for remote use a button like
+  :guilabel:`Install in SSH: salish` should be available to trigger the remote installation.
+
+  Extensions installed on the remote host show in a list with a name like
+  :guilabel:`SSH: SALISH - INSTALLED`.
+
+  So,
+  to use Python and Jupyter in Remote - SSH connected to ``salish`` you will need to
+  click the :guilabel:`Install in SSH: salish` in the Python extension tile in the Extensions
+  sidebar.
+  If you have the Python extension installed locally,
+  you should be able to find its tile in the :guilabel:`LOCAL - INSTALLED` list.
+  Otherwise, look for it in the :guilabel:`RECOMMENDED` list,
+  or use the search box at the top of the Extension sidebar to find it.
 
 
 Recommended Extensions
