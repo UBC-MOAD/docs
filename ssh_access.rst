@@ -355,7 +355,7 @@ and one for our compute server,
 
 .. note:: Please be sure to replace :kbd:`username` with your EOAS user id.
 
-Save your file with :kbd:`Ctrl-w`,
+Save your file with :kbd:`Ctrl-o` (then hit enter),
 and exit :program:`nano` with :kbd:`Ctrl-x`.
 
 
