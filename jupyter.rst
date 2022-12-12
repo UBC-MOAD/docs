@@ -361,11 +361,11 @@ this section describes how to use a Python venv to install and run :command:`jup
 
 Use the Compute Canada module system to load Python,
 preferably the most recent available version.
-On ``graham`` in Nov-2020 that is Python 3.8.2:
+On ``graham`` in Dec-2022 that is Python 3.10.2:
 
 .. code-block:: bash
 
-    $ module load python/3.8.2
+    $ module load python/3.10.2
 
 Create a Python virtualenv in which to install ``jupyterlab`` and other packages:
 
