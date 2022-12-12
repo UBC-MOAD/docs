@@ -55,7 +55,7 @@ References
        .. _"Editable" Installs: https://pip.pypa.io/en/stable/topics/local-project-installs/#editable-installs
 
     #. On our local workstations and laptops we work in `conda environments`_,
-       either the :kbd:`base` environment created by
+       either the ``base`` environment created by
        :ref:`Installing Miniforge <InstallingMiniforge>`,
        or project-specific environments.
 
@@ -109,7 +109,7 @@ It typically contains 5 files and 4 sub-directories.
 The 5 files are:
 
 * :ref:`PyprojectTomlFile` that contains the build system requirements and build backend tools to use for creation of the package
-* :ref:`PkgSetupCfgFile` that contains the package metadata and :kbd:`setuptools` options for creation of the package
+* :ref:`PkgSetupCfgFile` that contains the package metadata and ``setuptools`` options for creation of the package
 * :ref:`PkgReadmeRstFile` that provides the long description of the package
 * :ref:`PkgLicenseFile` that contains the legal text of the Apache License, Version 2.0 license for the package
 * :ref:`PkgReadthedocsYmlFile` that provides configuration for building the docs to the https://readthedocs.org service
@@ -133,14 +133,14 @@ Top-Level Directory
 -------------------
 
 The name of the top-level directory is the "project name".
-It does not have to be the same as the "package name" that you use in :kbd:`import` statements.
+It does not have to be the same as the "package name" that you use in ``import`` statements.
 In this example the "project name" is :file:`rpn-to-gemlam`,
-and the "package name" is :kbd:`rpn_to_gemlam`.
+and the "package name" is ``rpn_to_gemlam``.
 Other examples of MOAD project and package names are:
 
-* the :file:`moad_tools` package is named :kbd:`moad_tools`
-* the :file:`SalishSeaTools` package is named :kbd:`salishsea_tools`
-* the :file:`SalishSeaNowcast` package is named :kbd:`nowcast`
+* the :file:`moad_tools` package is named ``moad_tools``
+* the :file:`SalishSeaTools` package is named ``salishsea_tools``
+* the :file:`SalishSeaNowcast` package is named ``nowcast``
 
 The top-level directory "project name" is generally the name of the project's Git repository,
 however, keep in mind that Bitbucket converts repository names to all-lowercase.
@@ -161,7 +161,7 @@ It also contains a file to tell https://readthedocs.org/ how to configure an env
 The :file:`pyproject.toml` file contains the build system requirements and build backend tools to use for creation of the package.
 It is documented at https://setuptools.pypa.io/en/latest/build_meta.html.
 
-We use :kbd:`setuptools` as our build backend,
+We use ``setuptools`` as our build backend,
 so our :file:`pyproject.toml` files always look like:
 
 .. code-block:: toml
@@ -192,7 +192,7 @@ so our :file:`pyproject.toml` files always look like:
 :file:`setup.cfg` File
 ^^^^^^^^^^^^^^^^^^^^^^
 
-The :file:`setup.cfg` file contains the package metadata and :kbd:`setuptools` options for creation of the package.
+The :file:`setup.cfg` file contains the package metadata and ``setuptools`` options for creation of the package.
 It is documented at https://setuptools.pypa.io/en/latest/userguide/declarative_config.html.
 
 A minimal :file:`setup.cfg` file looks like:
@@ -268,7 +268,7 @@ looks like:
     console_scripts =
         rpn-to-gemlam = rpn_to_gemlam.rpn_to_gemlam:cli
 
-The :kbd:`[options.entry_points]` stanza is an example of the declaration of `entry points`_.
+The ``[options.entry_points]`` stanza is an example of the declaration of `entry points`_.
 They are used in packages that use a framework like `Click`_ or `Cliff`_ to provide a command-line interface.
 
 .. _entry points: https://packaging.python.org/en/latest/guides/creating-and-discovering-plugins/#using-package-metadata
@@ -276,10 +276,10 @@ They are used in packages that use a framework like `Click`_ or `Cliff`_ to prov
 .. _Cliff: https://docs.openstack.org/cliff/latest/
 
 .. note::
-    Declaration of entry points in :file:`setup.cfg` is supported by :kbd:`setuptools>=51.0.0` released on 6-Dec-2020.
-    Any newly created conda environment will include a version of :kbd:`setuptools` much newer than that.
-    The same is true of the Compute Canada :kbd:`StdEnv/2020` environment.
-    The only platform where we can't support this feature is :kbd:`orcinus`.
+    Declaration of entry points in :file:`setup.cfg` is supported by ``setuptools>=51.0.0`` released on 6-Dec-2020.
+    Any newly created conda environment will include a version of ``setuptools`` much newer than that.
+    The same is true of the Compute Canada ``StdEnv/2020`` environment.
+    The only platform where we can't support this feature is ``orcinus``.
 
 
 .. _PkgReadmeRstFile:
@@ -291,13 +291,13 @@ The :file:`README.rst` file provides a more than one line description of the pac
 Take a look some of the UBC EOAS MOAD repositories to get an idea of typical contents.
 :file:`README.rst` should include a copyright and license section.
 
-The :file:`README.rst` file is included as the :kbd:`long_description` metadata value in the :ref:`PkgSetupCfgFile` by including the line:
+The :file:`README.rst` file is included as the ``long_description`` metadata value in the :ref:`PkgSetupCfgFile` by including the line:
 
 .. code-block:: ini
 
     long_description = file: README.rst
 
-in the :kbd:`[metadata]` section.
+in the ``[metadata]`` section.
 
 :file:`README` files written using reStructuredText
 (or Markdown)
@@ -316,13 +316,13 @@ We release all of our open code under the `Apache License, Version 2.0`_
 
 So,
 you can just copy the :file:`LICENSE` file from another MOAD repository.
-Be sure to include the license declaration via the :kbd:`license` metadata value in the :ref:`PkgSetupCfgFile` by including the line:
+Be sure to include the license declaration via the ``license`` metadata value in the :ref:`PkgSetupCfgFile` by including the line:
 
 .. code-block:: ini
 
     license = Apache License, Version 2.0
 
-in the :kbd:`[metadata]` section.
+in the ``[metadata]`` section.
 
 
 .. _PkgReadthedocsYmlFile:
@@ -377,10 +377,10 @@ Package Code Sub-directory
 --------------------------
 
 The package code sub-directory is where the Python modules that are the package code are stored.
-Its name is the package name that is used in :kbd:`import` statements.
+Its name is the package name that is used in ``import`` statements.
 In the the `rpn-to-gemlam tool`_ package the package sub-directory is named :file:`rpn_to_gemlam`.
 
-Because the package name is used in :kbd:`import` statements it must follow the rules that Python imposes on module names:
+Because the package name is used in ``import`` statements it must follow the rules that Python imposes on module names:
 
 * contain only letters,
   numbers,
@@ -407,22 +407,22 @@ for example:
     __version__ = "19.1.dev0"
 
 We use a `CalVer`_ versioning scheme that conforms to `PEP-440`_.
-The version identifier format is :kbd:`yy.n[.devn]`,
-where :kbd:`yy` is the (post-2000) year of release,
-and :kbd:`n` is the number of the release within the year, starting at :kbd:`1`.
-After a release has been made the value of :kbd:`n` is incremented by 1,
-and :kbd:`.dev0` is appended to the version identifier to indicate changes that will be included in the next release.
+The version identifier format is ``yy.n[.devn]``,
+where ``yy`` is the (post-2000) year of release,
+and ``n`` is the number of the release within the year, starting at ``1``.
+After a release has been made the value of ``n`` is incremented by 1,
+and ``.dev0`` is appended to the version identifier to indicate changes that will be included in the next release.
 
 .. _CalVer: https://calver.org/
 .. _PEP-440: https://peps.python.org/pep-0440/
 
-The :py:obj:`__version__` value is included as the :kbd:`version` metadata value in the :ref:`PkgSetupCfgFile` by including the line:
+The :py:obj:`__version__` value is included as the ``version`` metadata value in the :ref:`PkgSetupCfgFile` by including the line:
 
 .. code-block:: ini
 
     version = attr: package_name.__version__
 
-in the :kbd:`[metadata]` section.
+in the ``[metadata]`` section.
 Be sure to replace :py:obj:`package_name` with the package name you chose for the :ref:`PkgPackageCodeSubDirectory`.
 
 
@@ -450,11 +450,11 @@ The key things that need to be done are:
 
       sys.path.insert(0, os.path.abspath(".."))
 
-  to the :kbd:`# -- Path setup ----------` section of the file to make the package code directory tree available to the Sphinx builder for collection of package metadata,
+  to the ``# -- Path setup ----------`` section of the file to make the package code directory tree available to the Sphinx builder for collection of package metadata,
   automatic generation of documentation from docstrings,
   etc.
 
-* Change the :py:obj:`project` code in the :kbd:`# -- Project information ---------` section to:
+* Change the :py:obj:`project` code in the ``# -- Project information ---------`` section to:
 
   .. code-block:: python
 
@@ -464,9 +464,9 @@ The key things that need to be done are:
       setup_cfg.read(os.path.abspath("../setup.cfg"))
       project = setup_cfg["metadata"]["name"]
 
-  to get the project name from the :kbd:`metadata` section of the :ref:`PkgSetupCfgFile`.
+  to get the project name from the ``metadata`` section of the :ref:`PkgSetupCfgFile`.
 
-* Change the :py:obj:`copyright` code in the :kbd:`# -- Project information ---------` section to something like:
+* Change the :py:obj:`copyright` code in the ``# -- Project information ---------`` section to something like:
 
   .. code-block:: python
 
@@ -483,7 +483,7 @@ The key things that need to be done are:
   to ensure that the copyright year range displayed in the rendered docs is always up to date
   (at least as of the most recent rendering).
 
-* Change the :py:obj:`version` and :py:obj:`release` code in the :kbd:`# -- Project information ---------` section to something like:
+* Change the :py:obj:`version` and :py:obj:`release` code in the ``# -- Project information ---------`` section to something like:
 
   .. code-block:: python
 
@@ -573,8 +573,8 @@ the :file:`environment-dev.yaml` file for the `rpn-to-gemlam tool`_ package look
           - angles
 
 * The comments at the top of the file include a succinct version of the commands required to create the dev environment.
-* The recommended conda channel to get packages from is :kbd:`conda-forge`.
-  :kbd:`nodefaults` is included in the :kbd:`channels` list to speed up the packages dependency solver because it is now rare for us to require packages from any other source than :kbd:`conda-forge` .
+* The recommended conda channel to get packages from is ``conda-forge``.
+  ``nodefaults`` is included in the ``channels`` list to speed up the packages dependency solver because it is now rare for us to require packages from any other source than ``conda-forge`` .
 * Packages that are unavailable from conda channels are installed via :command:`pip`.
 
 The :file:`environment-dev.yaml` file is "hand-crafted" rather than being generated via the :command:`conda env export` command.
@@ -606,7 +606,7 @@ specifying only the version of Python to use in the readthedocs.org environment:
     dependencies:
       - python=3.7
 
-The only reason to add more packages to the :kbd:`dependencies` list is if :py:exc:`ImportError` exceptions that arise in the `Sphinx autodoc`_ processing of docstrings can't be resolved by the use of the `autodoc_mock_imports`_ list in :file:`conf.py`.
+The only reason to add more packages to the ``dependencies`` list is if :py:exc:`ImportError` exceptions that arise in the `Sphinx autodoc`_ processing of docstrings can't be resolved by the use of the `autodoc_mock_imports`_ list in :file:`conf.py`.
 
 .. _Sphinx autodoc: https://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html
 .. _autodoc_mock_imports: https://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html#confval-autodoc_mock_imports
@@ -631,7 +631,7 @@ a new :file:`requirements.txt` file should be generated and merged with the prev
 
 The :file:`tests/` sub-directory contains the unit test suite for the package.
 Its modules match the names of the modules in the :ref:`PkgPackageCodeSubDirectory`,
-but with :kbd:`test_` pre-pended to them.
+but with ``test_`` pre-pended to them.
 If the :ref:`PkgPackageCodeSubDirectory` contains sub-directories,
 those sub-directories are reflected in the :file:`tests/` tree.
 
@@ -659,7 +659,7 @@ The changes that resulted from Doug's August 2019 review of then current opinion
 * Move the dev and docs environment description files in the :ref:`PkgEnvsSubDirectory`.
 
 The :ref:`PkgSetupCfgFile` was chosen over the `pyproject.toml file`_ because,
-as of :kbd:`pip-19.1` in the spring of 2019,
+as of ``pip-19.1`` in the spring of 2019,
 `"Editable" Installs`_ are not supported for packages that contain a :file:`pyproject.toml` file.
 Discussion by the Python Packaging Authority of how to resolve this issue is ongoing.
 

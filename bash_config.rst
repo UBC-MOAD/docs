@@ -71,7 +71,7 @@ Use the :command:`nano` text editor to create a new :command:`.bash_profile` fil
 
     $ nano .bash_profile
 
-The :kbd:`.` at the beginning of the file name is important!
+The ``.`` at the beginning of the file name is important!
 Type,
 or copy/paste the following lines into the file:
 
@@ -118,7 +118,7 @@ Use the :command:`nano` text editor to create a new :command:`.bashrc` file:
 
     $ nano .bashrc
 
-The :kbd:`.` at the beginning of the file name is important!
+The ``.`` at the beginning of the file name is important!
 Type,
 or copy/paste the following lines into the file:
 
@@ -146,10 +146,10 @@ or copy/paste the following lines into the file:
     alias rm="rm -i"
 
 .. warning::
-    :kbd:`alias ls="ls --color=auto -F"` does not work on MacOS.
+    :command:`alias ls="ls --color=auto -F"` does not work on MacOS.
     It produces an error.
     Instead,
-    to get coloured output from :command:`ls` you have to set the :envvar:`CLICOLOR` environment variable to :kbd:`True` by putting:
+    to get coloured output from :command:`ls` you have to set the :envvar:`CLICOLOR` environment variable to ``True`` by putting:
 
     .. code-block:: bash
 
@@ -214,7 +214,7 @@ or :command:`vi`.
 
     alias df="df -h"
 
-modifies the :command:`df` command that shows how much disk space is free to use human-friendly units like :kbd:`G` for gigabytes instead of its default of 1K blocks.
+modifies the :command:`df` command that shows how much disk space is free to use human-friendly units like ``G`` for gigabytes instead of its default of 1K blocks.
 
 .. code-block:: bash
 
@@ -234,9 +234,9 @@ modifies the :command:`grep` command for finding strings in files to show its ou
 
 modifies the :command:`ls` command for listing directory contents to show its output in colour.
 It also make :command:`ls` show extra characters after the file/directory names to indicate special properties;
-e.g. append :kbd:`/` to directory names,
-:kbd:`*` to executable files,
-:kbd:`@` to symbolic links,
+e.g. append ``/`` to directory names,
+``*`` to executable files,
+``@`` to symbolic links,
 etc.
 
 .. code-block:: bash
@@ -246,7 +246,7 @@ etc.
 creates a new command,
 :command:`la`,
 that is an alias for :command:`ls -a` to make :command:`ls` show hidden files and directories
-(whose names start with the :kbd:`.` character).
+(whose names start with the ``.`` character).
 Aliases are cumulative,
 so,
 :command:`la` will also be in colour and have appended indicator characters because of the way :command:`ls` is aliased in the line above.

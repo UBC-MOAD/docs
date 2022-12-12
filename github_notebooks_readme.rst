@@ -132,7 +132,7 @@ Here's how to set up and use this script:
 #. Put the code above into a file called :file:`make_readme.py` in a directory that contains Jupyter Notebook files.
 
 #. Edit line 34 to the GitHub organization that your repository is in.
-   If you are setting this up for a repository in the :kbd:`UBC-MOAD` organization on GitHub,
+   If you are setting this up for a repository in the ``UBC-MOAD`` organization on GitHub,
    you should change line 34 from:
 
    .. code-block:: python
@@ -160,19 +160,19 @@ Here's how to set up and use this script:
        REPO_NAME = "ch3-paper"
 
 #. Edit line 36 to the name of your repository's default branch.
-   (You can check the name of your default branch with :kbd:`git symbolic-ref --short HEAD`)
-   If the name of your default branch is :kbd:`master`,
+   (You can check the name of your default branch with :command:`git symbolic-ref --short HEAD`)
+   If the name of your default branch is ``master``,
    you should change line 36 from:
 
    .. code-block:: python
 
-        DEFAULT_BRANCH_NAME = "master"
+        DEFAULT_BRANCH_NAME = "main"
 
    to:
 
    .. code-block:: python
 
-       DEFAULT_BRANCH_NAME = "main"
+       DEFAULT_BRANCH_NAME = "master"
 
 #. Edit line 37 to your name for the "notebooks made by ..." message;
    i.e. change line 37 from:

@@ -30,7 +30,7 @@ analysis repositories that they have pushed to GitHub.
 
 Our conventions are:
 
-#. Analysis repositories are called :kbd:`analysis-firstname`;
+#. Analysis repositories are called ``analysis-firstname``;
    e.g. `analysis-susan`_
 
    .. _analysis-susan: https://github.com/SalishSeaCast/analysis-susan
@@ -101,7 +101,7 @@ Clone Your Analysis Repository
 
        $ mkdir -p /ocean/$USER/MOAD
 
-   The :kbd:`-p` option tell :command:`mkdir` to not show an error message
+   The ``-p`` option tell :command:`mkdir` to not show an error message
    if the directory already exists,
    and to create any necessary parent directories as needed.
 
@@ -163,7 +163,7 @@ Populate Your Analysis Repository
    That command will do some processing and then show you a list of packages
    that will be downloaded and installed,
    and ask you if it is okay to proceed;
-   hit :kbd:`y` or :kbd:`Enter` to go ahead.
+   hit ``y`` or ``Enter`` to go ahead.
 
    After some more processing you should see the messages::
 
@@ -179,7 +179,7 @@ Populate Your Analysis Repository
      #
      #     $ conda deactivate
 
-#. Activate the :kbd:`cookiecutter` environment,
+#. Activate the ``cookiecutter`` environment,
    go to your :file:`MOAD/` directory,
    and populate your empty analysis repository clone with the commands:
 
@@ -200,7 +200,7 @@ Populate Your Analysis Repository
 
    Those command use our `analysis repository cookiecutter`_ template repository
    to create directories and files in the empty analysis repository that you cloned earlier.
-   The :kbd:`-f` option lets the :command:`cookiecutter` tool write directories and files
+   The ``-f`` option lets the :command:`cookiecutter` tool write directories and files
    into an already existing directory.
 
    :command:`cookiecutter` will ask you for 2 pieces of input::
@@ -212,10 +212,10 @@ Populate Your Analysis Repository
       3 - SS-Atlantis
       Choose from 1, 2, 3 [1]:
 
-   Type your name in at the :kbd:`researcher_name` prompt,
+   Type your name in at the ``researcher_name`` prompt,
    and accept the default for ``github_org`` should match what you did earlier.
 
-#. Deactivate your :kbd:`cookiecutter` environment with:
+#. Deactivate your ``cookiecutter`` environment with:
 
    .. code-block:: bash
 
@@ -259,7 +259,7 @@ and the names of the Python packages to install in the environment.
    that command will do some processing and then show you a list of packages
    that will be downloaded and installed,
    and ask you if it is okay to proceed;
-   hit :kbd:`y` or :kbd:`Enter` to go ahead.
+   hit ``y`` or ``Enter`` to go ahead.
 
    After some more processing you should see messages like::
 

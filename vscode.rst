@@ -42,7 +42,7 @@ Remote - SSH Extension Notes
   seconds to establish ssh connections.
   You can change that setting by using the menu to open the settings view:
   :guilabel:`File > Preferences > Settings` and using the search bar at the top of
-  the view to find :kbd:`remote ssh connect timeout`.
+  the view to find ``remote ssh connect timeout``.
   Changing the value from the default of 15 seconds to 45 seconds should ensure
   successful connections to ``salish`` and the Waterhole workstations that are slow
   to connect.

@@ -114,7 +114,7 @@ These are the setup steps that you need to do when you start using ``graham`` fo
        $ ssh-copy-id -i $HOME/.ssh/id_rsa graham
 
    You should see output like
-   (except that :kbd:`/home/dlatorne/.ssh/id_rsa.pub` in the 1st line should show your EOAS user id,
+   (except that ``/home/dlatorne/.ssh/id_rsa.pub`` in the 1st line should show your EOAS user id,
    not Doug's):
 
    .. code-block:: text
@@ -124,7 +124,7 @@ These are the setup steps that you need to do when you start using ``graham`` fo
       ECDSA key fingerprint is SHA256:mf1jJ3ndpXhpo0k38xVxjH8Kjtq3o1+ZtTVbeM0xeCk.
       Are you sure you want to continue connecting (yes/no)?
 
-   Type :kbd:`yes` to accept the fingerprint from ``graham``.
+   Type ``yes`` to accept the fingerprint from ``graham``.
    Then you should see output like
    (again with your user id, not Doug's):
 

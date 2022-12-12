@@ -47,7 +47,7 @@ or `SalishSeaCast/NEMO-Cmd`_).
 .. _UBC-MOAD/moad_tools: https://github.com/UBC-MOAD/moad_tools
 .. _SalishSeaCast/NEMO-Cmd: https://github.com/SalishSeaCast/NEMO-Cmd
 
-Most of our repositories are configured so that when changes that have been committed and  pushed to GitHub a signal is sent to `readthedocs.org`_ to automatically rebuild and render the docs at a :kbd:`readthedocs.io` sub-domain.
+Most of our repositories are configured so that when changes that have been committed and  pushed to GitHub a signal is sent to `readthedocs.org`_ to automatically rebuild and render the docs at a ``readthedocs.io`` sub-domain.
 There is a very good chance that you are presently reading the result of that processing pipeline at https://ubc-moad-docs.readthedocs.io/en/latest/sphinx_docs.html#documentation-with-sphinx.
 
 .. _readthedocs.org: https://readthedocs.org/
@@ -82,8 +82,8 @@ Slides notebook from 11-Mar-2021 group tutorial about writing documentation with
 Installing Sphinx
 =================
 
-To use Sphinx you need to have the :kbd:`sphinx` and :kbd:`sphinx_rtd_theme` packages installed in your :program:`conda` environment.
-If you want to include Jupyter Notebooks in your docs you also need the :kbd:`nbsphinx` package.
+To use Sphinx you need to have the ``sphinx`` and ``sphinx_rtd_theme`` packages installed in your :program:`conda` environment.
+If you want to include Jupyter Notebooks in your docs you also need the ``nbsphinx`` package.
 
 Our docs and code repositories docs all have a section about contributing or package development that includes details of how to setup up a :program:`conda` environment to work in,
 and how to build,
@@ -244,7 +244,7 @@ There are three ways in which you can refer to labels:
    with link text "Figure caption".
 
    The same works for tables that are given an explicit caption using the
-   :kbd:`table` directive.
+   ``table`` directive.
 
 #. Labels that aren't placed before a section title can still be referenced to,
    but you must give the link an explicit title,
@@ -255,7 +255,7 @@ There are three ways in which you can refer to labels:
 
      :ref:`the section above <my-reference-label>`
 
-   makes a link to the :kbd:`Section to cross-reference` section with :kbd:`the section above` as the link text.
+   makes a link to the ``Section to cross-reference`` section with ``the section above`` as the link text.
 
 #. The `intersphinx`_ extension automatically generates links to labels and objects in Sphinx docs in other repositories.
    Example::
@@ -291,7 +291,7 @@ etc.
 
 Occasionally though you may need to force line breaks.
 The most common case for this is to add line breaks within table cells so as as to avoid excessive sideways scrolling of the rendered table.
-You can force a line break in the HTML that Sphinx renders by defining a substitution that will insert a break tag (:kbd:`<br>`).
+You can force a line break in the HTML that Sphinx renders by defining a substitution that will insert a break tag (`<br>`).
 Here's an example of doing that and using the substitution in a table cell::
 
   .. |br| raw:: html
@@ -307,4 +307,4 @@ Here's an example of doing that and using the substitution in a table cell::
                accuracy at Point Atkinson
   ===========  ===================================================  ==============  ==================
 
-.. note:: The :kbd:`|br|` substitution needs to be defined once (but *only* once) per file.
+.. note:: The ``|br|`` substitution needs to be defined once (but *only* once) per file.

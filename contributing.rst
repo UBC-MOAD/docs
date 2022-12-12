@@ -70,12 +70,12 @@ Clone the MOAD documentation `repository`_ from GitHub with:
     $ git clone git@github.com:UBC-MOAD/docs.git
 
 or copy the URI
-(the stuff after :kbd:`git clone` above)
+(the stuff after :command:`git clone` above)
 from the :guilabel:`Code` button on the `repository`_ page.
 
 .. note::
 
-    The :kbd:`git clone` command above assumes that your are `connecting to GitHub using SSH`_.
+    The :command:`git clone` command above assumes that your are `connecting to GitHub using SSH`_.
     If it fails,
     please follow the instructions in our :ref:`SecureRemoteAccess` docs to set up your SSH keys and :ref:`CopyYourPublicSshKeyToGitHub`.
 
@@ -93,7 +93,7 @@ Docs Build Environment
 
 Setting up an isolated docs build environment using `Conda`_ is recommended.
 Assuming that you have :ref:`Installed Miniforge <InstallingMiniforge>`,
-you can create and activate an environment called :kbd:`moad-docs` that will have all of the Python packages necessary for building the documentation with the commands:
+you can create and activate an environment called ``moad-docs`` that will have all of the Python packages necessary for building the documentation with the commands:
 
 .. _Conda: https://conda.io/en/latest/
 
@@ -138,7 +138,7 @@ Building and Previewing the Documentation
 The MOAD documentation is written in `reStructuredText`_ and converted to HTML using `Sphinx`_.
 Creating a :ref:`MOAD-DocsBuildEnvironment` as described above includes the installation of Sphinx.
 Building the documentation is driven by the :file:`docs/Makefile`.
-With your :kbd:`moad-docs` environment activated,
+With your ``moad-docs`` environment activated,
 use:
 
 .. _reStructuredText: https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html

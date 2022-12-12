@@ -45,8 +45,8 @@ The MOAD group maintains our own Git repository on GitHub of the Ariane code bas
     git clone git@github.com:UBC-MOAD/ariane-2.3.0_03.git
 
 
-Installing on :kbd:`salish`
----------------------------
+Installing on ``salish``
+------------------------
 
 Configure the installation by going to the folder of your clone of the MOAD Ariane repo:
 
@@ -55,7 +55,7 @@ Configure the installation by going to the folder of your clone of the MOAD Aria
     cd /ocean/$USER/$PROJECT/ariane-2.3.0_03
     ./configure --prefix=$PWD
 
-The :kbd:`prefix` argument overwrites the default install directory into a customized directory.
+The ``prefix`` argument overwrites the default install directory into a customized directory.
 
 Make and install Ariane (you will need to do this every time you make changes to the code):
 
@@ -66,13 +66,13 @@ Make and install Ariane (you will need to do this every time you make changes to
     make check
     make install
 
-Add the path for the Ariane executable to your :kbd:`PATH` environment variable:
+Add the path for the Ariane executable to your ``PATH`` environment variable:
 
 .. code-block:: bash
 
     export PATH=$PWD/bin:$PATH
 
-Now you can run Ariane from any directory by typing :kbd:`ariane`.
+Now you can run Ariane from any directory by typing ``ariane``.
 
 
 Testing Ariane installation
@@ -98,8 +98,8 @@ These files contain the trajectory information.
 Configuring your run
 ====================
 
-:kbd:`intitial_positions.txt`
------------------------------
+:file:`intitial_positions.txt`
+------------------------------
 
 The :file:`initial_positions.txt` file specifies the initial positions and release times of the particles that you are tracking. This file consists of 5 columns and a row for each particle that you are running.
 
@@ -119,61 +119,61 @@ Here is an example :file:`initial_positions.txt` file:
     310.01 400.01 15.0 0.5 1.0
 
 
-:kbd:`namelist`
----------------
+:file:`namelist`
+----------------
 
-The :file:`namelist` file specifies a variety of the run settings. The general Ariane parameters can be specified within :kbd:`Ariane`; the main ones that you are likely to change are:
+The :file:`namelist` file specifies a variety of the run settings. The general Ariane parameters can be specified within ``Ariane``; the main ones that you are likely to change are:
 
 +----------------------------------------+-------------------------------------------+
 |    Parameter                           |              Description                  |
 +========================================+===========================================+
-| :kbd:`forback`                         | Operate Ariane 'forward' or 'backward'    |
+| ``forback``                            | Operate Ariane 'forward' or 'backward'    |
 +----------------------------------------+-------------------------------------------+
-| :kbd:`nmax`                            | Number of particles that you trace        |
+| ``nmax``                               | Number of particles that you trace        |
 +----------------------------------------+-------------------------------------------+
-| :kbd:`tunit`                           | Unit of time of your model files (sec)    |
+| ``tunit``                              | Unit of time of your model files (sec)    |
 +----------------------------------------+-------------------------------------------+
-| :kbd:`ntfic`                           | Number of :kbd:`tunit` in each time step  |
+| ``ntfic``                              | Number of ``tunit`` in each time step     |
 +----------------------------------------+-------------------------------------------+
 
-The parameters of your model run are specified in :kbd:`OPAPARAM`:
+The parameters of your model run are specified in ``OPAPARAM``:
 
 +----------------------------------------+---------------------------------------------+
 |    Parameter                           |              Description                    |
 +========================================+=============================================+
-| :kbd:`imt`, :kbd:`jmt`, :kbd:`kmt`     | x, y, and z dimensions of your model domain |
+| ``imt``, ``jmt``, ``kmt``              | x, y, and z dimensions of your model domain |
 +----------------------------------------+---------------------------------------------+
-| :kbd:`lmt`                             | Time dimension (total number of time steps) |
+| ``lmt``                                | Time dimension (total number of time steps) |
 +----------------------------------------+---------------------------------------------+
 
-In qualitative mode, the frequency of calculation of the trajectory and of writing to the output file is set within :kbd:`QUALITATIVE`:
+In qualitative mode, the frequency of calculation of the trajectory and of writing to the output file is set within ``QUALITATIVE``:
 
 +----------------------------------------+-----------------------------------------------------------------+
 |    Parameter                           |              Description                                        |
 +========================================+=================================================================+
-| :kbd:`delta_t`                         | Time step size (seconds)                                        |
+| ``delta_t``                            | Time step size (seconds)                                        |
 +----------------------------------------+-----------------------------------------------------------------+
-| :kbd:`frequency`                       | Number of :kbd:`delta_t` to calculate                           |
+| ``frequency``                          | Number of ``delta_t`` to calculate                              |
 +----------------------------------------+-----------------------------------------------------------------+
-| :kbd:`nb_output`                       | Number of output time steps ( in units of delta_t x frequency)  |
+| ``nb_output``                          | Number of output time steps ( in units of delta_t x frequency)  |
 +----------------------------------------+-----------------------------------------------------------------+
 
-The parameters for reading in the U, V, and W velocity files are indicated in :kbd:`ZONALCRT`, :kbd:`MERIDCRT`, and :kbd:`VERTICRT`. The parameters are roughly the same, for example in the :kbd:`ZONALCRT` section:
+The parameters for reading in the U, V, and W velocity files are indicated in ``ZONALCRT``, ``MERIDCRT``, and ``VERTICRT``. The parameters are roughly the same, for example in the ``ZONALCRT`` section:
 
 +----------------------------------------+------------------------------------------------+
 |    Parameter                           |              Description                       |
 +========================================+================================================+
-| :kbd:`c_dir_zo`                        | Directory where data is stored                 |
+| ``c_dir_zo``                           | Directory where data is stored                 |
 +----------------------------------------+------------------------------------------------+
-| :kbd:`c_prefix_zo`                     | NetCDF file name with velocity data            |
+| ``c_prefix_zo``                        | NetCDF file name with velocity data            |
 +----------------------------------------+------------------------------------------------+
-| :kbd:`nc_var_zo`                       | Variable name for velocity component           |
+| ``nc_var_zo``                          | Variable name for velocity component           |
 +----------------------------------------+------------------------------------------------+
-| :kbd:`ind0_zo`                         | First number of file to read                   |
+| ``ind0_zo``                            | First number of file to read                   |
 +----------------------------------------+------------------------------------------------+
-| :kbd:`indn_zo`                         | Last number of file to read                    |
+| ``indn_zo``                            | Last number of file to read                    |
 +----------------------------------------+------------------------------------------------+
-| :kbd:`maxsize_zo`                      | Maximum number of integers in file name number |
+| ``maxsize_zo``                         | Maximum number of integers in file name number |
 +-----------------------------------------------------------------------------------------+
 
 Note that even in backwards mode, the first and last number of the files to read are in the forwards direction, i.e. from 1 to your last file number. Of course this is not a comprehensive list of all the parameters you can set in the :file:`namelist`. More information can be found in the references listed at the start.

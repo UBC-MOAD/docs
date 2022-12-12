@@ -50,8 +50,8 @@ Installing Git
 
 `Git`_ is a command-line tool that you need to have installed on your computer.
 It is already installed on the Waterhole workstations,
-and :kbd:`salish` at UBC.
-It is also installed on :kbd:`graham` and the other ComputeCanada clusters.
+and ``salish`` at UBC.
+It is also installed on ``graham`` and the other ComputeCanada clusters.
 
 On your laptop,
 the installation method depends on your operating system.
@@ -59,7 +59,7 @@ Please follow the instructions for your OS on the `Git Downloads`_ page:
 
 * For MacOS,
   trying the command :command:`git --version` will tell you what version of :program:`git` you have installed,
-  or perhaps install it via :kbd:`Commandline Tools` for you.
+  or perhaps install it via ``Commandline Tools`` for you.
   If it is not installed,
   `homebrew`_ is probably the best option,
   unless you already have Xcode installed.
@@ -82,7 +82,7 @@ You need to set up this configuration on each machine that you use Git on;
 i.e. on your laptop,
 on the Waterhole workstation that you use
 (which will cover all of the Waterhole/Ocean machines),
-and on :kbd:`graham`,
+and on ``graham``,
 if you use it.
 
 The :command:`git config --global` command is how you interact with the :file:`$HOME/.gitconfig` file.
@@ -102,7 +102,7 @@ Also do:
     $ git config --global pull.rebase false
 
 The first of those lines tells Git that when you create a new repository with the :command:`git init` command,
-it should call the default branch :kbd:`main`.
+it should call the default branch ``main``.
 This is consistent with the default we have set on GitHub as of mid-2020.
 Don't worry if you don't understand what "default branch" means;
 you will learn soon.
@@ -148,7 +148,7 @@ you can tell Git that with:
 
     $ git config --global core.editor "your favourite editor"
 
-where :kbd:`your favourite editor` is the command that Git should use to open your editor.
+where ``your favourite editor`` is the command that Git should use to open your editor.
 The commands for many popular editors are tabulated in `Appendix 3.1 of the ProGit book`_.
 If you are having trouble figuring out what that command should be,
 ask for help on the `SalishSeaCast #general`_ Slack channel.
@@ -179,7 +179,7 @@ Mercurial users who relied on :command:`hg glog` will find this alias comforting
     $ git config --global alias.out "log --pretty=oneline --abbrev-commit --graph @{u}.."
 
 makes :command:`git out` show you the commits that you have made locally but not yet pushed to GitHub.
-You can get more information about the changes in each of those commits by adding the :kbd:`--stat` option;
+You can get more information about the changes in each of those commits by adding the ``--stat`` option;
 i.e. :command:`git out --stat`.
 
 .. code-block:: bash
@@ -188,7 +188,7 @@ i.e. :command:`git out --stat`.
 
 makes :command:`git in` show you the commits from GitHub that have not yet been merged into your local repo.
 Again,
-adding the :kbd:`--stat` option adds information about the files that were changed in each commit and the number of added and deleted lines in each.
+adding the ``--stat`` option adds information about the files that were changed in each commit and the number of added and deleted lines in each.
 
 
 .. _GitIgnoreFiles:

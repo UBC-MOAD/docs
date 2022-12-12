@@ -22,7 +22,7 @@ Our Git version control repositories are collected in organizations on GitHub:
 General Guidelines
 ==================
 
-* People in the group are free to push changes to :kbd:`main` branches,
+* People in the group are free to push changes to ``main`` branches,
   or use feature branches and GitHub pull requests as they see fit.
   External contributors should fork repos and create pull requests to provide changes so that they are reviewed.
 

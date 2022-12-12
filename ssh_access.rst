@@ -15,13 +15,13 @@ Secure Remote Access
 This section is the about setting up secure,
 easy to use,
 terminal (command-line) access from your laptop to the EOAS Ocean Linux computers,
-and the Compute Canada :kbd:`graham` High Performance Computing (HPC) cluster.
+and the Compute Canada ``graham`` High Performance Computing (HPC) cluster.
 
-The software technology we use to do that is called :kbd:`ssh` (sometime lowercase, sometimes uppercase).
+The software technology we use to do that is called ``ssh`` (sometime lowercase, sometimes uppercase).
 :command:`ssh` is also the command that makes terminal/command-line connections between computers.
 :command:`ssh` stands for "secure shell".
-The first :kbd:`s` is for secure,
-and the :kbd:`sh` is in tribute to the original Unix command-line interface called "shell".
+The first ``s`` is for secure,
+and the ``sh`` is in tribute to the original Unix command-line interface called "shell".
 That's why people often say or write "open a shell" or "go to shell" when they mean open or switch to your Terminal program.
 
 This brief `Introduction to SSH`_ explains some of the concepts and terminology about the software that we use to accomplish easy,
@@ -111,7 +111,7 @@ The output should look like:
     Generating public/private rsa key pair.
     Enter file in which to save the key (/home/username/.ssh/id_ed25519):
 
-but with with your laptop user id instead of :kbd:`username` in the key file path in the parentheses.
+but with with your laptop user id instead of ``username`` in the key file path in the parentheses.
 
 Hit enter to accept the default key file path and name.
 
@@ -187,9 +187,9 @@ When the key pair generation is finished you should see output like:
 
 except that you will see:
 
-* your laptop user id instead of :kbd:`username` in the key files paths
+* your laptop user id instead of ``username`` in the key files paths
 * a different key fingerprint,
-  ending with your user id and computer name instead of :kbd:`username@host`
+  ending with your user id and computer name instead of ``username@host``
 * a different "randomart image"
 
 Congratulations!
@@ -229,7 +229,7 @@ If there is already some text in the file,
 please contact Doug for advise on how to proceed.
 
 By the way,
-:file:`~` is a shorthand way of typing :file:`/home/username` with your user id in place of :kbd:`username`.
+:file:`~` is a shorthand way of typing :file:`/home/username` with your user id in place of ``username``.
 
 
 Directives for All Hosts
@@ -244,7 +244,7 @@ Put the following lines in your :file:`~/.ssh/config` file:
       ServerAliveInterval 60
 
 The first line,
-:kbd:`Host *`,
+``Host *``,
 means that the directives that come next,
 indented beneath it,
 apply to all remote computers that you connect to.
@@ -253,7 +253,7 @@ The indentation can be spaces or tabs;
 2 or 4 spaces are conventional.
 
 The 2nd line,
-:kbd:`ForwardAgent yes`,
+``ForwardAgent yes``,
 means that when you connect to a remote computer,
 your ssh agent should set things up so that,
 if you connect to another computer from that one,
@@ -262,7 +262,7 @@ That means that you don't have to store copies of your private key on a bunch of
 it can stay safe on your laptop.
 
 The 3rd line,
-:kbd:`ServerAliveInterval 60`,
+``ServerAliveInterval 60``,
 tells :command:`ssh` to send a keep-alive message every 60 seconds to any computer that you are connected to.
 That helps prevent you connection from getting broken if you stop typing for a few minutes to think,
 answer the phone,
@@ -282,7 +282,7 @@ you should add another line to the stanza that you have already typed so that it
       AddKeysToAgent yes
 
 That 4th line,
-:kbd:`AddKeysToAgent yes`,
+``AddKeysToAgent yes``,
 tells the ssh agent to remember the keys that you give the passphrases for.
 Apple decided to make Sierra and later versions of their OS super annoying
 (though, admittedly, more secure - to the level of paranoia :-)
@@ -296,10 +296,10 @@ To make it easier to connect to remote systems that you use often you can add st
 
 * give the remote computer a shorter name
 * tell :command:`ssh` and friends what user id you use on that computer
-* provide directives to override or augment those in the :kbd:`Host *` stanza,
+* provide directives to override or augment those in the ``Host *`` stanza,
   or other defaults
 
-Add a host alias stanza for :kbd:`graham.computecanada.ca` by adding these lines:
+Add a host alias stanza for ``graham.computecanada.ca`` by adding these lines:
 
 .. code-block:: text
 
@@ -307,10 +307,10 @@ Add a host alias stanza for :kbd:`graham.computecanada.ca` by adding these lines
       HostName graham.computecanada.ca
       User username
 
-.. note:: Please be sure to replace :kbd:`username` with your Compute Canada user id.
+.. note:: Please be sure to replace ``username`` with your Compute Canada user id.
 
 It is conventional to separate the stanzas in :file:`~/.ssh/config` with empty lines.
-You can also add comment lines if you want by starting them with the :kbd:`#` character.
+You can also add comment lines if you want by starting them with the ``#`` character.
 Your file should now look like:
 
 .. code-block:: text
@@ -339,9 +339,9 @@ you will be able to type:
 (after we complete 1 more step of setup).
 
 Add another stanza for the MOAD workstation that Susan told you to work on
-(using :kbd:`chum` here as an example),
+(using ``chum`` here as an example),
 and one for our compute server,
-:kbd:`salish`:
+``salish``:
 
 .. code-block:: text
 
@@ -353,7 +353,7 @@ and one for our compute server,
       HostName salish.eos.ubc.ca
       User username
 
-.. note:: Please be sure to replace :kbd:`username` with your EOAS user id.
+.. note:: Please be sure to replace ``username`` with your EOAS user id.
 
 Save your file with :kbd:`Ctrl-o` (then hit enter),
 and exit :program:`nano` with :kbd:`Ctrl-x`.
@@ -367,13 +367,13 @@ Copy Your Public ssh Key to Remote Computers
 The final step to make :command:`ssh` key pair authentication work is to copy your public key to each remote system that you want to connect to.
 The command to do that is :command:`ssh-copy-id`.
 
-Copy your public key to :kbd:`graham` with:
+Copy your public key to ``graham`` with:
 
 .. code-block:: bash
 
     $ ssh-copy-id graham
 
-That command will use the information you put into :file:`~/.ssh/config` to expand :kbd:`graham` to :kbd:`username@graham.computecanada.ca`.
+That command will use the information you put into :file:`~/.ssh/config` to expand ``graham`` to ``username@graham.computecanada.ca``.
 It should produce output like:
 
 .. code-block:: text
@@ -383,8 +383,8 @@ It should produce output like:
     ED25519 key fingerprint is SHA256:mf1jJ3ndpXhpo0k38xVxjH8Kjtq3o1+ZtTVbeM0xeCk.
     Are you sure you want to continue connecting (yes/no/[fingerprint])?
 
-Type :kbd:`yes` to proceed.
-(You can confirm :kbd:`grahams`'s host key fingerprint at https://docs.alliancecan.ca/wiki/SSH_security_improvements#SSH_host_key_fingerprints if you want to).
+Type ``yes`` to proceed.
+(You can confirm ``graham``'s host key fingerprint at https://docs.alliancecan.ca/wiki/SSH_security_improvements#SSH_host_key_fingerprints if you want to).
 
 The output from :command:`ssh-copy-id` should continue with:
 
@@ -413,7 +413,7 @@ test the authentication with:
     $ ssh graham
 
 Your ssh agent should ask you for your passphrase so that it can decrypt your private key,
-then you should find yourself at the command-line prompt on :kbd:`graham`:
+then you should find yourself at the command-line prompt on ``graham``:
 
 .. code-block:: text
 
@@ -442,12 +442,12 @@ then you should find yourself at the command-line prompt on :kbd:`graham`:
             More details: https://docs.computecanada.ca/wiki/Graham#GPUs_on_Graham
     [username@gra-login1 ~]$
 
-Disconnect from :kbd:`graham` with :kbd:`exit`,
-and connect again with :kbd:`ssh graham`.
+Disconnect from ``graham`` with ``exit``,
+and connect again with ``ssh graham``.
 This time you should connect without being asked for your password or your passphrase.
 
 Now,
-repeat the :command:`ssh-copy-id` process to put your public key on the EOAS Ocean machines including the MOAD workstations via :kbd:`salish`:
+repeat the :command:`ssh-copy-id` process to put your public key on the EOAS Ocean machines including the MOAD workstations via ``salish``:
 
 .. code-block:: bash
 
@@ -510,7 +510,7 @@ Commands for copying files to/from/among your local computer and remote machines
 
 To get a short reminder of the option flags for any of these commands
 (or most any Linux command),
-use the :kbd:`--help` option;
+use the ``--help`` option;
 e.g.
 
 .. code-block:: bash
@@ -556,7 +556,7 @@ e.g.
     $ ssh salish ls -lh /results2/SalishSea/nowcast-green.201905/09sep20/
 
 That command means:
-"Use :command:`ssh` to connect to :kbd:`salish` and show me the long listing
+"Use :command:`ssh` to connect to ``salish`` and show me the long listing
 (including permissions, ownership, human-readable sizes, and date/time stamps)
 of the files in the directory there called :file:`/results2/SalishSea/nowcast-green.201905/09sep20/`".
 
@@ -568,7 +568,7 @@ e.g.
     $ ssh salish "find /results/forcing/atmospheric/GEM2.5/GRIB/20200909/12 -type f | wc -l"
 
 If you have trouble with :command:`ssh` not making a connection,
-you can tell it to output debugging messages its progress by using the :kbd:`-v` option;
+you can tell it to output debugging messages its progress by using the ``-v`` option;
 e.g.
 
 .. code-block:: bash
@@ -576,9 +576,9 @@ e.g.
     $ ssh -v graham
 
 This is helpful in debugging connection, authentication, and configuration problems.
-Adding more :kbd:`v`s
-(up to 3) e.g. :kbd:`-vv`,
-or :kbd:`-vvv`,
+Adding more ``v``s
+(up to 3) e.g. ``-vv``,
+or ``-vvv``,
 increases the verbosity of the messages.
 If you need help interpreting the output of :command:`ssh -v`,
 paste it into a message on the `SalishSeaCast #general`_ Slack channel.
@@ -610,9 +610,9 @@ To copy a file from your current directory on your local computer to your home d
     $ scp my-local-file graham:
 
 You can also include a path in place of :file:`my-local-file`,
-and/or after the colon in :kbd:`graham:`.
+and/or after the colon in ``graham:``.
 If you give several paths/files in place of :file:`my-local-file`,
-all of those files will get copied to :kbd:`graham`.
+all of those files will get copied to ``graham``.
 
 To copy a file from your current directory on your local computer to your scratch space on :command:`graham` use:
 
@@ -620,9 +620,9 @@ To copy a file from your current directory on your local computer to your scratc
 
     $ scp my-local-file "graham:$SCRATCH/"
 
-The quotes around :kbd:`"graham:$SCRATCH/"` are necessary to prevent your local shell from expanding the :envvar:`SCRATCH` environment variable.
+The quotes around ``"graham:$SCRATCH/"`` are necessary to prevent your local shell from expanding the :envvar:`SCRATCH` environment variable.
 
-To copy a file from your scratch space on :kbd:`graham` to your current directory on your local computer use:
+To copy a file from your scratch space on ``graham`` to your current directory on your local computer use:
 
 .. code-block:: bash
 
@@ -635,16 +635,16 @@ Unlike :command:`cp`,
 :command:`scp` always has to have a destination directory for the file.
 Including a file name in the destination is an easy way to combine copying and renaming the copied file in one operation.
 
-To copy a file from your scratch space on :kbd:`graham` to your MOAD :file:`/data/` space via :kbd:`salish` use:
+To copy a file from your scratch space on ``graham`` to your MOAD :file:`/data/` space via ``salish`` use:
 
 .. code-block:: bash
 
     $ scp "graham:$SCRATCH/my-remote-file" "salish:/data/$USER/"
 
-The quotes around :kbd:`"salish:/data/$USER/"` are necessary to prevent your local shell from expanding the :envvar:`USER` environment variable.
+The quotes around ``"salish:/data/$USER/"`` are necessary to prevent your local shell from expanding the :envvar:`USER` environment variable.
 
 If you have trouble with :command:`scp` not making a connection,
-you can tell it to output debugging messages its progress by using the :kbd:`-v` option;
+you can tell it to output debugging messages its progress by using the ``-v`` option;
 e.g.
 
 .. code-block:: bash
@@ -669,18 +669,18 @@ or Google for more information about how to use :command:`scp`.
 :command:`sftp` can be used to do the same job of copying files to/form remote machines as :command:`scp`.
 But it also provides a command-line interface to do other operations on the remote and local file systems,
 such as navigating directories
-(:kbd:`cd` and :kbd:`lcd`),
-and creating directories on the remote file system (:kbd:`mkdir`).
-The command for uploading a file is :kbd:`put`,
-and for downloading :kbd:`get`.
-:kbd:`help` or :kbd:`?` will give you a list of the available command.
+(``cd`` and ``lcd``),
+and creating directories on the remote file system (``mkdir``).
+The command for uploading a file is ``put``,
+and for downloading ``get``.
+``help`` or ``?`` will give you a list of the available command.
 
 Please see :command:`sftp --help`,
 :command:`man sftp`,
 ask on the `SalishSeaCast #general`_ Slack channel,
 or Google for more information about how to use :command:`sftp`.
 
-Here is a sample :command:`sftp` session to copy a file from your scratch space on :kbd:`graham` to your current directory on your local computer:
+Here is a sample :command:`sftp` session to copy a file from your scratch space on ``graham`` to your current directory on your local computer:
 
 .. code-block:: text
 
@@ -694,7 +694,7 @@ Here is a sample :command:`sftp` session to copy a file from your scratch space 
     sftp> quit
 
 If you have trouble with :command:`sftp` not making a connection,
-you can tell it to output debugging messages its progress by using the :kbd:`-v` option;
+you can tell it to output debugging messages its progress by using the ``-v`` option;
 e.g.
 
 .. code-block:: bash
@@ -711,7 +711,8 @@ paste it into a message on the `SalishSeaCast #general`_ Slack channel.
 X2Go Remote Desktop
 ===================
 
-A last resort for remote access to MOAD workstations is to use X2Go (:kbd:`https://wiki.x2go.org/doku.php`).
+A last resort for remote access to MOAD workstations is to use X2Go
+(``https://wiki.x2go.org/doku.php``).
 It is a last resort because it is very bandwidth-hungry,
 so it can be painfully slow to use on home WiFi.
 It also relies on password authentication rather than key-based authentication,
@@ -735,14 +736,14 @@ Please see the X2Go documentation for instructions on how to install the X2Go cl
 
 Once you have the client installed and running,
 use the :guilabel:`Session` menu to create a :guilabel:`New Session` for a specific workstation;
-we'll use :kbd:`chum` as an example.
+we'll use ``chum`` as an example.
 
 In the :guilabel:`Session preferences` dialog enter:
 
-* :guilabel:`Session name:` :kbd:`chum`
-* :guilabel:`Host:` :kbd:`chum.eos.ubc.ca`
+* :guilabel:`Session name:` ``chum``
+* :guilabel:`Host:` ``chum.eos.ubc.ca``
 * :guilabel:`Login`: Your EOAS user id
-* :guilabel:`Session type` drop-down: choose :kbd:`Mate`
+* :guilabel:`Session type` drop-down: choose ``Mate``
 
 After you click the :guilabel:`Okay` button you should see a new session tile called :guilabel:`chum` on the right side of the X2Go window.
 
@@ -753,17 +754,17 @@ After you click the :guilabel:`Okay` button you should see a new session tile ca
     but you may have to try others.
     Feel free to ask for help on the `SalishSeaCast #general`_ Slack channel,
 
-To connect to :kbd:`chum`,
+To connect to ``chum``,
 click the :guilabel:`chum` session tile on the right side of the X2Go window,
 enter your password,
 and click the :guilabel:`Okay` button.
-If it is your first time connecting to :kbd:`chum` you will get a :guilabel:`Host Key verification failed` alert that shows :kbd:`chum`'s public host key hash:
-:kbd:`85:41:ab:c4:a4:f3:7f:7b:c0:4c:8b:48:da:66:c9:5c:ec:8a:2b:69`;
-click the :guilabel:`Yes` button to add :kbd:`chum`'s public key to your :file:`~/.ssh/known_hosts` file.
+If it is your first time connecting to ``chum`` you will get a :guilabel:`Host Key verification failed` alert that shows ``chum``'s public host key hash:
+``85:41:ab:c4:a4:f3:7f:7b:c0:4c:8b:48:da:66:c9:5c:ec:8a:2b:69``;
+click the :guilabel:`Yes` button to add ``chum``'s public key to your :file:`~/.ssh/known_hosts` file.
 
 After some time,
 and some logging messages appearing in a session status dialog in the main part of the X2Go window,
-a new window showing :kbd:`chum`'s desktop should appear.
+a new window showing ``chum``'s desktop should appear.
 
 When you are finished with your desktop session,
 close the remote desktop window,

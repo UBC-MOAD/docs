@@ -49,8 +49,8 @@ Here are some examples of commands to do that on various platforms that we use.
 *You should substitute your own research project directory name as appropriate.*
 
 
-:kbd:`beluga`, :kbd:`cedar`, or :kbd:`graham`
----------------------------------------------
+``beluga``, ``cedar``, or ``graham``
+------------------------------------
 
 .. code-block:: bash
 
@@ -59,8 +59,8 @@ Here are some examples of commands to do that on various platforms that we use.
     git clone git@github.com:SalishSeaCast/XIOS-ARCH.git
 
 
-:kbd:`orcinus`
---------------
+``orcinus``
+-----------
 
 .. code-block:: bash
 
@@ -68,8 +68,8 @@ Here are some examples of commands to do that on various platforms that we use.
     git clone git@github.com:SalishSeaCast/XIOS-2.git
 
 
-:kbd:`salish`
--------------
+``salish``
+----------
 
 .. code-block:: bash
 
@@ -90,7 +90,7 @@ See the section below for the project and machine combination that applies to yo
 
 .. _BuildXIOS-CANYONS-beluga:
 
-:kbd:`CANYONS` on :kbd:`beluga`
+``CANYONS`` on ``beluga``
 -------------------------------
 
 .. code-block:: bash
@@ -103,7 +103,7 @@ See the section below for the project and machine combination that applies to yo
     ./make_xios --arch X64_BELUGA --job 8
 
 To build NEMO you will need an environment variable named :envvar:`XIOS_HOME` whose value is the absolute path to you :file:`XIOS-2` directory.
-For the :kbd:`CANYONS` project it is:
+For the ``CANYONS`` project it is:
 
 .. code-block:: bash
 
@@ -131,7 +131,7 @@ to clear away all artifacts of the previous build and do a fresh one.
 
 .. _BuildXIOS-GEOTRACES-beluga:
 
-:kbd:`GEOTRACES` on :kbd:`beluga`
+``GEOTRACES`` on ``beluga``
 ---------------------------------
 
 .. code-block:: bash
@@ -144,7 +144,7 @@ to clear away all artifacts of the previous build and do a fresh one.
     ./make_xios --arch X64_BELUGA --job 8
 
 To build NEMO you will need an environment variable named :envvar:`XIOS_HOME` whose value is the absolute path to you :file:`XIOS-2` directory.
-For the :kbd:`GEOTRACES` project it is:
+For the ``GEOTRACES`` project it is:
 
 .. code-block:: bash
 
@@ -172,7 +172,7 @@ to clear away all artifacts of the previous build and do a fresh one.
 
 .. _BuildXIOS-MEOPAR-beluga:
 
-:kbd:`MEOPAR` on :kbd:`beluga`
+``MEOPAR`` on ``beluga``
 ------------------------------
 
 .. code-block:: bash
@@ -185,7 +185,7 @@ to clear away all artifacts of the previous build and do a fresh one.
     ./make_xios --arch X64_BELUGA --job 8
 
 To build NEMO you will need an environment variable named :envvar:`XIOS_HOME` whose value is the absolute path to you :file:`XIOS-2` directory.
-For the :kbd:`MEOPAR` project it is:
+For the ``MEOPAR`` project it is:
 
 .. code-block:: bash
 
@@ -213,7 +213,7 @@ to clear away all artifacts of the previous build and do a fresh one.
 
 .. _BuildXIOS-CANYONS-cedar:
 
-:kbd:`CANYONS` on :kbd:`cedar`
+``CANYONS`` on ``cedar``
 ------------------------------
 
 .. code-block:: bash
@@ -226,7 +226,7 @@ to clear away all artifacts of the previous build and do a fresh one.
     ./make_xios --arch X64_CEDAR --job 8
 
 To build NEMO you will need an environment variable named :envvar:`XIOS_HOME` whose value is the absolute path to you :file:`XIOS-2` directory.
-For the :kbd:`CANYONS` project it is:
+For the ``CANYONS`` project it is:
 
 .. code-block:: bash
 
@@ -254,7 +254,7 @@ to clear away all artifacts of the previous build and do a fresh one.
 
 .. _BuildXIOS-GEOTRACES-cedar:
 
-:kbd:`GEOTRACES` on :kbd:`cedar`
+``GEOTRACES`` on ``cedar``
 --------------------------------
 
 .. code-block:: bash
@@ -267,7 +267,7 @@ to clear away all artifacts of the previous build and do a fresh one.
     ./make_xios --arch X64_CEDAR --job 8
 
 To build NEMO you will need an environment variable named :envvar:`XIOS_HOME` whose value is the absolute path to you :file:`XIOS-2` directory.
-For the :kbd:`GEOTRACES` project it is:
+For the ``GEOTRACES`` project it is:
 
 .. code-block:: bash
 
@@ -295,7 +295,7 @@ to clear away all artifacts of the previous build and do a fresh one.
 
 .. _BuildXIOS-MEOPAR-cedar:
 
-:kbd:`MEOPAR` on :kbd:`cedar`
+``MEOPAR`` on ``cedar``
 -----------------------------
 
 .. code-block:: bash
@@ -308,7 +308,7 @@ to clear away all artifacts of the previous build and do a fresh one.
     ./make_xios --arch X64_CEDAR --job 8
 
 To build NEMO you will need an environment variable named :envvar:`XIOS_HOME` whose value is the absolute path to you :file:`XIOS-2` directory.
-For the :kbd:`MEOPAR` project it is:
+For the ``MEOPAR`` project it is:
 
 .. code-block:: bash
 
@@ -336,7 +336,7 @@ to clear away all artifacts of the previous build and do a fresh one.
 
 .. _BuildXIOS-CANYONS-graham:
 
-:kbd:`CANYONS` on :kbd:`graham`
+``CANYONS`` on ``graham``
 -------------------------------
 
 .. code-block:: bash
@@ -349,7 +349,7 @@ to clear away all artifacts of the previous build and do a fresh one.
     ./make_xios --arch X64_GRAHAM --job 8
 
 To build NEMO you will need an environment variable named :envvar:`XIOS_HOME` whose value is the absolute path to you :file:`XIOS-2` directory.
-For the :kbd:`CANYONS` project it is:
+For the ``CANYONS`` project it is:
 
 .. code-block:: bash
 
@@ -377,7 +377,7 @@ to clear away all artifacts of the previous build and do a fresh one.
 
 .. _BuildXIOS-GEOTRACES-graham:
 
-:kbd:`GEOTRACES` on :kbd:`graham`
+``GEOTRACES`` on ``graham``
 ---------------------------------
 
 .. code-block:: bash
@@ -390,7 +390,7 @@ to clear away all artifacts of the previous build and do a fresh one.
     ./make_xios --arch X64_GRAHAM --job 8
 
 To build NEMO you will need an environment variable named :envvar:`XIOS_HOME` whose value is the absolute path to you :file:`XIOS-2` directory.
-For the :kbd:`GEOTRACES` project it is:
+For the ``GEOTRACES`` project it is:
 
 .. code-block:: bash
 
@@ -418,7 +418,7 @@ to clear away all artifacts of the previous build and do a fresh one.
 
 .. _BuildXIOS-MEOPAR-graham:
 
-:kbd:`MEOPAR` on :kbd:`graham`
+``MEOPAR`` on ``graham``
 ------------------------------
 
 .. code-block:: bash
@@ -431,7 +431,7 @@ to clear away all artifacts of the previous build and do a fresh one.
     ./make_xios --arch X64_GRAHAM --job 8
 
 To build NEMO you will need an environment variable named :envvar:`XIOS_HOME` whose value is the absolute path to you :file:`XIOS-2` directory.
-For the :kbd:`MEOPAR` project it is:
+For the ``MEOPAR`` project it is:
 
 .. code-block:: bash
 
@@ -459,7 +459,7 @@ to clear away all artifacts of the previous build and do a fresh one.
 
 .. _BuildXIOS-CANYONS-orcinus:
 
-:kbd:`CANYONS` on :kbd:`orcinus`
+``CANYONS`` on ``orcinus``
 --------------------------------
 
 .. code-block:: bash
@@ -472,7 +472,7 @@ to clear away all artifacts of the previous build and do a fresh one.
     ./make_xios --arch X64_ORCINUS --job 8
 
 To build NEMO you will need an environment variable named :envvar:`XIOS_HOME` whose value is the absolute path to you :file:`XIOS-2` directory.
-For the :kbd:`CANYONS` project it is:
+For the ``CANYONS`` project it is:
 
 .. code-block:: bash
 
@@ -500,7 +500,7 @@ to clear away all artifacts of the previous build and do a fresh one.
 
 .. _BuildXIOS-GEOTRACES-orcinus:
 
-:kbd:`GEOTRACES` on :kbd:`orcinus`
+``GEOTRACES`` on ``orcinus``
 ----------------------------------
 
 .. code-block:: bash
@@ -513,7 +513,7 @@ to clear away all artifacts of the previous build and do a fresh one.
     ./make_xios --arch X64_ORCINUS --job 8
 
 To build NEMO you will need an environment variable named :envvar:`XIOS_HOME` whose value is the absolute path to you :file:`XIOS-2` directory.
-For the :kbd:`GEOTRACES` project it is:
+For the ``GEOTRACES`` project it is:
 
 .. code-block:: bash
 
@@ -541,7 +541,7 @@ to clear away all artifacts of the previous build and do a fresh one.
 
 .. _BuildXIOS-MEOPAR-orcinus:
 
-:kbd:`MEOPAR` on :kbd:`orcinus`
+``MEOPAR`` on ``orcinus``
 -------------------------------
 
 .. code-block:: bash
@@ -554,7 +554,7 @@ to clear away all artifacts of the previous build and do a fresh one.
     ./make_xios --arch X64_ORCINUS --job 8
 
 To build NEMO you will need an environment variable named :envvar:`XIOS_HOME` whose value is the absolute path to you :file:`XIOS-2` directory.
-For the :kbd:`MEOPAR` project it is:
+For the ``MEOPAR`` project it is:
 
 .. code-block:: bash
 
@@ -582,7 +582,7 @@ to clear away all artifacts of the previous build and do a fresh one.
 
 .. _BuildXIOS-CANYONS-salish:
 
-:kbd:`CANYONS` on :kbd:`salish`
+``CANYONS`` on ``salish``
 -------------------------------
 
 .. code-block:: bash
@@ -594,7 +594,7 @@ to clear away all artifacts of the previous build and do a fresh one.
     ./make_xios --arch GCC_SALISH --netcdf_lib netcdf4_seq --job 8
 
 To build NEMO you will need an environment variable named :envvar:`XIOS_HOME` whose value is the absolute path to you :file:`XIOS-2` directory.
-For the :kbd:`CANYONS` project it is:
+For the ``CANYONS`` project it is:
 
 .. code-block:: bash
 
@@ -622,7 +622,7 @@ to clear away all artifacts of the previous build and do a fresh one.
 
 .. _BuildXIOS-GEOTRACES-salish:
 
-:kbd:`GEOTRACES` on :kbd:`salish`
+``GEOTRACES`` on ``salish``
 ---------------------------------
 
 .. code-block:: bash
@@ -634,7 +634,7 @@ to clear away all artifacts of the previous build and do a fresh one.
     ./make_xios --arch GCC_SALISH --netcdf_lib netcdf4_seq --job 8
 
 To build NEMO you will need an environment variable named :envvar:`XIOS_HOME` whose value is the absolute path to you :file:`XIOS-2` directory.
-For the :kbd:`GEOTRACES` project it is:
+For the ``GEOTRACES`` project it is:
 
 .. code-block:: bash
 
@@ -662,7 +662,7 @@ to clear away all artifacts of the previous build and do a fresh one.
 
 .. _BuildXIOS-MEOPAR-salish:
 
-:kbd:`MEOPAR` on :kbd:`salish`
+``MEOPAR`` on ``salish``
 ------------------------------
 
 .. code-block:: bash
@@ -674,7 +674,7 @@ to clear away all artifacts of the previous build and do a fresh one.
     ./make_xios --arch GCC_SALISH --netcdf_lib netcdf4_seq --job 8
 
 To build NEMO you will need an environment variable named :envvar:`XIOS_HOME` whose value is the absolute path to you :file:`XIOS-2` directory.
-For the :kbd:`MEOPAR` project it is:
+For the ``MEOPAR`` project it is:
 
 .. code-block:: bash
 
@@ -723,13 +723,13 @@ four configuration files written in `XML`_ are required:
   regardless of the depth of the sub-domain.
   Please see the :ref:`domain_def.xmlFile` section below for more information about the structure and contents of :file:`domain_def.xml` files.
 
-* :file:`iodef.xml` defines the vertical extent of output grids in the :kbd:`axis` elements,
+* :file:`iodef.xml` defines the vertical extent of output grids in the ``axis`` elements,
   and the output grids.
-  It also contains a separate :kbd:`context` element for :kbd:`xios` in which a few settings that control XIOS-2 are declared.
+  It also contains a separate ``context`` element for ``xios`` in which a few settings that control XIOS-2 are declared.
 
 * :file:`file_def.xml` defines the files into which field variables are output and the frequency of output of those files.
-  Variable names can be transformed from the internal NEMO names to more user friendly names in the :kbd:`field` elements in this file.
-  This is also where on-the-fly deflation of output files is enabled via the :kbd:`compression_level="4"` attribute of :kbd:`file_group` elements.
+  Variable names can be transformed from the internal NEMO names to more user friendly names in the ``field`` elements in this file.
+  This is also where on-the-fly deflation of output files is enabled via the ``compression_level="4"`` attribute of ``file_group`` elements.
 
 .. warning::
     XML syntax is very exacting,
@@ -769,7 +769,7 @@ The :ref:`nemocmd:NEMO-CommandProcessor` and :ref:`salishseacmd:SalishSeaCmdProc
 via YAML run description files,
 to map XML files with arbitrary file names and directory paths on to the file names that NEMO requires in the directory from which NEMO is executed.
 
-The :kbd:`output` section of the YAML description file is where the XML file mappings and other XIOS-2 settings are specified.
+The ``output`` section of the YAML description file is where the XML file mappings and other XIOS-2 settings are specified.
 Please see the `salishsea YAML file output section`_ docs if you are working on the Salish Sea configurations of NEMO,
 or the `nemo YAML file output section`_ docs if you use another NEMO configuration.
 There are also examples of complete YAML run description files in those docs.
@@ -777,7 +777,7 @@ There are also examples of complete YAML run description files in those docs.
 .. _salishsea YAML file output section: https://salishseacmd.readthedocs.io/en/latest/run_description_file/3.6_yaml_file.html#output-section
 .. _nemo YAML file output section: https://nemo-cmd.readthedocs.io/en/latest/run_description_file/3.6_yaml_file.html#output-section
 
-The simplest possible YAML file :kbd:`output` section is:
+The simplest possible YAML file ``output`` section is:
 
 .. code-block:: yaml
 
@@ -808,12 +808,12 @@ A more complicated example is:
 
 Note the use of:
 
-* A relative path for :kbd:`domaindefs`
-* Absolute paths containing the environment variable :envvar:`$HOME` for :kbd:`filedefs` and :kbd:`fielddefs`.
+* A relative path for ``domaindefs``
+* Absolute paths containing the environment variable :envvar:`$HOME` for ``filedefs`` and ``fielddefs``.
   Other environment variables like :envvar:`$USER`,
   :envvar:`$PROJECT`,
   and :envvar:`$SCRATCH` can also be used in XML file paths.
-* The more descriptive file name :file:`file_def_realistic.xml` for :kbd:`filedefs`
+* The more descriptive file name :file:`file_def_realistic.xml` for ``filedefs``
 
 
 .. _field_def.xmlFile:
@@ -837,16 +837,16 @@ please see chapter 3 of the `XIOS User Guide`_.
 
 :file:`NEMO-3.6-code/NEMOGCM/CONFIG/SHARED/field_def.xml` is the reference version of the file that is provided with the NEMO code.
 In many cases,
-you can use that reference file by putting its path as the value of the :kbd:`filedefs` element in the :kbd:`output` section of your run description YAML file
+you can use that reference file by putting its path as the value of the ``filedefs`` element in the ``output`` section of your run description YAML file
 (see :ref:`CommandProcessorsAndXML-Files`).
 Reasons why you might want to create your own customized version
 (see :ref:`CustomizingXML-Files`)
 of :file:`field_def.xml` include:
 
 * Adding new variable(s) to NEMO that you want to include in your output files
-* Adjusting/correcting the values of variable field attributes such as :kbd:`long_name`,
-  :kbd:`standard_name`,
-  :kbd:`unit`,
+* Adjusting/correcting the values of variable field attributes such as ``long_name``,
+  ``standard_name``,
+  ``unit``,
   etc.
   Those attributes provide variable-level metadata items in output files.
 
@@ -874,35 +874,35 @@ Here is an example fragment of a :file:`field_def.xml` file:
 
 :file:`field_def.xml` files contain 3 types of tags:
 
-* :kbd:`field_definition`
-* :kbd:`field_group`
-* :kbd:`field`
+* ``field_definition``
+* ``field_group``
+* ``field``
 
-:kbd:`field` tags must be contained within a :kbd:`field_group` tag,
-which must be contained within a :kbd:`field_definition` tag.
+``field`` tags must be contained within a ``field_group`` tag,
+which must be contained within a ``field_definition`` tag.
 
 Attributes included in a tag apply to all contained tags unless they are explicitly overridden in a contained tag.
-So the :kbd:`operation="average"` attribute in:
+So the ``operation="average"`` attribute in:
 
 .. code-block:: xml
 
    <field_definition level="1" prec="4" operation="average" enabled=".TRUE." default_value="1.e20">
 
-means that all field values will be averaged over the output time interval unless a different :kbd:`operation` is specified in the :kbd:`field` tag,
+means that all field values will be averaged over the output time interval unless a different ``operation`` is specified in the ``field`` tag,
 for example:
 
 .. code-block:: xml
 
       <field id="sstmax" long_name="max of sea surface temperature" field_ref="sst" operation="maximum"/>
 
-in which case the maximum value over the output time interval of the :kbd:`sst` field
-(specified by the :kbd:`field_ref` attribute)
+in which case the maximum value over the output time interval of the ``sst`` field
+(specified by the ``field_ref`` attribute)
 will be calculated by XIOS.
 
-The :kbd:`operation` attribute enables the burden of calculating various temporal quantities on field variables to be shifted from NEMO to XIOS.
+The ``operation`` attribute enables the burden of calculating various temporal quantities on field variables to be shifted from NEMO to XIOS.
 Please see section 3.2 of the `XIOS User Guide`_ for details.
 
-Another way of doing field operations in XIOS is to specify them in the :kbd:`field` tag,
+Another way of doing field operations in XIOS is to specify them in the ``field`` tag,
 for example:
 
 .. code-block:: xml
@@ -914,30 +914,30 @@ for example:
 Here again,
 the burden of declaration,
 memory allocation,
-and calculation of the :kbd:`sst2` variable is shifted from NEMO to XIOS.
+and calculation of the ``sst2`` variable is shifted from NEMO to XIOS.
 This form of field calculation can be useful for calculating fluxes.
 
-:kbd:`field_group` tags specify the default grid on which the contained :kbd:`field` tags are defined via the :kbd:`grid_ref` attribute.
+``field_group`` tags specify the default grid on which the contained ``field`` tags are defined via the ``grid_ref`` attribute.
 That attribute can,
 of course,
-be overridden in the contained :kbd:`field` tags.
+be overridden in the contained ``field`` tags.
 
-All :kbd:`field` tags should have the following attributes:
+All ``field`` tags should have the following attributes:
 
-* :kbd:`long_name`
-* :kbd:`standard_name`
-* :kbd:`unit`
+* ``long_name``
+* ``standard_name``
+* ``unit``
 
 Those attributes are passed through to the netCDF output files as field variable metadata.
 
-Values for the :kbd:`standard_name` attribute should be chosen from the `CF conventions standard names table`_.
+Values for the ``standard_name`` attribute should be chosen from the `CF conventions standard names table`_.
 Standard names are written in "snake case"
-(words separated by :kbd:`_` characters).
-That table also provides canonical units that should be used at the value of the :kbd:`unit` attribute.
+(words separated by ``_`` characters).
+That table also provides canonical units that should be used at the value of the ``unit`` attribute.
 
 .. _CF conventions standard names table: http://cfconventions.org/Data/cf-standard-names/29/build/cf-standard-name-table.html
 
-The value of the :kbd:`long_name` attribute can be more free-from and descriptive. It is typically used for plot axis labels,
+The value of the ``long_name`` attribute can be more free-from and descriptive. It is typically used for plot axis labels,
 table headings,
 etc.
 
@@ -965,7 +965,7 @@ please see chapter 5 of the `XIOS User Guide`_.
 
 :file:`NEMO-3.6-code/NEMOGCM/CONFIG/SHARED/domain_def.xml` is the reference version of the file that is provided with the NEMO code.
 In many cases,
-you can use that reference file by putting its path as the value of the :kbd:`domaindefs` element in the :kbd:`output` section of your run description YAML file
+you can use that reference file by putting its path as the value of the ``domaindefs`` element in the ``output`` section of your run description YAML file
 (see :ref:`CommandProcessorsAndXML-Files`).
 The main reason why you might want to create your own customized version
 (see :ref:`CustomizingXML-Files`)
@@ -999,14 +999,14 @@ Here is an example fragment of a :file:`domain_def.xml` file:
 
 :file:`domain_def.xml` files contain 4 types of tags:
 
-* :kbd:`domain_definition`
-* :kbd:`domain_group`
-* :kbd:`domain`
-* :kbd:`zoom_domain`
+* ``domain_definition``
+* ``domain_group``
+* ``domain``
+* ``zoom_domain``
 
-:kbd:`domain` tags must be contained within a :kbd:`domain_group` tag,
-which must be contained within a :kbd:`domain_definition` tag.
-:kbd:`zoom_domain` tags must be contained within a :kbd:`domain` tag.
+``domain`` tags must be contained within a ``domain_group`` tag,
+which must be contained within a ``domain_definition`` tag.
+``zoom_domain`` tags must be contained within a ``domain`` tag.
 
 A minimal, complete :file:`domain_def.xml` file would contain domain definitions for the full domain T, U, V, and W grids:
 
@@ -1030,12 +1030,12 @@ A minimal, complete :file:`domain_def.xml` file would contain domain definitions
       </domain_group>
     </domain_definition>
 
-Zoomed sub-domains are defined by adding a :kbd:`domain` tag that contains a :kbd:`zoom_domain` tag.
-The :kbd:`domain` tag for the sub-domain must be contained within the :kbd:`domain_groug` tag with the appropriate :kbd:`id` attribute,
-and the :kbd:`domain` tag must have a :kbd:`domain_ref` attribute whose value matches the :kbd:`domain_group` id value.
+Zoomed sub-domains are defined by adding a ``domain`` tag that contains a ``zoom_domain`` tag.
+The ``domain`` tag for the sub-domain must be contained within the ``domain_groug`` tag with the appropriate ``id`` attribute,
+and the ``domain`` tag must have a ``domain_ref`` attribute whose value matches the ``domain_group`` id value.
 So,
 since sea surface height is calculated on the T grid,
-we add a tide gauge station sub-domain to the :kbd:`grid_T` :kbd:`domain_group` tag:
+we add a tide gauge station sub-domain to the ``grid_T`` ``domain_group`` tag:
 
 .. code-block:: xml
 
@@ -1048,8 +1048,8 @@ we add a tide gauge station sub-domain to the :kbd:`grid_T` :kbd:`domain_group` 
       ...
     </domain_group>
 
-The :kbd:`zoom_domain` tab defines the lower left corner of the sub-domain with grid point numbers in its :kbd:`ibegin` and :kbd:`jbegin` attributes.
-The extent of the sub-domain is defined by counts of grid points in the :kbd:`ni` and :kbd:`nj` attributes.
+The ``zoom_domain`` tab defines the lower left corner of the sub-domain with grid point numbers in its ``ibegin`` and ``jbegin`` attributes.
+The extent of the sub-domain is defined by counts of grid points in the ``ni`` and ``nj`` attributes.
 
 In addition to :file:`NEMO-3.6-code/NEMOGCM/CONFIG/SHARED/domain_def.xml`,
 there are examples of :file:`domain_def.xml` files in the `SS-run-sets/v201702/`_ directory tree.

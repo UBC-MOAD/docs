@@ -54,13 +54,13 @@ among them:
 
 * The :command:`jupyter lab` is the newer "next generation" interface that puts everything in one browser tab with multiple panes that you can move around and re-size.
   In addition to notebooks,
-  :kbd:`lab` also provides a text editor,
+  ``lab`` also provides a text editor,
   code consoles that are synced with notebooks,
   and terminal panes that give access to your system shell,
   just like your terminal program does.
 
-Unless you have a strong reason to use the original :kbd:`notebook` interface,
-you should use the :kbd:`lab` interface because that is the part of Jupyter that is being most actively developed,
+Unless you have a strong reason to use the original ``notebook`` interface,
+you should use the ``lab`` interface because that is the part of Jupyter that is being most actively developed,
 and where new features are most likely to appear.
 
 Notebooks aren't the only way to use Python though!
@@ -114,7 +114,7 @@ follow the instructions in the terminal window that say something like::
     http://localhost:8889/?token=f8b14419fc17ff93240a914930566fad4c2f69f064d4fdb9
   or http://127.0.0.1:8889/?token=f8b14419fc17ff93240a914930566fad4c2f69f064d4fdb9
 
-For the older :kbd:`notebook` interface,
+For the older ``notebook`` interface,
 the instructions are much the same,
 but the command to start the server is :command:`jupyter notebook`.
 
@@ -137,8 +137,8 @@ However,
 it is often better to "take the compute to the data" rather than download large data files to your laptop,
 and rely on its CPU cores for calculations.
 Remote machines like the MOAD workstations,
-our development server :kbd:`salish`,
-and the compute nodes on the Compute Canada :kbd:`graham` cluster
+our development server ``salish``,
+and the compute nodes on the Compute Canada ``graham`` cluster
 have more and faster CPU cores than most laptops,
 and access to far larger storage.
 
@@ -150,35 +150,35 @@ and using :command:`ssh` to create a secure access "tunnel" between the server a
 Apart from access to more compute power and avoiding the need to move large files around,
 using :command:`jupyter lab` on a remote system has other advantages:
 
-* You can open terminal panes in the :kbd:`lab` interface to give you a terminal session on the remote machine for things like file system tasks: copying or moving files, managing permissions, etc.,
+* You can open terminal panes in the ``lab`` interface to give you a terminal session on the remote machine for things like file system tasks: copying or moving files, managing permissions, etc.,
   for :command:`git` version control tasks: pulls, commits, and pushes,
   or anything else you need to do in a command-line interface.
 
-* You can open editor panes in the :kbd:`lab` interface to work on files stored on the remote system.
+* You can open editor panes in the ``lab`` interface to work on files stored on the remote system.
   Doing that avoids the need to copy files back and forth between your laptop and the remote system,
   or deal with network lag when you try to use a full-screen editor in a remote desktop session.
-  You can use the :guilabel:`Settings > Text Editor Key Map` menu in :kbd:`lab` to set the editor keyboard mapping to your choice of :program:`vim`,
+  You can use the :guilabel:`Settings > Text Editor Key Map` menu in ``lab`` to set the editor keyboard mapping to your choice of :program:`vim`,
   :program:`emacs`,
   or :program:`Sublime Text`.
 
 
 .. _RunningJupyterRemotely-MOAD:
 
-Running Jupyter Remotely on :kbd:`salish` or a MOAD Workstation
----------------------------------------------------------------
+Running Jupyter Remotely on ``salish`` or a MOAD Workstation
+------------------------------------------------------------
 
 This section assumes that you have :ref:`Installed Miniforge <InstallingMiniforge>`
 in your :envvar:`$HOME` directory on a MOAD workstation,
-or that you are working in :program:`conda` environment that includes the :kbd:`jupyterlab` package on a MOAD workstation.
+or that you are working in :program:`conda` environment that includes the ``jupyterlab`` package on a MOAD workstation.
 
 .. note::
-    You don't need to :ref:`Install Miniforge <InstallingMiniforge>` or :kbd:`jupyterlab`
-    explicitly on :kbd:`salish` if you have already installed it on a MOAD workstation because :kbd:`salish` uses the same :envvar:`$HOME` file system as all of the MOAD workstations.
+    You don't need to :ref:`Install Miniforge <InstallingMiniforge>` or ``jupyterlab``
+    explicitly on ``salish`` if you have already installed it on a MOAD workstation because ``salish`` uses the same :envvar:`$HOME` file system as all of the MOAD workstations.
 
-It is also assumed that you have followed the instructions in the :ref:`SetUpSshConfiguration` section to set up host aliases for :kbd:`salish` and any other workstations you want to run the :command:`jupyter lab` server on.
+It is also assumed that you have followed the instructions in the :ref:`SetUpSshConfiguration` section to set up host aliases for ``salish`` and any other workstations you want to run the :command:`jupyter lab` server on.
 
-You can use the technique in this section to run the :command:`jupyter lab` server on any of the MOAD workstations by replacing :kbd:`salish` with the workstation name.
-:kbd:`salish` has the advantages of having lots of compute power
+You can use the technique in this section to run the :command:`jupyter lab` server on any of the MOAD workstations by replacing ``salish`` with the workstation name.
+``salish`` has the advantages of having lots of compute power
 (16 3.2 MHz cores running 2 threads each,
 and 256 Gb of memory)
 and of being close physically and in network terms to our large storage arrays :file:`/data/`,
@@ -190,15 +190,15 @@ That said,
 the MOAD workstations have ample compute power and are nearly as fast access to the storage arrays,
 so they are well up to the task of running the :command:`jupyter lab` for analysis work.
 
-To start the :command:`jupyter lab` server on :kbd:`salish`,
+To start the :command:`jupyter lab` server on ``salish``,
 open a terminal window on your laptop,
-and use :program:`ssh` to start a command-line session on :kbd:`salish`:
+and use :program:`ssh` to start a command-line session on ``salish``:
 
 .. code-block:: bash
 
     $ ssh salish
 
-Once you are connected to :kbd:`salish`,
+Once you are connected to ``salish``,
 navigate to the directory that you want to be at the top level of Jupyter's file navigation,
 and start the Jupyter server.
 For example,
@@ -210,9 +210,9 @@ the commands would be like:
     $ cd analysis-doug/
     $ jupyter lab --no-browser --ip $(hostname -f)
 
-The :kbd:`--no-browser` option in that command tells :program:`jupyter` to start the server part only,
+The ``--no-browser`` option in that command tells :program:`jupyter` to start the server part only,
 and not to start the client part in a browser.
-The :kbd:`--ip $(hostname -f)` causes the name of the machine you are running the server on to be used in the URLs that Jupyter sets up for the server.
+The ``--ip $(hostname -f)`` causes the name of the machine you are running the server on to be used in the URLs that Jupyter sets up for the server.
 
 You should see output in that terminal window that looks something like:
 
@@ -247,14 +247,14 @@ That is::
 
 in the example output above.
 
-The number after :kbd:`salish:` in the URL
-(:kbd:`8888` above)
+The number after ``salish:`` in the URL
+(``8888`` above)
 is the port number that the Jupyter server is running on.
-:kbd:`8888` is the default,
+``8888`` is the default,
 but if that port is busy,
 probably because somebody else is already running a Jupyter server on it,
 Jupyter will choose a different port number.
-You need to use the port number that *your* Jupyter server server is running on in the next step when we set up the :program:`ssh` tunnel between your laptop and :kbd:`salish` for the Jupyter client to use.
+You need to use the port number that *your* Jupyter server server is running on in the next step when we set up the :program:`ssh` tunnel between your laptop and ``salish`` for the Jupyter client to use.
 
 To set up the :program:`ssh` tunnel,
 open a new terminal window on your laptop,
@@ -266,14 +266,14 @@ and enter the command:
 
 This use of :program:`ssh` is called "port forwarding", or "ssh tunnelling".
 It creates an ssh encrypted connection between a port on your laptop
-(port :kbd:`4343` in this case)
+(port ``4343`` in this case)
 and a port on the remote host
-(port :kbd:`8888` on :kbd:`salish` in this case).
-The :kbd:`-N` option tells :program:`ssh` not to execute a command on the remote system because all we want to do is set up the port forwarding.
-The :kbd:`-L` option tells :program:`ssh` that the next blob of text is the details of the port forwarding to set up.
+(port ``8888`` on ``salish`` in this case).
+The ``-N`` option tells :program:`ssh` not to execute a command on the remote system because all we want to do is set up the port forwarding.
+The ``-L`` option tells :program:`ssh` that the next blob of text is the details of the port forwarding to set up.
 
-You can use any number :kbd:`≥1024` you want instead of :kbd:`4343` as the local port number on your laptop.
-The number after :kbd:`:salish:` has to be the same as the port number in the URLs that the Jupyter server printed out.
+You can use any number ``≥1024`` you want instead of ``4343`` as the local port number on your laptop.
+The number after ``:salish:`` has to be the same as the port number in the URLs that the Jupyter server printed out.
 
 .. note::
     Keep this terminal window open too.
@@ -281,13 +281,13 @@ The number after :kbd:`:salish:` has to be the same as the port number in the UR
     you will collapse the :program:`ssh` port forwarding tunnel and your Jupyter server and client will stop being able to talk to each other.
 
 .. note::
-    Remember that if you are running the server part of Jupyter on a MOAD workstation like :kbd:`char` rather than on :kbd:`salish`,
+    Remember that if you are running the server part of Jupyter on a MOAD workstation like ``char`` rather than on ``salish``,
     you need to use the workstation name in 2 places in the :command:`ssh -N -L ...` command.
 
 Finally,
-open a new tab in the browser on your laptop and go to :kbd:`http://localhost:4343/` to bring up the Jupyter client.
+open a new tab in the browser on your laptop and go to ``http://localhost:4343/`` to bring up the Jupyter client.
 Use whatever port number you chose,
-if you chose to use something other than :kbd:`4343` in the :command:`ssh -N -L ...` command.
+if you chose to use something other than ``4343`` in the :command:`ssh -N -L ...` command.
 You may land on a Jupyter page that asks you to enter a :guilabel:`Password or token` to log in.
 If so,
 copy the the long string of digits and letters from the URL in the Jupyter server terminal windows.
@@ -296,10 +296,10 @@ the in the URL::
 
   http://sailsh:8888/?token=bbd686ffaa5398aacaee25c9fa44b5f9424889a81ad7d9f1
 
-the token is :kbd:`bbd686ffaa5398aacaee25c9fa44b5f9424889a81ad7d9f1`.
+the token is ``bbd686ffaa5398aacaee25c9fa44b5f9424889a81ad7d9f1``.
 
 When you run Jupyter in this way,
-remember that all of the notebooks and files you are working with are on the remote computer (:kbd:`salish`) file system,
+remember that all of the notebooks and files you are working with are on the remote computer (``salish``) file system,
 not on your laptop.
 So,
 when you commit your changes with :program:`git`,
@@ -319,14 +319,14 @@ When you are finished using Jupyter:
 
 .. _RunningJupyterRemotely-ComputeCanada:
 
-Running Jupyter Remotely on :kbd:`graham`
+Running Jupyter Remotely on ``graham``
 -----------------------------------------
 
-This section assumes that you have followed the instructions in the :ref:`SetUpSshConfiguration` section to set up host aliases for :kbd:`graham` and any other Compute Canada clusters you want to run the :command:`jupyter lab` server on.
+This section assumes that you have followed the instructions in the :ref:`SetUpSshConfiguration` section to set up host aliases for ``graham`` and any other Compute Canada clusters you want to run the :command:`jupyter lab` server on.
 
-You can use the technique in this section to run the :command:`jupyter lab` server on any of the Compute Canada clusters by replacing :kbd:`graham` with the cluster name.
+You can use the technique in this section to run the :command:`jupyter lab` server on any of the Compute Canada clusters by replacing ``graham`` with the cluster name.
 
-The recommended way to run a :command:`jupyter lab` server on :kbd:`graham` is in an interactive session on a compute node.
+The recommended way to run a :command:`jupyter lab` server on ``graham`` is in an interactive session on a compute node.
 Things to note about working in that context:
 
 **Pros:**
@@ -343,7 +343,7 @@ Things to note about working in that context:
 Create a Python Virtual Environment
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The first step is to create a Python virtual environment with :kbd:`jupyterlab`
+The first step is to create a Python virtual environment with ``jupyterlab``
 (and probably other Python packages)
 installed in it.
 
@@ -361,21 +361,21 @@ this section describes how to use a Python venv to install and run :command:`jup
 
 Use the Compute Canada module system to load Python,
 preferably the most recent available version.
-On :kbd:`graham` in Nov-2020 that is Python 3.8.2:
+On ``graham`` in Nov-2020 that is Python 3.8.2:
 
 .. code-block:: bash
 
     $ module load python/3.8.2
 
-Create a Python virtualenv in which to install :kbd:`jupyterlab` and other packages:
+Create a Python virtualenv in which to install ``jupyterlab`` and other packages:
 
 .. code-block:: bash
 
     $ python3 -m virtualenv --no-download ~/venvs/jupyter
 
-The :kbd:`--no-download` forces the :kbd:`pip`,
-:kbd:`setuptools`,
-and :kbd:`wheel` packages to be installed from the package collections
+The ``--no-download`` forces the ``pip``,
+``setuptools``,
+and ``wheel`` packages to be installed from the package collections
 (also known as "wheelhouses")
 maintained by Compute Canada.
 This virtual environment will be created in the :file:`$HOME/venvs/jupyter/`.
@@ -388,7 +388,7 @@ Activate the venv with:
     $ source ~/venvs/jupyter/bin/activate
 
 The name of the venv will be prepended in parentheses to your command prompt:
-:kbd:`(jupyter)`,
+``(jupyter)``,
 in this case.
 
 Update the version of :program:`pip` installed in the venv.
@@ -402,13 +402,13 @@ so we do it:
 
 .. _Compute Canada venv docs: https://docs.alliancecan.ca/wiki/Python#Creating_and_using_a_virtual_environment
 
-Install the :kbd:`jupyterlab` package and other packages that we routinely use for analysis into the venv:
+Install the ``jupyterlab`` package and other packages that we routinely use for analysis into the venv:
 
 .. code-block:: bash
 
     (jupyter)$ python3 -m pip install jupyterlab xarray h5netcdf bottleneck matplotlib cmocean
 
-This will cause the list of packages :kbd:`jupyterlab xarray h5netcdf bottleneck matplotlib cmocean`
+This will cause the list of packages ``jupyterlab xarray h5netcdf bottleneck matplotlib cmocean``
 to be installed from the package collections maintained by Compute Canada,
 or from the `Python Package Index (PyPI)`_.
 Ideally all of the packages will be installed from the Compute Canada package collections,
@@ -420,18 +420,18 @@ they are installed from PyPI.
 .. _Python Package Index (PyPI): https://pypi.org/
 
 .. important::
-    In late Sep-2021 we discovered that the :kbd:`netCDF4` package maintained by Compute Canada had become incompatible with :kbd:`xarray`
+    In late Sep-2021 we discovered that the ``netCDF4`` package maintained by Compute Canada had become incompatible with ``xarray``
     (then at version 0.19.0).
     The work-around is to change to use the `h5netcdf package`_ to access netCDF files.
-    The :command:`python3 -m pip install ...` command above will install :kbd:`h5netcdf`.
+    The :command:`python3 -m pip install ...` command above will install ``h5netcdf``.
     To use it,
-    add a :kbd:`engine="h5netcdf"` argument to your :kbd:`xarray.open_dataset()`,
-    :kbd:`xarray.Dataset.to_netcdf()`,
+    add a ``engine="h5netcdf"`` argument to your ``xarray.open_dataset()``,
+    ``xarray.Dataset.to_netcdf()``,
     etc. calls.
 
-    If you want to use :kbd:`h5netcdf` at a lower level than :kbd:`xarray`
-    (as you may have used :kbd:`netCDF4` elsewhere),
-    please see its legacy API that is designed for compatibility with :kbd:`netCDF4`.
+    If you want to use ``h5netcdf`` at a lower level than ``xarray``
+    (as you may have used ``netCDF4`` elsewhere),
+    please see its legacy API that is designed for compatibility with ``netCDF4``.
 
     .. _h5netcdf package: https://github.com/h5netcdf/h5netcdf
 
@@ -447,21 +447,21 @@ they are installed from PyPI.
 
 .. _JupyterComputeCanadaInteractiveCompute:
 
-Running :kbd:`jupyter lab` in an Interactive Compute Session
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Running :command:`jupyter lab` in an Interactive Compute Session
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-In an :program:`ssh` session on :kbd:`graham`,
+In an :program:`ssh` session on ``graham``,
 start an interactive session on a compute node with:
 
 .. code-block:: bash
 
     $ salloc --time=1:00:00 --ntasks=1 --cpus-per-task=2 --mem-per-cpu=1024M --account=rrg-allen
 
-The :kbd:`--time=1:00:00` option requests the compute node resources for 1 hour.
-:kbd:`--ntasks=1 --cpus-per-task=2 --mem-per-cpu=1024M` requests 2 cores with 1024 Mb of RAM each for the session and associates them with 1 scheduluer task.
+The ``--time=1:00:00`` option requests the compute node resources for 1 hour.
+``--ntasks=1 --cpus-per-task=2 --mem-per-cpu=1024M`` requests 2 cores with 1024 Mb of RAM each for the session and associates them with 1 scheduler task.
 Those are good choices for typical interactive work on NEMO results files.
-The :kbd:`--account=rrg-allen` uses the MOAD allocation on :kbd:`graham` to request the resources with better than default priority.
-On other clusters use :kbd:`--account=def-allen`.
+The ``--account=rrg-allen`` uses the MOAD allocation on ``graham`` to request the resources with better than default priority.
+On other clusters use ``--account=def-allen``.
 
 You should see output something like:
 
@@ -479,10 +479,10 @@ There may be a wait while the resources are allocated to you,
 depending on how busy the cluster is,
 how long a session you have requested,
 how many cores you have requested,
-and how much memory you have reqested.
+and how much memory you have requested.
 Eventually,
 your command-line prompt should re-appear showing that you are now connected to one of the compute nodes,
-:kbd:`gra705` in this case:
+``gra705`` in this case:
 
 .. code-block:: bash
 
@@ -490,7 +490,7 @@ your command-line prompt should re-appear showing that you are now connected to 
 
 
 Load a Compute Canada Python language module,
-and activate the Python virtual environment in which :kbd:`jupyterlab` and the other packages that you need are installed.
+and activate the Python virtual environment in which ``jupyterlab`` and the other packages that you need are installed.
 In this example we load Python 3.8.2 and activate our environment from the :file:`~/venvs/jupyter/` directory:
 
 .. code-block:: bash
@@ -509,9 +509,9 @@ the commands would be like:
     (jupyter) [dlatorne@gra581 ~]$ cd $PROJECT/MEOPAR/analysis-doug/
     (jupyter) [dlatorne@gra581 ~]$ jupyter lab --no-browser --ip $(hostname -f)
 
-The :kbd:`--no-browser` option in that command tells :program:`jupyter` to start the server part only,
+The ``--no-browser`` option in that command tells :program:`jupyter` to start the server part only,
 and not to start the client part in a browser.
-The :kbd:`--ip $(hostname -f)` causes the name of the node you are running the server on to be used in the URLs that Jupyter sets up for the server.
+The ``--ip $(hostname -f)`` causes the name of the node you are running the server on to be used in the URLs that Jupyter sets up for the server.
 
 You should see output in that terminal window that looks something like:
 
@@ -547,16 +547,16 @@ That is::
 
 in the example output above.
 
-The :kbd:`gra705.graham.sharcnet` part is the name of the compute node on which your Jupyter server is running.
+The ``gra705.graham.sharcnet`` part is the name of the compute node on which your Jupyter server is running.
 It will change from session to session.
-The number after :kbd:`gra705.graham.sharcnet:` in the URL
-(:kbd:`8888` above)
+The number after ``gra705.graham.sharcnet:`` in the URL
+(``8888`` above)
 is the port number that the Jupyter server is running on.
-:kbd:`8888` is the default,
+``8888`` is the default,
 but if that port is busy,
 probably because somebody else is already running a Jupyter server on it,
 Jupyter will choose a different port number.
-You need to use the port number that *your* Jupyter server server is running on in the next step when we set up the :program:`ssh` tunnel between your laptop and :kbd:`graham` for the Jupyter client to use.
+You need to use the port number that *your* Jupyter server server is running on in the next step when we set up the :program:`ssh` tunnel between your laptop and ``graham`` for the Jupyter client to use.
 
 To set up the :program:`ssh` tunnel,
 open a new terminal window on your laptop,
@@ -568,14 +568,14 @@ and enter the command:
 
 This use of :program:`ssh` is called "port forwarding", or "ssh tunnelling".
 It creates an ssh encrypted connection between a port on your laptop
-(port :kbd:`4343` in this case)
+(port ``4343`` in this case)
 and a port on the remote host
-(port :kbd:`8888` on the :kbd:`gra705.graham.sharcnet` node in this case).
-The :kbd:`-N` option tells :program:`ssh` not to execute a command on the remote system because all we want to do is set up the port forwarding.
-The :kbd:`-L` option tells :program:`ssh` that the next blob of text is the details of the port forwarding to set up.
+(port ``8888`` on the ``gra705.graham.sharcnet`` node in this case).
+The ``-N`` option tells :program:`ssh` not to execute a command on the remote system because all we want to do is set up the port forwarding.
+The ``-L`` option tells :program:`ssh` that the next blob of text is the details of the port forwarding to set up.
 
-You can use any number :kbd:`≥1024` you want instead of :kbd:`4343` as the local port number on your laptop.
-The number after :kbd:`:gra705.graham.sharcnet:` has to be the same as the port number in the URLs that the Jupyter server printed out.
+You can use any number ``≥1024`` you want instead of ``4343`` as the local port number on your laptop.
+The number after ``:gra705.graham.sharcnet:`` has to be the same as the port number in the URLs that the Jupyter server printed out.
 
 .. note::
     Keep this terminal window open too.
@@ -583,9 +583,9 @@ The number after :kbd:`:gra705.graham.sharcnet:` has to be the same as the port 
     you will collapse the :program:`ssh` port forwarding tunnel and your Jupyter server and client will stop being able to talk to each other.
 
 Finally,
-open a new tab in the browser on your laptop and go to :kbd:`http://localhost:4343/` to bring up the Jupyter client.
+open a new tab in the browser on your laptop and go to ``http://localhost:4343/`` to bring up the Jupyter client.
 Use whatever port number you chose,
-if you chose to use something other than :kbd:`4343` in the :command:`ssh -N -L ...` command.
+if you chose to use something other than ``4343`` in the :command:`ssh -N -L ...` command.
 You may land on a Jupyter page that asks you to enter a :guilabel:`Password or token` to log in.
 If so,
 copy the the long string of digits and letters from the URL in the Jupyter server terminal windows.
@@ -594,10 +594,10 @@ the in the URL::
 
   http://gra705.graham.sharcnet:8888/?token=327caed3d832eefaad25a57cbf01de9f42685ced4306e036
 
-the token is :kbd:`327caed3d832eefaad25a57cbf01de9f42685ced4306e036`.
+the token is ``327caed3d832eefaad25a57cbf01de9f42685ced4306e036``.
 
 When you run Jupyter in this way,
-remember that all of the notebooks and files you are working with are on the remote computer (:kbd:`graham`) file system,
+remember that all of the notebooks and files you are working with are on the remote computer (``graham``) file system,
 not on your laptop.
 So,
 when you commit your changes with :program:`git`,
