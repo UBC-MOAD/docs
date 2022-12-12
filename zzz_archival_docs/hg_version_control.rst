@@ -54,7 +54,7 @@ you should:
 
 .. _Bitbucket.org: https://bitbucket.org/
 .. _SalishSea-MEOPAR: https://bitbucket.org/salishsea/
-.. _Bitbucket ssh Set-up: https://support.atlassian.com/bitbucket-cloud/docs/set-up-an-ssh-key/
+.. _Bitbucket ssh Set-up: https://support.atlassian.com/bitbucket-cloud/docs/configure-ssh-and-two-step-verification/
 
 
 Installing Mercurial
