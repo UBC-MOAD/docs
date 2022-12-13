@@ -16,7 +16,7 @@ jobs:
         # Need to specify Python version here because we use test env which gets its
         # Python version via matrix
         python-version: [ '3.11' ]
-    uses: UBC-MOAD/gha-workflows/.github/workflows/sphinx-linkcheck.yaml@e552c50877cac21f05d1f7a231da46470a10142c
+    uses: UBC-MOAD/gha-workflows/.github/workflows/sphinx-linkcheck.yaml@1f02f1ac88ea0121a89c79c4800c7fcedd0439c7
     with:
       python-version: ${{ matrix.python-version }}
       conda-env-file: environment.yaml
