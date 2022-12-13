@@ -19,5 +19,5 @@ jobs:
     uses: UBC-MOAD/gha-workflows/.github/workflows/sphinx-linkcheck.yaml@73cd061e7d3c3cabc39cda291cb7bc9b95b7ab35
     with:
       python-version: ${{ matrix.python-version }}
-      conda-env-file: envs/environment.yaml
+      conda-env-file: environment.yaml
       conda-env-name: moad-docs
