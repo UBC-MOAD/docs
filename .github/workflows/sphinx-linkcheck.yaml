@@ -2,7 +2,7 @@ name: sphinx-linkcheck
 
 on:
   push:
-    branches: ['*']
+    branches: [ '*' ]
   schedule:
     - cron: 43 4 5 * *  # 04:43 UTC on the 5th day of each month
 
@@ -15,9 +15,10 @@ jobs:
       matrix:
         # Need to specify Python version here because we use test env which gets its
         # Python version via matrix
-        python-version: ['3.11']
-    uses: UBC-MOAD/gha-workflows/.github/workflows/sphinx-linkcheck.yaml@73cd061e7d3c3cabc39cda291cb7bc9b95b7ab35
+        python-version: [ '3.11' ]
+    uses: UBC-MOAD/gha-workflows/.github/workflows/sphinx-linkcheck.yaml@e552c50877cac21f05d1f7a231da46470a10142c
     with:
       python-version: ${{ matrix.python-version }}
       conda-env-file: environment.yaml
       conda-env-name: moad-docs
+      docs-dir: .
