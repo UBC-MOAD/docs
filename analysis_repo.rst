@@ -312,6 +312,51 @@ Use the :command:`conda activate` command to activate your analysis environment 
 run :ref:`MOAD-Jupyter`.
 
 
+Install `SalishSeaTools`_ in Your Analysis Environment
+------------------------------------------------------
+
+.. _SalishSeaTools: https://github.com/SalishSeaCast/tools
+
+The `SalishSeaTools`_ package is a collection of Python modules for working with the SalishSeaCast
+NEMO model results, and associated data.
+The functions in it have been written by various members of the MOAD group to do common tasks.
+Please see `this notebook about visualization`_ for one of many examples of in our docs and repositories of uses of modules and functions from the `SalishSeaTools`_ package.
+The `documentation for the package`_ contains documentation for most of its functions that is automatically generated from the function docstrings in the code.
+
+.. _this notebook about visualization: https://salishsea-meopar-tools.readthedocs.io/en/latest/visualisation/visualization_workflows_xarray.html
+
+.. _documentation for the package: https://salishsea-meopar-tools.readthedocs.io/en/latest/SalishSeaTools/index.html
+
+#. Clone the `SalishSeaTools`_ repository beside your analysis repository.
+   On a Waterhole workstation do:
+
+   .. code-block:: bash
+
+       $ cd /ocean/$USER/MOAD/
+       $ git clone git@github.com:SalishSeaCast/tools.git
+
+   Or,
+   for laptop setup do:
+
+   .. code-block:: bash
+
+       $ cd $HOME/MOAD/
+       $ git clone git@github.com:SalishSeaCast/tools.git
+
+#. Activate your analysis environment
+   (if you haven't already done so)
+   and install the `SalishSeaTools`_ package in it:
+
+   .. code-block:: bash
+
+       $ conda activate analysis-casey
+       (analysis-casey)$ python3 -m pip install --editable tools/SalishSeaTools
+
+The ``--editable`` option in the :command:`pip install` command installs the packages
+in a way that it can be updated when new features are pushed to GitHub by simply doing a
+:command:`git pull` in the :file:`tools/` directory.
+
+
 Use Your Analysis Repository on Other Machines
 ----------------------------------------------
 
