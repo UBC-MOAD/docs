@@ -89,17 +89,18 @@ Clone Your Analysis Repository
     and to :ref:`CopyYourPublicSshKeyToGitHub`.
 
 #. Create a top level directory for MOAD work.
-   On your laptop do:
-
-   .. code-block:: bash
-
-       $ mkdir -p $HOME/MOAD
-
    On a Waterhole workstation do:
 
    .. code-block:: bash
 
        $ mkdir -p /ocean/$USER/MOAD
+
+   Or,
+   if you want to set things up on your laptop do:
+
+   .. code-block:: bash
+
+       $ mkdir -p $HOME/MOAD
 
    The ``-p`` option tell :command:`mkdir` to not show an error message
    if the directory already exists,
@@ -119,18 +120,19 @@ Clone Your Analysis Repository
      git@github.com:SalishSeaCast/analysis-casey.git
 
 #. Use that repository URI string to clone your analysis repository from GitHub.
-   On your laptop do:
-
-   .. code-block:: bash
-
-       $ cd $HOME/MOAD
-       $ git clone git@github.com:SalishSeaCast/analysis-casey.git
-
    On a Waterhole workstation do:
 
    .. code-block:: bash
 
        $ cd /ocean/$USER/MOAD
+       $ git clone git@github.com:SalishSeaCast/analysis-casey.git
+
+   Or,
+   for laptop setup do:
+
+   .. code-block:: bash
+
+       $ cd $HOME/MOAD
        $ git clone git@github.com:SalishSeaCast/analysis-casey.git
 
 
@@ -181,12 +183,22 @@ Populate Your Analysis Repository
 
 #. Activate the ``cookiecutter`` environment,
    go to your :file:`MOAD/` directory,
-   and populate your empty analysis repository clone with the commands:
+   and populate your empty analysis repository clone with the following commands.
+   On a Waterhole workstation do:
 
    .. code-block:: bash
 
        $ conda activate cookiecutter
-       (cookiecutter)$ cd $HOME/MOAD/
+       (cookiecutter)$ cd /ocean/$USER/MOAD
+       (cookiecutter)$ cookiecutter -f gh:UBC-MOAD/cookiecutter-analysis-repo
+
+   Or,
+   for laptop setup do:
+
+   .. code-block:: bash
+
+       $ conda activate cookiecutter
+       (cookiecutter)$ cd $HOME/MOAD
        (cookiecutter)$ cookiecutter -f gh:UBC-MOAD/cookiecutter-analysis-repo
 
    .. note::
@@ -213,7 +225,8 @@ Populate Your Analysis Repository
       Choose from 1, 2, 3 [1]:
 
    Type your name in at the ``researcher_name`` prompt,
-   and accept the default for ``github_org`` should match what you did earlier.
+   and accept the default ``1`` for ``github_org`` so that :command:`cookiecutter` set things up
+   to use your repository in the the `SalishSeaCast`_ GitHub organization.
 
 #. Deactivate your ``cookiecutter`` environment with:
 
@@ -223,7 +236,18 @@ Populate Your Analysis Repository
 
 #. Go into your new analysis repository,
    add and commit the files that :command:`cookiecutter` created for you,
-   and push them to GitHub:
+   and push them to GitHub.
+   On a Waterhole workstation do:
+
+   .. code-block:: bash
+
+       $ cd /ocean/$USER/MOAD/analysis-casey
+       $ git add .gitignore LICENSE README.rst notebooks/
+       $ git commit -m "Initialize repo from MOAD cookiecutter"
+       $ git push
+
+   Or,
+   for laptop setup do:
 
    .. code-block:: bash
 
@@ -248,7 +272,16 @@ the version of Python to install in it,
 and the names of the Python packages to install in the environment.
 
 #. Go into the :file:`notebooks/` directory of your analysis repository,
-   and use :command:`conda` to create the environment:
+   and use :command:`conda` to create the environment.
+   On a Waterhole workstation do:
+
+   .. code-block:: bash
+
+       $ cd /ocean/$USER/MOAD/analysis-casey/notebooks/
+       $ conda env create -f environment.yaml
+
+   Or,
+   for laptop setup do:
 
    .. code-block:: bash
 
