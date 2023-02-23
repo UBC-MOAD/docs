@@ -16,9 +16,7 @@ Ariane
 
 .. _Ariane: http://stockage.univ-brest.fr/~grima/Ariane/whatsariane.html
 
-Ariane can be run in two modes: quantitative and qualitative. In quantitative mode, you release particles and end up with a distribution function for each grid cell quantifying where your particles end up and the mass transfer, while in qualitative mode you specify each of the particles that you release and trace their exact track. For the rest of the documentation below, we are running in qualitative mode. Documentation on how to run `quantitative mode`_ is provided in the Salish Sea MEOPAR Read the Docs. 
-
-.. _quantitative mode: https://salishsea-meopar-docs.readthedocs.io/en/latest/particles/quantitative.html
+Ariane can be run in two modes: quantitative and qualitative. In quantitative mode, you release particles and end up with a distribution function for each grid cell quantifying where your particles end up and the mass transfer, while in qualitative mode you specify each of the particles that you release and trace their exact track.
 
 References
 
