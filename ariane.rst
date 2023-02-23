@@ -626,7 +626,7 @@ For the frequency sensitivity studies, we used model outputs with 30 minute, 1 h
 .. _here: https://nbviewer.org/github/SalishSeaCast/analysis/blob/master/Idalia/Ariane_TimeRes.ipynb
 
 On the Surface
-===================
+--------------
 
 At the Fraser River, we found that the particle trajectory generated using data at a 4 hour frequency does not capture subtleties in particle motion as do the trajectories derived from data at 30 minute and 1 hour frequencies.
 The trajectory that used 1 hour frequency data very closely resembles the trajectory that used 30 minute data.
@@ -634,7 +634,7 @@ The trajectory that used 1 hour frequency data very closely resembles the trajec
 :command:`Conclusion: We can use 1 hour or 30 minute NEMO output data when particle trajectories start at the Fraser River.`
 
 At Depth
-===================
+--------
 :command:`Conclusion: In regions of moderate mixing, 30 minute data would be preferable; we can use 1 hour data with some caution. In regions of heavy mixing, we should exercise caution in analyzing trajectories and depths since results vary greatly depending on frequencies.`
 
 
