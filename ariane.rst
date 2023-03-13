@@ -97,6 +97,7 @@ These files contain the trajectory information.
 
 Qualitative Mode
 ================
+This mode can be used to get the exact path of a set number of particles.
 
 :file:`intitial_positions.txt`
 ------------------------------
@@ -122,7 +123,7 @@ Here is an example :file:`initial_positions.txt` file:
 :file:`namelist`
 ----------------
 
-The :file:`namelist` file specifies a variety of the run settings. The general Ariane parameters can be specified within ``Ariane``; the main ones that you are likely to change are:
+The :file:`namelist` file specifies a variety of the run settings. The general Ariane parameters can be specified within ``ARIANE``; the main ones that you are likely to change are:
 
 +----------------------------------------+-------------------------------------------------------+
 |    Parameter                           |              Description                              |
@@ -176,7 +177,7 @@ The parameters for reading in the U, V, and W velocity files are indicated in ``
 | ``indn_zo``                            | Last number of file to read                    |
 +----------------------------------------+------------------------------------------------+
 | ``maxsize_zo``                         | Maximum number of integers in file name number |
-+-----------------------------------------------------------------------------------------+
++----------------------------------------+------------------------------------------------+
 
 Note that even in backwards mode, the first and last number of the files to read are in the forwards direction, i.e. from 1 to your last file number. Of course this is not a comprehensive list of all the parameters you can set in the :file:`namelist`. More information can be found in the references listed at the start.
 
@@ -204,7 +205,7 @@ This mode can be used to make estimates of transport through cross-sections by r
 The namelist for quantitative mode is very similar to qualitative mode, note the frequency of calculation is now set in the ``QUANTITATIVE`` section.
 Here is an example of a quantitative namelist.
 
-.. code-block:: fortran
+.. code-block:: text
    &ARIANE
        key_alltracers =.FALSE.,
        key_sequential =.FALSE.,
@@ -316,7 +317,7 @@ Pay special attention to the following options:
 
 ``ARIANE``:
 
-* :kbd:`nmax`: The maximum number of particles. This parameter is typically much higher in quantitative mode. Tip: set it really high, the actual amount of particles seeded will be based on what you set for :kbd:`.max_transport.` and its no fun to have your run crash because the :kbd:`.nmax.` has been met. 
+* :kbd:`nmax`: The maximum number of particles. This parameter is typically much higher in quantitative mode. Tip: set it really high, the actual amount of particles seeded will be based on what you set for :kbd:`max_transport` and its no fun to have your run crash because the :kbd:`nmax` has been met. 
 
 ``QUANTITATIVE``:
 
@@ -324,9 +325,22 @@ Pay special attention to the following options:
 * :kbd:`key_reducmem`: Setting to :kbd:`.TRUE.` reduces memory by only reading model data over selected region.
 * :kbd:`key_unitm3`: Setting to :kbd:`.TRUE.` prints transport calculation in m^3/s instead of Sverdrups.
 * :kbd:`max_transport`: Maximum transport (in m^3/s) that should not be exceeded by the transport associated with each initial particle. A lower values means more initial particles and higher accuracy. Example values are 1e9 for one particle in one model cell and 1e4 for typical experiments.
-* :kbd:`lmin`: First time step to generate particles.
-* :kbd:`lmax`: Last time step to generate particles (will keep running until lmt is reached just with no new particles seeded).
+* :kbd:`lmin`: First time step to generate particles, usually=1.
+* :kbd:`lmax`: Last time step to generate particles (will keep running until :kbd:`lmt` is reached just with no new particles seeded), less than or equal to :kbd:`lmt`.
 
+Running Backwards
+^^^^^^^^^^^^^^^^^
+If you're hoping to do source water analysis the ability to run backwards in Ariane is a great tool! You'll have to make a few small edits to your namelist to do so:
+
+``ARIANE``:
+
+* :kbd:`forback`: set to :kbd:`backward` now.
+
+
+``QUANTITATIVE``:
+The run now starts at time = :kbd:`lmt`, so :kbd:`lmin` and :kbd:`lmax` need to be adjsuted accordingly.
+* :kbd:`lmin`: Last time step to generate particles (will keep running until timestep 1 is reached just with no new particles seeded), greater than or equal to 1.
+* :kbd:`lmax`: First time step to generate particles, usually=:kbd:`lmt`.
 
 Defining Sections
 -----------------
@@ -421,7 +435,7 @@ Time Considerations
 
 Particles initialized later in the simulation do not have as much time to cross one of the sections so it could be beneficial to impose a maximum age of each particle. This can be achieved by modifying :file:`mod_criter1.f90` in :kbd:`src/ariane` as follows:
 
-.. code-block:: fortran
+.. code-block:: text
     !----------------------------------------!
     !- ADD AT THE END OF EACH LINE "!!ctr1" -!
     !----------------------------------------!
@@ -442,7 +456,7 @@ Defining and tracking water masses
 You can also impose a density and/or salinity and/or temperature criteria on the initial particles in order to track different water masses. You can achieve this by editing :file:`mod_criter0.f90`.
 
 
-.. code-block:: fortran
+.. code-block:: text
     !criter0=.TRUE.        !!ctr0
     !
     !------------!
@@ -471,7 +485,7 @@ The following items must be changed or added to the namelist file:
 Temperature
 ^^^^^^^^^^^
 
- .. code-block:: fortran
+ .. code-block:: text
     &TEMPERAT
 	    c_dir_te ='/ocean/nsoontie/MEOPAR/SalishSea/results/storm-surges/final/dec2006/all_forcing/30min/',
 	    c_prefix_te ='SalishSea_30m_20061214_20061215_grid_T.nc',
@@ -487,7 +501,7 @@ Temperature
 Salinity
 ^^^^^^^^
 
-.. code-block:: fortran
+.. code-block:: text
     &SALINITY
 	    c_dir_sa ='/ocean/nsoontie/MEOPAR/SalishSea/results/storm-surges/final/dec2006/all_forcing/30min/',
 	    c_prefix_sa ='SalishSea_30m_20061214_20061215_grid_T.nc',
@@ -518,9 +532,11 @@ In quantitative results (:file:`aariane_positions_quantitative.nc`) the variable
 * final_temp
 * final dens
 
-A sample of Ariane qualitative tracer results can be found `here`_.
+A sample of Ariane qualitative tracer results:
 
-.. _here: https://nbviewer.org/github/SalishSeaCast/analysis/blob/master/Idalia/Ariane_Tracers.ipynb
+* `Ariane_Tracers.ipynb`_
+
+.. _Ariane_Tracers.ipynb: https://nbviewer.org/github/SalishSeaCast/analysis/blob/master/Idalia/Ariane_Tracers.ipynb
 
 
 Multi-day runs
@@ -569,7 +585,7 @@ Now that we have formatted the filenames as *prefix_number_suffix*, :kbd:`c_pref
 
 For example, the **ZONALCRT** section would look like the following for input files **SalishSea_01_grid_U.nc** and **SalishSea_02_grid_U.nc** :
 
- .. code-block:: fortran
+ .. code-block:: text
         &ZONALCRT
         	c_dir_zo ='/ocean/imachuca/MEOPAR/Ariane/results/drifter_compare/sequential/',
         	c_prefix_zo ='SalishSea_',
@@ -598,7 +614,7 @@ Add a **SEQUENTIAL** section in namelist. This section has one parameter, :kbd:`
 Sequential
 ^^^^^^^^^^
 
- .. code-block:: fortran
+ .. code-block:: text
 	&SEQUENTIAL
 	maxcycles =1,
 	/
@@ -619,9 +635,7 @@ Frequency Sensitivity Sample
 
 The model produces datasets containing information about the velocity field for a region. Ariane uses this information to produce particle trajectories. We wanted to know at what frequency would the model output need to be to produce the most reliable particle trajectories.
 
-For the frequency sensitivity studies, we used model outputs with 30 minute, 1 hour, and 4 hour frequencies. This data was used in Ariane's qualitative mode to generate particle trajectories with points at 30 minute intervals. We did this for particles starting their trajectories at the Fraser River and at various points along the thalweg. The results are summarized below, the sansitivity analysis that led to these results can be found `here`_.
-
-.. _here: https://nbviewer.org/github/SalishSeaCast/analysis/blob/master/Idalia/Ariane_TimeRes.ipynb
+For the frequency sensitivity studies, we used model outputs with 30 minute, 1 hour, and 4 hour frequencies. This data was used in Ariane's qualitative mode to generate particle trajectories with points at 30 minute intervals. We did this for particles starting their trajectories at the Fraser River and at various points along the thalweg. The results are summarized below.
 
 On the Surface
 --------------
@@ -635,4 +649,6 @@ At Depth
 --------
 :command:`Conclusion: In regions of moderate mixing, 30 minute data would be preferable; we can use 1 hour data with some caution. In regions of heavy mixing, we should exercise caution in analyzing trajectories and depths since results vary greatly depending on frequencies.`
 
+* `Ariane_TimeRes.ipynb`_
 
+.. _Ariane_TimeRes.ipynb: https://nbviewer.org/github/SalishSeaCast/analysis/blob/master/Idalia/Ariane_TimeRes.ipynb
