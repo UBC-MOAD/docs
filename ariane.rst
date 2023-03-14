@@ -205,7 +205,8 @@ This mode can be used to make estimates of transport through cross-sections by r
 The namelist for quantitative mode is very similar to qualitative mode, note the frequency of calculation is now set in the ``QUANTITATIVE`` section.
 Here is an example of a quantitative namelist.
 
-.. code-block:: text
+.. code-block:: fortran
+
    &ARIANE
        key_alltracers =.FALSE.,
        key_sequential =.FALSE.,
@@ -366,8 +367,6 @@ Land points are :kbd:`#` and ocean points are :kbd:`-`.
 
 * Run :kbd:`mkseg`
 
-.. code-block:: bash
-    mkseg
 * This will print out whether you succeeded or not and let you know the extent of the sections you defined. If something went wrong in editing :file:`segrid` the message will let you know how, this usually entails accidentally deleting a land point, not closing your boundaries, or forgetting to place the :kbd:`@` symbol somewhere!
 * Once you have that without errors, section definitions will be copied automatically into a file called :file:`sections.txt`. The section definitions should look something like this::
 
@@ -435,7 +434,8 @@ Time Considerations
 
 Particles initialized later in the simulation do not have as much time to cross one of the sections so it could be beneficial to impose a maximum age of each particle. This can be achieved by modifying :file:`mod_criter1.f90` in :kbd:`src/ariane` as follows:
 
-.. code-block:: text
+.. code-block:: fortran
+
     !----------------------------------------!
     !- ADD AT THE END OF EACH LINE "!!ctr1" -!
     !----------------------------------------!
@@ -456,7 +456,8 @@ Defining and tracking water masses
 You can also impose a density and/or salinity and/or temperature criteria on the initial particles in order to track different water masses. You can achieve this by editing :file:`mod_criter0.f90`.
 
 
-.. code-block:: text
+.. code-block:: fortran
+
     !criter0=.TRUE.        !!ctr0
     !
     !------------!
@@ -485,7 +486,8 @@ The following items must be changed or added to the namelist file:
 Temperature
 ^^^^^^^^^^^
 
- .. code-block:: text
+ .. code-block:: fortran
+ 
     &TEMPERAT
 	    c_dir_te ='/ocean/nsoontie/MEOPAR/SalishSea/results/storm-surges/final/dec2006/all_forcing/30min/',
 	    c_prefix_te ='SalishSea_30m_20061214_20061215_grid_T.nc',
@@ -501,7 +503,8 @@ Temperature
 Salinity
 ^^^^^^^^
 
-.. code-block:: text
+.. code-block:: fortran
+
     &SALINITY
 	    c_dir_sa ='/ocean/nsoontie/MEOPAR/SalishSea/results/storm-surges/final/dec2006/all_forcing/30min/',
 	    c_prefix_sa ='SalishSea_30m_20061214_20061215_grid_T.nc',
@@ -585,7 +588,8 @@ Now that we have formatted the filenames as *prefix_number_suffix*, :kbd:`c_pref
 
 For example, the **ZONALCRT** section would look like the following for input files **SalishSea_01_grid_U.nc** and **SalishSea_02_grid_U.nc** :
 
- .. code-block:: text
+ .. code-block:: fortran
+ 
         &ZONALCRT
         	c_dir_zo ='/ocean/imachuca/MEOPAR/Ariane/results/drifter_compare/sequential/',
         	c_prefix_zo ='SalishSea_',
@@ -614,7 +618,8 @@ Add a **SEQUENTIAL** section in namelist. This section has one parameter, :kbd:`
 Sequential
 ^^^^^^^^^^
 
- .. code-block:: text
+ .. code-block:: fortran
+ 
 	&SEQUENTIAL
 	maxcycles =1,
 	/
