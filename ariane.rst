@@ -340,6 +340,7 @@ If you're hoping to do source water analysis the ability to run backwards in Ari
 
 ``QUANTITATIVE``:
 The run now starts at time = :kbd:`lmt`, so :kbd:`lmin` and :kbd:`lmax` need to be adjsuted accordingly.
+
 * :kbd:`lmin`: Last time step to generate particles (will keep running until timestep 1 is reached just with no new particles seeded), greater than or equal to 1.
 * :kbd:`lmax`: First time step to generate particles, usually=:kbd:`lmt`.
 
@@ -359,11 +360,13 @@ Ariane provides a couple of useful tools for defining the sections.
    nedit segrid
 * If you turn off text wrapping, you might see something like this:
 
-.. figure:: images/segrid.png
+.. figure:: ./segrid.png
 
 Land points are :kbd:`#` and ocean points are :kbd:`-`.
 
 * Add numbered cross-sections to this file. Be sure your sections are over ocean points and not land points. Ariane will initialize particles along the section labelled as :kbd:`1` and will calculate transport through all other sections. Your sections must make up a closed volume. Place the :kbd:`@` symbol somewhere within your closed subdomain.
+
+.. figure:: ./segrid_edit.png
 
 * Run :kbd:`mkseg`
 
