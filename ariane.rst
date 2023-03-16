@@ -435,7 +435,8 @@ Ariane will also produce netCDF files :file:`ariane_positions_quantitative.nc` a
 Time Considerations
 -------------------
 
-Particles initialized later in the simulation do not have as much time to cross one of the sections so it could be beneficial to impose a maximum age of each particle. This can be achieved by modifying :file:`mod_criter1.f90` in :kbd:`src/ariane` as follows:
+Particles initialized later in the simulation do not have as much time to cross one of the sections, you can check if this is a problem by keeping an eye on how many of your water parcels are "lost" during the simmulation. Cutting down on these lost water parcels is part of why we typically do runs with days at the end of the simmulation without particles being seeded. 
+Alternatively, (if you don't want to have a super long run-time) it could be beneficial to impose a maximum age of each particle. This can be achieved by modifying :file:`mod_criter1.f90` in :kbd:`src/ariane` as follows:
 
 .. code-block:: fortran
 
@@ -456,8 +457,7 @@ Particles initialized later in the simulation do not have as much time to cross 
 Defining and tracking water masses
 ----------------------------------
 
-You can also impose a density and/or salinity and/or temperature criteria on the initial particles in order to track different water masses. You can achieve this by editing :file:`mod_criter0.f90`.
-
+You can also impose a density and/or salinity and/or temperature criteria on the initial particles in order to solely track specific water masses. You can achieve this by editing :file:`mod_criter0.f90`.
 
 .. code-block:: fortran
 
@@ -568,28 +568,33 @@ Note: *number* must contain a constant digit number and its value must increase 
 
 
 
-Namelist: Modify Sections
--------------------------
+Namelist Modifications
+----------------------
 
-First, let's take a closer look at the parameters in the namelist sections. The parameter names are :kbd:`c_dir_X`, :kbd:`c_prefix_X`, :kbd:`ind0_X`, :kbd:`indn_X`, :kbd:`maxsize_X`, and :kbd:`c_suffix_X` where :kbd:`X` is :kbd:`zo`, :kbd:`me`, :kbd:`te`, :kbd:`sa` for the **ZONALCRT**, **MERIDCRT**, **TEMPERAT**, and **SALINITY** sections, respectively.
+``ARIANE``:
 
-
-Input File Directory
-^^^^^^^^^^^^^^^^^^^^
-:kbd:`c_dir_X` is the directory with the symbolic links for the input files, the namelist, and the initial positions text file.
+* change :kbd:`key_sequential` to TRUE.
 
 
-New Input Filename
-^^^^^^^^^^^^^^^^^^
-Previously, we have been entering the full filename, *SalishSea_t_yyyymmdd_yyyymmdd_grid_T.nc*, into :kbd:`c_prefix_X`.
+Add a ``SEQUENTIAL`` section: 
 
-Now that we have formatted the filenames as *prefix_number_suffix*, :kbd:`c_prefix_me` takes on the value of the *prefix* and :kbd:`c_suffix_me` takes the value of *suffix*.
+* one parameter, :kbd:`maxcycles`. We recommend the value of this parameter to be 1 since this tells Ariane to stop generating trajectory points once it has run out of input data.
 
-:kbd:`ind0_X` is the *number* for the earliest input file and :kbd:`indn_X` is the latest.
+ .. code-block:: fortran
+ 
+	&SEQUENTIAL
+	maxcycles =1,
+	/
 
-:kbd:`maxsize_X` is the number of digits in *number*.
+``ZONALCRT``, ``MERIDCRT``, ``TEMPERAT``, and ``SALINITY``:
+The parameters that must be changed for these sections are the same; :kbd:`c_dir_X`, :kbd:`c_prefix_X`, :kbd:`ind0_X`, :kbd:`indn_X`, :kbd:`maxsize_X`, and :kbd:`c_suffix_X` where :kbd:`X` is :kbd:`zo`, :kbd:`me`, :kbd:`te`, :kbd:`sa` for the **ZONALCRT**, **MERIDCRT**, **TEMPERAT**, and **SALINITY** sections, respectively.
 
-For example, the **ZONALCRT** section would look like the following for input files **SalishSea_01_grid_U.nc** and **SalishSea_02_grid_U.nc** :
+* :kbd:`c_dir_X` is the directory with the symbolic links for the input files, the namelist, and the initial positions text file.
+* Now that we have formatted the filenames as *prefix_number_suffix*, :kbd:`c_prefix_me` takes on the value of the *prefix* and :kbd:`c_suffix_me` takes the value of *suffix*.Previously, we have been entering the full filename, *SalishSea_t_yyyymmdd_yyyymmdd_grid_T.nc*, into :kbd:`c_prefix_X`.
+* :kbd:`ind0_X` is the *number* for the earliest input file and :kbd:`indn_X` is the latest.
+* :kbd:`maxsize_X` is the number of digits in *number*.
+
+For example, the ``ZONALCRT`` section would look like the following for input files **SalishSea_01_grid_U.nc** and **SalishSea_02_grid_U.nc** :
 
  .. code-block:: fortran
  
@@ -605,38 +610,135 @@ For example, the **ZONALCRT** section would look like the following for input fi
 	    	nc_att_mask_zo ='NONE',
         /
 
+Running Ariane for Multiple Days
+--------------------------------
 
-Sequential Parameter
+If you want to run Ariane for A LOT of days you're not going to want to have to write out where Ariane should look for the input, lucky for you a python script has already been wirtten to make the Links to the correct files, tell Ariane how to find them, run Ariane, and save the ouput in an organized fashion:
+
+.. code-block:: python
+
+	"""
+	Loop over dates, setting up a series of forcing links, running Ariane starting particles over multiple days
+	and saving the statistic results"""
+
+	import argparse
+	import arrow
+	import os
+	import subprocess
+
+	TARGET_TMPL = 'SalishSea_1h_{:06d}_grid_{:s}.nc'
+	FILENAME_TMPL = 'SalishSea_1h_{:%Y%m%d}_{:%Y%m%d}_grid_{:s}.nc'
+	SUBDIR_TMPL = '{:%d%b%y}'
+
+
+	def make_links(rundate, runlength):
+	    dir = '/results2/SalishSea/nowcast-green.201905/'
+	    tardir = 'Links'
+	    for grid in ['T', 'U', 'V', 'W']:
+		for fileno in range(runlength):
+		    target = TARGET_TMPL.format(fileno+1, grid)
+		    date = rundate.shift(days=+fileno).datetime 
+		    print (date, dir)
+		    link = FILENAME_TMPL.format(date, date, grid)
+		    subdir = SUBDIR_TMPL.format(date).lower()
+		    try:
+			os.unlink(os.path.join(tardir, target))
+		    except FileNotFoundError:
+			pass
+		    os.symlink(os.path.join(dir, subdir, link),
+			       os.path.join(tardir, target))
+
+
+	def run_ariane():
+	    with open('babypoo', 'wt') as stdout:
+		with open('errpoo', 'wt') as stderr:
+		    subprocess.run(
+			"/ocean/rbeutel/MOAD/ariane-2.3.0_03/bin/ariane",
+			stdout=stdout, stderr=stderr,
+			universal_newlines=True)
+
+
+	def rename_results(rundate=arrow.utcnow(), subdir='',
+			   nday=1, labeltype='date'):
+	    finaldir = '/ocean/rbeutel/MOAD/analysis-becca/Ariane/'
+	    filelist = ['ariane_memory.log', 'ariane_statistics_quantitative.nc',
+			'final_pos.txt', 'init_pos.txt', 'output',
+			'ariane_positions_quantitative.nc', 'final.sav',
+			'init.sav', 'stats.txt']
+	    for filename in filelist:
+		if labeltype == 'date':
+		    newdir = SUBDIR_TMPL.format(rundate.datetime).lower()
+		else:
+		    newdir = ''
+		print(os.path.join(finaldir, subdir, newdir, filename))
+		if not os.path.exists(os.path.join(finaldir, subdir, newdir)):
+			os.makedirs(os.path.join(finaldir, subdir, newdir))
+        	os.rename(filename, os.path.join(finaldir, subdir, newdir, filename))
+		
+	def main(args):
+	    initialrundate = arrow.get(args.initialrundate, 'YYYY-MM-DD')
+	    for nday in range(args.numberofdays):
+		rundate = initialrundate.shift(days=+nday)
+		print ('Start', rundate)
+		if args.forback == 'forward':
+		    startfile = rundate
+		elif args.forback == 'backward':
+		    startfile = rundate.shift(days=-(args.runlength-1))
+		make_links(startfile, args.runlength+args.releaseparticledays)
+		print ('Startfile', startfile)
+		run_ariane()
+		rename_results(rundate=rundate, subdir=args.runtype)
+		print ('End', rundate)
+
+
+	if __name__ == '__main__':
+	    parser = argparse.ArgumentParser()
+	    parser.add_argument(
+		'initialrundate', help='Date to start from as YYYY-MM-DD', type=str)
+	    parser.add_argument(
+		'numberofdays', help='Number of different dates to do', type=int)
+	    parser.add_argument(
+		'runlength', help='Number of days to track particles', type=int)
+	    parser.add_argument(
+		'releaseparticledays', help='Number of days over which to release particles for one run', type=int)
+	    parser.add_argument('forback', help='Run forward or backward', type=str)
+	    parser.add_argument('runtype',
+				help='FluxesSouth FluxesNorth BackSouth BackNorth',
+				type=str)
+	    args = parser.parse_args()
+	    main(args)
+
+* :kbd:`TARGET_TMPL` is the template for naming the links, in a format the Ariane can read (ie. *prefix_number_suffix*)
+* :kbd:`FILENAME_TMPL` is the template for the actual filenames so that the links to them can be made
+* :kbd:`SUBDIR_TMPL` is the template for the subdirectory where you want your output to be named. NOTE: right now it is set for the startdate of your run, so if you do multiple runs on the same date don't want previous runs overwritten then you need to rename this. 
+
+Function Description
 ^^^^^^^^^^^^^^^^^^^^
-Under the **ARIANE** section in :kbd:`namelist`, change :kbd:`key_sequential` to TRUE.
+:kbd:`def make_links(rundate, runlength)`
+This function makes the Links for you for your U, V, W, and T (for salinity and temperature) files between your rundates. You need to have the target directory (set in :kbd:`tardir`) already made.
+This function is specific to running Ariane with the 201905 SalishSeaCast runs (see the dir its looking in) and using temperature and salinity as your tracers, but it can be odified easily if you're running with different tracers (the file would no longer end with "grid_T.nc") and/or different model output (directory its looking in and/or filename template would have to change)
 
+:kbd:`def run_ariane()`
+This function is what actually runs ariane for you and calls on the function :kbd:`def main(args)`. The only thing that needs to be changed is the filepath to your ariane repository (instead of rbeutel's).
+This function also saves all of what Ariane prints into two files: :kbd:`errpoo` and :kbd:`babypoo`. 
+:kbd:`errpoo` holds all the error messages from ariane so should be the first place you look if ariane crashes. :kbd:`babypoo` holds everything else, if errpoo doesn't answer your questions then babypoo can help you figure out where exactly your run failed.
 
+:kbd:`def rename_results()`
+This function organises your output into "stuff that stays in the current directory you're working in" and "stuff that goes to target subdirectory". Everything in the :kbd:`filelist` list will be moved to the results directory. Note that this filelist is specific for quantitative run output and will need to be edited for qualitative runs to the following: ['ariane_memory.log', 'ariane_trajectories_qualitative.nc', 'init.sav', 'final.sav', 'output'].
 
-Namelist: Add Section
----------------------
+Calling the Run Ariane Script
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Calling this script takes a bit more information than most, in your command line type the following:
 
-Add a **SEQUENTIAL** section in namelist. This section has one parameter, :kbd:`maxcycles`. We recommend the value of this parameter to be 1 since this tells Ariane to stop generating trajectory points once it has run out of input data.
+.. code-block:: bash
 
+	python3 path_to_RunAriane.py startday number_of_loops days_with_particles_seeding total_days_in_run forward_or_backward target_subdirectory_name
+	
+for example, the following was typed into the command line for 30 days of seeding, 30 days of run after seeding is completed, foward run, starting January 1st 2018:
 
-Sequential
-^^^^^^^^^^
+.. code-block:: bash
 
- .. code-block:: fortran
- 
-	&SEQUENTIAL
-	maxcycles =1,
-	/
-
-
-
-Results
--------
-The results produced for the example above:
-
-* `Ariane_Sequential.ipynb`_
-
-.. _Ariane_Sequential.ipynb: https://nbviewer.org/github/SalishSeaCast/analysis/blob/master/Idalia/Ariane_Sequential.ipynb
-
+	python3 ./RunAriane_manydays.py 2018-01-01 1 30 30 forward 201905_1hr
 
 Frequency Sensitivity Sample
 ============================
