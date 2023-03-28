@@ -97,6 +97,7 @@ These files contain the trajectory information.
 
 Qualitative Mode
 ================
+
 This mode can be used to get the exact path of a set number of particles.
 
 :file:`intitial_positions.txt`
@@ -195,6 +196,7 @@ If you would like to see some examples of particle tracking, feel free to look a
 
 .. _ParticleTracking.ipynb: https://nbviewer.org/github/SalishSeaCast/analysis/blob/master/Idalia/ParticleTracking.ipynb
 
+
 Quantitative Mode
 =================
 
@@ -202,6 +204,7 @@ This mode can be used to make estimates of transport through cross-sections by r
 
 :file:`namelist`
 ----------------
+
 The namelist for quantitative mode is very similar to qualitative mode, note the frequency of calculation is now set in the ``QUANTITATIVE`` section.
 Here is an example of a quantitative namelist.
 
@@ -318,7 +321,7 @@ Pay special attention to the following options:
 
 ``ARIANE``:
 
-* :kbd:`nmax`: The maximum number of particles. This parameter is typically much higher in quantitative mode. Tip: set it really high, the actual amount of particles seeded will be based on what you set for :kbd:`max_transport` and its no fun to have your run crash because the :kbd:`nmax` has been met. 
+* :kbd:`nmax`: The maximum number of particles. This parameter is typically much higher in quantitative mode. Tip: set it really high, the actual amount of particles seeded will be based on what you set for :kbd:`max_transport` and its no fun to have your run crash because the :kbd:`nmax` has been met.
 
 ``QUANTITATIVE``:
 
@@ -329,8 +332,10 @@ Pay special attention to the following options:
 * :kbd:`lmin`: First time step to generate particles, usually=1.
 * :kbd:`lmax`: Last time step to generate particles (will keep running until :kbd:`lmt` is reached just with no new particles seeded), less than or equal to :kbd:`lmt`.
 
+
 Running Backwards
-^^^^^^^^^^^^^^^^^
+-----------------
+
 If you're hoping to do source water analysis the ability to run backwards in Ariane is a great tool! You'll have to make a few small edits to your namelist to do so:
 
 ``ARIANE``:
@@ -344,8 +349,10 @@ The run now starts at time = :kbd:`lmt`, so :kbd:`lmin` and :kbd:`lmax` need to 
 * :kbd:`lmin`: Last time step to generate particles (will keep running until timestep 1 is reached just with no new particles seeded), greater than or equal to 1.
 * :kbd:`lmax`: First time step to generate particles, usually=:kbd:`lmt`.
 
+
 Defining Sections
 -----------------
+
 You must define a closed region in your domain for transport calculations.
 Ariane calculates the mass transport between an initial section in your region and the other sections.
 Ariane provides a couple of useful tools for defining the sections.
@@ -353,11 +360,15 @@ Ariane provides a couple of useful tools for defining the sections.
 * :kbd:`mkseg0`: This program reads your land-ocean mask and writes it as a text file. Run this program in the same directory as your namelist. You may need to add the ariane executables to your path.
 
 .. code-block:: bash
+
     mkseg0
+
 * :file:`segrid`: After you run :kbd:`mkseg0`, you should see a new file called :file:`segrid`. Edit this file with
 
 .. code-block:: bash
-   nedit segrid
+
+    nedit segrid
+
 * If you turn off text wrapping, you might see something like this:
 
 .. figure:: ./segrid.png
@@ -378,7 +389,8 @@ Land points are :kbd:`#` and ocean points are :kbd:`-`.
      3     1   398     1   898     0     0 "Surface"
 
 You can rename :kbd:`"1section"` and :kbd:`"2section"` to something more intuitive if you desire. The :kbd:`"Surface"` section won't be added automatically, you should as it as above, with 398 replaced by the x-index extent of your model and 898 by the y-index extent.
-    
+
+
 Analyzing quantitative output
 -----------------------------
 
@@ -432,10 +444,11 @@ A new file called :file:`stats.txt` contains statistics about the initial and fi
 
 Ariane will also produce netCDF files :file:`ariane_positions_quantitative.nc` and :file:`ariane_statistics_quantitative.nc` that can be used to plot the particle trajectories and statistics.
 
+
 Time Considerations
 -------------------
 
-Particles initialized later in the simulation do not have as much time to cross one of the sections, you can check if this is a problem by keeping an eye on how many of your water parcels are "lost" during the simmulation. Cutting down on these lost water parcels is part of why we typically do runs with days at the end of the simmulation without particles being seeded. 
+Particles initialized later in the simulation do not have as much time to cross one of the sections, you can check if this is a problem by keeping an eye on how many of your water parcels are "lost" during the simmulation. Cutting down on these lost water parcels is part of why we typically do runs with days at the end of the simmulation without particles being seeded.
 Alternatively, (if you don't want to have a super long run-time) it could be beneficial to impose a maximum age of each particle. This can be achieved by modifying :file:`mod_criter1.f90` in :kbd:`src/ariane` as follows:
 
 .. code-block:: fortran
@@ -453,6 +466,7 @@ Alternatively, (if you don't want to have a super long run-time) it could be ben
 
 * :kbd:`lmt` and :kbd:`lmax` should be substituted by the values you set in the namelist.
 * NOTE: You must remake and install ariane when making a change to any of the fortran files.
+
 
 Defining and tracking water masses
 ----------------------------------
@@ -472,7 +486,8 @@ You can also impose a density and/or salinity and/or temperature criteria on the
 * You'll also need to make sure that :kbd:`key_alltracers` and :kbd:`key_computesigma` are :kbd:`.TRUE.` and :kbd:`zsigma` are defined in your namelist.
 * Now particles will only be initialized if they have a salinity less than 29.
 * There are other examples of useful criteria in :file:`mod_criter0.f90`.
-* NOTE: This same water mass tracking can also be done easily in your analysis of the output by filtering for parcticles that started with a salinity (:kbd:`data.init_salt`) less than 29. 
+* NOTE: This same water mass tracking can also be done easily in your analysis of the output by filtering for parcticles that started with a salinity (:kbd:`data.init_salt`) less than 29.
+
 
 Using tracers in Ariane
 =======================
@@ -487,10 +502,10 @@ The following items must be changed or added to the namelist file:
 * ``TEMPERAT`` and ``SALINITY`` setions of the namelist file must be included as shown below, in order to tell Ariane where to look for the temperature and salinity model output
 
 Temperature
-^^^^^^^^^^^
+-----------
 
  .. code-block:: fortran
- 
+
     &TEMPERAT
 	    c_dir_te ='/ocean/nsoontie/MEOPAR/SalishSea/results/storm-surges/final/dec2006/all_forcing/30min/',
 	    c_prefix_te ='SalishSea_30m_20061214_20061215_grid_T.nc',
@@ -504,7 +519,7 @@ Temperature
 
 
 Salinity
-^^^^^^^^
+--------
 
 .. code-block:: fortran
 
@@ -518,7 +533,9 @@ Salinity
 	    nc_var_sa ='vosaline',
 	    nc_att_mask_sa ='NONE',
     /
+
 :kbd:`votemper` and :kbd:`vosaline` are the variable names for temperature and salinity in our input file.
+
 
 Output
 ------
@@ -576,12 +593,12 @@ Namelist Modifications
 * change :kbd:`key_sequential` to TRUE.
 
 
-Add a ``SEQUENTIAL`` section: 
+Add a ``SEQUENTIAL`` section:
 
 * one parameter, :kbd:`maxcycles`. We recommend the value of this parameter to be 1 since this tells Ariane to stop generating trajectory points once it has run out of input data.
 
  .. code-block:: fortran
- 
+
 	&SEQUENTIAL
 	maxcycles =1,
 	/
@@ -597,7 +614,7 @@ The parameters that must be changed for these sections are the same; :kbd:`c_dir
 For example, the ``ZONALCRT`` section would look like the following for input files **SalishSea_01_grid_U.nc** and **SalishSea_02_grid_U.nc** :
 
  .. code-block:: fortran
- 
+
         &ZONALCRT
         	c_dir_zo ='/ocean/imachuca/MEOPAR/Ariane/results/drifter_compare/sequential/',
         	c_prefix_zo ='SalishSea_',
@@ -609,6 +626,7 @@ For example, the ``ZONALCRT`` section would look like the following for input fi
 	    	nc_var_eivu ='NONE',
 	    	nc_att_mask_zo ='NONE',
         /
+
 
 Running Ariane for Multiple Days
 --------------------------------
@@ -637,7 +655,7 @@ If you want to run Ariane for A LOT of days you're not going to want to have to 
 	    for grid in ['T', 'U', 'V', 'W']:
 		for fileno in range(runlength):
 		    target = TARGET_TMPL.format(fileno+1, grid)
-		    date = rundate.shift(days=+fileno).datetime 
+		    date = rundate.shift(days=+fileno).datetime
 		    print (date, dir)
 		    link = FILENAME_TMPL.format(date, date, grid)
 		    subdir = SUBDIR_TMPL.format(date).lower()
@@ -674,7 +692,7 @@ If you want to run Ariane for A LOT of days you're not going to want to have to 
 		if not os.path.exists(os.path.join(finaldir, subdir, newdir)):
 			os.makedirs(os.path.join(finaldir, subdir, newdir))
         	os.rename(filename, os.path.join(finaldir, subdir, newdir, filename))
-		
+
 	def main(args):
 	    initialrundate = arrow.get(args.initialrundate, 'YYYY-MM-DD')
 	    for nday in range(args.numberofdays):
@@ -710,35 +728,40 @@ If you want to run Ariane for A LOT of days you're not going to want to have to 
 
 * :kbd:`TARGET_TMPL` is the template for naming the links, in a format the Ariane can read (ie. *prefix_number_suffix*)
 * :kbd:`FILENAME_TMPL` is the template for the actual filenames so that the links to them can be made
-* :kbd:`SUBDIR_TMPL` is the template for the subdirectory where you want your output to be named. NOTE: right now it is set for the startdate of your run, so if you do multiple runs on the same date don't want previous runs overwritten then you need to rename this. 
+* :kbd:`SUBDIR_TMPL` is the template for the subdirectory where you want your output to be named. NOTE: right now it is set for the startdate of your run, so if you do multiple runs on the same date don't want previous runs overwritten then you need to rename this.
+
 
 Function Description
 ^^^^^^^^^^^^^^^^^^^^
+
 :kbd:`def make_links(rundate, runlength)`
 This function makes the Links for you for your U, V, W, and T (for salinity and temperature) files between your rundates. You need to have the target directory (set in :kbd:`tardir`) already made.
 This function is specific to running Ariane with the 201905 SalishSeaCast runs (see the dir its looking in) and using temperature and salinity as your tracers, but it can be odified easily if you're running with different tracers (the file would no longer end with "grid_T.nc") and/or different model output (directory its looking in and/or filename template would have to change)
 
 :kbd:`def run_ariane()`
 This function is what actually runs ariane for you and calls on the function :kbd:`def main(args)`. The only thing that needs to be changed is the filepath to your ariane repository (instead of rbeutel's).
-This function also saves all of what Ariane prints into two files: :kbd:`errpoo` and :kbd:`babypoo`. 
+This function also saves all of what Ariane prints into two files: :kbd:`errpoo` and :kbd:`babypoo`.
 :kbd:`errpoo` holds all the error messages from ariane so should be the first place you look if ariane crashes. :kbd:`babypoo` holds everything else, if errpoo doesn't answer your questions then babypoo can help you figure out where exactly your run failed.
 
 :kbd:`def rename_results()`
 This function organises your output into "stuff that stays in the current directory you're working in" and "stuff that goes to target subdirectory". Everything in the :kbd:`filelist` list will be moved to the results directory. Note that this filelist is specific for quantitative run output and will need to be edited for qualitative runs to the following: ['ariane_memory.log', 'ariane_trajectories_qualitative.nc', 'init.sav', 'final.sav', 'output'].
 
+
 Calling the Run Ariane Script
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 Calling this script takes a bit more information than most, in your command line type the following:
 
 .. code-block:: bash
 
 	python3 path_to_RunAriane.py startday number_of_loops days_with_particles_seeding total_days_in_run forward_or_backward target_subdirectory_name
-	
+
 for example, the following was typed into the command line for 30 days of seeding, 30 days of run after seeding is completed, foward run, starting January 1st 2018:
 
 .. code-block:: bash
 
 	python3 ./RunAriane_manydays.py 2018-01-01 1 30 30 forward 201905_1hr
+
 
 Frequency Sensitivity Sample
 ============================
@@ -747,6 +770,7 @@ The model produces datasets containing information about the velocity field for 
 
 For the frequency sensitivity studies, we used model outputs with 30 minute, 1 hour, and 4 hour frequencies. This data was used in Ariane's qualitative mode to generate particle trajectories with points at 30 minute intervals. We did this for particles starting their trajectories at the Fraser River and at various points along the thalweg. The results are summarized below.
 
+
 On the Surface
 --------------
 
@@ -754,6 +778,7 @@ At the Fraser River, we found that the particle trajectory generated using data 
 The trajectory that used 1 hour frequency data very closely resembles the trajectory that used 30 minute data.
 
 :command:`Conclusion: We can use 1 hour or 30 minute NEMO output data when particle trajectories start at the Fraser River.`
+
 
 At Depth
 --------
