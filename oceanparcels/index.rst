@@ -18,14 +18,14 @@ Useful links:
 
 * `OceanParcels project site`_
 * Our `#oceanparcels Slack channel`_
-* `OceanParcels Gitter chat rooms`_
+* `OceanParcels GitHub Discussion forum`_
 * `Ocean Sciences 2021 paper comparing OceanParcels and Ariane`_
 * `Advection kernels`_
 * `Ben's notebook`_ that demonstrates a complete workflow of using OceanParcels simulations with SalishSeaCast and related model configurations
 
 .. _OceanParcels project site: https://oceanparcels.org/
 .. _#oceanparcels Slack channel: https://salishseacast.slack.com/?redir=%2Farchives%2FC02ETTPHFPX
-.. _OceanParcels Gitter chat rooms: https://gitter.im/OceanPARCELS/home
+.. _OceanParcels GitHub Discussion forum: https://github.com/OceanParcels/parcels/discussions
 .. _Ocean Sciences 2021 paper comparing OceanParcels and Ariane: https://os.copernicus.org/articles/17/1067/2021/
 .. _Advection kernels: https://oceanparcels.org/gh-pages/html/_modules/parcels/application_kernels/advection.html
 .. _Ben's notebook: https://nbviewer.org/github/UBC-MOAD/PythonNotes/blob/main/OceanParcelsRecipes.ipynb
