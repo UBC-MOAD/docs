@@ -231,9 +231,9 @@ The output looks something like:
     (      ssh_access: line   27) -ignored- https://www.baeldung.com/cs/ssh-intro
     (          xios-2: line   37) -ignored- https://github.com/SalishSeaCast/XIOS-2
     (          xios-2: line  751) -ignored- https://github.com/SalishSeaCast/NEMO-3.6-code
-    (          ariane: line   23) ok        http://stockage.univ-brest.fr/~grima/Ariane/ariane_install_2.x.x_sep08.pdf
-    (          ariane: line   37) ok        http://stockage.univ-brest.fr/~grima/Ariane/download.php
-    (          ariane: line   25) ok        http://stockage.univ-brest.fr/~grima/Ariane/ariane_tutorial_2.x.x_sep08.pdf
+    (          ariane: line   23) ok        http://ariane.lagrangian.free.fr/ariane_install_2.x.x_sep08.pdf
+    (          ariane: line   37) ok        http://ariane.lagrangian.free.fr/download.php
+    (          ariane: line   25) ok        http://ariane.lagrangian.free.fr/ariane_tutorial_2.x.x_sep08.pdf
     (zzz_archival_docs/hg_version_control: line   27) ok        http://hgbook.red-bean.com/
     (zzz_archival_docs/hg_version_control: line   27) ok        http://hgbook.red-bean.com/read/a-tour-of-mercurial-the-basics.html
     (          xios-2: line   15) ok        http://forge.ipsl.jussieu.fr/ioserver/wiki
@@ -242,9 +242,9 @@ The output looks something like:
     (alliance-computing: line   15) ok        https://alliancecan.ca/en
     (          xios-2: line  831) ok        http://forge.ipsl.jussieu.fr/ioserver/raw-attachment/wiki/WikiStart/XIOS_user_guide.pdf
     (alliance-computing: line   64) ok        https://alliancecan.ca/en/services/advanced-research-computing/account-management/apply-account
-    (          ariane: line   24) ok        http://stockage.univ-brest.fr/~grima/Ariane/ariane_namelist_2.x.x_oct08.pdf
+    (          ariane: line   24) ok        http://ariane.lagrangian.free.fr/ariane_namelist_2.x.x_oct08.pdf
     (git_version_control: line   60) ok        https://brew.sh/
-    (          ariane: line   15) ok        http://stockage.univ-brest.fr/~grima/Ariane/whatsariane.html
+    (          ariane: line   15) ok        http://ariane.lagrangian.free.fr/whatsariane.html
     (zzz_archival_docs/hg_version_control: line   41) ok        https://bitbucket.org/
     (python_packaging/pkg_structure: line   29) ok        https://bskinn.github.io/My-How-Why-Pyproject-Src/
     (python_packaging/pkg_structure: line   28) ok        https://blog.ionelmc.ro/2014/05/25/python-packaging/

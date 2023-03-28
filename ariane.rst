@@ -14,7 +14,7 @@ Ariane
 
 `Ariane`_ is a particle tracking software that can be applied to NEMO and ROMS model NetCDF results files to trace the source of water masses (running backward in time) or to calculate where the water packet goes to (running forward in time).
 
-.. _Ariane: http://stockage.univ-brest.fr/~grima/Ariane/whatsariane.html
+.. _Ariane: http://ariane.lagrangian.free.fr/whatsariane.html
 
 Ariane can be run in two modes: quantitative and qualitative. In quantitative mode, you release particles and end up with a distribution function for each grid cell quantifying where your particles end up and the mass transfer, while in qualitative mode you specify each of the particles that you release and trace their exact track.
 
@@ -24,9 +24,9 @@ References
 * `Ariane Namelist`_
 * `Ariane Tutorial`_
 
-.. _Compilation and Installation: http://stockage.univ-brest.fr/~grima/Ariane/ariane_install_2.x.x_sep08.pdf
-.. _Ariane Namelist: http://stockage.univ-brest.fr/~grima/Ariane/ariane_namelist_2.x.x_oct08.pdf
-.. _Ariane Tutorial: http://stockage.univ-brest.fr/~grima/Ariane/ariane_tutorial_2.x.x_sep08.pdf
+.. _Compilation and Installation: http://ariane.lagrangian.free.fr/ariane_install_2.x.x_sep08.pdf
+.. _Ariane Namelist: http://ariane.lagrangian.free.fr/ariane_namelist_2.x.x_oct08.pdf
+.. _Ariane Tutorial: http://ariane.lagrangian.free.fr/ariane_tutorial_2.x.x_sep08.pdf
 
 
 .. _Getting Ariane:
@@ -36,7 +36,7 @@ Getting Ariane
 
 The MOAD group maintains our own Git repository on GitHub of the Ariane code base; this repository is accessible only by members of the MOAD group so as to respect the sign-up requirement of the upstream Ariane repository. The general Ariane code is available via the `Ariane website`_ . Modifications made by the MOAD group to the Ariane source code can be found on `GitHub`_. To download the MOAD Ariane code base, clone the repository from GitHub to your $PROJECT space:
 
-.. _Ariane website: http://stockage.univ-brest.fr/~grima/Ariane/download.php
+.. _Ariane website: http://ariane.lagrangian.free.fr/download.php
 .. _GitHub: https://github.com/UBC-MOAD/ariane-2.3.0_03
 
 .. code-block:: bash
