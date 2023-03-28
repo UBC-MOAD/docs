@@ -27,5 +27,5 @@ Useful links:
 .. _#oceanparcels Slack channel: https://salishseacast.slack.com/?redir=%2Farchives%2FC02ETTPHFPX
 .. _OceanParcels GitHub Discussion forum: https://github.com/OceanParcels/parcels/discussions
 .. _Ocean Sciences 2021 paper comparing OceanParcels and Ariane: https://os.copernicus.org/articles/17/1067/2021/
-.. _Advection kernels: https://oceanparcels.org/gh-pages/html/_modules/parcels/application_kernels/advection.html
+.. _Advection kernels: https://parcels.readthedocs.io/en/latest/index.html#module-parcels.application_kernels.advection
 .. _Ben's notebook: https://nbviewer.org/github/UBC-MOAD/PythonNotes/blob/main/OceanParcelsRecipes.ipynb
