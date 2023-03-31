@@ -25,7 +25,7 @@ The following people have contributed to this documentation:
 * Ben Moore-Maley <bmoorema@eoas.ubc.ca>
 * Tereza Jarníková <tjarniko@eoas.ubc.ca>
 * Birgit Rogalla <brogalla@eoas.ubc.ca>
-* Rebecca Beutel <rbeutel@eoas.ubc.ca>
+* Becca Beutel <bbeutel@eoas.ubc.ca>
 * Jose Valenti <jvalenti@eoas.ubc.ca>
 * Cassidy Donaldson <cdonaldson@eoas.ubc.ca>
 * Camryn Stang <cstang@eoas.ubc.ca>
