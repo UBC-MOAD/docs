@@ -14,8 +14,7 @@ Secure Remote Access
 
 This section is the about setting up secure,
 easy to use,
-terminal (command-line) access from your laptop to the EOAS Ocean Linux computers,
-and the Compute Canada ``graham`` High Performance Computing (HPC) cluster.
+terminal (command-line) access from your laptop to the EOAS Ocean Linux computers.
 
 The software technology we use to do that is called ``ssh`` (sometime lowercase, sometimes uppercase).
 :command:`ssh` is also the command that makes terminal/command-line connections between computers.
@@ -299,46 +298,7 @@ To make it easier to connect to remote systems that you use often you can add st
 * provide directives to override or augment those in the ``Host *`` stanza,
   or other defaults
 
-Add a host alias stanza for ``graham.computecanada.ca`` by adding these lines:
-
-.. code-block:: text
-
-    Host graham
-      HostName graham.computecanada.ca
-      User username
-
-.. note:: Please be sure to replace ``username`` with your Compute Canada user id.
-
-It is conventional to separate the stanzas in :file:`~/.ssh/config` with empty lines.
-You can also add comment lines if you want by starting them with the ``#`` character.
-Your file should now look like:
-
-.. code-block:: text
-
-    Host *
-      ForwardAgent yes
-      ServerAliveInterval 60
-
-    Host graham
-      HostName graham.computecanada.ca
-      User username
-
-Now,
-instead of having to type:
-
-.. code-block:: text
-
-    ssh username@graham.computecanada.ca
-
-you will be able to type:
-
-.. code-block:: text
-
-    ssh graham
-
-(after we complete 1 more step of setup).
-
-Add another stanza for the MOAD workstation that Susan told you to work on
+Add host alias stanzas for the MOAD workstation that Susan told you to work on
 (using ``chum`` here as an example),
 and one for our compute server,
 ``salish``:
@@ -355,6 +315,39 @@ and one for our compute server,
 
 .. note:: Please be sure to replace ``username`` with your EOAS user id.
 
+It is conventional to separate the stanzas in :file:`~/.ssh/config` with empty lines.
+You can also add comment lines if you want by starting them with the ``#`` character.
+Your file should now look like:
+
+.. code-block:: text
+
+    Host *
+      ForwardAgent yes
+      ServerAliveInterval 60
+
+    Host chum
+      HostName chum.eos.ubc.ca
+      User username
+
+    Host salish
+      HostName salish.eos.ubc.ca
+      User username
+
+Now,
+instead of having to type:
+
+.. code-block:: text
+
+    ssh username@salish.eos.ubc.ca
+
+you will be able to type:
+
+.. code-block:: text
+
+    ssh salish
+
+(after we complete 1 more step of setup).
+
 Save your file with :kbd:`Ctrl-o` (then hit enter),
 and exit :program:`nano` with :kbd:`Ctrl-x`.
 
@@ -367,24 +360,23 @@ Copy Your Public ssh Key to Remote Computers
 The final step to make :command:`ssh` key pair authentication work is to copy your public key to each remote system that you want to connect to.
 The command to do that is :command:`ssh-copy-id`.
 
-Copy your public key to ``graham`` with:
+Copy your public key to ``salish`` with:
 
 .. code-block:: bash
 
-    $ ssh-copy-id graham
+    $ ssh-copy-id salish
 
-That command will use the information you put into :file:`~/.ssh/config` to expand ``graham`` to ``username@graham.computecanada.ca``.
+That command will use the information you put into :file:`~/.ssh/config` to expand ``salish`` to ``username@salish.eos.ca``.
 It should produce output like:
 
 .. code-block:: text
 
     /usr/bin/ssh-copy-id: INFO: Source of key(s) to be installed: "/home/username/.ssh/id_ed25519.pub"
-    The authenticity of host 'graham.computecanada.ca (199.241.166.2)' can't be established.
-    ED25519 key fingerprint is SHA256:mf1jJ3ndpXhpo0k38xVxjH8Kjtq3o1+ZtTVbeM0xeCk.
+    The authenticity of host 'salish.eos.ca (142.103.36.12)' can't be established.
+    ecdsa-sha2-nistp256 key fingerprint is SHA256:W8No4t+8TJWxURHmsoOBwB0LYu1SFiLkNnxDrmsCS9I.
     Are you sure you want to continue connecting (yes/no/[fingerprint])?
 
 Type ``yes`` to proceed.
-(You can confirm ``graham``'s host key fingerprint at https://docs.alliancecan.ca/wiki/SSH_security_improvements#SSH_host_key_fingerprints if you want to).
 
 The output from :command:`ssh-copy-id` should continue with:
 
@@ -392,16 +384,16 @@ The output from :command:`ssh-copy-id` should continue with:
 
     /usr/bin/ssh-copy-id: INFO: attempting to log in with the new key(s), to filter out any that are already installed
     /usr/bin/ssh-copy-id: INFO: 1 key(s) remain to be installed -- if you are prompted now it is to install the new keys
-    username@graham.computecanada.ca's password:
+    username@salish.eos.ca's password:
 
-Type in your Compute Canada password,
+Type in your EOAS Linux systems password sent to you by EOAS IT,
 and the output from :command:`ssh-copy-id` should finish with:
 
 .. code-block:: text
 
     Number of key(s) added: 1
 
-    Now try logging into the machine, with:   "ssh graham"
+    Now try logging into the machine, with:   "ssh salish"
     and check to make sure that only the key(s) you wanted were added.
 
 Now,
@@ -410,52 +402,31 @@ test the authentication with:
 
 .. code-block:: bash
 
-    $ ssh graham
+    $ ssh salish
 
 Your ssh agent should ask you for your passphrase so that it can decrypt your private key,
-then you should find yourself at the command-line prompt on ``graham``:
+then you should find yourself at the command-line prompt on ``salish``:
 
 .. code-block:: text
 
-    *********************************************************************
+    Welcome to Ubuntu 18.04.6 LTS (GNU/Linux 5.4.0-121-generic x86_64)
 
-    Welcome to the ComputeCanada/SHARCNET cluster Graham.
+    * Documentation:  https://help.ubuntu.com
+    * Management:     https://landscape.canonical.com
+    * Support:        https://ubuntu.com/advantage
 
-     Documentation: https://docs.computecanada.ca/wiki/Graham
-    Current issues: https://status.computecanada.ca/
-           Support: support@computecanada.ca
+    21 updates can be applied immediately.
+    To see these additional updates run: apt list --upgradable
 
-    *********************************************************************
+    New release '20.04.6 LTS' available.
+    Run 'do-release-upgrade' to upgrade to it.
 
-    NEWS
+    Your Hardware Enablement Stack (HWE) is supported until April 2023.
+    ~$
 
-    If you are conducting research related to COVID-19, please email
-    support@computecanada.ca to get additional support.
-
-    Apr 2: We try to ensure everyone access to get their computational work
-           completed in a timely manner but there may be some longer wait
-           times while we push through urgent, time critical COVID-19 related
-           jobs. Your patience is appreciated
-
-    Apr 13: Need GPU resources? Have you tried the new T4 cards?
-            Add --gres=gpu:t4:1 to request a T4 class card for your GPU work.
-            More details: https://docs.computecanada.ca/wiki/Graham#GPUs_on_Graham
-    [username@gra-login1 ~]$
-
-Disconnect from ``graham`` with ``exit``,
-and connect again with ``ssh graham``.
+Disconnect from ``salish`` with ``exit``,
+and connect again with ``ssh salish``.
 This time you should connect without being asked for your password or your passphrase.
-
-Now,
-repeat the :command:`ssh-copy-id` process to put your public key on the EOAS Ocean machines including the MOAD workstations via ``salish``:
-
-.. code-block:: bash
-
-    $ ssh-copy-id salish
-
-This time you will need to use the EOAS Linux systems password sent to you by EOAS IT.
-You shouldn't have to type in your ssh passphrase again though,
-because you have already decrypted your key for the ssh agent.
 
 .. note::
 
@@ -546,7 +517,7 @@ e.g.
 
 .. code-block:: bash
 
-    $ ssh graham
+    $ ssh salish
 
 You can also use :command:`ssh` to execute a command on a remote computer without actually opening the terminal session;
 e.g.
@@ -573,7 +544,7 @@ e.g.
 
 .. code-block:: bash
 
-    $ ssh -v graham
+    $ ssh -v salish
 
 This is helpful in debugging connection, authentication, and configuration problems.
 Adding more ``v``s
@@ -603,30 +574,30 @@ or between two remote machines without bringing the file to your local machine.
 
     If you need to copy files between two Compute Canada cluster you should use :ref:`Globus-docs` because it is at least 4 times faster than :command:`scp` on the high performance network connections among the Compute Canada clusters.
 
-To copy a file from your current directory on your local computer to your home directory on :command:`graham` use:
+To copy a file from your current directory on your local computer to your home directory on ``salish`` use:
 
 .. code-block:: bash
 
-    $ scp my-local-file graham:
+    $ scp my-local-file salish:
 
 You can also include a path in place of :file:`my-local-file`,
-and/or after the colon in ``graham:``.
+and/or after the colon in ``salish:``.
 If you give several paths/files in place of :file:`my-local-file`,
-all of those files will get copied to ``graham``.
+all of those files will get copied to ``salish``.
 
-To copy a file from your current directory on your local computer to your scratch space on :command:`graham` use:
-
-.. code-block:: bash
-
-    $ scp my-local-file "graham:$SCRATCH/"
-
-The quotes around ``"graham:$SCRATCH/"`` are necessary to prevent your local shell from expanding the :envvar:`SCRATCH` environment variable.
-
-To copy a file from your scratch space on ``graham`` to your current directory on your local computer use:
+To copy a file from your current directory on your local computer to your ``/ocean/$USER/`` space on :command:`salish` use:
 
 .. code-block:: bash
 
-    $ scp "graham:$SCRATCH/my-remote-file" ./
+    $ scp my-local-file "salish:/ocean/$USER/"
+
+The quotes around ``"salish:/ocean/$USER/"`` are necessary to prevent your local shell from expanding the :envvar:`USER` environment variable.
+
+To copy a file from your ``/ocean/$USER/`` space on ``salish`` to your current directory on your local computer use:
+
+.. code-block:: bash
+
+    $ scp "salish:/ocean/$USER/my-remote-file" ./
 
 The :file:`./` at the end means,
 this directory.
@@ -635,21 +606,13 @@ Unlike :command:`cp`,
 :command:`scp` always has to have a destination directory for the file.
 Including a file name in the destination is an easy way to combine copying and renaming the copied file in one operation.
 
-To copy a file from your scratch space on ``graham`` to your MOAD :file:`/data/` space via ``salish`` use:
-
-.. code-block:: bash
-
-    $ scp "graham:$SCRATCH/my-remote-file" "salish:/data/$USER/"
-
-The quotes around ``"salish:/data/$USER/"`` are necessary to prevent your local shell from expanding the :envvar:`USER` environment variable.
-
 If you have trouble with :command:`scp` not making a connection,
 you can tell it to output debugging messages its progress by using the ``-v`` option;
 e.g.
 
 .. code-block:: bash
 
-    $ scp -v my-local-file graham:
+    $ scp -v my-local-file salish:
 
 This is helpful in debugging connection, authentication, and configuration problems.
 If you need help interpreting the output of :command:`scp -v`,
@@ -680,13 +643,13 @@ Please see :command:`sftp --help`,
 ask on the `SalishSeaCast #general`_ Slack channel,
 or Google for more information about how to use :command:`sftp`.
 
-Here is a sample :command:`sftp` session to copy a file from your scratch space on ``graham`` to your current directory on your local computer:
+Here is a sample :command:`sftp` session to copy a file from your scratch space on ``salish`` to your current directory on your local computer:
 
 .. code-block:: text
 
-    $ sftp graham
-    Connected to graham.
-    sftp> cd /scratch/username/
+    $ sftp salish
+    Connected to salish.
+    sftp> cd /ocean/username/
     sftp> get my-remote-file
     get my-remote-file
     Fetching /home/username/my-remote-file to my-remote-file
@@ -699,7 +662,7 @@ e.g.
 
 .. code-block:: bash
 
-    $ sftp -v graham
+    $ sftp -v salish
 
 This is helpful in debugging connection, authentication, and configuration problems.
 If you need help interpreting the output of :command:`sftp -v`,
