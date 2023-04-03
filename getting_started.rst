@@ -32,7 +32,6 @@ Here's the Getting Started checklist:
 
 #. :ref:`GetYourEOASEmailAddressAndUserId`
 #. :ref:`GetSetUpOnGitHub`
-#. :ref:`GetAllianceAccount`
 #. :ref:`SetUpSecureRemoteAccess`
 #. :ref:`SetUpGit`
 #. :ref:`SetUpBash`
@@ -62,17 +61,6 @@ Doug will probably also invite you to at least one of the other project-specific
 
 .. _GitHub: https://github.com/
 .. _UBC-MOAD GitHub organization: https://github.com/UBC-MOAD
-
-
-.. _GetAllianceAccount:
-
-Get a Digital Research Alliance of Canada Account
-=================================================
-
-If you are going to be using the Digital Research Alliance of Canada
-(formerly Compute Canada) clusters,
-you will need to have an ``eoas.ubc.ca`` email address,
-and Susan's Alliance CCRI code before you can :ref:`CreateAllianceAccount`.
 
 
 .. _SetUpSecureRemoteAccess:
