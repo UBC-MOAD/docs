@@ -46,8 +46,8 @@ Our jobs generally do not require sufficient resources to qualify to run on the
 
 .. _CreateAllianceAccount:
 
-Create Digital Research Alliance of Canada & WestGrid Accounts
-==============================================================
+Create Digital Research Alliance of Canada Account
+==================================================
 
 `Digital Research Alliance of Canada`_ (the Alliance) is the national network of shared
 advanced research computing (ARC) and storage that we use for most of our ocean model calculations.
@@ -79,7 +79,8 @@ These are the setup steps that you need to do when you start using ``graham`` fo
    This will enable you to connect to ``graham`` by typing :command:`ssh graham` instead of
    having to type :command:`ssh your-user-id@graham.computecanada.ca`.
 
-   Create a :file:`$HOME/.ssh/config` file on your Waterhole machine containing the following
+   Create a :file:`$HOME/.ssh/config` file on your laptop or a Waterhole machine containing
+   the following
    (or append the following if :file:`$HOME/.ssh/config` already exists):
 
    .. code-block:: text
@@ -105,50 +106,24 @@ These are the setup steps that you need to do when you start using ``graham`` fo
    after you type your :command:`ssh` key passphrase into your laptop or Waterhole machine once,
    you should not have to type it again until you log off and log in again.
 
-#. Copy your :command:`ssh` public key into your :file:`$HOME/.ssh/authorized_keys` file on ``graham``
-   and set the permissions on that file so that only you can read, write, or delete it.
-   The :command:`ssh-copy-id` command makes that a lot easier than it sounds:
-
-   .. code-block:: bash
-
-       $ ssh-copy-id -i $HOME/.ssh/id_rsa graham
-
-   You should see output like
-   (except that ``/home/dlatorne/.ssh/id_rsa.pub`` in the 1st line should show your EOAS user id,
-   not Doug's):
+#. Add an entry for the data transfer nodes on ``graham`` to your :file:`$HOME/.ssh/config` file.
+   The data transfer nodes are optimized for file transfers to and from the cluster.
 
    .. code-block:: text
 
-      /usr/bin/ssh-copy-id: INFO: Source of key(s) to be installed: "/home/dlatorne/.ssh/id_rsa.pub"
-      The authenticity of host 'graham.computecanada.ca (199.241.166.2)' can't be established.
-      ECDSA key fingerprint is SHA256:mf1jJ3ndpXhpo0k38xVxjH8Kjtq3o1+ZtTVbeM0xeCk.
-      Are you sure you want to continue connecting (yes/no)?
+       Host graham-dtn
+         HostName  gra-dtn1.computecanada.ca
+         User  userid
+         ForwardAgent  no
 
-   Type ``yes`` to accept the fingerprint from ``graham``.
-   Then you should see output like
-   (again with your user id, not Doug's):
+   where ``userid`` is your Alliance user id.
 
-   .. code-block:: text
+#. Follow the Alliance docs to install your :command:`ssh` `public key into into the CCDB system`_
+   so that it will be available to give you access to all of the Alliance HPC clusters.
 
-     /usr/bin/ssh-copy-id: INFO: Source of key(s) to be installed: "/home/dlatorne/.ssh/id_rsa.pub"
-     /usr/bin/ssh-copy-id: INFO: attempting to log in with the new key(s), to filter out any that are already installed
-     /usr/bin/ssh-copy-id: INFO: 1 key(s) remain to be installed -- if you are prompted now it is to install the new keys
-     dlatorne@graham.computecanada.ca's password:
+   .. _public key into into the CCDB system: https://docs.alliancecan.ca/wiki/SSH_Keys#Using_CCDB
 
-   Type in your Alliance password.
-   The output should continue login messages from ``graham``,
-   concluding with:
-
-   .. code-block:: text
-
-       Number of key(s) added: 1
-
-       Now try logging into the machine, with:   "ssh graham"
-       and check to make sure that only the key(s) you wanted were added.
-
-   Finally,
-   as the output above suggests,
-   confirm that you can :command:`ssh` into ``graham`` with
+   Confirm that you can :command:`ssh` into ``graham`` with
 
    .. code-block:: bash
 
