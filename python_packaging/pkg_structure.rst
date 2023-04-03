@@ -64,7 +64,7 @@ References
 
        .. _conda environments: https://docs.conda.io/projects/conda/en/latest/
 
-    #. On HPC clusters we use install our packages using the `"user scheme" for installation`_ in combination with `"Editable" Installs`_,
+    #. On HPC clusters we install our packages using the `"user scheme" for installation`_ in combination with `"Editable" Installs`_,
        that is,
        :command:`python3 -m pip install --user -e`.
        That enables job scripts running on compute nodes to find our package command-line interfaces without having to include the step of activating the environments in which the packages are installed.
@@ -213,7 +213,7 @@ The :file:`pyproject.toml` file contains:
 It is documented at https://hatch.pypa.io/latest/config/metadata/.
 
 We use ``hatchling`` as our build backend,
-so the ``build-system`` section of our :file:`pyproject.toml` files always look like:
+so the ``build-system`` section of our :file:`pyproject.toml` files always looks like:
 
 .. code-block:: toml
 
@@ -314,7 +314,7 @@ Packages like `Reshapr`_ that use the `Click`_ package to define their CLI only 
 The ``tool.hatch.version`` section contains the path/file in which the package's version identifier
 is stored.
 This makes that file the "single source of truth" for the package's version,
-facilities management of the version identifier with the :command:`hatch version` command,
+facilitates management of the version identifier with the :command:`hatch version` command,
 and enables the use of ``importlib.metadata.version()`` to access the package's version in code.
 
 .. code-block:: toml
@@ -440,7 +440,7 @@ for :file:`.gitignore` files.
 
 The :file:`.pre-commit-config.yaml` file provides configuration for the `pre-commit`_ tool
 that is used to manage coding style and other aspects of repository QA in many of our packages.
-If it is used in a package you should be able to find notes about is use in the Coding Style
+If it is used in a package you should be able to find notes about its use in the Coding Style
 section of the package's development docs section;
 e.g. `NEMO-Cmd Coding Style`_.
 
@@ -727,7 +727,7 @@ The :file:`environment-test.yaml` file is the conda environment description file
 specifically for running the package's unit test suite,
 and the :command:`sphinx linkcheck` command.
 It is primarily used by GitHub Actions workflows that are run whenever commits are pushed to GitHub.
-Please see the ref:`PkgGitHubActionsWorkflows` section.
+Please see the :ref:`PkgGitHubActionsWorkflows` section.
 
 
 .. _RequirementsTxtFile:
