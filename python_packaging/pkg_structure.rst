@@ -115,25 +115,7 @@ In summary
 
 It typically contains 6 files and 5 sub-directories.
 
-The 6 files are:
-
-* :ref:`PyprojectTomlFile` that contains the build system requirements and build backend tools to use for creation of the package,
-  the package metadata,
-  the command-line interface scripts and entry points configuration
-  (if applicable),
-  and configuration for tools used for code QA and package management
-  (e.g. `coverage`_ and `hatch`_)
-
-  .. _coverage: https://coverage.readthedocs.io/en/latest/
-  .. _hatch: https://hatch.pypa.io/latest/
-
-* :ref:`PkgReadmeRstFile` that provides the long description of the package
-* :ref:`PkgLicenseFile` that contains the legal text of the Apache License, Version 2.0 license for the package
-* :ref:`PkgReadthedocsYamlFile` that provides configuration for building the docs to the https://readthedocs.org service
-* :ref:`PkgGitignoreFile` that provides the list of intentionally untracked files that Git should ignore
-* :ref:`PkgPreCommitConfigYamlFile` that provides configuration for the `pre-commit`_ tool that is used to manage coding style and other aspects of repository QA in many packages
-
-.. _pre-commit: https://pre-commit.com/
+The 6 files are described in the :ref:`PackageFiles` section below.
 
 The 5 sub-directories in all packages are:
 
@@ -170,6 +152,8 @@ Other examples of MOAD project and package names are:
 The top-level directory "project name" is generally the name of the project's Git repository.
 
 
+.. _PackageFiles:
+
 Package Files
 -------------
 
@@ -196,6 +180,8 @@ but are present in most packages:
 * :ref:`PkgReadthedocsYamlFile` that provides configuration for building the docs to the https://readthedocs.org service
 * :ref:`PkgGitignoreFile` that provides the list of intentionally untracked files that Git should ignore
 * :ref:`PkgPreCommitConfigYamlFile` that provides configuration for the `pre-commit`_ tool that is used to manage coding style and other aspects of repository QA
+
+.. _pre-commit: https://pre-commit.com/
 
 
 .. _PyprojectTomlFile:
