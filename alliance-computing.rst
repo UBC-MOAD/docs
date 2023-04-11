@@ -120,6 +120,21 @@ These are the setup steps that you need to do when you start using ``graham`` fo
 
 #. Follow the Alliance docs to install your :command:`ssh` `public key into into the CCDB system`_
    so that it will be available to give you access to all of the Alliance HPC clusters.
+   On Mac or Linux your public key is stored in ``$HOME/.ssh/id_ed25519.pub`` and you can display
+   it so that you can copy/paste it to CCDB with:
+
+   .. code-block:: bash
+
+        cat $HOME/.ssh/id_ed25519.pub
+
+   On Windows you can do that with:
+
+   .. code-block:: powershell
+
+        type %USERPROFILE%/.ssh/id_ed25519.pub
+
+    Alternatively,
+    you can open your :file:`id_ed25519.pub` in VS Code and copy it from there to the CCDB page.
 
    .. _public key into into the CCDB system: https://docs.alliancecan.ca/wiki/SSH_Keys#Using_CCDB
 
