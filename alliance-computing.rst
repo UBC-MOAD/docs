@@ -259,4 +259,4 @@ automatically loaded upon login.
 #. Follow the docs for the project you are working on to build ``NEMO-3.6``:
 
    * For the MEOPAR SalishSeaCast project,
-     follow the :ref:`salishseadocs:CompileNEMO-3.6-computecanada` docs
+     follow the :ref:`salishseadocs:CompileNEMO-3.6-graham` docs
