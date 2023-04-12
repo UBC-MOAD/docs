@@ -26,6 +26,7 @@ This is documentation by and for members of the MOAD (Mesoscale Ocean and Atmosp
    bash_config
    conda_pkg_env_mgr
    analysis_repo
+   python
    jupyter
    github_notebooks_readme
    vscode
