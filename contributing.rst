@@ -336,9 +336,9 @@ The output looks something like:
     (     sphinx_docs: line  178) ok        https://rhodesmill.org/brandon/2012/one-sentence-per-line/
     (    contributing: line   13) ok        https://readthedocs.org/projects/ubc-moad-docs/badge/?version=latest
     (oceanparcels/index: line   20) ok        https://salishseacast.slack.com/?redir=%2Farchives%2FC02ETTPHFPX
-    (alliance-computing: line  271) ok        https://salishsea-meopar-docs.readthedocs.io/en/latest/code-notes/salishsea-nemo/quickstart/computecanada.html#compilenemo-3-6-computecanada
-    (alliance-computing: line  260) ok        https://salishsea-meopar-docs.readthedocs.io/en/latest/code-notes/salishsea-nemo/quickstart/computecanada.html#createworkspaceandclonerepositories
-    (alliance-computing: line  260) ok        https://salishsea-meopar-docs.readthedocs.io/en/latest/code-notes/salishsea-nemo/quickstart/computecanada.html#installcommandprocessorpackages
+    (alliance-computing: line  271) ok        https://salishsea-meopar-docs.readthedocs.io/en/latest/code-notes/salishsea-nemo/quickstart/graham.html#compilenemo-3-6-graham
+    (alliance-computing: line  260) ok        https://salishsea-meopar-docs.readthedocs.io/en/latest/code-notes/salishsea-nemo/quickstart/graham.html#createworkspaceandclonerepositories
+    (alliance-computing: line  260) ok        https://salishsea-meopar-docs.readthedocs.io/en/latest/code-notes/salishsea-nemo/quickstart/graham.html#installcommandprocessorpackages
     (git_version_control: line  151) ok        https://salishseacast.slack.com/?redir=%2Farchives%2FCFR6VU70S
     (          xios-2: line   24) ok        https://salishseacmd.readthedocs.io/en/latest/index.html#salishseacmdprocessor
     (python_packaging/pkg_structure: line  191) ok        https://setuptools.pypa.io/en/latest/userguide/declarative_config.html

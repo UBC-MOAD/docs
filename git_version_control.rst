@@ -51,7 +51,7 @@ Installing Git
 `Git`_ is a command-line tool that you need to have installed on your computer.
 It is already installed on the Waterhole workstations,
 and ``salish`` at UBC.
-It is also installed on ``graham`` and the other ComputeCanada clusters.
+It is also installed on ``graham`` and the other Alliance clusters.
 
 On your laptop,
 the installation method depends on your operating system.
