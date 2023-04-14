@@ -17,16 +17,20 @@ NEMO-3.6 uses XIOS-2.
 
 .. _XIOS: http://forge.ipsl.jussieu.fr/ioserver/wiki
 
-XIOS operates as a server process that multiple NEMO calculation processes communicate with to write results to netCDF files.
+XIOS operates as a server process that multiple NEMO calculation processes communicate with
+to write results to netCDF files.
 XIOS buffers the output from NEMO in memory while the much slower process of writing to disk happens.
-That means that the NEMO processes can do calculations almost continuously without having to periodically pause to write results to disk.
+That means that the NEMO processes can do calculations almost continuously without having to
+periodically pause to write results to disk.
 
 In many cases,
-especially on the ComputeCanada HPC clusters with large memory per node,
-it is possible to configure NEMO runs with tens to a hundred or more processors to use a single XIOS process.
+especially on the Alliance HPC clusters with large memory per node,
+it is possible to configure NEMO runs with tens to a hundred or more processors to use a
+single XIOS process.
 The XIOS process must be started in the same :command:`mpirun` command as NEMO.
 Fortunately,
-the :ref:`nemocmd:NEMO-CommandProcessor` and :ref:`salishseacmd:SalishSeaCmdProcessor` tools take care of doing that for you.
+the :ref:`nemocmd:NEMO-CommandProcessor` and :ref:`salishseacmd:SalishSeaCmdProcessor` tools
+take care of doing that for you.
 
 
 .. _GettingXIOS-2:
@@ -34,38 +38,30 @@ the :ref:`nemocmd:NEMO-CommandProcessor` and :ref:`salishseacmd:SalishSeaCmdProc
 Getting XIOS-2
 ==============
 
-The MOAD group maintains our own Mercurial repositories on Bitbucket of the `XIOS-2 code`_ and `build configuration files`_ for building XIOS-2 on the compute platforms that we use.
-Our XIOS-2 code repo is accessible only by members of the MOAD group so as to respect the sign-up requirement of the upstream `XIOS`_ repository.
-The architecture file repo is public so that other researchers can make use of the build system options that we have figured out for various system.
+The MOAD group maintains our own Mercurial repositories on GitHub of the `XIOS-2 code`_
+and `build configuration files`_ for building XIOS-2 on the compute platforms that we use.
+Our XIOS-2 code repo is accessible only by members of the MOAD group so as to respect the
+sign-up requirement of the upstream `XIOS`_ repository.
+The architecture file repo is public so that other researchers can make use of the
+build system options that we have figured out for various system.
 
 .. _XIOS-2 code: https://github.com/SalishSeaCast/XIOS-2
 .. _build configuration files: https://github.com/SalishSeaCast/XIOS-ARCH
 
-To get the XIOS-2 code and build configuration files repos you need to clone them into you research project directory
-(typically one of :file:`MEOPAR/`,
-:file:`GEOTRACES/`,
-or :file:`CANYONS`).
-Here are some examples of commands to do that on various platforms that we use.
-*You should substitute your own research project directory name as appropriate.*
+To get the XIOS-2 code and build configuration files repos you need to clone them into your
+research project directory,
+typically one of :file:`MEOPAR/`.
+Here are the commands to do that on the 2 platforms that we use most.
 
 
-``beluga``, ``cedar``, or ``graham``
-------------------------------------
+``graham``
+----------
 
 .. code-block:: bash
 
-    cd $PROJECT/$USER/GEOTRACES
+    cd $PROJECT/$USER/MEOPAR/
     git clone git@github.com:SalishSeaCast/XIOS-2.git
     git clone git@github.com:SalishSeaCast/XIOS-ARCH.git
-
-
-``orcinus``
------------
-
-.. code-block:: bash
-
-    cd $HOME/MEOPAR
-    git clone git@github.com:SalishSeaCast/XIOS-2.git
 
 
 ``salish``
@@ -73,7 +69,7 @@ Here are some examples of commands to do that on various platforms that we use.
 
 .. code-block:: bash
 
-    cd /data/$USER/CANYONS
+    cd /data/$USER/MEOPAR/
     git clone git@github.com:SalishSeaCast/XIOS-2.git
     git clone git@github.com:SalishSeaCast/XIOS-ARCH.git
 
@@ -83,354 +79,27 @@ Here are some examples of commands to do that on various platforms that we use.
 Building XIOS-2
 ===============
 
-First symlink the XIOS-2 build configuration files for the machine that you are working on from the :file:`XIOS-ARCH` repo clone into the :file:`XIOS-2/arch/` directory,
+First symlink the XIOS-2 build configuration files for the machine that you are working on
+from the :file:`XIOS-ARCH` repo clone into the :file:`XIOS-2/arch/` directory,
 then compile and link XIOS-2.
-See the section below for the project and machine combination that applies to you.
-
-
-.. _BuildXIOS-CANYONS-beluga:
-
-``CANYONS`` on ``beluga``
--------------------------------
-
-.. code-block:: bash
-
-    cd $PROJECT/$USER/CANYONS/XIOS-2/arch
-    ln -sf $PROJECT/$USER/CANYONS/XIOS-ARCH/COMPUTECANADA/arch-X64_BELUGA.env
-    ln -sf $PROJECT/$USER/CANYONS/XIOS-ARCH/COMPUTECANADA/arch-X64_BELUGA.fcm
-    ln -sf $PROJECT/$USER/CANYONS/XIOS-ARCH/COMPUTECANADA/arch-X64_BELUGA.path
-    cd $PROJECT/$USER/CANYONS/XIOS-2
-    ./make_xios --arch X64_BELUGA --job 8
-
-To build NEMO you will need an environment variable named :envvar:`XIOS_HOME` whose value is the absolute path to you :file:`XIOS-2` directory.
-For the ``CANYONS`` project it is:
-
-.. code-block:: bash
-
-    XIOS_HOME=$PROJECT/$USER/CANYONS/XIOS-2
-
-You can add the line:
-
-.. code-block:: bash
-
-    export XIOS_HOME=$PROJECT/$USER/CANYONS/XIOS-2
-
-to your :file:`$HOME/.bash_profile` file if you want the :envvar:`XIOS_HOME` environment variable to be set automatically whenever you :command:`ssh` in.
-
-If you need to do a clean build of XIOS-2,
-you can use:
-
-.. code-block:: bash
-
-    cd $PROJECT/$USER/CANYONS/XIOS-2
-    ./tools/FCM/bin/fcm build --clean
-    ./make_xios --arch X64_BELUGA --job 8
-
-to clear away all artifacts of the previous build and do a fresh one.
-
-
-.. _BuildXIOS-GEOTRACES-beluga:
-
-``GEOTRACES`` on ``beluga``
----------------------------------
-
-.. code-block:: bash
-
-    cd $PROJECT/$USER/GEOTRACES/XIOS-2/arch
-    ln -sf $PROJECT/$USER/GEOTRACES/XIOS-ARCH/COMPUTECANADA/arch-X64_BELUGA.env
-    ln -sf $PROJECT/$USER/GEOTRACES/XIOS-ARCH/COMPUTECANADA/arch-X64_BELUGA.fcm
-    ln -sf $PROJECT/$USER/GEOTRACES/XIOS-ARCH/COMPUTECANADA/arch-X64_BELUGA.path
-    cd $PROJECT/$USER/GEOTRACES/XIOS-2
-    ./make_xios --arch X64_BELUGA --job 8
-
-To build NEMO you will need an environment variable named :envvar:`XIOS_HOME` whose value is the absolute path to you :file:`XIOS-2` directory.
-For the ``GEOTRACES`` project it is:
-
-.. code-block:: bash
-
-    XIOS_HOME=$PROJECT/$USER/GEOTRACES/XIOS-2
-
-You can add the line:
-
-.. code-block:: bash
-
-    export XIOS_HOME=$PROJECT/$USER/GEOTRACES/XIOS-2
-
-to your :file:`$HOME/.bash_profile` file if you want the :envvar:`XIOS_HOME` environment variable to be set automatically whenever you :command:`ssh` in.
-
-If you need to do a clean build of XIOS-2,
-you can use:
-
-.. code-block:: bash
-
-    cd $PROJECT/$USER/GEOTRACES/XIOS-2
-    ./tools/FCM/bin/fcm build --clean
-    ./make_xios --arch X64_BELUGA --job 8
-
-to clear away all artifacts of the previous build and do a fresh one.
-
-
-.. _BuildXIOS-MEOPAR-beluga:
-
-``MEOPAR`` on ``beluga``
-------------------------------
-
-.. code-block:: bash
-
-    cd $PROJECT/$USER/MEOPAR/XIOS-2/arch
-    ln -sf $PROJECT/$USER/MEOPAR/XIOS-ARCH/COMPUTECANADA/arch-X64_BELUGA.env
-    ln -sf $PROJECT/$USER/MEOPAR/XIOS-ARCH/COMPUTECANADA/arch-X64_BELUGA.fcm
-    ln -sf $PROJECT/$USER/MEOPAR/XIOS-ARCH/COMPUTECANADA/arch-X64_BELUGA.path
-    cd $PROJECT/$USER/MEOPAR/XIOS-2
-    ./make_xios --arch X64_BELUGA --job 8
-
-To build NEMO you will need an environment variable named :envvar:`XIOS_HOME` whose value is the absolute path to you :file:`XIOS-2` directory.
-For the ``MEOPAR`` project it is:
-
-.. code-block:: bash
-
-    XIOS_HOME=$PROJECT/$USER/MEOPAR/XIOS-2
-
-You can add the line:
-
-.. code-block:: bash
-
-    export XIOS_HOME=$PROJECT/$USER/MEOPAR/XIOS-2
-
-to your :file:`$HOME/.bash_profile` file if you want the :envvar:`XIOS_HOME` environment variable to be set automatically whenever you :command:`ssh` in.
-
-If you need to do a clean build of XIOS-2,
-you can use:
-
-.. code-block:: bash
-
-    cd $PROJECT/$USER/MEOPAR/XIOS-2
-    ./tools/FCM/bin/fcm build --clean
-    ./make_xios --arch X64_BELUGA --job 8
-
-to clear away all artifacts of the previous build and do a fresh one.
-
-
-.. _BuildXIOS-CANYONS-cedar:
-
-``CANYONS`` on ``cedar``
-------------------------------
-
-.. code-block:: bash
-
-    cd $PROJECT/$USER/CANYONS/XIOS-2/arch
-    ln -sf $PROJECT/$USER/CANYONS/XIOS-ARCH/COMPUTECANADA/arch-X64_CEDAR.env
-    ln -sf $PROJECT/$USER/CANYONS/XIOS-ARCH/COMPUTECANADA/arch-X64_CEDAR.fcm
-    ln -sf $PROJECT/$USER/CANYONS/XIOS-ARCH/COMPUTECANADA/arch-X64_CEDAR.path
-    cd $PROJECT/$USER/CANYONS/XIOS-2
-    ./make_xios --arch X64_CEDAR --job 8
-
-To build NEMO you will need an environment variable named :envvar:`XIOS_HOME` whose value is the absolute path to you :file:`XIOS-2` directory.
-For the ``CANYONS`` project it is:
-
-.. code-block:: bash
-
-    XIOS_HOME=$PROJECT/$USER/CANYONS/XIOS-2
-
-You can add the line:
-
-.. code-block:: bash
-
-    export XIOS_HOME=$PROJECT/$USER/CANYONS/XIOS-2
-
-to your :file:`$HOME/.bash_profile` file if you want the :envvar:`XIOS_HOME` environment variable to be set automatically whenever you :command:`ssh` in.
-
-If you need to do a clean build of XIOS-2,
-you can use:
-
-.. code-block:: bash
-
-    cd $PROJECT/$USER/CANYONS/XIOS-2
-    ./tools/FCM/bin/fcm build --clean
-    ./make_xios --arch X64_CEDAR --job 8
-
-to clear away all artifacts of the previous build and do a fresh one.
-
-
-.. _BuildXIOS-GEOTRACES-cedar:
-
-``GEOTRACES`` on ``cedar``
---------------------------------
-
-.. code-block:: bash
-
-    cd $PROJECT/$USER/GEOTRACES/XIOS-2/arch
-    ln -sf $PROJECT/$USER/GEOTRACES/XIOS-ARCH/COMPUTECANADA/arch-X64_CEDAR.env
-    ln -sf $PROJECT/$USER/GEOTRACES/XIOS-ARCH/COMPUTECANADA/arch-X64_CEDAR.fcm
-    ln -sf $PROJECT/$USER/GEOTRACES/XIOS-ARCH/COMPUTECANADA/arch-X64_CEDAR.path
-    cd $PROJECT/$USER/GEOTRACES/XIOS-2
-    ./make_xios --arch X64_CEDAR --job 8
-
-To build NEMO you will need an environment variable named :envvar:`XIOS_HOME` whose value is the absolute path to you :file:`XIOS-2` directory.
-For the ``GEOTRACES`` project it is:
-
-.. code-block:: bash
-
-    XIOS_HOME=$PROJECT/$USER/GEOTRACES/XIOS-2
-
-You can add the line:
-
-.. code-block:: bash
-
-    export XIOS_HOME=$PROJECT/$USER/GEOTRACES/XIOS-2
-
-to your :file:`$HOME/.bash_profile` file if you want the :envvar:`XIOS_HOME` environment variable to be set automatically whenever you :command:`ssh` in.
-
-If you need to do a clean build of XIOS-2,
-you can use:
-
-.. code-block:: bash
-
-    cd $PROJECT/$USER/GEOTRACES/XIOS-2
-    ./tools/FCM/bin/fcm build --clean
-    ./make_xios --arch X64_CEDAR --job 8
-
-to clear away all artifacts of the previous build and do a fresh one.
-
-
-.. _BuildXIOS-MEOPAR-cedar:
-
-``MEOPAR`` on ``cedar``
------------------------------
-
-.. code-block:: bash
-
-    cd $PROJECT/$USER/MEOPAR/XIOS-2/arch
-    ln -sf $PROJECT/$USER/MEOPAR/XIOS-ARCH/COMPUTECANADA/arch-X64_CEDAR.env
-    ln -sf $PROJECT/$USER/MEOPAR/XIOS-ARCH/COMPUTECANADA/arch-X64_CEDAR.fcm
-    ln -sf $PROJECT/$USER/MEOPAR/XIOS-ARCH/COMPUTECANADA/arch-X64_CEDAR.path
-    cd $PROJECT/$USER/MEOPAR/XIOS-2
-    ./make_xios --arch X64_CEDAR --job 8
-
-To build NEMO you will need an environment variable named :envvar:`XIOS_HOME` whose value is the absolute path to you :file:`XIOS-2` directory.
-For the ``MEOPAR`` project it is:
-
-.. code-block:: bash
-
-    XIOS_HOME=$PROJECT/$USER/MEOPAR/XIOS-2
-
-You can add the line:
-
-.. code-block:: bash
-
-    export XIOS_HOME=$PROJECT/$USER/MEOPAR/XIOS-2
-
-to your :file:`$HOME/.bash_profile` file if you want the :envvar:`XIOS_HOME` environment variable to be set automatically whenever you :command:`ssh` in.
-
-If you need to do a clean build of XIOS-2,
-you can use:
-
-.. code-block:: bash
-
-    cd $PROJECT/$USER/MEOPAR/XIOS-2
-    ./tools/FCM/bin/fcm build --clean
-    ./make_xios --arch X64_CEDAR --job 8
-
-to clear away all artifacts of the previous build and do a fresh one.
-
-
-.. _BuildXIOS-CANYONS-graham:
-
-``CANYONS`` on ``graham``
--------------------------------
-
-.. code-block:: bash
-
-    cd $PROJECT/$USER/CANYONS/XIOS-2/arch
-    ln -sf $PROJECT/$USER/CANYONS/XIOS-ARCH/COMPUTECANADA/arch-X64_GRAHAM.env
-    ln -sf $PROJECT/$USER/CANYONS/XIOS-ARCH/COMPUTECANADA/arch-X64_GRAHAM.fcm
-    ln -sf $PROJECT/$USER/CANYONS/XIOS-ARCH/COMPUTECANADA/arch-X64_GRAHAM.path
-    cd $PROJECT/$USER/CANYONS/XIOS-2
-    ./make_xios --arch X64_GRAHAM --job 8
-
-To build NEMO you will need an environment variable named :envvar:`XIOS_HOME` whose value is the absolute path to you :file:`XIOS-2` directory.
-For the ``CANYONS`` project it is:
-
-.. code-block:: bash
-
-    XIOS_HOME=$PROJECT/$USER/CANYONS/XIOS-2
-
-You can add the line:
-
-.. code-block:: bash
-
-    export XIOS_HOME=$PROJECT/$USER/CANYONS/XIOS-2
-
-to your :file:`$HOME/.bash_profile` file if you want the :envvar:`XIOS_HOME` environment variable to be set automatically whenever you :command:`ssh` in.
-
-If you need to do a clean build of XIOS-2,
-you can use:
-
-.. code-block:: bash
-
-    cd $PROJECT/$USER/CANYONS/XIOS-2
-    ./tools/FCM/bin/fcm build --clean
-    ./make_xios --arch X64_GRAHAM --job 8
-
-to clear away all artifacts of the previous build and do a fresh one.
-
-
-.. _BuildXIOS-GEOTRACES-graham:
-
-``GEOTRACES`` on ``graham``
----------------------------------
-
-.. code-block:: bash
-
-    cd $PROJECT/$USER/GEOTRACES/XIOS-2/arch
-    ln -sf $PROJECT/$USER/GEOTRACES/XIOS-ARCH/COMPUTECANADA/arch-X64_GRAHAM.env
-    ln -sf $PROJECT/$USER/GEOTRACES/XIOS-ARCH/COMPUTECANADA/arch-X64_GRAHAM.fcm
-    ln -sf $PROJECT/$USER/GEOTRACES/XIOS-ARCH/COMPUTECANADA/arch-X64_GRAHAM.path
-    cd $PROJECT/$USER/GEOTRACES/XIOS-2
-    ./make_xios --arch X64_GRAHAM --job 8
-
-To build NEMO you will need an environment variable named :envvar:`XIOS_HOME` whose value is the absolute path to you :file:`XIOS-2` directory.
-For the ``GEOTRACES`` project it is:
-
-.. code-block:: bash
-
-    XIOS_HOME=$PROJECT/$USER/GEOTRACES/XIOS-2
-
-You can add the line:
-
-.. code-block:: bash
-
-    export XIOS_HOME=$PROJECT/$USER/GEOTRACES/XIOS-2
-
-to your :file:`$HOME/.bash_profile` file if you want the :envvar:`XIOS_HOME` environment variable to be set automatically whenever you :command:`ssh` in.
-
-If you need to do a clean build of XIOS-2,
-you can use:
-
-.. code-block:: bash
-
-    cd $PROJECT/$USER/GEOTRACES/XIOS-2
-    ./tools/FCM/bin/fcm build --clean
-    ./make_xios --arch X64_GRAHAM --job 8
-
-to clear away all artifacts of the previous build and do a fresh one.
 
 
 .. _BuildXIOS-MEOPAR-graham:
 
 ``MEOPAR`` on ``graham``
-------------------------------
+------------------------
 
 .. code-block:: bash
 
     cd $PROJECT/$USER/MEOPAR/XIOS-2/arch
-    ln -sf $PROJECT/$USER/MEOPAR/XIOS-ARCH/COMPUTECANADA/arch-X64_GRAHAM.env
-    ln -sf $PROJECT/$USER/MEOPAR/XIOS-ARCH/COMPUTECANADA/arch-X64_GRAHAM.fcm
-    ln -sf $PROJECT/$USER/MEOPAR/XIOS-ARCH/COMPUTECANADA/arch-X64_GRAHAM.path
+    ln -sf $PROJECT/$USER/MEOPAR/XIOS-ARCH/ALLIANCE/arch-X64_GRAHAM.env
+    ln -sf $PROJECT/$USER/MEOPAR/XIOS-ARCH/ALLIANCE/arch-X64_GRAHAM.fcm
+    ln -sf $PROJECT/$USER/MEOPAR/XIOS-ARCH/ALLIANCE/arch-X64_GRAHAM.path
     cd $PROJECT/$USER/MEOPAR/XIOS-2
     ./make_xios --arch X64_GRAHAM --job 8
 
-To build NEMO you will need an environment variable named :envvar:`XIOS_HOME` whose value is the absolute path to you :file:`XIOS-2` directory.
+To build NEMO you will need an environment variable named :envvar:`XIOS_HOME`
+whose value is the absolute path to you :file:`XIOS-2` directory.
 For the ``MEOPAR`` project it is:
 
 .. code-block:: bash
@@ -443,7 +112,8 @@ You can add the line:
 
     export XIOS_HOME=$PROJECT/$USER/MEOPAR/XIOS-2
 
-to your :file:`$HOME/.bash_profile` file if you want the :envvar:`XIOS_HOME` environment variable to be set automatically whenever you :command:`ssh` in.
+to your :file:`$HOME/.bash_profile` file if you want the :envvar:`XIOS_HOME` environment variable
+to be set automatically whenever you :command:`ssh` in.
 
 If you need to do a clean build of XIOS-2,
 you can use:
@@ -453,209 +123,6 @@ you can use:
     cd $PROJECT/$USER/MEOPAR/XIOS-2
     ./tools/FCM/bin/fcm build --clean
     ./make_xios --arch X64_GRAHAM --job 8
-
-to clear away all artifacts of the previous build and do a fresh one.
-
-
-.. _BuildXIOS-CANYONS-orcinus:
-
-``CANYONS`` on ``orcinus``
---------------------------------
-
-.. code-block:: bash
-
-    cd $PROJECT/$USER/CANYONS/XIOS-2/arch
-    ln -sf $PROJECT/$USER/CANYONS/XIOS-ARCH/WESTGRID/arch-X64_ORCINUS.env
-    ln -sf $PROJECT/$USER/CANYONS/XIOS-ARCH/WESTGRID/arch-X64_ORCINUS.fcm
-    ln -sf $PROJECT/$USER/CANYONS/XIOS-ARCH/WESTGRID/arch-X64_ORCINUS.path
-    cd $PROJECT/$USER/CANYONS/XIOS-2
-    ./make_xios --arch X64_ORCINUS --job 8
-
-To build NEMO you will need an environment variable named :envvar:`XIOS_HOME` whose value is the absolute path to you :file:`XIOS-2` directory.
-For the ``CANYONS`` project it is:
-
-.. code-block:: bash
-
-    XIOS_HOME=$PROJECT/$USER/CANYONS/XIOS-2
-
-You can add the line:
-
-.. code-block:: bash
-
-    export XIOS_HOME=$PROJECT/$USER/CANYONS/XIOS-2
-
-to your :file:`$HOME/.bash_profile` file if you want the :envvar:`XIOS_HOME` environment variable to be set automatically whenever you :command:`ssh` in.
-
-If you need to do a clean build of XIOS-2,
-you can use:
-
-.. code-block:: bash
-
-    cd $PROJECT/$USER/CANYONS/XIOS-2
-    ./tools/FCM/bin/fcm build --clean
-    ./make_xios --arch X64_ORCINUS --job 8
-
-to clear away all artifacts of the previous build and do a fresh one.
-
-
-.. _BuildXIOS-GEOTRACES-orcinus:
-
-``GEOTRACES`` on ``orcinus``
-----------------------------------
-
-.. code-block:: bash
-
-    cd $PROJECT/$USER/GEOTRACES/XIOS-2/arch
-    ln -sf $PROJECT/$USER/GEOTRACES/XIOS-ARCH/WESTGRID/arch-X64_ORCINUS.env
-    ln -sf $PROJECT/$USER/GEOTRACES/XIOS-ARCH/WESTGRID/arch-X64_ORCINUS.fcm
-    ln -sf $PROJECT/$USER/GEOTRACES/XIOS-ARCH/WESTGRID/arch-X64_ORCINUS.path
-    cd $PROJECT/$USER/GEOTRACES/XIOS-2
-    ./make_xios --arch X64_ORCINUS --job 8
-
-To build NEMO you will need an environment variable named :envvar:`XIOS_HOME` whose value is the absolute path to you :file:`XIOS-2` directory.
-For the ``GEOTRACES`` project it is:
-
-.. code-block:: bash
-
-    XIOS_HOME=$PROJECT/$USER/GEOTRACES/XIOS-2
-
-You can add the line:
-
-.. code-block:: bash
-
-    export XIOS_HOME=$PROJECT/$USER/GEOTRACES/XIOS-2
-
-to your :file:`$HOME/.bash_profile` file if you want the :envvar:`XIOS_HOME` environment variable to be set automatically whenever you :command:`ssh` in.
-
-If you need to do a clean build of XIOS-2,
-you can use:
-
-.. code-block:: bash
-
-    cd $PROJECT/$USER/GEOTRACES/XIOS-2
-    ./tools/FCM/bin/fcm build --clean
-    ./make_xios --arch X64_ORCINUS --job 8
-
-to clear away all artifacts of the previous build and do a fresh one.
-
-
-.. _BuildXIOS-MEOPAR-orcinus:
-
-``MEOPAR`` on ``orcinus``
--------------------------------
-
-.. code-block:: bash
-
-    cd $PROJECT/$USER/MEOPAR/XIOS-2/arch
-    ln -sf $PROJECT/$USER/MEOPAR/XIOS-ARCH/WESTGRID/arch-X64_ORCINUS.env
-    ln -sf $PROJECT/$USER/MEOPAR/XIOS-ARCH/WESTGRID/arch-X64_ORCINUS.fcm
-    ln -sf $PROJECT/$USER/MEOPAR/XIOS-ARCH/WESTGRID/arch-X64_ORCINUS.path
-    cd $PROJECT/$USER/MEOPAR/XIOS-2
-    ./make_xios --arch X64_ORCINUS --job 8
-
-To build NEMO you will need an environment variable named :envvar:`XIOS_HOME` whose value is the absolute path to you :file:`XIOS-2` directory.
-For the ``MEOPAR`` project it is:
-
-.. code-block:: bash
-
-    XIOS_HOME=$PROJECT/$USER/MEOPAR/XIOS-2
-
-You can add the line:
-
-.. code-block:: bash
-
-    export XIOS_HOME=$PROJECT/$USER/MEOPAR/XIOS-2
-
-to your :file:`$HOME/.bash_profile` file if you want the :envvar:`XIOS_HOME` environment variable to be set automatically whenever you :command:`ssh` in.
-
-If you need to do a clean build of XIOS-2,
-you can use:
-
-.. code-block:: bash
-
-    cd $PROJECT/$USER/MEOPAR/XIOS-2
-    ./tools/FCM/bin/fcm build --clean
-    ./make_xios --arch X64_ORCINUS --job 8
-
-to clear away all artifacts of the previous build and do a fresh one.
-
-
-.. _BuildXIOS-CANYONS-salish:
-
-``CANYONS`` on ``salish``
--------------------------------
-
-.. code-block:: bash
-
-    cd $PROJECT/$USER/CANYONS/XIOS-2/arch
-    ln -sf $PROJECT/$USER/CANYONS/XIOS-ARCH/UBC-EOAS/arch-GCC_SALISH.fcm
-    ln -sf $PROJECT/$USER/CANYONS/XIOS-ARCH/UBC-EOAS/arch-GCC_SALISH.path
-    cd $PROJECT/$USER/CANYONS/XIOS-2
-    ./make_xios --arch GCC_SALISH --netcdf_lib netcdf4_seq --job 8
-
-To build NEMO you will need an environment variable named :envvar:`XIOS_HOME` whose value is the absolute path to you :file:`XIOS-2` directory.
-For the ``CANYONS`` project it is:
-
-.. code-block:: bash
-
-    XIOS_HOME=$PROJECT/$USER/CANYONS/XIOS-2
-
-You can add the line:
-
-.. code-block:: bash
-
-    export XIOS_HOME=$PROJECT/$USER/CANYONS/XIOS-2
-
-to your :file:`$HOME/.bash_profile` file if you want the :envvar:`XIOS_HOME` environment variable to be set automatically whenever you :command:`ssh` in.
-
-If you need to do a clean build of XIOS-2,
-you can use:
-
-.. code-block:: bash
-
-    cd $PROJECT/$USER/CANYONS/XIOS-2
-    ./tools/FCM/bin/fcm build --clean
-    ./make_xios --arch GCC_SALISH --netcdf_lib netcdf4_seq --job 8
-
-to clear away all artifacts of the previous build and do a fresh one.
-
-
-.. _BuildXIOS-GEOTRACES-salish:
-
-``GEOTRACES`` on ``salish``
----------------------------------
-
-.. code-block:: bash
-
-    cd $PROJECT/$USER/GEOTRACES/XIOS-2/arch
-    ln -sf $PROJECT/$USER/GEOTRACES/XIOS-ARCH/UBC-EOAS/arch-GCC_SALISH.fcm
-    ln -sf $PROJECT/$USER/GEOTRACES/XIOS-ARCH/UBC-EOAS/arch-GCC_SALISH.path
-    cd $PROJECT/$USER/GEOTRACES/XIOS-2
-    ./make_xios --arch GCC_SALISH --netcdf_lib netcdf4_seq --job 8
-
-To build NEMO you will need an environment variable named :envvar:`XIOS_HOME` whose value is the absolute path to you :file:`XIOS-2` directory.
-For the ``GEOTRACES`` project it is:
-
-.. code-block:: bash
-
-    XIOS_HOME=$PROJECT/$USER/GEOTRACES/XIOS-2
-
-You can add the line:
-
-.. code-block:: bash
-
-    export XIOS_HOME=$PROJECT/$USER/GEOTRACES/XIOS-2
-
-to your :file:`$HOME/.bash_profile` file if you want the :envvar:`XIOS_HOME` environment variable to be set automatically whenever you :command:`ssh` in.
-
-If you need to do a clean build of XIOS-2,
-you can use:
-
-.. code-block:: bash
-
-    cd $PROJECT/$USER/GEOTRACES/XIOS-2
-    ./tools/FCM/bin/fcm build --clean
-    ./make_xios --arch GCC_SALISH --netcdf_lib netcdf4_seq --job 8
 
 to clear away all artifacts of the previous build and do a fresh one.
 
@@ -663,7 +130,7 @@ to clear away all artifacts of the previous build and do a fresh one.
 .. _BuildXIOS-MEOPAR-salish:
 
 ``MEOPAR`` on ``salish``
-------------------------------
+------------------------
 
 .. code-block:: bash
 
@@ -673,7 +140,8 @@ to clear away all artifacts of the previous build and do a fresh one.
     cd $PROJECT/$USER/MEOPAR/XIOS-2
     ./make_xios --arch GCC_SALISH --netcdf_lib netcdf4_seq --job 8
 
-To build NEMO you will need an environment variable named :envvar:`XIOS_HOME` whose value is the absolute path to you :file:`XIOS-2` directory.
+To build NEMO you will need an environment variable named :envvar:`XIOS_HOME`
+whose value is the absolute path to you :file:`XIOS-2` directory.
 For the ``MEOPAR`` project it is:
 
 .. code-block:: bash
@@ -686,7 +154,8 @@ You can add the line:
 
     export XIOS_HOME=$PROJECT/$USER/MEOPAR/XIOS-2
 
-to your :file:`$HOME/.bash_profile` file if you want the :envvar:`XIOS_HOME` environment variable to be set automatically whenever you :command:`ssh` in.
+to your :file:`$HOME/.bash_profile` file if you want the :envvar:`XIOS_HOME` environment variable
+to be set automatically whenever you :command:`ssh` in.
 
 If you need to do a clean build of XIOS-2,
 you can use:
@@ -716,20 +185,27 @@ four configuration files written in `XML`_ are required:
   also contain metadata attributes such as long name,
   standard name,
   and units.
-  Please see the :ref:`field_def.xmlFile` section below for more information about the structure and contents of :file:`field_def.xml` files.
+  Please see the :ref:`field_def.xmlFile` section below for more information about the
+  structure and contents of :file:`field_def.xml` files.
 
-* :file:`domain_def.xml` defines "zoomed" sub-domains of the model domain and the grids on which they are defined.
+* :file:`domain_def.xml` defines "zoomed" sub-domains of the model domain and the
+  grids on which they are defined.
   The "zooms" are defined on the i-j (x-y) directions,
   regardless of the depth of the sub-domain.
-  Please see the :ref:`domain_def.xmlFile` section below for more information about the structure and contents of :file:`domain_def.xml` files.
+  Please see the :ref:`domain_def.xmlFile` section below for more information about the
+  structure and contents of :file:`domain_def.xml` files.
 
 * :file:`iodef.xml` defines the vertical extent of output grids in the ``axis`` elements,
   and the output grids.
-  It also contains a separate ``context`` element for ``xios`` in which a few settings that control XIOS-2 are declared.
+  It also contains a separate ``context`` element for ``xios`` in which a few settings that
+  control XIOS-2 are declared.
 
-* :file:`file_def.xml` defines the files into which field variables are output and the frequency of output of those files.
-  Variable names can be transformed from the internal NEMO names to more user friendly names in the ``field`` elements in this file.
-  This is also where on-the-fly deflation of output files is enabled via the ``compression_level="4"`` attribute of ``file_group`` elements.
+* :file:`file_def.xml` defines the files into which field variables are output and the
+  frequency of output of those files.
+  Variable names can be transformed from the internal NEMO names to more user friendly names
+  in the ``field`` elements in this file.
+  This is also where on-the-fly deflation of output files is enabled via the
+  ``compression_level="4"`` attribute of ``file_group`` elements.
 
 .. warning::
     XML syntax is very exacting,
@@ -748,16 +224,20 @@ four configuration files written in `XML`_ are required:
 Customizing XML Files
 ---------------------
 
-The `NEMO-3.6-code`_ repositories contains sample XIOS-2 configuration files in the :file:`NEMOGCM/CONFIG/SHARED/` and some of the :file:`NEMOGCM/CONFIG/*/EXP00/` directories.
-*Please* **do not** *modify and commit those files.*
-Doing so will cause conflicts when changes to NEMO are pulled in from the upstream repository,
-and your changes will be overwritten.
-Instead,
-put copies of the XML files that you want to change under version control in your runs configuration repo
-(for example, the `SS-run-sets`_ repo for people working on MEOPAR).
+The `NEMO-3.6-code`_ repositories contains sample XIOS-2 configuration files in the
+:file:`NEMOGCM/CONFIG/SHARED/` and some of the :file:`NEMOGCM/CONFIG/*/EXP00/` directories.
 
-.. _NEMO-3.6-code: https://github.com/SalishSeaCast/NEMO-3.6-code
-.. _SS-run-sets: https://github.com/SalishSeaCast/SS-run-sets
+    .. _NEMO-3.6-code: https://github.com/SalishSeaCast/NEMO-3.6-code
+
+.. warning::
+    *Please* **do not** *modify and commit those files.*
+    Doing so will cause conflicts when changes to NEMO are pulled in from the upstream repository,
+    and your changes will be overwritten.
+    Instead,
+    put copies of the XML files that you want to change under version control in your runs configuration repo
+    (for example, the `SS-run-sets`_ repo for people working on MEOPAR).
+
+    .. _SS-run-sets: https://github.com/SalishSeaCast/SS-run-sets
 
 
 .. _CommandProcessorsAndXML-Files:
@@ -767,10 +247,13 @@ Command Processors and XML Files
 
 The :ref:`nemocmd:NEMO-CommandProcessor` and :ref:`salishseacmd:SalishSeaCmdProcessor` tools provide a way,
 via YAML run description files,
-to map XML files with arbitrary file names and directory paths on to the file names that NEMO requires in the directory from which NEMO is executed.
+to map XML files with arbitrary file names and directory paths on to the file names that
+NEMO requires in the directory from which NEMO is executed.
 
-The ``output`` section of the YAML description file is where the XML file mappings and other XIOS-2 settings are specified.
-Please see the `salishsea YAML file output section`_ docs if you are working on the Salish Sea configurations of NEMO,
+The ``output`` section of the YAML description file is where the XML file mappings and
+other XIOS-2 settings are specified.
+Please see the `salishsea YAML file output section`_ docs if you are working on the
+Salish Sea configurations of NEMO,
 or the `nemo YAML file output section`_ docs if you use another NEMO configuration.
 There are also examples of complete YAML run description files in those docs.
 
@@ -782,12 +265,12 @@ The simplest possible YAML file ``output`` section is:
 .. code-block:: yaml
 
     output:
-      iodefs: iodef.xml
+      XIOS servers: 1
+      separate XIOS server: True
       filedefs: file_def.xml
       domaindefs: domain_def.xml
       fielddefs: field_def.xml
-      separate XIOS server: True
-      XIOS servers: 1
+      iodefs: iodef.xml
 
 In this case,
 the XML files are all in the same directory as the YAML file.
@@ -799,21 +282,20 @@ A more complicated example is:
 .. code-block:: yaml
 
     output:
-      separate XIOS server: True
       XIOS servers: 1
-      iodefs: iodef.xml
-      filedefs: $HOME/CANYONS/mackenzie_canyon/output/file_def_realistic.xml
+      separate XIOS server: True
+      filedefs: $PROJECT/$USER/SS-run-sets/v201905/tuning/tuning_file_def.xml
       domaindefs: ../domain_def.xml
-      fielddefs: $HOME/CANYONS/mackenzie_canyon/output/field_def.xml
+      fielddefs: $PROJECT/SS-run-sets/v201905/field_def.xml
+      iodefs: iodef.xml
 
 Note the use of:
 
 * A relative path for ``domaindefs``
-* Absolute paths containing the environment variable :envvar:`$HOME` for ``filedefs`` and ``fielddefs``.
-  Other environment variables like :envvar:`$USER`,
-  :envvar:`$PROJECT`,
-  and :envvar:`$SCRATCH` can also be used in XML file paths.
-* The more descriptive file name :file:`file_def_realistic.xml` for ``filedefs``
+* Absolute paths containing the environment variables like :envvar:`$USER` and :envvar:`$PROJECT`
+  for ``filedefs`` and ``fielddefs``.
+  Other environment variables like :envvar:`$HOME` and :envvar:`$SCRATCH` can also be used in XML file paths.
+* The more descriptive file name :file:`tuning_file_def.xml` for ``filedefs``
 
 
 .. _field_def.xmlFile:
@@ -835,9 +317,11 @@ please see chapter 3 of the `XIOS User Guide`_.
 
 .. _XIOS User Guide: http://forge.ipsl.jussieu.fr/ioserver/raw-attachment/wiki/WikiStart/XIOS_user_guide.pdf
 
-:file:`NEMO-3.6-code/NEMOGCM/CONFIG/SHARED/field_def.xml` is the reference version of the file that is provided with the NEMO code.
+:file:`NEMO-3.6-code/NEMOGCM/CONFIG/SHARED/field_def.xml` is the reference version of the file
+that is provided with the NEMO code.
 In many cases,
-you can use that reference file by putting its path as the value of the ``filedefs`` element in the ``output`` section of your run description YAML file
+you can use that reference file by putting its path as the value of the ``filedefs`` element
+in the ``output`` section of your run description YAML file
 (see :ref:`CommandProcessorsAndXML-Files`).
 Reasons why you might want to create your own customized version
 (see :ref:`CustomizingXML-Files`)
@@ -881,14 +365,16 @@ Here is an example fragment of a :file:`field_def.xml` file:
 ``field`` tags must be contained within a ``field_group`` tag,
 which must be contained within a ``field_definition`` tag.
 
-Attributes included in a tag apply to all contained tags unless they are explicitly overridden in a contained tag.
+Attributes included in a tag apply to all contained tags unless they are explicitly overridden
+in a contained tag.
 So the ``operation="average"`` attribute in:
 
 .. code-block:: xml
 
    <field_definition level="1" prec="4" operation="average" enabled=".TRUE." default_value="1.e20">
 
-means that all field values will be averaged over the output time interval unless a different ``operation`` is specified in the ``field`` tag,
+means that all field values will be averaged over the output time interval unless a
+different ``operation`` is specified in the ``field`` tag,
 for example:
 
 .. code-block:: xml
@@ -899,7 +385,8 @@ in which case the maximum value over the output time interval of the ``sst`` fie
 (specified by the ``field_ref`` attribute)
 will be calculated by XIOS.
 
-The ``operation`` attribute enables the burden of calculating various temporal quantities on field variables to be shifted from NEMO to XIOS.
+The ``operation`` attribute enables the burden of calculating various temporal quantities on
+field variables to be shifted from NEMO to XIOS.
 Please see section 3.2 of the `XIOS User Guide`_ for details.
 
 Another way of doing field operations in XIOS is to specify them in the ``field`` tag,
@@ -917,7 +404,8 @@ memory allocation,
 and calculation of the ``sst2`` variable is shifted from NEMO to XIOS.
 This form of field calculation can be useful for calculating fluxes.
 
-``field_group`` tags specify the default grid on which the contained ``field`` tags are defined via the ``grid_ref`` attribute.
+``field_group`` tags specify the default grid on which the contained ``field`` tags are
+defined via the ``grid_ref`` attribute.
 That attribute can,
 of course,
 be overridden in the contained ``field`` tags.
@@ -937,7 +425,8 @@ That table also provides canonical units that should be used at the value of the
 
 .. _CF conventions standard names table: http://cfconventions.org/Data/cf-standard-names/29/build/cf-standard-name-table.html
 
-The value of the ``long_name`` attribute can be more free-from and descriptive. It is typically used for plot axis labels,
+The value of the ``long_name`` attribute can be more free-from and descriptive.
+It is typically used for plot axis labels,
 table headings,
 etc.
 
@@ -952,7 +441,8 @@ there are examples of :file:`field_def.xml` files in the `SS-run-sets/v201702/`_
 :file:`domain_def.xml`
 ----------------------
 
-:file:`domain_def.xml` defines "zoomed" sub-domains of the model domain and the grids on which they are defined.
+:file:`domain_def.xml` defines "zoomed" sub-domains of the model domain and the grids on which
+they are defined.
 The "zooms" are defined on the i-j (x-y) directions,
 regardless of the depth of the sub-domain.
 
@@ -963,9 +453,11 @@ please see chapter 5 of the `XIOS User Guide`_.
 
 .. _XIOS User Guide: http://forge.ipsl.jussieu.fr/ioserver/raw-attachment/wiki/WikiStart/XIOS_user_guide.pdf
 
-:file:`NEMO-3.6-code/NEMOGCM/CONFIG/SHARED/domain_def.xml` is the reference version of the file that is provided with the NEMO code.
+:file:`NEMO-3.6-code/NEMOGCM/CONFIG/SHARED/domain_def.xml` is the reference version of the file
+that is provided with the NEMO code.
 In many cases,
-you can use that reference file by putting its path as the value of the ``domaindefs`` element in the ``output`` section of your run description YAML file
+you can use that reference file by putting its path as the value of the ``domaindefs`` element
+in the ``output`` section of your run description YAML file
 (see :ref:`CommandProcessorsAndXML-Files`).
 The main reason why you might want to create your own customized version
 (see :ref:`CustomizingXML-Files`)
@@ -976,9 +468,12 @@ Examples of uses of "zoomed" sub-domains in the SalishSeaCast NEMO configuration
 
 * single point sub-domains for sea surface height output at tide gauge station locations
 * single point sub-domains for model output at the ONC VENUS instrument platform locations
-* sub-domains encompassing the southern Strait of Georgia for velocity fields outputs to compare against drifter tracks
-* sub-domains encompassing the Baynes Sound AGRIF sub-grid for tracer outputs for visualization of the transition between the full domain grid and the AGRIF sub-grid
-* sub-domains that provide boundary condition fields for the Vancouver Harbour and Lower Fraser River FVCOM model
+* sub-domains encompassing the southern Strait of Georgia for velocity fields outputs to
+  compare against drifter tracks
+* sub-domains encompassing the Baynes Sound AGRIF sub-grid for tracer outputs for visualization of
+  the transition between the full domain grid and the AGRIF sub-grid
+* sub-domains that provide boundary condition fields for the Vancouver Harbour and
+  Lower Fraser River FVCOM model
 
 Here is an example fragment of a :file:`domain_def.xml` file:
 
@@ -1008,7 +503,8 @@ Here is an example fragment of a :file:`domain_def.xml` file:
 which must be contained within a ``domain_definition`` tag.
 ``zoom_domain`` tags must be contained within a ``domain`` tag.
 
-A minimal, complete :file:`domain_def.xml` file would contain domain definitions for the full domain T, U, V, and W grids:
+A minimal, complete :file:`domain_def.xml` file would contain domain definitions for the
+full domain T, U, V, and W grids:
 
 .. code-block:: xml
 
@@ -1031,8 +527,10 @@ A minimal, complete :file:`domain_def.xml` file would contain domain definitions
     </domain_definition>
 
 Zoomed sub-domains are defined by adding a ``domain`` tag that contains a ``zoom_domain`` tag.
-The ``domain`` tag for the sub-domain must be contained within the ``domain_groug`` tag with the appropriate ``id`` attribute,
-and the ``domain`` tag must have a ``domain_ref`` attribute whose value matches the ``domain_group`` id value.
+The ``domain`` tag for the sub-domain must be contained within the ``domain_groug`` tag with the
+appropriate ``id`` attribute,
+and the ``domain`` tag must have a ``domain_ref`` attribute whose value matches the ``domain_group``
+id value.
 So,
 since sea surface height is calculated on the T grid,
 we add a tide gauge station sub-domain to the ``grid_T`` ``domain_group`` tag:
@@ -1048,7 +546,8 @@ we add a tide gauge station sub-domain to the ``grid_T`` ``domain_group`` tag:
       ...
     </domain_group>
 
-The ``zoom_domain`` tab defines the lower left corner of the sub-domain with grid point numbers in its ``ibegin`` and ``jbegin`` attributes.
+The ``zoom_domain`` tab defines the lower left corner of the sub-domain with grid point numbers
+in its ``ibegin`` and ``jbegin`` attributes.
 The extent of the sub-domain is defined by counts of grid points in the ``ni`` and ``nj`` attributes.
 
 In addition to :file:`NEMO-3.6-code/NEMOGCM/CONFIG/SHARED/domain_def.xml`,
@@ -1062,18 +561,27 @@ there are examples of :file:`domain_def.xml` files in the `SS-run-sets/v201702/`
 Switching from XIOS-1 to XIOS-2
 ===============================
 
-The main changes when switching from XIOS-1 to XIOS-2 are to the XML configuration files. These changes are described in the sections below. In addition, you will need to add "key_xios2" to your list of cpp keys in your NEMO configuration, and if you are using NEMO-cmd, you will need to link the location of your :file:`file_def.xml` and XIOS-2 folder in your :file:`config.yaml`.
+The main changes when switching from XIOS-1 to XIOS-2 are to the XML configuration files.
+These changes are described in the sections below.
+In addition, you will need to add "key_xios2" to your list of cpp keys in your NEMO configuration,
+and if you are using NEMO-cmd, you will need to link the location of your :file:`file_def.xml`
+and XIOS-2 folder in your :file:`config.yaml`.
+
 
 Changes to iodef.xml
 --------------------
 
-First, remove the file definition section from :file:`iodef.xml` and move it to a new file named :file:`file_def.xml` (see the following section for more information). The file definition will now be loaded similar to :file:`domain_def.xml` and :file:`field_def.xml`. To do this, add the following lines to :file:`iodef.xml`:
+First, remove the file definition section from :file:`iodef.xml` and move it to a new file named
+:file:`file_def.xml` (see the following section for more information).
+The file definition will now be loaded similar to :file:`domain_def.xml` and :file:`field_def.xml`.
+To do this, add the following lines to :file:`iodef.xml`:
 
 .. code-block:: XML
 
     <file_definition src="./file_def.xml"/>
 
-The formatting of the grids within the grid definition section will also need to be changed. As an example, in XIOS-1 grid_T is defined as:
+The formatting of the grids within the grid definition section will also need to be changed.
+As an example, in XIOS-1 grid_T is defined as:
 
 .. code-block:: XML
 
@@ -1087,7 +595,9 @@ While, in XIOS-2 it becomes:
     <grid id="grid_T_2D"> <domain domain_ref="grid_T"> </domain> </grid>
     <grid id="grid_T_3D"> <domain domain_ref="grid_T"> </domain> <axis id="deptht"> </axis> </grid>
 
-Another difference is that XIOS-2 calculates buffersize, compared to XIOS-1 where it is user-specified. The following lines are changed/added in XIOS-2 to specify variables to do with the buffersize:
+Another difference is that XIOS-2 calculates buffersize,
+compared to XIOS-1 where it is user-specified.
+The following lines are changed/added in XIOS-2 to specify variables to do with the buffersize:
 
 .. code-block:: XML
 
@@ -1103,7 +613,10 @@ Another difference is that XIOS-2 calculates buffersize, compared to XIOS-1 wher
 Create file_def.xml
 -------------------
 
-The content of the file_definition section of :file:`iodef.xml` in XIOS-1 is moved to a seperate file: :file:`file_def.xml` in XIOS-2. In addition, the file definition needs to be changed from:
+The content of the file_definition section of :file:`iodef.xml` in XIOS-1 is moved to a seperate file:
+:file:`file_def.xml` in XIOS-2.
+In addition,
+the file definition needs to be changed from:
 
 .. code-block:: XML
 
@@ -1125,7 +638,9 @@ For each file group, you will want to specify a compression level:
 Changes to domain_def.xml
 -------------------------
 
-The only changes to :file:`domain_def.xml` occur in the domain statements which need to be reformatted for XIOS-2. For example, for grid_T in XIOS-1 we had:
+The only changes to :file:`domain_def.xml` occur in the domain statements which need to be
+reformatted for XIOS-2.
+For example, for grid_T in XIOS-1 we had:
 
 .. code-block:: XML
 
