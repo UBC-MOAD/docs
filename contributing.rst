@@ -255,7 +255,7 @@ The output looks something like:
     (    contributing: line   13) ok        https://creativecommons.org/licenses/by/4.0/
     (python_packaging/pkg_structure: line  405) ok        https://calver.org/
     (conda_pkg_env_mgr: line   42) ok        https://conda-forge.org/
-    (alliance-computing: line   56) ok        https://ccdb.computecanada.ca/account_application
+    (alliance-computing: line   56) ok        https://ccdb.alliancecan.ca/account_application
     (   analysis_repo: line  138) ok        https://cookiecutter.readthedocs.io/en/latest/
     (python_packaging/pkg_structure: line  634) ok        https://doc.pytest.org/en/latest/explanation/goodpractices.html#tests-outside-application-code
     (         jupyter: line  353) ok        https://docs.alliancecan.ca/wiki/Anaconda/en

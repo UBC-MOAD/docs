@@ -54,7 +54,7 @@ advanced research computing (ARC) and storage that we use for most of our ocean 
 The BC DRI Group is the regional organization that coordinates the British Columbia partnership with the Alliance.
 
 To access Alliance compute clusters and storage you need to register a Alliance account at
-https://ccdb.computecanada.ca/account_application.
+https://ccdb.alliancecan.ca/account_application.
 To do so you will need an ``eoas.ubc.ca`` email address,
 and Susan's Alliance CCRI code.
 
