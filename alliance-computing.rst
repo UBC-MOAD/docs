@@ -242,19 +242,14 @@ automatically loaded upon login.
         module load netcdf-fortran-mpi/4.4.4
         module load perl/5.22.4
 
-#. Follow the docs for the project that you are working on to set up your :file:`$PROJECT/$USER/`
-   workspace and clone the repositories required to build and run NEMO:
+#. Follow the :ref:`salishseadocs:CreateWorkspaceAndCloneRepositories` docs to set up your
+   :file:`$PROJECT/$USER/MEOPAR/` workspace and clone the repositories required to build
+   and run NEMO.
 
-   * For the MEOPAR SalishSeaCast project,
-     follow the :ref:`salishseadocs:CreateWorkspaceAndCloneRepositories` and then
-     the :ref:`salishseadocs:InstallCommandProcessorPackages` docs
+#. Follow the :ref:`salishseadocs:InstallCommandProcessorPackages` docs to install the
+   :ref:`salishseacmd:SalishSeaCmdProcessor` and its dependencies in a
+   :command:`conda`  environment.
 
-#. Follow the docs for the project you are working on to build ``XIOS-2``:
+#. Follow the :ref:`BuildXIOS-MEOPAR-graham` docs to build ``XIOS-2``.
 
-   * For the MEOPAR SalishSeaCast project,
-     follow the :ref:`BuildXIOS-MEOPAR-beluga` docs
-
-#. Follow the docs for the project you are working on to build ``NEMO-3.6``:
-
-   * For the MEOPAR SalishSeaCast project,
-     follow the :ref:`salishseadocs:CompileNEMO-3.6-graham` docs
+#. Follow the :ref:`salishseadocs:CompileNEMO-3.6-graham` docs to build ``NEMO-3.6``.
