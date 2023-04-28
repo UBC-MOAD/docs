@@ -221,26 +221,26 @@ These are the setup steps that you need to do when you start using ``graham`` fo
 #. Alliance clusters use the :command:`module load` command to load software components.
    On ``graham`` the module loads that are required to build and run NEMO are:
 
-.. code-block:: bash
+   .. code-block:: bash
 
-    module load StdEnv/2020
-    module load netcdf-fortran-mpi/4.6.0
-    module load perl/5.30.2
+       module load StdEnv/2020
+       module load netcdf-fortran-mpi/4.6.0
+       module load perl/5.30.2
 
-You can manually load the modules each time you log in,
-or you can add the above lines to your :file:`$HOME/.bashrc` file so that they are
-automatically loaded upon login.
+   You can manually load the modules each time you log in,
+   or you can add the above lines to your :file:`$HOME/.bashrc` file so that they are
+   automatically loaded upon login.
 
-.. note::
-    If you need to use the Compute Canada StdEnv/2016.4 environment that was the default
-    prior to 1-Apr-2021,
-    you should use the following module loads instead:
+   .. note::
+       If you need to use the Compute Canada StdEnv/2016.4 environment that was the default
+       prior to 1-Apr-2021,
+       you should use the following module loads instead:
 
-    .. code-block:: bash
+       .. code-block:: bash
 
-        module load StdEnv/2016.4
-        module load netcdf-fortran-mpi/4.4.4
-        module load perl/5.22.4
+           module load StdEnv/2016.4
+           module load netcdf-fortran-mpi/4.4.4
+           module load perl/5.22.4
 
 #. Follow the :ref:`salishseadocs:CreateWorkspaceAndCloneRepositories` docs to set up your
    :file:`$PROJECT/$USER/MEOPAR/` workspace and clone the repositories required to build
