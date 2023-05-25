@@ -98,6 +98,8 @@ then compile and link XIOS-2.
     cd $PROJECT/$USER/MEOPAR/XIOS-2
     ./make_xios --arch X64_GRAHAM --job 8
 
+It typically takes about 5 minutes to build XIOS-2 on ``graham``.
+
 To build NEMO you will need an environment variable named :envvar:`XIOS_HOME`
 whose value is the absolute path to you :file:`XIOS-2` directory.
 For the ``MEOPAR`` project it is:
