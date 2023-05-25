@@ -36,14 +36,6 @@ Slides notebook from Dec-2020 group discussion of Python packages and environmen
 Installing Miniforge
 ====================
 
-.. important::
-    *Do not* install Miniforge,
-    Miniconda,
-    or Anaconda on the Compute Canada HPC clusters or other HPC systems!
-    It will almost certainly conflict with the HPC-optimized software environments on those system.
-    If you need to install Python packages on an HPC system,
-    please contact Doug for advice.
-
 `Miniforge`_ is a minimal installer for `Conda`_ specific to `conda-forge`_.
 It installs the :program:`conda` package and environment manager tool,
 a recent version of Python, the packages that :program:`conda` depends on,
