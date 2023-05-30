@@ -70,7 +70,6 @@ Set Up Secure Remote Access
 
 You will need to have:
 
-#. Your Compute Canada user id and password
 #. An account,
    user id,
    and password on the EOAS Ocean collection of Linux computers
