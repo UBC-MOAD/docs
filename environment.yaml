@@ -26,9 +26,11 @@ dependencies:
   - nbsphinx
   - pip
   - python=3.11
-  - sphinx
-  - sphinx_rtd_theme=1.2
-  - sphinx-notfound-page
+  - sphinx=7.2.5
 
   # For repo QA
   - pre-commit
+
+  - pip:
+    - sphinx_rtd_theme
+    - sphinx-notfound-page
