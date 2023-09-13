@@ -35,7 +35,7 @@ the output of that command will most likely be::
   /bin/bash
 
 In order to make :command:`bash` work well for us on the Waterhole workstations and other MOAD computers,
-we have to create two configuration files in our home directory:
+we have to create or edit two configuration files in our home directory:
 
 #. :file:`.bash_profile`
 #. :file:`.bashrc`
@@ -50,12 +50,16 @@ For quick reminders about some of the most often used Linux commands this `Unix 
 
 .. _Create-.bash_profile:
 
-Create :file:`.bash_profile`
-============================
+Edit or Create :file:`.bash_profile`
+====================================
 
-New MOAD accounts on the Waterhole workstations are created completely empty.
+New MOAD accounts on the Waterhole workstations usually contain default versions 2 important configuration files,
+but sometimes those files are not created.
+:file:`.bash_profile` is one of those files.
 So,
-the first thing we need to do is create a file called `.bash_profile` in the home directory.
+the first thing we need to do is edit that file,
+or create it if it doesn't exist.
+:file:`.bash_profile` is stored in your home directory.
 Your home directory is the one that you land in when you :command:`ssh` to a remote computer,
 or when you start up a terminal session.
 
@@ -65,18 +69,19 @@ or when you start up a terminal session.
     You probably don't need to do this on your laptop because :file:`.bash_profile` likely already exists,
     and you shouldn't change it until you know what you are doing and why.
 
-Use the :command:`nano` text editor to create a new :command:`.bash_profile` file:
+Use the :command:`nano` text editor to open the :file:`.bash_profile` file:
 
 .. code-block:: bash
 
     $ nano .bash_profile
 
 The ``.`` at the beginning of the file name is important!
-Type,
-or copy/paste the following lines into the file:
+Ensure that the file contains the following lines:
 
 .. code-block:: bash
+    # .bash_profile
 
+    # Get the aliases and functions
     if [ -f "$HOME/.bashrc" ]; then
         . "$HOME/.bashrc"
     fi
@@ -103,8 +108,10 @@ It will come as no surprise that the next thing we are going to do is :ref:`Crea
 
 .. _Create-.bashrc:
 
-Create :file:`.bashrc`
-======================
+Edit or Create :file:`.bashrc`
+==============================
+
+The other important :command:`bash` configuration file is :file:`.bashrc`.
 
 .. note::
     You only need to do this once on the MOAD machines because you home directory is shared across all of the machines.
@@ -112,18 +119,27 @@ Create :file:`.bashrc`
     You probably don't need to do this on your laptop because :file:`.bashrc` likely already exists.
     But if you like some of the aliases below you might want to add them to :file:`.bashrc` on your laptop.
 
-Use the :command:`nano` text editor to create a new :command:`.bashrc` file:
+Use the :command:`nano` text editor to open the :command:`.bashrc` file:
 
 .. code-block:: bash
 
     $ nano .bashrc
 
 The ``.`` at the beginning of the file name is important!
-Type,
-or copy/paste the following lines into the file:
+Ensure that the file contains the following lines:
 
 .. code-block:: bash
+    # .bashrc
 
+    # Source global definitions
+    if [ -f /etc/bashrc ]; then
+        . /etc/bashrc
+    fi
+
+    # Uncomment the following line if you don't like systemctl's auto-paging feature:
+    # export SYSTEMD_PAGER=
+
+    # User specific aliases and functions
     ## Environment variables
     # Shorter shell prompt
     PS1="\h:\W$ "
