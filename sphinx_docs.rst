@@ -26,7 +26,7 @@ We use `Sphinx`_ for most documentation in the UBC-MOAD projects and repositorie
 .. _Sphinx: https://www.sphinx-doc.org/en/master/
 .. _LaTeX: https://www.latex-project.org/
 .. _MathJax: https://www.mathjax.org/
-.. _readthedocs: https://readthedocs.org/
+.. _readthedocs: https://about.readthedocs.com/?ref=readthedocs.org
 
 `LaTeX`_ should be used for manuscripts of papers and theses,
 and for reports for which PDFs must be rendered,
@@ -50,7 +50,7 @@ or `SalishSeaCast/NEMO-Cmd`_).
 Most of our repositories are configured so that when changes that have been committed and  pushed to GitHub a signal is sent to `readthedocs.org`_ to automatically rebuild and render the docs at a ``readthedocs.io`` sub-domain.
 There is a very good chance that you are presently reading the result of that processing pipeline at https://ubc-moad-docs.readthedocs.io/en/latest/sphinx_docs.html#documentation-with-sphinx.
 
-.. _readthedocs.org: https://readthedocs.org/
+.. _readthedocs.org: https://about.readthedocs.com/?ref=readthedocs.org
 
 Links to a repository's docs can generally be found in the :file:`README`.
 

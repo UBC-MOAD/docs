@@ -23,12 +23,14 @@ channels:
   - nodefaults
 
 dependencies:
-  - nbsphinx
-  - pip
   - python=3.11
-  - sphinx
-  - sphinx_rtd_theme=1.2
-  - sphinx-notfound-page
+  - pip
 
   # For repo QA
   - pre-commit
+
+  - pip:
+    - nbsphinx
+    - sphinx==7.2.5
+    - sphinx_rtd_theme
+    - sphinx-notfound-page

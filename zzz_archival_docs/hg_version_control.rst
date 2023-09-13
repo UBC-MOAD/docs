@@ -32,7 +32,7 @@ Users experienced with other version control tools
 (e.g :command:`svn` or :command:`git`)
 can get up to speed with Mercurial by reading `Chapter 2`_.
 
-.. _beginner's guides: https://www.mercurial-scm.org/wiki/BeginnersGuides
+.. _beginner's guides: https://wiki.mercurial-scm.org/BeginnersGuides
 .. _Mercurial - The Definitive Guide: http://hgbook.red-bean.com/
 .. _1: http://hgbook.red-bean.com/read/how-did-we-get-here.html
 .. _2: http://hgbook.red-bean.com/read/a-tour-of-mercurial-the-basics.html
@@ -247,8 +247,8 @@ That reserves branching and merging for the relatively rare occasions when tempo
 
 The `rebase extension docs`_ have more information and diagrams of what's going on in this `common rebase use case`_.
 
-.. _rebase extension docs: https://www.mercurial-scm.org/wiki/RebaseExtension
-.. _common rebase use case: https://www.mercurial-scm.org/wiki/RebaseExtension#Scenario_A
+.. _rebase extension docs:  https://wiki.mercurial-scm.org/RebaseExtension
+.. _common rebase use case: https://wiki.mercurial-scm.org/RebaseExtension#Scenario_A
 
 
 Rebasing an Accidental Branch
@@ -262,7 +262,7 @@ providing a way of visualizing branches.
 :command:`hg rebase` can be used to move the changes on an accidental branch to the tip of the repo.
 See the `scenarios section`_ of the `rebase extension docs`_ for diagrams and rebase command options for moving branches around in various ways.
 
-.. _scenarios section: https://www.mercurial-scm.org/wiki/RebaseExtension#Scenarios
+.. _scenarios section: https://wiki.mercurial-scm.org/RebaseExtension#Scenarios
 
 
 Aborting a Merge
