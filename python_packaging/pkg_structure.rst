@@ -161,7 +161,8 @@ The sub-sections below describe the 6 files that are typically present in the to
 of our packages.
 Three of those files that *must* be present contain the information necessary to create a Python package:
 
-* :ref:`PyprojectTomlFile` that contains the build system requirements and build backend tools to use for creation of the package,
+* :ref:`PyprojectTomlFile` that contains the build system requirements and build backend tools to use
+  for creation of the package,
   the package metadata,
   the command-line interface scripts and entry points configuration
   (if applicable),
@@ -177,10 +178,12 @@ Three of those files that *must* be present contain the information necessary to
 The other three files are perhaps optional,
 but are present in most packages:
 
-* :ref:`PkgReadthedocsYamlFile` that provides configuration for building the docs to the https://readthedocs.org service
+* :ref:`PkgReadthedocsYamlFile` that provides configuration for building the docs to the `readthedocs service`_
 * :ref:`PkgGitignoreFile` that provides the list of intentionally untracked files that Git should ignore
-* :ref:`PkgPreCommitConfigYamlFile` that provides configuration for the `pre-commit`_ tool that is used to manage coding style and other aspects of repository QA
+* :ref:`PkgPreCommitConfigYamlFile` that provides configuration for the `pre-commit`_
+  tool that is used to manage coding style and other aspects of repository QA
 
+.. _readthedocs service: https://about.readthedocs.com/?ref=readthedocs.org
 .. _pre-commit: https://pre-commit.com/
 
 
@@ -371,7 +374,7 @@ line in the ``[project]`` section of the :ref:`PyprojectTomlFile`.
 :file:`.readthedocs.yaml` File
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-For packages that use https://readthedocs.org/ to render and host their documentation,
+For packages that use the `readthedocs service`_ to render and host their documentation,
 we include a :file:`.readthedocs.yaml` file in the top-level directory
 (the file name and location are stipulated by readthedocs).
 That file `declares the features of the environment`_ that we want readthedocs to use to build our docs,
@@ -776,7 +779,7 @@ used for code and docs QA tasks like:
 
 * static analysis of the code using `GitHub CodeQL`_ to detect possible security vulnerabilities
 
-  .. _GitHub CodeQL: https://docs.github.com/en/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql
+  .. _GitHub CodeQL: https://docs.github.com/en/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning-with-codeql
 
 * run the package test suite with code coverage analysis (continuous integration)
   and pushing the coverage analysis report to `Codecov`/_

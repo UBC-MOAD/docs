@@ -79,6 +79,7 @@ The ``.`` at the beginning of the file name is important!
 Ensure that the file contains the following lines:
 
 .. code-block:: bash
+
     # .bash_profile
 
     # Get the aliases and functions
@@ -129,6 +130,7 @@ The ``.`` at the beginning of the file name is important!
 Ensure that the file contains the following lines:
 
 .. code-block:: bash
+
     # .bashrc
 
     # Source global definitions
