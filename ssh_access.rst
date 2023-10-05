@@ -477,7 +477,7 @@ Commands for copying files to/from/among your local computer and remote machines
 * :command:`scp` - an SSH-secured version of the :command:`cp` command that lets you copy files from one machine to another;
   local to/from remote,
   or remote to remote
-* :command:`sftp` - an SSH-secured version of the FTP file transfer protocol that provides a command-line interface for doing things navigating and creating directories on remote machines, and copying files between your local file system and that of a remote machine
+* :command:`sftp` - an SSH-secured version of the FTP file transfer protocol that provides a command-line interface for doing things such as navigating and creating directories on remote machines, and copying files between your local file system and that of a remote machine
 
 To get a short reminder of the option flags for any of these commands
 (or most any Linux command),
