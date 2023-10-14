@@ -56,11 +56,17 @@ On Linux use:
 
     $ wget https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Linux-x86_64.sh
 
-On MacOS use:
+On older MacOS systems use:
 
 .. code-block:: bash
 
     $ wget https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-MacOSX-x86_64.sh
+
+On the new M1/2 chips MacOS systems use:
+
+.. code-block:: bash
+
+    $ wget https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-MacOSX-arm64.sh
 
 The installation instructions are in the "Unix-like platforms" section of the README of
 https://github.com/conda-forge/miniforge.
