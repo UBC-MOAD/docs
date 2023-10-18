@@ -177,9 +177,8 @@ These are the setup steps that you need to do when you start using ``graham`` fo
 
    .. code-block:: bash
 
-       $ cd $PROJECT/$USER
-       $ chmod g+rwxs .
-       $ chmod o+rx .
+       $ chmod g+rwxs $PROJECT/$USER
+       $ chmod o+rx $PROJECT/$USER
 
    Check the results of those operations with :command:`ls -al $PROJECT/$USER`.
    They should look like:
@@ -199,10 +198,9 @@ These are the setup steps that you need to do when you start using ``graham`` fo
 
    .. code-block:: bash
 
-       $ cd $SCRATCH
-       $ chgrp def-allen .
-       $ chmod g+rwxs .
-       $ chmod o+rx .
+       $ chgrp def-allen $SCRATCH
+       $ chmod g+rwxs $SCRATCH
+       $ chmod o+rx $SCRATCH
 
    Check the results of those operations with :command:`ls -al $SCRATCH`.
    They should look like:
