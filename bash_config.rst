@@ -27,7 +27,7 @@ You can find out what shell you are using in most terminal sessions with the com
 
 .. code-block:: bash
 
-    echo $shell
+    echo $SHELL
 
 If the shell you are using is :command:`bash`,
 the output of that command will most likely be::
