@@ -57,6 +57,7 @@ linkcheck_ignore = [
     'https://github.com/UBC-MOAD/ariane-2.3.0_03',
     # Fails with "403 Client Error: Forbidden" when checked from GitHub Actions
     'https://www.baeldung.com/cs/ssh-intro',
+    'https://linux.die.net/man/1/scp',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
