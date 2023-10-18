@@ -171,7 +171,7 @@ Here are some examples:
     $ git config --global alias.glog "log --graph"
 
 This makes :command:`git glog` show you an ASCII-art graph version of the log of commit messages in a repo.
-The graph shows branches have diverged and merged.
+The graph shows branches that have diverged and merged.
 Mercurial users who relied on :command:`hg glog` will find this alias comforting.
 
 .. code-block:: bash
