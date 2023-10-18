@@ -214,7 +214,7 @@ forces programs and commands that want to display output page by page to use :co
 forces :command:`less` to allow control sequences that change the colour of its output
 
 If you are not a fan of the :command:`vi` editor you can set the :envvar:`EDITOR` and :envvar:`VISUAL` environment variables to the command for your favourite editor and export them.
-For :command:`emacs` use:
+For :command:`nano` use:
 
 .. code-block:: bash
 
