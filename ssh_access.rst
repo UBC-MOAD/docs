@@ -444,7 +444,7 @@ Life is much better with :command:`ssh-copy-id`...
 Copy Your Public ssh Key to Remote Computers (Windows 10)
 ============================================
 
-Since the command ssh-copy is not included in Windows ssh, we have to perform the steps manually. The first step is to connect to one 
+... But unfortunately it is not included in Windows ssh, so we have to perform the steps manually. The first step is to connect to one 
 of the Linux machines in Waterhole (preferably to one that we have set an alias in the previous step):
 
 Connect to ``char``:
@@ -471,10 +471,18 @@ Open the file named ``authorized keys`` with :command:`nano` to edit it:
 
     $ nano authorized keys
 
-Copy your public key from your local file (can be found in ``'/home/username/.ssh/id_ed25519.pub'`` (copy the whole line you see inside the file). 
+Copy your public key from your local file (can be found in ``'/home/username/.ssh/id_ed25519.pub'``). Copy the whole line you see inside the file. 
 Save the file and close it with :command:`nano`.
 
-Exit the connection and re-connect. 
+Disconnect from ``char`` with ``exit``, and connect again with ``ssh char``.
+As a last step, we need to add the private key into the SSH authentication agent:
+
+.. code-block:: bash
+
+    $ ssh-add .\id_e25519
+
+Disconnect from ``char`` with ``exit``, and connect again with ``ssh char``.
+This time you should connect without being asked for your password or your passphrase.
 
 .. note::
 
