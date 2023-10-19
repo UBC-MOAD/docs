@@ -75,7 +75,10 @@ If you are using Windows 10,
 you will need to install the :program:`Open SSH Client` app via
 :guilabel:`Settings > Apps > Apps > Features > Optional Features`.
 Please see `these instructions`_,
-but *only* install the "Client" part – don't try to do any of the "server" parts.
+but *only* install the "Client" part – don't try to do any of the "server" parts. All the following steps remain the same
+for ssh on Windows, except from the ssh-copy, which will be discussed in a different section. For now, if you want to use
+ssh for Windows, you have to install the :program:`Open SSH Client` and make sure the respective service is running 
+(up to step 7 from the external Microsoft link provided, but only for OpenSSH Client in step 2)
 
 .. _these instructions: https://learn.microsoft.com/en-ca/windows-server/administration/openssh/openssh_install_firstuse
 
