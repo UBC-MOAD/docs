@@ -83,12 +83,6 @@ ssh for Windows, you have to install the :program:`Open SSH Client` and make sur
 .. _these instructions: https://learn.microsoft.com/en-ca/windows-server/administration/openssh/openssh_install_firstuse
 
 
-.. note:: **Help Wanted**
-
-    If you know about setting up ssh on Windows,
-    please feel free to add to these docs,
-    or contact Doug to help him do so.
-
 
 .. _GenerateSshKeys:
 
@@ -443,6 +437,33 @@ If you are curious about what :command:`ssh-copy-id` is doing,
 it is automating a bunch of steps to store your public key in a file called :file:`~/.ssh/authorized_keys`.
 We used to have to do those steps one by one.
 Life is much better with :command:`ssh-copy-id`...
+
+
+.. _CopyYourPublicSshKeyToRemoteComputers (Windows 10:
+
+Copy Your Public ssh Key to Remote Computers (Windows 10)
+============================================
+
+Since the command ssh-copy is not included in Windows ssh, we have to perform the steps manually. The first step is to connect to one 
+of the Linux machines in Waterhole (preferably to one that we have set an alias in the previous step):
+
+Connect to `char`:
+
+.. code-block:: bash
+
+    $ ssh char
+
+Then, navigate to your `.ssh\` path:
+
+.. code-block:: bash
+
+    $ cd .ssh\
+
+Create a new file named `authorized keys` :
+
+.. code-block:: bash
+
+    $ touch authorized keys
 
 
 .. _CopyYourPublicSshKeyToGitHub:
