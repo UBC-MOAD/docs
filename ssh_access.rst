@@ -75,13 +75,14 @@ If you are using Windows 10,
 you will need to install the :program:`Open SSH Client` app via
 :guilabel:`Settings > Apps > Apps > Features > Optional Features`.
 Please see `these instructions`_,
-but *only* install the "Client" part – don't try to do any of the "server" parts. All the following steps remain the same
-for ssh on Windows, except from the ssh-copy, which will be discussed in a different section. For now, if you want to use
-ssh for Windows, you have to install the :program:`Open SSH Client` and make sure the respective service is running 
+but *only* install the "Client" part – don't try to do any of the "server" parts.
+All the following steps remain the same for ssh on Windows,
+except for the :command:`ssh-copy-id` command,
+which will be discussed in a different section. For now, if you want to use ssh for Windows,
+you have to install the :program:`Open SSH Client` and make sure the respective service is running
 (up to step 7 from the external Microsoft link provided, but only for OpenSSH Client in step 2)
 
 .. _these instructions: https://learn.microsoft.com/en-ca/windows-server/administration/openssh/openssh_install_firstuse
-
 
 
 .. _GenerateSshKeys:
@@ -436,52 +437,56 @@ This time you should connect without being asked for your password or your passp
 If you are curious about what :command:`ssh-copy-id` is doing,
 it is automating a bunch of steps to store your public key in a file called :file:`~/.ssh/authorized_keys`.
 We used to have to do those steps one by one.
-Life is much better with :command:`ssh-copy-id`...
+Life is much better with :command:`ssh-copy-id` ...
 
 
-.. _CopyYourPublicSshKeyToRemoteComputers (Windows 10)
+.. _CopyYourPublicSshKeyToRemoteComputers(Windows10):
 
 Copy Your Public ssh Key to Remote Computers (Windows 10)
-============================================
+=========================================================
 
-... But unfortunately it is not included in Windows ssh, so we have to perform the steps manually. The first step is to connect to one 
-of the Linux machines in Waterhole (preferably to one that we have set an alias in the previous step):
+... But unfortunately it is not included in Windows ssh,
+so we have to perform the steps manually.
+The first step is to connect to one of the Linux machines in Waterhole
+(preferably to one that we have set an alias in the previous step):
 
-Connect to ``char``:
-
-.. code-block:: bash
-
-    $ ssh char
-
-Then, navigate to your ``.ssh\`` path:
+Connect to ``chum``:
 
 .. code-block:: bash
 
-    $ cd .ssh\
+    $ ssh chum
 
-Create a new file named ``authorized keys`` :
-
-.. code-block:: bash
-
-    $ touch authorized keys
-
-Open the file named ``authorized keys`` with :command:`nano` to edit it:
+Then, navigate to your :file:`.ssh/` path:
 
 .. code-block:: bash
 
-    $ nano authorized keys
+    $ cd .ssh/
 
-Copy your public key from your local file (can be found in ``'/home/username/.ssh/id_ed25519.pub'``). Copy the whole line you see inside the file. 
+Create a new file named :file:`authorized_keys` :
+
+.. code-block:: bash
+
+    $ touch authorized_keys
+
+Open the file named :file:`authorized_keys` with :command:`nano` to edit it:
+
+.. code-block:: bash
+
+    $ nano authorized_keys
+
+Copy your public key from your local file
+(can be found in :file:`$env:USERPROFILE\\.ssh\\id_ed25519.pub`).
+Copy the whole line you see inside the file.
 Save the file and close it with :command:`nano`.
 
-Disconnect from ``char`` with ``exit``, and connect again with ``ssh char``.
+Disconnect from ``chum`` with ``exit``, and connect again with ``ssh chum``.
 As a last step, we need to add the private key into the SSH authentication agent:
 
-.. code-block:: bash
+.. code-block:: pwsh
 
-    $ ssh-add .\id_e25519
+    ssh-add $env:USERPROFILE\.ssh\id_ed25519
 
-Disconnect from ``char`` with ``exit``, and connect again with ``ssh char``.
+Disconnect from ``chum`` with ``exit``, and connect again with ``ssh chum``.
 This time you should connect without being asked for your password or your passphrase.
 
 .. note::
