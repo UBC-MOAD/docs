@@ -133,8 +133,8 @@ These are the setup steps that you need to do when you start using ``graham`` fo
 
         type %USERPROFILE%/.ssh/id_ed25519.pub
 
-    Alternatively,
-    you can open your :file:`id_ed25519.pub` in VS Code and copy it from there to the CCDB page.
+   Alternatively,
+   you can open your :file:`id_ed25519.pub` in VS Code and copy it from there to the CCDB page.
 
    .. _public key into into the CCDB system: https://docs.alliancecan.ca/wiki/SSH_Keys#Using_CCDB
 
