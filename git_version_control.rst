@@ -27,7 +27,7 @@ There is also an introduction to `using Git`_ on the GitHub documentation site.
 .. _Pro Git book: https://git-scm.com/book/en/v2
 .. _using Git: https://docs.github.com/en/get-started
 
-We use `GitHub`_ for central storage of MOAD respositories to enable us to share our work with each other,
+We use `GitHub`_ for central storage of MOAD repositories to enable us to share our work with each other,
 collaborators,
 and the world at large.
 If you have not already done so,
