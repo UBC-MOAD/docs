@@ -381,10 +381,9 @@ That file `declares the features of the environment`_ that we want readthedocs t
 specifically,
 a conda environment that we describe in the :file:`envs/environment-rtd.yaml` file
 (described below),
-built using the `mambaforge`_ environment and package manager on an Ubuntu Linux virtual machine.
+built using the ``mambaforge`` environment and package manager on an Ubuntu Linux virtual machine.
 
 .. _declares the features of the environment: https://docs.readthedocs.io/en/stable/config-file/v2.html
-.. _mambaforge: https://mamba.readthedocs.io/en/latest/installation.html
 
 The :file:`.readthedocs.yaml` file for the `NEMO-Cmd`_ package is typical,
 and looks like:
