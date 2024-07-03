@@ -136,10 +136,10 @@ to clear away all artifacts of the previous build and do a fresh one.
 
 .. code-block:: bash
 
-    cd $PROJECT/$USER/MEOPAR/XIOS-2/arch
-    ln -sf $PROJECT/$USER/MEOPAR/XIOS-ARCH/UBC-EOAS/arch-GCC_SALISH.fcm
-    ln -sf $PROJECT/$USER/MEOPAR/XIOS-ARCH/UBC-EOAS/arch-GCC_SALISH.path
-    cd $PROJECT/$USER/MEOPAR/XIOS-2
+    cd /data/$USER/MEOPAR/XIOS-2/arch
+    ln -sf /data/$USER/MEOPAR/XIOS-ARCH/UBC-EOAS/arch-GCC_SALISH.fcm
+    ln -sf /data/$USER/MEOPAR/XIOS-ARCH/UBC-EOAS/arch-GCC_SALISH.path
+    cd /data/$USER/MEOPAR/XIOS-2
     ./make_xios --arch GCC_SALISH --netcdf_lib netcdf4_seq --job 8
 
 To build NEMO you will need an environment variable named :envvar:`XIOS_HOME`
@@ -148,13 +148,13 @@ For the ``MEOPAR`` project it is:
 
 .. code-block:: bash
 
-    XIOS_HOME=$PROJECT/$USER/MEOPAR/XIOS-2
+    XIOS_HOME=/data/$USER/MEOPAR/XIOS-2
 
 You can add the line:
 
 .. code-block:: bash
 
-    export XIOS_HOME=$PROJECT/$USER/MEOPAR/XIOS-2
+    export XIOS_HOME=/data/$USER/MEOPAR/XIOS-2
 
 to your :file:`$HOME/.bash_profile` file if you want the :envvar:`XIOS_HOME` environment variable
 to be set automatically whenever you :command:`ssh` in.
@@ -164,7 +164,7 @@ you can use:
 
 .. code-block:: bash
 
-    cd $PROJECT/$USER/MEOPAR/XIOS-2
+    cd /data/$USER/MEOPAR/XIOS-2
     ./tools/FCM/bin/fcm build --clean
     ./make_xios --arch GCC_SALISH --netcdf_lib netcdf4_seq --job 8
 
