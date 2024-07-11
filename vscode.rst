@@ -138,3 +138,65 @@ vscode-pdf
     Display PDF files in VS Code
 
     https://marketplace.visualstudio.com/items?itemName=tomoki1207.pdf
+
+
+
+.. _FortranLanguageServer:
+
+Fortran Language Server (``fortls``)
+====================================
+
+The `fortls package <https://fortls.fortran-lang.org/index.html>`_ provides a lot of higher level,
+IDE functionality to the Modern Fortran extension.
+Among other things,
+it does background compilation of files you are editing to provide in-editor compiler errors and
+warnings.
+
+To set up ``fortls`` in Remote - SSH sessions on `graham`,
+`salish`,
+etc.:
+
+#. Use the Extensions sidebar to ensure that the Modern Fortran extension is enabled on the remote
+   machine
+
+#. In a terminal session on the remote machine,
+   create a conda environment called ``fortls`` with the ``fortls`` package and its dependencies
+   installed in it:
+
+   .. code-block:: bash
+
+    conda create -n fortls fortls
+
+#. Confirm the path of that new ``fortls`` environment by looking at the output of
+   :command:`conda env list`.
+   You should see a line like:
+
+   .. code-block:: text
+
+      fortls                   /home/dlatorne/miniforge3/envs/fortls
+
+   with your userid instead of Doug's.
+
+#. In the VS Code settings,
+   search for ``fortls``.
+   Select the remote settings for the machine you are on;
+   e.g. ``Remote [SSH: graham]``.
+   Change the value of the ``Fortran > Fortls: Path`` setting to the ``fortls`` environment path
+   with :file:`/bin/fortls` appended;
+   e.g. :file:`/home/dlatorne/miniforge3/envs/fortls/bin/fortls`
+
+The language server compiles the code in the files you are editing to provide you with compiler
+errors and warnings and other features as you type.
+That results in the creation of ``.mod`` files beside your Fortran source code files;
+i.e. if you are editing :file:`bdydta.F90`,
+a :file:`bdydta.mod` will be created.
+``.mod`` files are compiler product files that *should not* be committed to version control.
+Please just ignore them!
+
+For namelist files you may have to explicitly tell VS Code to use the Fortran language mode
+because our naming convention is different to what the extension and language server expect.
+Near the right side of the bottom bar of the editor,
+find the language mode selector.
+For namelist it will probably say ``Plain Text``,
+or occasionally ``HSLS``.
+Click the selector and choose ``Fortran (FortranFreeForm)``.

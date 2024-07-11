@@ -240,3 +240,6 @@ These are the setup steps that you need to do when you start using ``graham`` fo
 #. Follow the :ref:`BuildXIOS-MEOPAR-graham` docs to build ``XIOS-2``.
 
 #. Follow the :ref:`salishseadocs:CompileNEMO-3.6-graham` docs to build ``NEMO-3.6``.
+
+#. If you are using VS Code as your editor,
+   consider setting up the :ref:`FortranLanguageServer`
