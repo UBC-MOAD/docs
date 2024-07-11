@@ -7,7 +7,9 @@
         "Codecov",
         "Cristian",
         "dunder",
+        "fortls",
         "gitpython",
+        "guilabel",
         "hglib",
         "Hynek",
         "importlib",
@@ -16,6 +18,7 @@
         "mambaforge",
         "Mărieș's",
         "Miniforge",
+        "namelist",
         "nbsphinx",
         "NEMO",
         "notfound",
@@ -30,6 +33,7 @@
         "salishsea",
         "Schlawack's",
         "Skinn's",
-        "tomllib"
+        "tomllib",
+        "userid"
     ]
 }
