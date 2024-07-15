@@ -46,7 +46,7 @@ pyzmq==25.1.1
 referencing==0.30.2
 requests==2.32.0
 rpds-py==0.10.3
-setuptools==68.2.2
+setuptools==70.0.0
 six==1.16.0
 snowballstemmer==2.2.0
 soupsieve==2.5
