@@ -154,24 +154,31 @@ The output looks something like:
 .. code-block:: text
 
     Removing everything under '_build'...
-    Running Sphinx v1.7.1
-    making output directory...
-    loading pickled environment... not yet created
-    loading intersphinx inventory from http://nemo-cmd.readthedocs.io/en/latest/objects.inv...
-    loading intersphinx inventory from http://salishseacmd.readthedocs.io/en/latest/objects.inv...
+    Running Sphinx v7.2.6
+    making output directory... done
+    loading intersphinx inventory from https://ubc-moad-tools.readthedocs.io/en/latest/objects.inv...
+    loading intersphinx inventory from https://nemo-cmd.readthedocs.io/en/latest/objects.inv...
+    loading intersphinx inventory from https://salishseacmd.readthedocs.io/en/latest/objects.inv...
+    loading intersphinx inventory from https://salishsea-meopar-docs.readthedocs.io/en/latest/objects.inv...
     building [mo]: targets for 0 po files that are out of date
-    building [html]: targets for 4 source files that are out of date
-    updating environment: 4 added, 0 changed, 0 removed
-    reading sources... [100%] xios-2looking for now-outdated files... none found
+    writing output...
+    building [html]: targets for 24 source files that are out of date
+    updating environment: [new config] 24 added, 0 changed, 0 removed
+    reading sources... [100%] zzz_archival_docs/index
+    looking for now-outdated files... none found
     pickling environment... done
     checking consistency... done
     preparing documents... done
-    writing output... [100%] xios-2
-    generating indices...
-    writing additional pages... search
-    copying static files... done
+    copying assets... copying static files... done
     copying extra files... done
-    dumping search index in English (code: en) ... done
+    done
+    writing output... [100%] zzz_archival_docs/index
+    generating indices... done
+    copying linked files...
+    copying notebooks ...
+    writing additional pages... search done
+    copying images... [100%] segrid_edit.png
+    dumping search index in English (code: en)... done
     dumping object inventory... done
     build succeeded.
 

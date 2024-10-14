@@ -642,9 +642,9 @@ the :file:`environment-dev.yaml` file for the `NEMO-Cmd`_ package looks like:
       - pytest-randomly
 
       # For documentation
-      - sphinx
-      - sphinx_rtd_theme
-      - sphinx-notfound-page
+      - sphinx==7.2.6
+      - sphinx-notfound-page==1.0.0
+      - sphinx_rtd_theme==2.0.0
 
       - pip:
         - python-hglib
@@ -691,9 +691,9 @@ the :file:`environment-rtd.yaml` file for the `NEMO-Cmd`_ package looks like:
       # RTD packages
       - mock
       - pillow
-      - sphinx
-      - sphinx_rtd_theme
-      - sphinx-notfound-page
+      - sphinx==7.2.6
+      - sphinx-notfound-page==1.0.0
+      - sphinx_rtd_theme==2.0.0
 
       - pip:
           # install package so that importlib.metadata functions can work
