@@ -95,7 +95,7 @@ Setting up an isolated docs build environment using `Conda`_ is recommended.
 Assuming that you have :ref:`Installed Miniforge <InstallingMiniforge>`,
 you can create and activate an environment called ``moad-docs`` that will have all of the Python packages necessary for building the documentation with the commands:
 
-.. _Conda: https://conda.io/en/latest/
+.. _Conda: https://docs.conda.io/en/latest/
 
 .. code-block:: bash
 

@@ -33,10 +33,10 @@ Users experienced with other version control tools
 can get up to speed with Mercurial by reading `Chapter 2`_.
 
 .. _beginner's guides: https://wiki.mercurial-scm.org/BeginnersGuides
-.. _Mercurial - The Definitive Guide: http://hgbook.red-bean.com/
-.. _1: http://hgbook.red-bean.com/read/how-did-we-get-here.html
-.. _2: http://hgbook.red-bean.com/read/a-tour-of-mercurial-the-basics.html
-.. _Chapter 2: http://hgbook.red-bean.com/read/a-tour-of-mercurial-the-basics.html
+.. _Mercurial - The Definitive Guide: https://hgbook.red-bean.com/
+.. _1: https://hgbook.red-bean.com/read/how-did-we-get-here.html
+.. _2: https://hgbook.red-bean.com/read/a-tour-of-mercurial-the-basics.html
+.. _Chapter 2: https://hgbook.red-bean.com/read/a-tour-of-mercurial-the-basics.html
 
 The central storage of MOAD repositories is in various team accounts on `Bitbucket.org`_.
 If you haven't done so already,

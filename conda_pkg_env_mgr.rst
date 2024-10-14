@@ -208,4 +208,4 @@ many things that you can configure in :program:`conda`.
 If you want to see all of the gory details,
 please see the `conda config docs`_.
 
-.. _conda config docs: https://conda.io/projects/conda/en/latest/user-guide/configuration/use-condarc.html
+.. _conda config docs: https://docs.conda.io/projects/conda/en/latest/user-guide/configuration/use-condarc.html
