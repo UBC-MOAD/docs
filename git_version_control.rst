@@ -99,7 +99,7 @@ Also do:
 .. code-block:: bash
 
     $ git config --global init.defaultbranch main
-    $ git config --global pull.rebase false
+    $ git config --global pull.rebase true
 
 The first of those lines tells Git that when you create a new repository with the :command:`git init` command,
 it should call the default branch ``main``.
