@@ -15,7 +15,7 @@ XIOS-2
 `XIOS`_ is the IO management library that is used by NEMO to produce netCDF results files.
 NEMO-3.6 uses XIOS-2.
 
-.. _XIOS: http://forge.ipsl.jussieu.fr/ioserver/wiki
+.. _XIOS: https://forge.ipsl.fr/ioserver/wiki
 
 XIOS operates as a server process that multiple NEMO calculation processes communicate with
 to write results to netCDF files.
@@ -317,7 +317,7 @@ This is *not* an exhaustive reference guide for all of the possible attribute va
 for that,
 please see chapter 3 of the `XIOS User Guide`_.
 
-.. _XIOS User Guide: http://forge.ipsl.jussieu.fr/ioserver/raw-attachment/wiki/WikiStart/XIOS_user_guide.pdf
+.. _XIOS User Guide: https://forge.ipsl.fr/ioserver/raw-attachment/wiki/WikiStart/XIOS_user_guide.pdf
 
 :file:`NEMO-3.6-code/NEMOGCM/CONFIG/SHARED/field_def.xml` is the reference version of the file
 that is provided with the NEMO code.
@@ -453,7 +453,7 @@ This is *not* an exhaustive reference guide for all of the possible attribute va
 for that,
 please see chapter 5 of the `XIOS User Guide`_.
 
-.. _XIOS User Guide: http://forge.ipsl.jussieu.fr/ioserver/raw-attachment/wiki/WikiStart/XIOS_user_guide.pdf
+.. _XIOS User Guide: https://forge.ipsl.fr/ioserver/raw-attachment/wiki/WikiStart/XIOS_user_guide.pdf
 
 :file:`NEMO-3.6-code/NEMOGCM/CONFIG/SHARED/domain_def.xml` is the reference version of the file
 that is provided with the NEMO code.
