@@ -27,8 +27,8 @@ Contributing to These Docs
 .. image:: https://img.shields.io/github/issues/UBC-MOAD/docs?logo=github
     :target: https://github.com/UBC-MOAD/docs/issues
     :alt: Issue Tracker
-.. image:: https://img.shields.io/badge/python-3.11-blue.svg
-    :target: https://docs.python.org/3.11/
+.. image:: https://img.shields.io/badge/python-3.13-blue.svg
+    :target: https://docs.python.org/3.13/
     :alt: Python Version
 
 Additions,
@@ -87,8 +87,8 @@ from the :guilabel:`Code` button on the `repository`_ page.
 Docs Build Environment
 ======================
 
-.. image:: https://img.shields.io/badge/python-3.11-blue.svg
-    :target: https://docs.python.org/3.11/
+.. image:: https://img.shields.io/badge/python-3.13-blue.svg
+    :target: https://docs.python.org/3.13/
     :alt: Python Version
 
 Setting up an isolated docs build environment using `Conda`_ is recommended.
@@ -266,7 +266,7 @@ The output looks something like:
     (      ssh_access: line  386) ok        https://docs.alliancecan.ca/wiki/SSH_security_improvements#SSH_host_key_fingerprints
     (   analysis_repo: line  131) ok        https://docs.conda.io/en/latest/miniconda.html
     (conda_pkg_env_mgr: line   15) ok        https://docs.conda.io/en/latest/
-    (    contributing: line   13) ok        https://docs.python.org/3.11/
+    (    contributing: line   13) ok        https://docs.python.org/3.13/
     (git_version_control: line   22) ok        https://docs.github.com/en/get-started
     (      ssh_access: line   72) ok        https://docs.microsoft.com/en-ca/windows-server/administration/openssh/openssh_install_firstuse
     (          xios-2: line  708) ok        https://en.wikipedia.org/wiki/XML

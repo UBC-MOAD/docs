@@ -23,7 +23,7 @@ channels:
   - nodefaults
 
 dependencies:
-  - python=3.11
+  - python=3.13
   - pip
 
   # For repo QA

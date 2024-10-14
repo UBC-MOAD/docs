@@ -231,8 +231,7 @@ Here is an example from the `NEMO-Cmd`_ package:
         "License :: OSI Approved :: Apache Software License",
         "Programming Language :: Python :: Implementation :: CPython",
         "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.10",
-        "Programming Language :: Python :: 3.11",
+        "Programming Language :: Python :: 3.13",
         "Operating System :: POSIX :: Linux",
         "Operating System :: Unix",
         "Environment :: Console",
@@ -629,7 +628,7 @@ the :file:`environment-dev.yaml` file for the `NEMO-Cmd`_ package looks like:
       - f90nml
       - gitpython
       - pip
-      - python=3.11
+      - python=3.13
       - pyyaml
 
       # For coding style, repo QA, and pkg management
@@ -687,7 +686,7 @@ the :file:`environment-rtd.yaml` file for the `NEMO-Cmd`_ package looks like:
 
     dependencies:
       - pip
-      - python=3.11
+      - python=3.13
 
       # RTD packages
       - mock
