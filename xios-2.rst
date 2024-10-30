@@ -96,7 +96,7 @@ then compile and link XIOS-2.
     ln -sf $PROJECT/$USER/MEOPAR/XIOS-ARCH/ALLIANCE/arch-X64_GRAHAM.fcm
     ln -sf $PROJECT/$USER/MEOPAR/XIOS-ARCH/ALLIANCE/arch-X64_GRAHAM.path
     cd $PROJECT/$USER/MEOPAR/XIOS-2
-    ./make_xios --arch X64_GRAHAM --job 8
+    ./make_xios --full --arch X64_GRAHAM --job 8
 
 It typically takes about 5 minutes to build XIOS-2 on ``graham``.
 
@@ -117,17 +117,6 @@ You can add the line:
 to your :file:`$HOME/.bash_profile` file if you want the :envvar:`XIOS_HOME` environment variable
 to be set automatically whenever you :command:`ssh` in.
 
-If you need to do a clean build of XIOS-2,
-you can use:
-
-.. code-block:: bash
-
-    cd $PROJECT/$USER/MEOPAR/XIOS-2
-    ./tools/FCM/bin/fcm build --clean
-    ./make_xios --arch X64_GRAHAM --job 8
-
-to clear away all artifacts of the previous build and do a fresh one.
-
 
 .. _BuildXIOS-MEOPAR-salish:
 
@@ -140,7 +129,7 @@ to clear away all artifacts of the previous build and do a fresh one.
     ln -sf /data/$USER/MEOPAR/XIOS-ARCH/UBC-EOAS/arch-GCC_SALISH.fcm
     ln -sf /data/$USER/MEOPAR/XIOS-ARCH/UBC-EOAS/arch-GCC_SALISH.path
     cd /data/$USER/MEOPAR/XIOS-2
-    ./make_xios --arch GCC_SALISH --netcdf_lib netcdf4_seq --job 8
+    ./make_xios --full --arch GCC_SALISH --netcdf_lib netcdf4_seq --job 8
 
 To build NEMO you will need an environment variable named :envvar:`XIOS_HOME`
 whose value is the absolute path to you :file:`XIOS-2` directory.
@@ -158,17 +147,6 @@ You can add the line:
 
 to your :file:`$HOME/.bash_profile` file if you want the :envvar:`XIOS_HOME` environment variable
 to be set automatically whenever you :command:`ssh` in.
-
-If you need to do a clean build of XIOS-2,
-you can use:
-
-.. code-block:: bash
-
-    cd /data/$USER/MEOPAR/XIOS-2
-    ./tools/FCM/bin/fcm build --clean
-    ./make_xios --arch GCC_SALISH --netcdf_lib netcdf4_seq --job 8
-
-to clear away all artifacts of the previous build and do a fresh one.
 
 
 .. _XIOS-2ConfigurationFiles:
