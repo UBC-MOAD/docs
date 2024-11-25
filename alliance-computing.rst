@@ -27,21 +27,21 @@ no matter how many different compute clusters you end up working on.
 For each cluster that you work on,
 you need to do some initial setup.
 Our Alliance allocation that gives us higher than default priority for compute,
-and larger project and nearline storage allocations is on the ``graham.computecanada.ca``
+and larger project and nearline storage allocations is on the ``graham.alliancecan.ca``
 cluster located in Waterloo.
 The instructions below are for setup on ``graham``.
 
 We also have default allocations available on:
 
-* ``beluga.computecanada.ca``,
+* ``beluga.alliancecan.ca``,
   located in Montréal.
-* ``cedar.computecanada.ca``,
+* ``cedar.alliancecan.ca``,
   located in Burnaby.
-* ``narval.computecanada.ca``,
+* ``narval.alliancecan.ca``,
   located in Montréal.
 
 Our jobs generally do not require sufficient resources to qualify to run on the
-``niagara.computecanada.ca`` cluster located in Toronto.
+``niagara.alliancecan.ca`` cluster located in Toronto.
 
 
 .. _CreateAllianceAccount:
@@ -70,14 +70,14 @@ https://alliancecan.ca/en/services/advanced-research-computing/account-managemen
 
 .. _InitialSetupOnGraham:
 
-Initial Setup on ``graham.computecanada.ca``
-============================================
+Initial Setup on ``graham.alliancecan.ca``
+==========================================
 
 These are the setup steps that you need to do when you start using ``graham`` for the first time:
 
 #. Add an entry for ``graham`` to your :file:`$HOME/.ssh/config` file.
    This will enable you to connect to ``graham`` by typing :command:`ssh graham` instead of
-   having to type :command:`ssh your-user-id@graham.computecanada.ca`.
+   having to type :command:`ssh your-user-id@graham.alliancecan.ca`.
 
    Create a :file:`$HOME/.ssh/config` file on your laptop or a Waterhole machine containing
    the following
@@ -86,13 +86,13 @@ These are the setup steps that you need to do when you start using ``graham`` fo
    .. code-block:: text
 
        Host graham
-         Hostname  graham.computecanada.ca
+         Hostname  graham.alliancecan.ca
          User  userid
          ForwardAgent  yes
 
    where ``userid`` is your Alliance user id.
 
-   The first two lines establish ``graham`` as a short alias for ``graham.computecanada.ca``
+   The first two lines establish ``graham`` as a short alias for ``graham.alliancecan.ca``
    so that you can just type :command:`ssh graham`.
 
    The third line sets the user id to use on ``graham``,
@@ -112,7 +112,7 @@ These are the setup steps that you need to do when you start using ``graham`` fo
    .. code-block:: text
 
        Host graham-dtn
-         HostName  gra-dtn1.computecanada.ca
+         HostName  gra-dtn1.alliancecan.ca
          User  userid
          ForwardAgent  no
 
