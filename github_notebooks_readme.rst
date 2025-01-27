@@ -49,6 +49,10 @@ Here is a prototype :file:`make_readme.py` module that provides that automation:
 
     and commit and push the updated `README.md` to GitHub.
     """
+
+    # SPDX-License-Identifier: Apache-2.0
+
+
     import json
     from pathlib import Path
     import re
