@@ -35,5 +35,6 @@
         "Skinn's",
         "tomllib",
         "userid"
-    ]
+    ],
+    "makefile.configureOnOpen": false
 }
