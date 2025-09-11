@@ -50,23 +50,11 @@ and that is what you should do if you are working on Windows.
 But for Linux and MacOS you'll be working with :program:`conda` on the command-line in terminals sessions,
 so you might as well get started that way by using :program:`wget` to download the installer script into your home directory.
 
-On Linux use:
+On Linux, macOS and Windows Subsystem for Linux (WSL) use:
 
 .. code-block:: bash
 
-    $ wget https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Linux-x86_64.sh
-
-On older MacOS systems use:
-
-.. code-block:: bash
-
-    $ wget https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-MacOSX-x86_64.sh
-
-On the new M1/2 chips MacOS systems use:
-
-.. code-block:: bash
-
-    $ wget https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-MacOSX-arm64.sh
+    $ wget "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-$(uname)-$(uname -m).sh"
 
 The installation instructions are in the "Unix-like platforms" section of the README of
 https://github.com/conda-forge/miniforge.
@@ -74,17 +62,9 @@ In short:
 
 #. Run the installer script via :program:`bash`:
 
-   On Linux use:
-
    .. code-block:: bash
 
-      $ bash Miniforge3-Linux-x86_64.sh
-
-   On MacOS use:
-
-   .. code-block:: bash
-
-      $ bash Miniforge3-MacOSX-x86_64.sh
+      $ bash Miniforge3-$(uname)-$(uname -m).sh
 
    Follow the prompts on the screen.
    Accept the defaults offered for all of the settings
