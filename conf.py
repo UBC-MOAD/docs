@@ -59,6 +59,13 @@ linkcheck_ignore = [
     'https://www.baeldung.com/cs/ssh-intro',
     'https://linux.die.net/man/1/scp',
 ]
+linkcheck_anchors_ignore_for_url = [
+    # We get false failures from the Alliance wiki; i.e. anchors that do exist
+    # are reported to be broken links. This allows the page URL to be confirmed
+    # even if the anchor is not.
+    r"https://docs\.alliancecan\.ca/wiki/.*"
+]
+
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
