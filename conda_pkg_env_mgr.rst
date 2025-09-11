@@ -99,7 +99,7 @@ In short:
 
    .. code-block:: text
 
-        # packages in environment at /home/dlatorne/miniconda3:
+        # packages in environment at /home/dlatorne/miniforge3:
         #
         # Name                    Version                   Build  Channel
         _libgcc_mutex             0.1                 conda_forge    conda-forge

@@ -129,6 +129,6 @@ Set Up Your Analysis Repository
 You will need to have:
 
 #. :ref:`SetUpGit`
-#. :ref:`Installed Miniconda<InstallMiniforge>`
+#. :ref:`Installed Miniforge<InstallMiniforge>`
 
 before you can set up your :ref:`analysis repository<MOAD-AnalysisRepository>`.
