@@ -68,7 +68,7 @@ It is also installed on ``orcinus`` on WestGrid,
 and ``beluga``,
 ``cedar``,
 and ``graham`` on ComputeCanada.
-If you have administrator privileges on your workstation or laptop you can download and install Mercurial for your operating system from https://www.mercurial-scm.org/downloads,
+If you have administrator privileges on your workstation or laptop you can download and install Mercurial for your operating system from https://www.mercurial-scm.org/install,
 otherwise,
 contact your IT support to have it installed for you.
 

@@ -18,7 +18,7 @@ Contributing to These Docs
 .. image:: https://img.shields.io/badge/version%20control-git-blue.svg?logo=github
     :target: https://github.com/UBC-MOAD/docs
     :alt: Git on GitHub
-.. image:: https://readthedocs.org/projects/ubc-moad-docs/badge/?version=latest
+.. image:: https://app.readthedocs.org/projects/ubc-moad-docs/badge/?version=latest
     :target: https://ubc-moad-docs.readthedocs.io/en/latest/
     :alt: Documentation Status
 .. image:: https://github.com/UBC-MOAD/docs/workflows/sphinx-linkcheck/badge.svg
@@ -49,7 +49,7 @@ the instructions below explain how to:
   and preview them in Firefox
 
 .. _GitHub: https://github.com/UBC-MOAD/docs
-.. _build on readthedocs.org: https://readthedocs.org/projects/ubc-moad-docs/builds/
+.. _build on readthedocs.org: https://app.readthedocs.org/projects/ubc-moad-docs/builds/
 
 
 .. _MOAD-DocsGettingTheRepo:
@@ -131,7 +131,7 @@ To deactivate the environment use:
 Building and Previewing the Documentation
 =========================================
 
-.. image:: https://readthedocs.org/projects/ubc-moad-docs/badge/?version=latest
+.. image:: https://app.readthedocs.org/projects/ubc-moad-docs/badge/?version=latest
     :target: https://ubc-moad-docs.readthedocs.io/en/latest/
     :alt: Documentation Status
 
@@ -377,9 +377,9 @@ The output looks something like:
     (python_packaging/pkg_structure: line  483) ok        https://peps.python.org/pep-0440/
     (oceanparcels/index: line   22) ok        https://os.copernicus.org/articles/17/1067/2021/
     (python_packaging/pkg_structure: line  183) ok        https://pre-commit.com/
-    (    contributing: line   21) ok        https://readthedocs.org/projects/ubc-moad-docs/badge/?version=latest
+    (    contributing: line   21) ok        https://app.readthedocs.org/projects/ubc-moad-docs/badge/?version=latestversion=latest
     (     sphinx_docs: line  183) ok        https://rhodesmill.org/brandon/2012/one-sentence-per-line/
-    (    contributing: line   46) ok        https://readthedocs.org/projects/ubc-moad-docs/builds/
+    (    contributing: line   46) ok        https://app.readthedocs.org/projects/ubc-moad-docs/builds/
     (          python: line   51) ok        https://realpython.com/
     (   analysis_repo: line  320) ok        https://salishsea-meopar-tools.readthedocs.io/en/latest/visualisation/visualization_workflows_xarray.html
     (alliance-computing: line  242) ok        https://salishsea-meopar-docs.readthedocs.io/en/latest/code-notes/salishsea-nemo/quickstart/graham.html#compilenemo-3-6-graham
@@ -407,7 +407,7 @@ The output looks something like:
     (    CONTRIBUTORS: line    7) ok        https://www.eoas.ubc.ca/~sallen/
     (zzz_archival_docs/hg_version_control: line   21) ok        https://www.mercurial-scm.org/
     (     sphinx_docs: line   19) ok        https://www.mathjax.org/
-    (zzz_archival_docs/hg_version_control: line   63) ok        https://www.mercurial-scm.org/downloads
+    (zzz_archival_docs/hg_version_control: line   63) ok        https://www.mercurial-scm.org/install
     (          globus: line   15) ok        https://www.globus.org/data-transfer
     (      ssh_access: line   31) ok        https://www.digitalocean.com/community/tutorials/how-to-configure-ssh-key-based-authentication-on-a-linux-server
     (          python: line   15) ok        https://www.python.org/

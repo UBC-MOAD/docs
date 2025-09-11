@@ -5,7 +5,7 @@ UBC EOAS MOAD Group Documentation
 
 [![Creative Commons Attribution International 4.0 License](https://img.shields.io/badge/license-CC--BY-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 [![Git on GitHub](https://img.shields.io/badge/version%20control-git-blue.svg?logo=github)](https://github.com/UBC-MOAD/docs)
-[![Documentation Status](https://readthedocs.org/projects/ubc-moad-docs/badge/?version=latest)](https://ubc-moad-docs.readthedocs.io/en/latest/)
+[![Documentation Status](https://app.readthedocs.org/projects/ubc-moad-docs/badge/?version=latest)](https://ubc-moad-docs.readthedocs.io/en/latest/)
 [![sphinx-linkcheck](https://github.com/UBC-MOAD/docs/workflows/sphinx-linkcheck/badge.svg)](https://github.com/UBC-MOAD/docs/actions?query=workflow:sphinx-linkcheck)
 [![Issue Tracker](https://img.shields.io/github/issues/UBC-MOAD/docs?logo=github)](https://github.com/UBC-MOAD/docs/issues)
 

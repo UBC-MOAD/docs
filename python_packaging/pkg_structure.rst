@@ -382,7 +382,7 @@ a conda environment that we describe in the :file:`envs/environment-rtd.yaml` fi
 (described below),
 built using the ``mambaforge`` environment and package manager on an Ubuntu Linux virtual machine.
 
-.. _declares the features of the environment: https://docs.readthedocs.io/en/stable/config-file/v2.html
+.. _declares the features of the environment: https://docs.readthedocs.com/platform/stable/config-file/v2.html
 
 The :file:`.readthedocs.yaml` file for the `NEMO-Cmd`_ package is typical,
 and looks like:
