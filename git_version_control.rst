@@ -107,7 +107,7 @@ This is consistent with the default we have set on GitHub as of mid-2020.
 Don't worry if you don't understand what "default branch" means;
 you will learn soon.
 
-The second tells Git to merge changes that it pulls in from remote repositories instead of rebasing them.
+The second tells Git to rebase changes that it pulls in from remote repositories instead of merging them.
 Again,
 don't worry if you don't understand what that means right now;
 you will learn.
