@@ -149,7 +149,7 @@ You should be able to follow these instructions to set up on any of the other Al
 
 #. Create a :envvar:`PROJECT` environment variable that points to our allocated storage on the
    :file:`/project/` file system.
-   To ensure that :envvar:`PROJECT` is set correctly every time you sign in to ``graham``,
+   To ensure that :envvar:`PROJECT` is set correctly every time you sign in to ``nibi``,
    use an editor to add the following line to your :file:`$HOME/.bash_profile` file:
 
    .. code-block:: text
@@ -243,7 +243,7 @@ You should be able to follow these instructions to set up on any of the other Al
    :ref:`salishseacmd:SalishSeaCmdProcessor` and its dependencies in a
    :command:`conda`  environment.
 
-#. Follow the :ref:`BuildXIOS-MEOPAR-graham` docs to build ``XIOS-2``.
+#. Follow the :ref:`BuildXIOS-MEOPAR-nibi` docs to build ``XIOS-2``.
 
 #. Follow the :ref:`salishseadocs:CompileNEMO-3.6-graham` docs to build ``NEMO-3.6``.
 
