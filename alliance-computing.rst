@@ -17,7 +17,7 @@ or the Alliance,
 (formerly Compute Canada) is the organization that coordinates access to High Performance Computing
 (HPC) computing resources across Canada.
 
-.. _Digital Research Alliance of Canada: https://alliancecan.ca/en
+.. _Digital Research Alliance of Canada: https://www.alliancecan.ca/en
 
 Before you can use the Alliance compute clusters and high capacity storage resources you need to
 :ref:`CreateAllianceAccount`.
