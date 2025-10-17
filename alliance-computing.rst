@@ -245,7 +245,7 @@ You should be able to follow these instructions to set up on any of the other Al
 
 #. Follow the :ref:`BuildXIOS-MEOPAR-nibi` docs to build ``XIOS-2``.
 
-#. Follow the :ref:`salishseadocs:CompileNEMO-3.6-graham` docs to build ``NEMO-3.6``.
+#. Follow the :ref:`salishseadocs:CompileNEMO-3.6-nibi` docs to build ``NEMO-3.6``.
 
 #. If you are using VS Code as your editor,
    consider setting up the :ref:`FortranLanguageServer`
