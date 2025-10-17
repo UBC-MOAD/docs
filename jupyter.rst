@@ -138,7 +138,7 @@ it is often better to "take the compute to the data" rather than download large 
 and rely on its CPU cores for calculations.
 Remote machines like the MOAD workstations,
 our development server ``salish``,
-and the compute nodes on the Compute Canada ``graham`` cluster
+and the compute nodes on the Alliance ``nibi`` cluster
 have more and faster CPU cores than most laptops,
 and access to far larger storage.
 
@@ -319,14 +319,14 @@ When you are finished using Jupyter:
 
 .. _RunningJupyterRemotely-ComputeCanada:
 
-Running Jupyter Remotely on ``graham``
------------------------------------------
+Running Jupyter Remotely on ``nibi``
+------------------------------------
 
-This section assumes that you have followed the instructions in the :ref:`SetUpSshConfiguration` section to set up host aliases for ``graham`` and any other Compute Canada clusters you want to run the :command:`jupyter lab` server on.
+This section assumes that you have followed the instructions in the :ref:`SetUpSshConfiguration` section to set up host aliases for ``nibi`` and any other Compute Canada clusters you want to run the :command:`jupyter lab` server on.
 
-You can use the technique in this section to run the :command:`jupyter lab` server on any of the Compute Canada clusters by replacing ``graham`` with the cluster name.
+You can use the technique in this section to run the :command:`jupyter lab` server on any of the Alliance clusters by replacing ``nibi`` with the cluster name.
 
-The recommended way to run a :command:`jupyter lab` server on ``graham`` is in an interactive session on a compute node.
+The recommended way to run a :command:`jupyter lab` server on ``nibi`` is in an interactive session on a compute node.
 Things to note about working in that context:
 
 **Pros:**
@@ -342,6 +342,8 @@ Things to note about working in that context:
 
 Create a Python Virtual Environment
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**TODO:** Update this section to use conda environment on ``nibi`` instead of a venv on ``graham``.
 
 The first step is to create a Python virtual environment with ``jupyterlab``
 (and probably other Python packages)
@@ -450,7 +452,7 @@ they are installed from PyPI.
 Running :command:`jupyter lab` in an Interactive Compute Session
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-In an :program:`ssh` session on ``graham``,
+In an :program:`ssh` session on ``nibi``,
 start an interactive session on a compute node with:
 
 .. code-block:: bash
@@ -460,7 +462,7 @@ start an interactive session on a compute node with:
 The ``--time=1:00:00`` option requests the compute node resources for 1 hour.
 ``--ntasks=1 --cpus-per-task=2 --mem-per-cpu=1024M`` requests 2 cores with 1024 Mb of RAM each for the session and associates them with 1 scheduler task.
 Those are good choices for typical interactive work on NEMO results files.
-The ``--account=rrg-allen`` uses the MOAD allocation on ``graham`` to request the resources with better than default priority.
+The ``--account=rrg-allen`` uses the MOAD allocation on ``nibi`` to request the resources with better than default priority.
 On other clusters use ``--account=def-allen``.
 
 You should see output something like:
@@ -472,7 +474,7 @@ You should see output something like:
     salloc: job 40482784 has been allocated resources
     salloc: Granted job allocation 40482784
     salloc: Waiting for resource configuration
-    salloc: Nodes gra705 are ready for job
+    salloc: Nodes c705 are ready for job
 
 as the requested session starts up.
 There may be a wait while the resources are allocated to you,
@@ -482,14 +484,14 @@ how many cores you have requested,
 and how much memory you have requested.
 Eventually,
 your command-line prompt should re-appear showing that you are now connected to one of the compute nodes,
-``gra705`` in this case:
+``c705`` in this case:
 
 .. code-block:: bash
 
-    [your-user-id@gra705 ~]$
+    [your-user-id@c705 ~]$
 
 
-Load a Compute Canada Python language module,
+Load a Alliance Python language module,
 and activate the Python virtual environment in which ``jupyterlab`` and the other packages that you need are installed.
 In this example we load Python 3.8.2 and activate our environment from the :file:`~/venvs/jupyter/` directory:
 
@@ -522,7 +524,7 @@ You should see output in that terminal window that looks something like:
     [I 17:26:07.186 LabApp] JupyterLab application directory is /home/dlatorne/venvs/jupyter/share/jupyter/lab
     [I 17:26:07.191 LabApp] Serving notebooks from local directory: /home/dlatorne/projects/def-allen/dlatorne/MEOPAR/analysis-doug/
     [I 17:26:07.191 LabApp] Jupyter Notebook 6.1.5 is running at:
-    [I 17:26:07.191 LabApp] http://gra705.graham.sharcnet:8888/?token=327caed3d832eefaad25a57cbf01de9f42685ced4306e036
+    [I 17:26:07.191 LabApp] http://c705.nibi.sharcnet:8888/?token=327caed3d832eefaad25a57cbf01de9f42685ced4306e036
     [I 17:26:07.191 LabApp]  or http://127.0.0.1:8888/?token=327caed3d832eefaad25a57cbf01de9f42685ced4306e036
     [I 17:26:07.191 LabApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
     [C 17:26:07.203 LabApp]
@@ -530,7 +532,7 @@ You should see output in that terminal window that looks something like:
         To access the notebook, open this file in a browser:
             file:///home/dlatorne/.local/share/jupyter/runtime/nbserver-24995-open.html
         Or copy and paste one of these URLs:
-            http://gra705.graham.sharcnet:8888/?token=327caed3d832eefaad25a57cbf01de9f42685ced4306e036
+            http://c705.nibi.sharcnet:8888/?token=327caed3d832eefaad25a57cbf01de9f42685ced4306e036
          or http://127.0.0.1:8888/?token=327caed3d832eefaad25a57cbf01de9f42685ced4306e036
 
 .. note::
@@ -543,20 +545,20 @@ The URLs on the last 2 lines are the important bit that we need to use to get th
 The second last one that contains the name of the node that the server is running on is the important one for the rest of this setup.
 That is::
 
-  http://gra705.graham.sharcnet:8888/?token=327caed3d832eefaad25a57cbf01de9f42685ced4306e036
+  http://c705.nibi.sharcnet:8888/?token=327caed3d832eefaad25a57cbf01de9f42685ced4306e036
 
 in the example output above.
 
-The ``gra705.graham.sharcnet`` part is the name of the compute node on which your Jupyter server is running.
+The ``c705.nibi.sharcnet`` part is the name of the compute node on which your Jupyter server is running.
 It will change from session to session.
-The number after ``gra705.graham.sharcnet:`` in the URL
+The number after ``c705.nibi.sharcnet:`` in the URL
 (``8888`` above)
 is the port number that the Jupyter server is running on.
 ``8888`` is the default,
 but if that port is busy,
 probably because somebody else is already running a Jupyter server on it,
 Jupyter will choose a different port number.
-You need to use the port number that *your* Jupyter server server is running on in the next step when we set up the :program:`ssh` tunnel between your laptop and ``graham`` for the Jupyter client to use.
+You need to use the port number that *your* Jupyter server server is running on in the next step when we set up the :program:`ssh` tunnel between your laptop and ``nibi`` for the Jupyter client to use.
 
 To set up the :program:`ssh` tunnel,
 open a new terminal window on your laptop,
@@ -564,18 +566,18 @@ and enter the command:
 
 .. code-block:: bash
 
-    $ ssh -N -L 4343:gra705.graham.sharcnet:8888 graham
+    $ ssh -N -L 4343:c705.nibi.sharcnet:8888 nibi
 
 This use of :program:`ssh` is called "port forwarding", or "ssh tunnelling".
 It creates an ssh encrypted connection between a port on your laptop
 (port ``4343`` in this case)
 and a port on the remote host
-(port ``8888`` on the ``gra705.graham.sharcnet`` node in this case).
+(port ``8888`` on the ``c705.nibi.sharcnet`` node in this case).
 The ``-N`` option tells :program:`ssh` not to execute a command on the remote system because all we want to do is set up the port forwarding.
 The ``-L`` option tells :program:`ssh` that the next blob of text is the details of the port forwarding to set up.
 
 You can use any number ``≥1024`` you want instead of ``4343`` as the local port number on your laptop.
-The number after ``:gra705.graham.sharcnet:`` has to be the same as the port number in the URLs that the Jupyter server printed out.
+The number after ``:c705.nibi.sharcnet:`` has to be the same as the port number in the URLs that the Jupyter server printed out.
 
 .. note::
     Keep this terminal window open too.
@@ -592,12 +594,12 @@ copy the the long string of digits and letters from the URL in the Jupyter serve
 For example,
 the in the URL::
 
-  http://gra705.graham.sharcnet:8888/?token=327caed3d832eefaad25a57cbf01de9f42685ced4306e036
+  http://c705.nibi.sharcnet:8888/?token=327caed3d832eefaad25a57cbf01de9f42685ced4306e036
 
 the token is ``327caed3d832eefaad25a57cbf01de9f42685ced4306e036``.
 
 When you run Jupyter in this way,
-remember that all of the notebooks and files you are working with are on the remote computer (``graham``) file system,
+remember that all of the notebooks and files you are working with are on the remote computer (``nibi``) file system,
 not on your laptop.
 So,
 when you commit your changes with :program:`git`,
