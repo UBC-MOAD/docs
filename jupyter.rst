@@ -52,14 +52,21 @@ among them:
   You can open as many notebook tabs as you want -
   at least until your computer runs out of memory!
 
-* The :command:`jupyter lab` is the newer "next generation" interface that puts everything in one browser tab with multiple panes that you can move around and re-size.
+* The :command:`jupyter lab` is the newer "next generation" interface that puts
+  everything in one browser tab with multiple panes that you can move around and re-size.
   In addition to notebooks,
   ``lab`` also provides a text editor,
   code consoles that are synced with notebooks,
   and terminal panes that give access to your system shell,
   just like your terminal program does.
 
-Unless you have a strong reason to use the original ``notebook`` interface,
+* :ref:`VS Code <MOAD-VSCode>` also provides the ability to edit and run
+  Jupyter notebooks directly in the VS Code interface.
+
+:ref:`VS Code <MOAD-VSCode>` is probably the easiest way to work with Jupyter notebooks
+if you are already using VS Code for other coding tasks.
+However,
+if you prefer the browser-based interfaces,
 you should use the ``lab`` interface because that is the part of Jupyter that is being most actively developed,
 and where new features are most likely to appear.
 
@@ -87,6 +94,37 @@ you are using :command:`conda`  to create and manage your Python environments,
 you can install Jupyter by adding the ``jupyterlab`` package to your environment description YAML file.
 For example,
 the :file:`notebooks/environment.yaml` file in your analysis repo includes ``jupyterlab``.
+
+
+Using VS Code
+-------------
+
+#. Ensure that you have the Python extension installed in VS Code.
+   See the :ref:`MOAD-VSCode-RecommendedExtensions` section for instructions.
+
+#. Open the notebook file you want to work on in VS Code,
+   either by using the :guilabel:`File > Open File...` menu,
+   or by opening the analysis repo folder in VS Code and using the Explorer sidebar
+   to navigate to and open the notebook file.
+
+#. If the Python environment that you want to use for the notebook is not already selected,
+   use the :guilabel:`Select Kernel` button in the upper right corner of the notebook editor pane
+   (highlighted in the figure below)
+   to choose the correct environment.
+   You should see a list of available Python environments including the one you created for your analysis repo.
+   Select that environment to use it as the kernel for the notebook.
+
+.. figure:: ./VSCodeSelectJupyterKernel.png
+    :alt: VS Code Jupyter kernel selection
+
+The "Jupyter Notebook quick start" section of the `Microsoft Python extension`_ page
+has more details and links about using Jupyter notebooks in VS Code.
+
+.. _Microsoft Python extension: https://marketplace.visualstudio.com/items?itemName=ms-python.python
+
+
+Using a Terminal Window
+-----------------------
 
 In a terminal window,
 go to the directory that you want to be at the top level of Jupyter's file navigation,
@@ -146,18 +184,24 @@ Fortunately,
 the server-client structure of Jupyter makes it relatively easy to use the CPU cores and storage of a remote system with the user interface in the browser on your laptop.
 We do that by running the server part on a remote system,
 and using :command:`ssh` to create a secure access "tunnel" between the server and our laptop to allow the client part running in our local browser to connect to the remote server part.
+Again,
+the easiest way to do that is to use :ref:`VS Code <MOAD-VSCode>` with its Remote SSH Extension.
 
-Apart from access to more compute power and avoiding the need to move large files around,
-using :command:`jupyter lab` on a remote system has other advantages:
+If you decided to use the browser-based Jupyter interfaces rather than VS Code,
+the :command:`jupyter lab` interface provides some useful tools on the remote system
+that are similar to what you get with VS Code:
 
-* You can open terminal panes in the ``lab`` interface to give you a terminal session on the remote machine for things like file system tasks: copying or moving files, managing permissions, etc.,
+* You can open terminal panes in the ``lab`` interface to give you a terminal session
+  on the remote machine for things like file system tasks:
+  copying or moving files, managing permissions, etc.,
   for :command:`git` version control tasks: pulls, commits, and pushes,
   or anything else you need to do in a command-line interface.
 
 * You can open editor panes in the ``lab`` interface to work on files stored on the remote system.
   Doing that avoids the need to copy files back and forth between your laptop and the remote system,
   or deal with network lag when you try to use a full-screen editor in a remote desktop session.
-  You can use the :guilabel:`Settings > Text Editor Key Map` menu in ``lab`` to set the editor keyboard mapping to your choice of :program:`vim`,
+  You can use the :guilabel:`Settings > Text Editor Key Map` menu in ``lab`` to set the editor
+  keyboard mapping to your choice of :program:`vim`,
   :program:`emacs`,
   or :program:`Sublime Text`.
 
@@ -189,6 +233,42 @@ and :file:`/ocean/`.
 That said,
 the MOAD workstations have ample compute power and are nearly as fast access to the storage arrays,
 so they are well up to the task of running the :command:`jupyter lab` for analysis work.
+
+
+Using VS Code
+-------------
+
+#. Ensure that you have the Remote SSH extension installed in VS Code.
+   See the :ref:`MOAD-VSCodeRemoteSSH-Extension` section for details.
+
+#. Use the Remote - SSH extension to open a VS Code window
+   connected to ``salish`` or a MOAD workstation.
+
+#. Ensure that you have the Python extension installed for VS Code
+   *on the remote machine*.
+
+#. If you haven't already done so,
+   clone the repository containing the notebook(s) you want to use on the remote machine,
+   and create the :program:`conda` environment for it.
+
+#. Open the notebook file you want to work on in VS Code,
+   either by using the :guilabel:`File > Open File...` menu,
+   or by opening the analysis repo folder in VS Code and using the Explorer sidebar
+   to navigate to and open the notebook file.
+
+#. If the Python environment that you want to use for the notebook is not already selected,
+   use the :guilabel:`Select Kernel` button in the upper right corner of the notebook editor pane
+   (highlighted in the figure below)
+   to choose the correct environment.
+   You should see a list of available Python environments including the one you created for your analysis repo.
+   Select that environment to use it as the kernel for the notebook.
+
+.. figure:: ./VSCodeSelectJupyterKernel.png
+    :alt: VS Code Jupyter kernel selection
+
+
+Using a Terminal Window
+-----------------------
 
 To start the :command:`jupyter lab` server on ``salish``,
 open a terminal window on your laptop,
