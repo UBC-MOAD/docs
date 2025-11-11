@@ -35,7 +35,7 @@ nbsphinx==0.9.5
 nodeenv==1.9.1
 packaging==25.0
 pandocfilters==1.5.1
-pip==25.2
+pip==25.3
 platformdirs==4.4.0
 pre_commit==4.3.0
 pycparser==2.22
