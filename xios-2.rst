@@ -12,7 +12,7 @@
 XIOS-2
 ******
 
-`XIOS`_ is the IO management library that is used by NEMO to produce netCDF results files.
+`XIOS`_ is the output management library that is used by NEMO to produce netCDF results files.
 NEMO-3.6 uses XIOS-2.
 
 .. _XIOS: https://forge.ipsl.fr/ioserver/wiki
@@ -38,11 +38,11 @@ take care of doing that for you.
 Getting XIOS-2
 ==============
 
-The MOAD group maintains our own Mercurial repositories on GitHub of the `XIOS-2 code`_
+The MOAD group maintains our own Git repositories on GitHub of the `XIOS-2 code`_
 and `build configuration files`_ for building XIOS-2 on the compute platforms that we use.
 Our XIOS-2 code repo is accessible only by members of the MOAD group so as to respect the
 sign-up requirement of the upstream `XIOS`_ repository.
-The architecture file repo is public so that other researchers can make use of the
+The build configuration files repo is public so that other researchers can make use of the
 build system options that we have figured out for various system.
 
 .. _XIOS-2 code: https://github.com/SalishSeaCast/XIOS-2
@@ -53,13 +53,16 @@ research project directory,
 typically one of :file:`MEOPAR/`.
 Here are the commands to do that on the 2 platforms that we use most.
 
+You should be able to follow the instructions for ``nibi`` in this and subsequent sections to get
+and build XIOS-2 on any of the other Alliance clusters.
 
-``graham``
-----------
+
+``nibi``
+--------
 
 .. code-block:: bash
 
-    cd $PROJECT/$USER/MEOPAR/
+    cd $HOME/MEOPAR/
     git clone git@github.com:SalishSeaCast/XIOS-2.git
     git clone git@github.com:SalishSeaCast/XIOS-ARCH.git
 
@@ -84,21 +87,21 @@ from the :file:`XIOS-ARCH` repo clone into the :file:`XIOS-2/arch/` directory,
 then compile and link XIOS-2.
 
 
-.. _BuildXIOS-MEOPAR-graham:
+.. _BuildXIOS-MEOPAR-nibi:
 
-``MEOPAR`` on ``graham``
-------------------------
+``nibi``
+--------
 
 .. code-block:: bash
 
-    cd $PROJECT/$USER/MEOPAR/XIOS-2/arch
-    ln -sf $PROJECT/$USER/MEOPAR/XIOS-ARCH/ALLIANCE/arch-X64_GRAHAM.env
-    ln -sf $PROJECT/$USER/MEOPAR/XIOS-ARCH/ALLIANCE/arch-X64_GRAHAM.fcm
-    ln -sf $PROJECT/$USER/MEOPAR/XIOS-ARCH/ALLIANCE/arch-X64_GRAHAM.path
-    cd $PROJECT/$USER/MEOPAR/XIOS-2
-    ./make_xios --full --arch X64_GRAHAM --job 8
+    cd $HOME/MEOPAR/XIOS-2/arch
+    ln -sf ../../XIOS-ARCH/ALLIANCE/arch-X64_NIBI.env
+    ln -sf ../../XIOS-ARCH/ALLIANCE/arch-X64_NIBI.fcm
+    ln -sf ../../XIOS-ARCH/ALLIANCE/arch-X64_NIBI.path
+    cd $HOME/MEOPAR/XIOS-2
+    ./make_xios --full --arch X64_NIBI --job 8
 
-It typically takes about 5 minutes to build XIOS-2 on ``graham``.
+It typically takes 2 minutes or less to build XIOS-2 on ``nibi``.
 
 To build NEMO you will need an environment variable named :envvar:`XIOS_HOME`
 whose value is the absolute path to you :file:`XIOS-2` directory.
@@ -106,13 +109,13 @@ For the ``MEOPAR`` project it is:
 
 .. code-block:: bash
 
-    XIOS_HOME=$PROJECT/$USER/MEOPAR/XIOS-2
+    XIOS_HOME=$HOME/MEOPAR/XIOS-2
 
 You can add the line:
 
 .. code-block:: bash
 
-    export XIOS_HOME=$PROJECT/$USER/MEOPAR/XIOS-2
+    export XIOS_HOME=$HOME/MEOPAR/XIOS-2
 
 to your :file:`$HOME/.bash_profile` file if you want the :envvar:`XIOS_HOME` environment variable
 to be set automatically whenever you :command:`ssh` in.
@@ -120,8 +123,8 @@ to be set automatically whenever you :command:`ssh` in.
 
 .. _BuildXIOS-MEOPAR-salish:
 
-``MEOPAR`` on ``salish``
-------------------------
+``salish``
+----------
 
 .. code-block:: bash
 
@@ -266,15 +269,16 @@ A more complicated example is:
       separate XIOS server: True
       filedefs: $PROJECT/$USER/SS-run-sets/v201905/tuning/tuning_file_def.xml
       domaindefs: ../domain_def.xml
-      fielddefs: $PROJECT/SS-run-sets/v201905/field_def.xml
+      fielddefs: $HOME/MEOPAR/SS-run-sets/v201905/field_def.xml
       iodefs: iodef.xml
 
 Note the use of:
 
 * A relative path for ``domaindefs``
-* Absolute paths containing the environment variables like :envvar:`$USER` and :envvar:`$PROJECT`
-  for ``filedefs`` and ``fielddefs``.
-  Other environment variables like :envvar:`$HOME` and :envvar:`$SCRATCH` can also be used in XML file paths.
+* Absolute paths containing the environment variables like  :envvar:`$PROJECT`,
+  :envvar:`$USER`,
+  and :envvar:`$HOME` for ``filedefs`` and ``fielddefs``.
+  Other environment variables like :envvar:`$SCRATCH` can also be used in XML file paths.
 * The more descriptive file name :file:`tuning_file_def.xml` for ``filedefs``
 
 

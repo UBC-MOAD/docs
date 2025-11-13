@@ -3,9 +3,13 @@
     "python.defaultInterpreterPath": "~/conda_envs/moad-docs",
     "cSpell.words": [
         "abspath",
+        "alliancecan",
         "autodoc",
+        "CCDB",
+        "CCRI",
         "Codecov",
         "Cristian",
+        "dlatorne",
         "dunder",
         "fortls",
         "gitpython",
@@ -18,9 +22,15 @@
         "mambaforge",
         "Mărieș's",
         "Miniforge",
+        "MOAD",
+        "Montréal",
+        "Multifactor",
         "namelist",
+        "narval",
         "nbsphinx",
+        "nearline",
         "NEMO",
+        "nibi",
         "notfound",
         "Nowcast",
         "pathlib",
@@ -34,7 +44,8 @@
         "Schlawack's",
         "Skinn's",
         "tomllib",
-        "userid"
+        "userid",
+        "USERPROFILE"
     ],
     "makefile.configureOnOpen": false
 }

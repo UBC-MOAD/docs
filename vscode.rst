@@ -34,8 +34,15 @@ Of particular use in the MOAD group are:
   and the Alliance HPC clusters.
 
 
+.. _MOAD-VSCodeRemoteSSH-Extension:
+
 Remote - SSH Extension Notes
 ============================
+
+* The `Remote - SSH extension`_ page has brief documentation and a link to a tutorial
+  on how to use the extension.
+
+  .. _Remote - SSH extension: https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh
 
 * If you use the Remote - SSH extension you should increase the connection timeout
   setting because ``salish`` and some of the Waterhole workstations take >30
@@ -67,6 +74,7 @@ Remote - SSH Extension Notes
   Otherwise, look for it in the :guilabel:`RECOMMENDED` list,
   or use the search box at the top of the Extension sidebar to find it.
 
+.. _MOAD-VSCode-RecommendedExtensions:
 
 Recommended Extensions
 ======================
@@ -152,7 +160,7 @@ Among other things,
 it does background compilation of files you are editing to provide in-editor compiler errors and
 warnings.
 
-To set up ``fortls`` in Remote - SSH sessions on `graham`,
+To set up ``fortls`` in Remote - SSH sessions on `nibi`,
 `salish`,
 etc.:
 
@@ -180,7 +188,7 @@ etc.:
 #. In the VS Code settings,
    search for ``fortls``.
    Select the remote settings for the machine you are on;
-   e.g. ``Remote [SSH: graham]``.
+   e.g. ``Remote [SSH: nibi]``.
    Change the value of the ``Fortran > Fortls: Path`` setting to the ``fortls`` environment path
    with :file:`/bin/fortls` appended;
    e.g. :file:`/home/dlatorne/miniforge3/envs/fortls/bin/fortls`

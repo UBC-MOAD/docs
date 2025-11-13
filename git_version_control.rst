@@ -51,7 +51,7 @@ Installing Git
 `Git`_ is a command-line tool that you need to have installed on your computer.
 It is already installed on the Waterhole workstations,
 and ``salish`` at UBC.
-It is also installed on ``graham`` and the other Alliance clusters.
+It is also installed on ``nibi`` and the other Alliance clusters.
 
 On your laptop,
 the installation method depends on your operating system.
@@ -82,8 +82,8 @@ You need to set up this configuration on each machine that you use Git on;
 i.e. on your laptop,
 on the Waterhole workstation that you use
 (which will cover all of the Waterhole/Ocean machines),
-and on ``graham``,
-if you use it.
+and on ``nibi`` and the other Alliance clusters,
+if you use them.
 
 The :command:`git config --global` command is how you interact with the :file:`$HOME/.gitconfig` file.
 Start by telling Git who you are.
@@ -107,7 +107,7 @@ This is consistent with the default we have set on GitHub as of mid-2020.
 Don't worry if you don't understand what "default branch" means;
 you will learn soon.
 
-The second tells Git to merge changes that it pulls in from remote repositories instead of rebasing them.
+The second tells Git to rebase changes that it pulls in from remote repositories instead of merging them.
 Again,
 don't worry if you don't understand what that means right now;
 you will learn.

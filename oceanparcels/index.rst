@@ -12,7 +12,7 @@ OceanParcels
 
 This section is about the UBC MOAD group's use of the `OceanParcels package`_ for customisable particle tracking simulations using output from ocean circulation models.
 
-.. _OceanParcels package: https://oceanparcels.org/index.html
+.. _OceanParcels package: https://parcels-code.org/index.html
 
 Useful links:
 
@@ -23,9 +23,9 @@ Useful links:
 * `Advection kernels`_
 * `Ben's notebook`_ that demonstrates a complete workflow of using OceanParcels simulations with SalishSeaCast and related model configurations
 
-.. _OceanParcels project site: https://oceanparcels.org/
+.. _OceanParcels project site: https://parcels-code.org/
 .. _#oceanparcels Slack channel: https://salishseacast.slack.com/?redir=%2Farchives%2FC02ETTPHFPX
-.. _OceanParcels GitHub Discussion forum: https://github.com/OceanParcels/parcels/discussions
+.. _OceanParcels GitHub Discussion forum: https://github.com/Parcels-code/Parcels/discussions
 .. _Ocean Sciences 2021 paper comparing OceanParcels and Ariane: https://os.copernicus.org/articles/17/1067/2021/
 .. _Advection kernels: https://docs.oceanparcels.org/en/latest/reference/predefined_kernels.html
 .. _Ben's notebook: https://nbviewer.org/github/UBC-MOAD/PythonNotes/blob/main/OceanParcelsRecipes.ipynb

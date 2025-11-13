@@ -12,7 +12,9 @@
 Globus File Transfer
 ********************
 
-`Globus`_ does high-performance data transfers between systems within an organization (in our usage between Compute Canada clusters). Transfer rates vary between 200-400 MB/s; a 3.6 TB transfer took about 3 hours.
+`Globus`_ does high-performance data transfers between systems within an organization
+(in our usage between Alliance clusters).
+Transfer rates vary between 200-400 MB/s; a 3.6 TB transfer took about 3 hours.
 
 .. _Globus: https://www.globus.org/data-transfer
 
@@ -22,27 +24,38 @@ First step: create an account on the globus website and follow the login instruc
 Transferring Files
 ------------------
 
-In your web browser, go to the `file-manager app`_ . Note that the collections corresponding to Compute Canada clusters are named:
+In your web browser, go to the `file-manager app`_ .
+Note that the collections corresponding to Compute Canada clusters are named:
 
-* Graham --- computecanada#graham-dtn
-* Cedar  --- computecanada#cedar-dtn
-* Beluga --- computecanada#beluga-dtn
+* Fir  --- alliancecan#fir-globus
+* Nibi --- alliancecan#nibi
+* Naval --- Compute Canada - Narval
+* Rorqual --- alliancecan#rorqual
+* Trillium --- alliancecan#trillium
 
 .. _file-manager app: https://app.globus.org/file-manager
 
-As an example, let's say you want to transfer files from graham to beluga. These are the steps you would follow:
+As an example, let's say you want to transfer files from ``nibi`` to ``fir``.
+These are the steps you would follow:
 
-#. In the file manager, click "--- start here, select a collection ---" and search for the Graham collection (names listed above).
+#. In the file manager, click "--- start here, select a collection ---" and search for the Nibi collection
+   (names listed above).
 
-#. You will be asked to login to your compute canada account. Login and your home directories will appear in the panel below the collection line.
+#. You will be asked to login to your Alliance account.
+   Login and your home directories will appear in the panel below the collection line.
 
 #. Within your directories, go to the files/folder you want to transfer and select them.
 
-#. To the right of the collection you are transferring files FROM, "--- select a collection ---" to transfer files TO. In this case, select the beluga collection
+#. To the right of the collection you are transferring files FROM,
+   "--- select a collection ---" to transfer files TO.
+   In this case,
+   select the ``fir`` collection
 
-#. Your beluga directories should appear in the panel on the right. Select the directory you want to transfer files to.
+#. Your ``fir`` directories should appear in the panel on the right.
+   Select the directory you want to transfer files to.
 
-#. While still on the panel on the right, click "Transfer or Sync to..." and the program will highlight the left panel.
+#. While still on the panel on the right,
+   click "Transfer or Sync to..." and the program will highlight the left panel.
 
 #. Press the blue Start button at the bottom of the screen.
 

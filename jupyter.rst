@@ -52,14 +52,21 @@ among them:
   You can open as many notebook tabs as you want -
   at least until your computer runs out of memory!
 
-* The :command:`jupyter lab` is the newer "next generation" interface that puts everything in one browser tab with multiple panes that you can move around and re-size.
+* The :command:`jupyter lab` is the newer "next generation" interface that puts
+  everything in one browser tab with multiple panes that you can move around and re-size.
   In addition to notebooks,
   ``lab`` also provides a text editor,
   code consoles that are synced with notebooks,
   and terminal panes that give access to your system shell,
   just like your terminal program does.
 
-Unless you have a strong reason to use the original ``notebook`` interface,
+* :ref:`VS Code <MOAD-VSCode>` also provides the ability to edit and run
+  Jupyter notebooks directly in the VS Code interface.
+
+:ref:`VS Code <MOAD-VSCode>` is probably the easiest way to work with Jupyter notebooks
+if you are already using VS Code for other coding tasks.
+However,
+if you prefer the browser-based interfaces,
 you should use the ``lab`` interface because that is the part of Jupyter that is being most actively developed,
 and where new features are most likely to appear.
 
@@ -87,6 +94,37 @@ you are using :command:`conda`  to create and manage your Python environments,
 you can install Jupyter by adding the ``jupyterlab`` package to your environment description YAML file.
 For example,
 the :file:`notebooks/environment.yaml` file in your analysis repo includes ``jupyterlab``.
+
+
+Using VS Code
+-------------
+
+#. Ensure that you have the Python extension installed in VS Code.
+   See the :ref:`MOAD-VSCode-RecommendedExtensions` section for instructions.
+
+#. Open the notebook file you want to work on in VS Code,
+   either by using the :guilabel:`File > Open File...` menu,
+   or by opening the analysis repo folder in VS Code and using the Explorer sidebar
+   to navigate to and open the notebook file.
+
+#. If the Python environment that you want to use for the notebook is not already selected,
+   use the :guilabel:`Select Kernel` button in the upper right corner of the notebook editor pane
+   (highlighted in the figure below)
+   to choose the correct environment.
+   You should see a list of available Python environments including the one you created for your analysis repo.
+   Select that environment to use it as the kernel for the notebook.
+
+.. figure:: ./VSCodeSelectJupyterKernel.png
+    :alt: VS Code Jupyter kernel selection
+
+The "Jupyter Notebook quick start" section of the `Microsoft Python extension`_ page
+has more details and links about using Jupyter notebooks in VS Code.
+
+.. _Microsoft Python extension: https://marketplace.visualstudio.com/items?itemName=ms-python.python
+
+
+Using a Terminal Window
+-----------------------
 
 In a terminal window,
 go to the directory that you want to be at the top level of Jupyter's file navigation,
@@ -138,7 +176,7 @@ it is often better to "take the compute to the data" rather than download large 
 and rely on its CPU cores for calculations.
 Remote machines like the MOAD workstations,
 our development server ``salish``,
-and the compute nodes on the Compute Canada ``graham`` cluster
+and the compute nodes on the Alliance ``nibi`` cluster
 have more and faster CPU cores than most laptops,
 and access to far larger storage.
 
@@ -146,18 +184,24 @@ Fortunately,
 the server-client structure of Jupyter makes it relatively easy to use the CPU cores and storage of a remote system with the user interface in the browser on your laptop.
 We do that by running the server part on a remote system,
 and using :command:`ssh` to create a secure access "tunnel" between the server and our laptop to allow the client part running in our local browser to connect to the remote server part.
+Again,
+the easiest way to do that is to use :ref:`VS Code <MOAD-VSCode>` with its Remote SSH Extension.
 
-Apart from access to more compute power and avoiding the need to move large files around,
-using :command:`jupyter lab` on a remote system has other advantages:
+If you decided to use the browser-based Jupyter interfaces rather than VS Code,
+the :command:`jupyter lab` interface provides some useful tools on the remote system
+that are similar to what you get with VS Code:
 
-* You can open terminal panes in the ``lab`` interface to give you a terminal session on the remote machine for things like file system tasks: copying or moving files, managing permissions, etc.,
+* You can open terminal panes in the ``lab`` interface to give you a terminal session
+  on the remote machine for things like file system tasks:
+  copying or moving files, managing permissions, etc.,
   for :command:`git` version control tasks: pulls, commits, and pushes,
   or anything else you need to do in a command-line interface.
 
 * You can open editor panes in the ``lab`` interface to work on files stored on the remote system.
   Doing that avoids the need to copy files back and forth between your laptop and the remote system,
   or deal with network lag when you try to use a full-screen editor in a remote desktop session.
-  You can use the :guilabel:`Settings > Text Editor Key Map` menu in ``lab`` to set the editor keyboard mapping to your choice of :program:`vim`,
+  You can use the :guilabel:`Settings > Text Editor Key Map` menu in ``lab`` to set the editor
+  keyboard mapping to your choice of :program:`vim`,
   :program:`emacs`,
   or :program:`Sublime Text`.
 
@@ -189,6 +233,42 @@ and :file:`/ocean/`.
 That said,
 the MOAD workstations have ample compute power and are nearly as fast access to the storage arrays,
 so they are well up to the task of running the :command:`jupyter lab` for analysis work.
+
+
+Using VS Code
+-------------
+
+#. Ensure that you have the Remote SSH extension installed in VS Code.
+   See the :ref:`MOAD-VSCodeRemoteSSH-Extension` section for details.
+
+#. Use the Remote - SSH extension to open a VS Code window
+   connected to ``salish`` or a MOAD workstation.
+
+#. Ensure that you have the Python extension installed for VS Code
+   *on the remote machine*.
+
+#. If you haven't already done so,
+   clone the repository containing the notebook(s) you want to use on the remote machine,
+   and create the :program:`conda` environment for it.
+
+#. Open the notebook file you want to work on in VS Code,
+   either by using the :guilabel:`File > Open File...` menu,
+   or by opening the analysis repo folder in VS Code and using the Explorer sidebar
+   to navigate to and open the notebook file.
+
+#. If the Python environment that you want to use for the notebook is not already selected,
+   use the :guilabel:`Select Kernel` button in the upper right corner of the notebook editor pane
+   (highlighted in the figure below)
+   to choose the correct environment.
+   You should see a list of available Python environments including the one you created for your analysis repo.
+   Select that environment to use it as the kernel for the notebook.
+
+.. figure:: ./VSCodeSelectJupyterKernel.png
+    :alt: VS Code Jupyter kernel selection
+
+
+Using a Terminal Window
+-----------------------
 
 To start the :command:`jupyter lab` server on ``salish``,
 open a terminal window on your laptop,
@@ -317,31 +397,39 @@ When you are finished using Jupyter:
    and hit :kbd:`Ctrl-c` to end the port forwarding
 
 
-.. _RunningJupyterRemotely-ComputeCanada:
+.. _RunningJupyterRemotely-Alliance:
 
-Running Jupyter Remotely on ``graham``
------------------------------------------
+Running Jupyter Remotely on ``nibi``
+------------------------------------
 
-This section assumes that you have followed the instructions in the :ref:`SetUpSshConfiguration` section to set up host aliases for ``graham`` and any other Compute Canada clusters you want to run the :command:`jupyter lab` server on.
+This section assumes that you have followed the instructions in the
+:ref:`SetUpSshConfiguration` section to set up host aliases for ``nibi``
+and any other Alliance clusters you want to run the :command:`jupyter lab` server on.
 
-You can use the technique in this section to run the :command:`jupyter lab` server on any of the Compute Canada clusters by replacing ``graham`` with the cluster name.
+You can use the technique in this section to run the :command:`jupyter lab` server
+on any of the Alliance clusters by replacing ``nibi`` with the cluster name.
 
-The recommended way to run a :command:`jupyter lab` server on ``graham`` is in an interactive session on a compute node.
+The recommended way to run a :command:`jupyter lab` server on ``nibi`` is in an
+interactive session on a compute node.
 Things to note about working in that context:
 
 **Pros:**
   * You get dedicated access to cores on a compute node.
-  * You can request multiple cores which improves the performance of basic :command:`jupyter lab` sessions, and opens up the possibility of doing things like setting up an interactive :program:`dask` cluster.
+  * You can request multiple cores which improves the performance of basic :command:`jupyter lab` sessions,
+    and opens up the possibility of doing things like setting up an interactive :program:`dask` cluster.
 **Cons:**
-  * You have to request an interactive compute node session for a set period of time with :command:`salloc` and wait for the session to start.
+  * You have to request an interactive compute node session for a set period of time
+    with :command:`salloc` and wait for the session to start.
   * When the time requested for your session runs out,
-    the session shutdown with no warning.
+    the session shuts down after a 2 minute warning to give you time to save your work before it is lost.
 
 
 .. _JupyterComputeCanadaPythonVenv:
 
 Create a Python Virtual Environment
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**TODO:** Update this section to use conda environment on ``nibi`` instead of a venv on ``graham``.
 
 The first step is to create a Python virtual environment with ``jupyterlab``
 (and probably other Python packages)
@@ -450,7 +538,7 @@ they are installed from PyPI.
 Running :command:`jupyter lab` in an Interactive Compute Session
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-In an :program:`ssh` session on ``graham``,
+In an :program:`ssh` session on ``nibi``,
 start an interactive session on a compute node with:
 
 .. code-block:: bash
@@ -460,7 +548,7 @@ start an interactive session on a compute node with:
 The ``--time=1:00:00`` option requests the compute node resources for 1 hour.
 ``--ntasks=1 --cpus-per-task=2 --mem-per-cpu=1024M`` requests 2 cores with 1024 Mb of RAM each for the session and associates them with 1 scheduler task.
 Those are good choices for typical interactive work on NEMO results files.
-The ``--account=rrg-allen`` uses the MOAD allocation on ``graham`` to request the resources with better than default priority.
+The ``--account=rrg-allen`` uses the MOAD allocation on ``nibi`` to request the resources with better than default priority.
 On other clusters use ``--account=def-allen``.
 
 You should see output something like:
@@ -472,7 +560,7 @@ You should see output something like:
     salloc: job 40482784 has been allocated resources
     salloc: Granted job allocation 40482784
     salloc: Waiting for resource configuration
-    salloc: Nodes gra705 are ready for job
+    salloc: Nodes c705 are ready for job
 
 as the requested session starts up.
 There may be a wait while the resources are allocated to you,
@@ -482,14 +570,14 @@ how many cores you have requested,
 and how much memory you have requested.
 Eventually,
 your command-line prompt should re-appear showing that you are now connected to one of the compute nodes,
-``gra705`` in this case:
+``c705`` in this case:
 
 .. code-block:: bash
 
-    [your-user-id@gra705 ~]$
+    [your-user-id@c705 ~]$
 
 
-Load a Compute Canada Python language module,
+Load a Alliance Python language module,
 and activate the Python virtual environment in which ``jupyterlab`` and the other packages that you need are installed.
 In this example we load Python 3.8.2 and activate our environment from the :file:`~/venvs/jupyter/` directory:
 
@@ -522,7 +610,7 @@ You should see output in that terminal window that looks something like:
     [I 17:26:07.186 LabApp] JupyterLab application directory is /home/dlatorne/venvs/jupyter/share/jupyter/lab
     [I 17:26:07.191 LabApp] Serving notebooks from local directory: /home/dlatorne/projects/def-allen/dlatorne/MEOPAR/analysis-doug/
     [I 17:26:07.191 LabApp] Jupyter Notebook 6.1.5 is running at:
-    [I 17:26:07.191 LabApp] http://gra705.graham.sharcnet:8888/?token=327caed3d832eefaad25a57cbf01de9f42685ced4306e036
+    [I 17:26:07.191 LabApp] http://c705.nibi.sharcnet:8888/?token=327caed3d832eefaad25a57cbf01de9f42685ced4306e036
     [I 17:26:07.191 LabApp]  or http://127.0.0.1:8888/?token=327caed3d832eefaad25a57cbf01de9f42685ced4306e036
     [I 17:26:07.191 LabApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
     [C 17:26:07.203 LabApp]
@@ -530,7 +618,7 @@ You should see output in that terminal window that looks something like:
         To access the notebook, open this file in a browser:
             file:///home/dlatorne/.local/share/jupyter/runtime/nbserver-24995-open.html
         Or copy and paste one of these URLs:
-            http://gra705.graham.sharcnet:8888/?token=327caed3d832eefaad25a57cbf01de9f42685ced4306e036
+            http://c705.nibi.sharcnet:8888/?token=327caed3d832eefaad25a57cbf01de9f42685ced4306e036
          or http://127.0.0.1:8888/?token=327caed3d832eefaad25a57cbf01de9f42685ced4306e036
 
 .. note::
@@ -543,20 +631,20 @@ The URLs on the last 2 lines are the important bit that we need to use to get th
 The second last one that contains the name of the node that the server is running on is the important one for the rest of this setup.
 That is::
 
-  http://gra705.graham.sharcnet:8888/?token=327caed3d832eefaad25a57cbf01de9f42685ced4306e036
+  http://c705.nibi.sharcnet:8888/?token=327caed3d832eefaad25a57cbf01de9f42685ced4306e036
 
 in the example output above.
 
-The ``gra705.graham.sharcnet`` part is the name of the compute node on which your Jupyter server is running.
+The ``c705.nibi.sharcnet`` part is the name of the compute node on which your Jupyter server is running.
 It will change from session to session.
-The number after ``gra705.graham.sharcnet:`` in the URL
+The number after ``c705.nibi.sharcnet:`` in the URL
 (``8888`` above)
 is the port number that the Jupyter server is running on.
 ``8888`` is the default,
 but if that port is busy,
 probably because somebody else is already running a Jupyter server on it,
 Jupyter will choose a different port number.
-You need to use the port number that *your* Jupyter server server is running on in the next step when we set up the :program:`ssh` tunnel between your laptop and ``graham`` for the Jupyter client to use.
+You need to use the port number that *your* Jupyter server server is running on in the next step when we set up the :program:`ssh` tunnel between your laptop and ``nibi`` for the Jupyter client to use.
 
 To set up the :program:`ssh` tunnel,
 open a new terminal window on your laptop,
@@ -564,18 +652,18 @@ and enter the command:
 
 .. code-block:: bash
 
-    $ ssh -N -L 4343:gra705.graham.sharcnet:8888 graham
+    $ ssh -N -L 4343:c705.nibi.sharcnet:8888 nibi
 
 This use of :program:`ssh` is called "port forwarding", or "ssh tunnelling".
 It creates an ssh encrypted connection between a port on your laptop
 (port ``4343`` in this case)
 and a port on the remote host
-(port ``8888`` on the ``gra705.graham.sharcnet`` node in this case).
+(port ``8888`` on the ``c705.nibi.sharcnet`` node in this case).
 The ``-N`` option tells :program:`ssh` not to execute a command on the remote system because all we want to do is set up the port forwarding.
 The ``-L`` option tells :program:`ssh` that the next blob of text is the details of the port forwarding to set up.
 
 You can use any number ``≥1024`` you want instead of ``4343`` as the local port number on your laptop.
-The number after ``:gra705.graham.sharcnet:`` has to be the same as the port number in the URLs that the Jupyter server printed out.
+The number after ``:c705.nibi.sharcnet:`` has to be the same as the port number in the URLs that the Jupyter server printed out.
 
 .. note::
     Keep this terminal window open too.
@@ -592,12 +680,12 @@ copy the the long string of digits and letters from the URL in the Jupyter serve
 For example,
 the in the URL::
 
-  http://gra705.graham.sharcnet:8888/?token=327caed3d832eefaad25a57cbf01de9f42685ced4306e036
+  http://c705.nibi.sharcnet:8888/?token=327caed3d832eefaad25a57cbf01de9f42685ced4306e036
 
 the token is ``327caed3d832eefaad25a57cbf01de9f42685ced4306e036``.
 
 When you run Jupyter in this way,
-remember that all of the notebooks and files you are working with are on the remote computer (``graham``) file system,
+remember that all of the notebooks and files you are working with are on the remote computer (``nibi``) file system,
 not on your laptop.
 So,
 when you commit your changes with :program:`git`,
