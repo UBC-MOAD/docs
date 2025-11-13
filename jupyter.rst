@@ -397,25 +397,31 @@ When you are finished using Jupyter:
    and hit :kbd:`Ctrl-c` to end the port forwarding
 
 
-.. _RunningJupyterRemotely-ComputeCanada:
+.. _RunningJupyterRemotely-Alliance:
 
 Running Jupyter Remotely on ``nibi``
 ------------------------------------
 
-This section assumes that you have followed the instructions in the :ref:`SetUpSshConfiguration` section to set up host aliases for ``nibi`` and any other Compute Canada clusters you want to run the :command:`jupyter lab` server on.
+This section assumes that you have followed the instructions in the
+:ref:`SetUpSshConfiguration` section to set up host aliases for ``nibi``
+and any other Alliance clusters you want to run the :command:`jupyter lab` server on.
 
-You can use the technique in this section to run the :command:`jupyter lab` server on any of the Alliance clusters by replacing ``nibi`` with the cluster name.
+You can use the technique in this section to run the :command:`jupyter lab` server
+on any of the Alliance clusters by replacing ``nibi`` with the cluster name.
 
-The recommended way to run a :command:`jupyter lab` server on ``nibi`` is in an interactive session on a compute node.
+The recommended way to run a :command:`jupyter lab` server on ``nibi`` is in an
+interactive session on a compute node.
 Things to note about working in that context:
 
 **Pros:**
   * You get dedicated access to cores on a compute node.
-  * You can request multiple cores which improves the performance of basic :command:`jupyter lab` sessions, and opens up the possibility of doing things like setting up an interactive :program:`dask` cluster.
+  * You can request multiple cores which improves the performance of basic :command:`jupyter lab` sessions,
+    and opens up the possibility of doing things like setting up an interactive :program:`dask` cluster.
 **Cons:**
-  * You have to request an interactive compute node session for a set period of time with :command:`salloc` and wait for the session to start.
+  * You have to request an interactive compute node session for a set period of time
+    with :command:`salloc` and wait for the session to start.
   * When the time requested for your session runs out,
-    the session shutdown with no warning.
+    the session shuts down after a 2 minute warning to give you time to save your work before it is lost.
 
 
 .. _JupyterComputeCanadaPythonVenv:
