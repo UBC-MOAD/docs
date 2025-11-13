@@ -7,6 +7,7 @@
 # http://www.sphinx-doc.org/en/stable/config
 
 import datetime
+import os
 
 
 # -- Project information -----------------------------------------------------
@@ -59,6 +60,13 @@ linkcheck_ignore = [
     'https://www.baeldung.com/cs/ssh-intro',
     'https://linux.die.net/man/1/scp',
 ]
+if os.environ.get("GITHUB_ACTIONS") == "true":
+    # When we run on GitHub Actions, ignore a collection of URLs that have timeouts due to rate limiting
+    linkcheck_ignore.extend(
+        [
+            r"https://alliancecan.ca/.*",
+        ]
+    )
 linkcheck_anchors_ignore_for_url = [
     # We get false failures from the Alliance wiki; i.e. anchors that do exist
     # are reported to be broken links. This allows the page URL to be confirmed
