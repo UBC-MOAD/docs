@@ -231,7 +231,7 @@ Here is an example from the `NEMO-Cmd`_ package:
         "License :: OSI Approved :: Apache Software License",
         "Programming Language :: Python :: Implementation :: CPython",
         "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.13",
+        "Programming Language :: Python :: 3.14",
         "Operating System :: POSIX :: Linux",
         "Operating System :: Unix",
         "Environment :: Console",
@@ -628,7 +628,7 @@ the :file:`environment-dev.yaml` file for the `NEMO-Cmd`_ package looks like:
       - f90nml
       - gitpython
       - pip
-      - python=3.13
+      - python=3.14
       - pyyaml
 
       # For coding style, repo QA, and pkg management
@@ -642,9 +642,9 @@ the :file:`environment-dev.yaml` file for the `NEMO-Cmd`_ package looks like:
       - pytest-randomly
 
       # For documentation
-      - sphinx==7.2.6
-      - sphinx-notfound-page==1.0.0
-      - sphinx_rtd_theme==2.0.0
+      - sphinx==8.1.3
+      - sphinx-notfound-page==1.0.4
+      - sphinx-rtd-theme==3.0.0
 
       - pip:
         - python-hglib
