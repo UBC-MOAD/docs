@@ -95,11 +95,11 @@ then compile and link XIOS-2.
 .. code-block:: bash
 
     cd $HOME/MEOPAR/XIOS-2/arch
-    ln -sf ../../XIOS-ARCH/ALLIANCE/arch-X64_NIBI.env
-    ln -sf ../../XIOS-ARCH/ALLIANCE/arch-X64_NIBI.fcm
-    ln -sf ../../XIOS-ARCH/ALLIANCE/arch-X64_NIBI.path
+    ln -sf ../../XIOS-ARCH/ALLIANCE/arch-GCC_NIBI.env
+    ln -sf ../../XIOS-ARCH/ALLIANCE/arch-GCC_NIBI.fcm
+    ln -sf ../../XIOS-ARCH/ALLIANCE/arch-GCC_NIBI.path
     cd $HOME/MEOPAR/XIOS-2
-    ./make_xios --full --arch X64_NIBI --job 8
+    ./make_xios --full --arch GCC_NIBI --job 8
 
 It typically takes 2 minutes or less to build XIOS-2 on ``nibi``.
 
