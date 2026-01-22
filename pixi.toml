@@ -9,6 +9,7 @@ documentation = "https://ubc-moad-docs.readthedocs.io/en/latest/"
 [tasks]
 docs = "make clean html"
 linkcheck = "make clean linkcheck"
+update-reqs = "python -m pip list --format=freeze >> requirements.txt"
 
 [dependencies]
 python = "3.14.*"
