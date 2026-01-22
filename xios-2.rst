@@ -407,7 +407,7 @@ Standard names are written in "snake case"
 (words separated by ``_`` characters).
 That table also provides canonical units that should be used at the value of the ``unit`` attribute.
 
-.. _CF conventions standard names table: http://cfconventions.org/Data/cf-standard-names/29/build/cf-standard-name-table.html
+.. _CF conventions standard names table: https://cfconventions.org/Data/cf-standard-names/29/build/cf-standard-name-table.html
 
 The value of the ``long_name`` attribute can be more free-from and descriptive.
 It is typically used for plot axis labels,
