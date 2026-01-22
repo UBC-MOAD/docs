@@ -3,7 +3,7 @@ version: 2
 build:
   os: ubuntu-24.04
   tools:
-
+    python: "latest"
 
   jobs:
     create_environment:
@@ -19,5 +19,7 @@ build:
 sphinx:
   configuration: conf.py
   fail_on_warning: false
+
+
 # Only build HTML and JSON formats
 formats: []
