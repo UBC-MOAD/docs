@@ -7,6 +7,8 @@ repository = "https://github.com/UBC-MOAD/docs"
 documentation = "https://ubc-moad-docs.readthedocs.io/en/latest/"
 
 [tasks]
+docs = "make clean html"
+linkcheck = "make clean linkcheck"
 
 [dependencies]
 python = "3.14.*"
