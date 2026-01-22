@@ -762,7 +762,7 @@ The :file:`dependabot.yaml` file configures the `GitHub Dependabot`_ tool to che
 for version updates on GitHub actions packages used in the other automation workflows
 and open pull requests to apply those updates.
 
-.. _GitHub Dependabot: https://docs.github.com/en/code-security/dependabot
+.. _GitHub Dependabot: https://docs.github.com/en/code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/configuring-dependabot-security-updates
 
 
 .. _PkgGitHubActionsWorkflows:
@@ -777,7 +777,7 @@ used for code and docs QA tasks like:
 
 * static analysis of the code using `GitHub CodeQL`_ to detect possible security vulnerabilities
 
-  .. _GitHub CodeQL: https://docs.github.com/en/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning-with-codeql
+  .. _GitHub CodeQL: https://docs.github.com/en/code-security/concepts/code-scanning/codeql/about-code-scanning-with-codeql
 
 * run the package test suite with code coverage analysis (continuous integration)
   and pushing the coverage analysis report to `Codecov`/_
