@@ -36,6 +36,7 @@ extensions = [
     'nbsphinx',
     "notfound.extension",
     'sphinx.ext.intersphinx',
+    "sphinx_copybutton",
 ]
 
 intersphinx_mapping = {
