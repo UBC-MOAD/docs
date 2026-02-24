@@ -133,7 +133,7 @@ For example,
 if you are working in your analysis repo,
 the commands would be like:
 
-.. code-block:: bash
+.. code-block:: console
 
     $ conda activate analysis-doug
     (analysis-doug)$ cd analysis-doug/
@@ -274,7 +274,7 @@ To start the :command:`jupyter lab` server on ``salish``,
 open a terminal window on your laptop,
 and use :program:`ssh` to start a command-line session on ``salish``:
 
-.. code-block:: bash
+.. code-block:: console
 
     $ ssh salish
 
@@ -285,7 +285,7 @@ For example,
 if you are working in your analysis repo,
 the commands would be like:
 
-.. code-block:: bash
+.. code-block:: console
 
     $ cd analysis-doug/
     $ jupyter lab --no-browser --ip $(hostname -f)
@@ -340,7 +340,7 @@ To set up the :program:`ssh` tunnel,
 open a new terminal window on your laptop,
 and enter the command:
 
-.. code-block:: bash
+.. code-block:: console
 
     $ ssh -N -L 4343:salish:8888 salish
 
@@ -451,13 +451,13 @@ Use the Compute Canada module system to load Python,
 preferably the most recent available version.
 On ``graham`` in Dec-2022 that is Python 3.10.2:
 
-.. code-block:: bash
+.. code-block:: console
 
     $ module load python/3.10.2
 
 Create a Python virtualenv in which to install ``jupyterlab`` and other packages:
 
-.. code-block:: bash
+.. code-block:: console
 
     $ python3 -m virtualenv --no-download ~/venvs/jupyter
 
@@ -471,7 +471,7 @@ This virtual environment will be created in the :file:`$HOME/venvs/jupyter/`.
 
 Activate the venv with:
 
-.. code-block:: bash
+.. code-block:: console
 
     $ source ~/venvs/jupyter/bin/activate
 
@@ -484,7 +484,7 @@ This rarely seems to have any effect,
 but it is recommended in the `Compute Canada venv docs`_,
 so we do it:
 
-.. code-block:: bash
+.. code-block:: console
 
     (jupyter)$ python3 -m pip install --no-index --upgrade pip
 
@@ -492,7 +492,7 @@ so we do it:
 
 Install the ``jupyterlab`` package and other packages that we routinely use for analysis into the venv:
 
-.. code-block:: bash
+.. code-block:: console
 
     (jupyter)$ python3 -m pip install jupyterlab xarray h5netcdf bottleneck matplotlib cmocean
 
@@ -528,7 +528,7 @@ they are installed from PyPI.
     perhaps to activate a venv with a different collection of packages installed,
     use:
 
-    .. code-block:: bash
+    .. code-block:: console
 
         (jupyter)$ deactivate
 
@@ -541,7 +541,7 @@ Running :command:`jupyter lab` in an Interactive Compute Session
 In an :program:`ssh` session on ``nibi``,
 start an interactive session on a compute node with:
 
-.. code-block:: bash
+.. code-block:: console
 
     $ salloc --time=1:00:00 --ntasks=1 --cpus-per-task=2 --mem-per-cpu=1024M --account=rrg-allen
 
@@ -572,7 +572,7 @@ Eventually,
 your command-line prompt should re-appear showing that you are now connected to one of the compute nodes,
 ``c705`` in this case:
 
-.. code-block:: bash
+.. code-block:: console
 
     [your-user-id@c705 ~]$
 
@@ -581,7 +581,7 @@ Load a Alliance Python language module,
 and activate the Python virtual environment in which ``jupyterlab`` and the other packages that you need are installed.
 In this example we load Python 3.8.2 and activate our environment from the :file:`~/venvs/jupyter/` directory:
 
-.. code-block:: bash
+.. code-block:: console
 
     $ module load python/3.8.2
     $ source ~/venvs/jupyter/bin/activate
@@ -592,7 +592,7 @@ For example,
 if you are working in your analysis repo,
 the commands would be like:
 
-.. code-block:: bash
+.. code-block:: console
 
     (jupyter) [dlatorne@gra581 ~]$ cd $PROJECT/MEOPAR/analysis-doug/
     (jupyter) [dlatorne@gra581 ~]$ jupyter lab --no-browser --ip $(hostname -f)
@@ -650,7 +650,7 @@ To set up the :program:`ssh` tunnel,
 open a new terminal window on your laptop,
 and enter the command:
 
-.. code-block:: bash
+.. code-block:: console
 
     $ ssh -N -L 4343:c705.nibi.sharcnet:8888 nibi
 

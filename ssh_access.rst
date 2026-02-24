@@ -97,7 +97,7 @@ Here we tell it to use the Ed25519 algorithm to create the keys.
 Open your Terminal program to get a command-line interface,
 and type the command:
 
-.. code-block:: bash
+.. code-block:: console
 
     $ ssh-keygen -t ed25519
 
@@ -216,7 +216,7 @@ We'll use :command:`nano` here because it is available almost everywhere.
 
 Open the file with :command:`nano`:
 
-.. code-block:: bash
+.. code-block:: console
 
     $ nano ~/.ssh/config
 
@@ -334,15 +334,15 @@ Your file should now look like:
 Now,
 instead of having to type:
 
-.. code-block:: text
+.. code-block:: console
 
-    ssh username@salish.eos.ubc.ca
+    $ ssh username@salish.eos.ubc.ca
 
 you will be able to type:
 
-.. code-block:: text
+.. code-block:: console
 
-    ssh salish
+    $ ssh salish
 
 (after we complete 1 more step of setup).
 
@@ -360,7 +360,7 @@ The command to do that is :command:`ssh-copy-id`.
 
 Copy your public key to ``salish`` with:
 
-.. code-block:: bash
+.. code-block:: console
 
     $ ssh-copy-id salish
 
@@ -398,7 +398,7 @@ Now,
 as the output says,
 test the authentication with:
 
-.. code-block:: bash
+.. code-block:: console
 
     $ ssh salish
 
@@ -452,25 +452,25 @@ The first step is to connect to one of the Linux machines in Waterhole
 
 Connect to ``chum``:
 
-.. code-block:: bash
+.. code-block:: console
 
     $ ssh chum
 
 Then, navigate to your :file:`.ssh/` path:
 
-.. code-block:: bash
+.. code-block:: console
 
     $ cd .ssh/
 
 Create a new file named :file:`authorized_keys` :
 
-.. code-block:: bash
+.. code-block:: console
 
     $ touch authorized_keys
 
 Open the file named :file:`authorized_keys` with :command:`nano` to edit it:
 
-.. code-block:: bash
+.. code-block:: console
 
     $ nano authorized_keys
 
@@ -484,7 +484,7 @@ As a last step, we need to add the private key into the SSH authentication agent
 
 .. code-block:: pwsh
 
-    ssh-add $env:USERPROFILE\.ssh\id_ed25519
+    PS> ssh-add $env:USERPROFILE\.ssh\id_ed25519
 
 Disconnect from ``chum`` with ``exit``, and connect again with ``ssh chum``.
 This time you should connect without being asked for your password or your passphrase.
@@ -540,7 +540,7 @@ To get a short reminder of the option flags for any of these commands
 use the ``--help`` option;
 e.g.
 
-.. code-block:: bash
+.. code-block:: console
 
     $ ssh --help
 
@@ -549,7 +549,7 @@ To get a detailed description of a command
 use the :command:`man` command;
 e.g.
 
-.. code-block:: bash
+.. code-block:: console
 
     $ man scp
 
@@ -571,14 +571,14 @@ Most often you will use :command:`ssh` to open a terminal session
 on a remote computer;
 e.g.
 
-.. code-block:: bash
+.. code-block:: console
 
     $ ssh salish
 
 You can also use :command:`ssh` to execute a command on a remote computer without actually opening the terminal session;
 e.g.
 
-.. code-block:: bash
+.. code-block:: console
 
     $ ssh salish ls -lh /results2/SalishSea/nowcast-green.201905/09sep20/
 
@@ -590,7 +590,7 @@ of the files in the directory there called :file:`/results2/SalishSea/nowcast-gr
 If you get too fancy with the command that you want to execute remotely you may have to enclose it in quotes to prevent your local shell from messing it up;
 e.g.
 
-.. code-block:: bash
+.. code-block:: console
 
     $ ssh salish "find /results/forcing/atmospheric/GEM2.5/GRIB/20200909/12 -type f | wc -l"
 
@@ -598,7 +598,7 @@ If you have trouble with :command:`ssh` not making a connection,
 you can tell it to output debugging messages its progress by using the ``-v`` option;
 e.g.
 
-.. code-block:: bash
+.. code-block:: console
 
     $ ssh -v salish
 
@@ -632,7 +632,7 @@ or between two remote machines without bringing the file to your local machine.
 
 To copy a file from your current directory on your local computer to your home directory on ``salish`` use:
 
-.. code-block:: bash
+.. code-block:: console
 
     $ scp my-local-file salish:
 
@@ -643,7 +643,7 @@ all of those files will get copied to ``salish``.
 
 To copy a file from your current directory on your local computer to your ``/ocean/$USER/`` space on :command:`salish` use:
 
-.. code-block:: bash
+.. code-block:: console
 
     $ scp my-local-file "salish:/ocean/$USER/"
 
@@ -651,7 +651,7 @@ The quotes around ``"salish:/ocean/$USER/"`` are necessary to prevent your local
 
 To copy a file from your ``/ocean/$USER/`` space on ``salish`` to your current directory on your local computer use:
 
-.. code-block:: bash
+.. code-block:: console
 
     $ scp "salish:/ocean/$USER/my-remote-file" ./
 
@@ -666,7 +666,7 @@ If you have trouble with :command:`scp` not making a connection,
 you can tell it to output debugging messages its progress by using the ``-v`` option;
 e.g.
 
-.. code-block:: bash
+.. code-block:: console
 
     $ scp -v my-local-file salish:
 
@@ -716,7 +716,7 @@ If you have trouble with :command:`sftp` not making a connection,
 you can tell it to output debugging messages its progress by using the ``-v`` option;
 e.g.
 
-.. code-block:: bash
+.. code-block:: console
 
     $ sftp -v salish
 

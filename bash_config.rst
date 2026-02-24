@@ -25,9 +25,9 @@ they mean typing commands into a terminal session.
 
 You can find out what shell you are using in most terminal sessions with the command:
 
-.. code-block:: bash
+.. code-block:: console
 
-    echo $SHELL
+    $ echo $SHELL
 
 If the shell you are using is :command:`bash`,
 the output of that command will most likely be::
@@ -71,7 +71,7 @@ or when you start up a terminal session.
 
 Use the :command:`nano` text editor to open the :file:`.bash_profile` file:
 
-.. code-block:: bash
+.. code-block:: console
 
     $ nano .bash_profile
 
@@ -122,7 +122,7 @@ The other important :command:`bash` configuration file is :file:`.bashrc`.
 
 Use the :command:`nano` text editor to open the :command:`.bashrc` file:
 
-.. code-block:: bash
+.. code-block:: console
 
     $ nano .bashrc
 
@@ -181,7 +181,7 @@ and exit :command:`nano`.
 
 You will have to leave the shell by typing the command:
 
-.. code-block:: bash
+.. code-block:: console
 
     $ exit
 
