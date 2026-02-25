@@ -60,21 +60,21 @@ and build XIOS-2 on any of the other Alliance clusters.
 ``nibi``
 --------
 
-.. code-block:: bash
+.. code-block:: console
 
-    cd $HOME/MEOPAR/
-    git clone git@github.com:SalishSeaCast/XIOS-2.git
-    git clone git@github.com:SalishSeaCast/XIOS-ARCH.git
+    $ cd $HOME/MEOPAR/
+    $ git clone git@github.com:SalishSeaCast/XIOS-2.git
+    $ git clone git@github.com:SalishSeaCast/XIOS-ARCH.git
 
 
 ``salish``
 ----------
 
-.. code-block:: bash
+.. code-block:: console
 
-    cd /data/$USER/MEOPAR/
-    git clone git@github.com:SalishSeaCast/XIOS-2.git
-    git clone git@github.com:SalishSeaCast/XIOS-ARCH.git
+    $ cd /data/$USER/MEOPAR/
+    $ git clone git@github.com:SalishSeaCast/XIOS-2.git
+    $ git clone git@github.com:SalishSeaCast/XIOS-ARCH.git
 
 
 .. _BuildingXIOS-2:
@@ -92,14 +92,14 @@ then compile and link XIOS-2.
 ``nibi``
 --------
 
-.. code-block:: bash
+.. code-block:: console
 
-    cd $HOME/MEOPAR/XIOS-2/arch
-    ln -sf ../../XIOS-ARCH/ALLIANCE/arch-GCC_NIBI.env
-    ln -sf ../../XIOS-ARCH/ALLIANCE/arch-GCC_NIBI.fcm
-    ln -sf ../../XIOS-ARCH/ALLIANCE/arch-GCC_NIBI.path
-    cd $HOME/MEOPAR/XIOS-2
-    ./make_xios --full --arch GCC_NIBI --job 8
+    $ cd $HOME/MEOPAR/XIOS-2/arch
+    $ ln -sf ../../XIOS-ARCH/ALLIANCE/arch-GCC_NIBI.env
+    $ ln -sf ../../XIOS-ARCH/ALLIANCE/arch-GCC_NIBI.fcm
+    $ ln -sf ../../XIOS-ARCH/ALLIANCE/arch-GCC_NIBI.path
+    $ cd $HOME/MEOPAR/XIOS-2
+    $ ./make_xios --full --arch GCC_NIBI --job 8
 
 It typically takes 2 minutes or less to build XIOS-2 on ``nibi``.
 
@@ -107,7 +107,7 @@ To build NEMO you will need an environment variable named :envvar:`XIOS_HOME`
 whose value is the absolute path to you :file:`XIOS-2` directory.
 For the ``MEOPAR`` project it is:
 
-.. code-block:: bash
+.. code-block:: console
 
     XIOS_HOME=$HOME/MEOPAR/XIOS-2
 
@@ -126,19 +126,19 @@ to be set automatically whenever you :command:`ssh` in.
 ``salish``
 ----------
 
-.. code-block:: bash
+.. code-block:: console
 
-    cd /data/$USER/MEOPAR/XIOS-2/arch
-    ln -sf /data/$USER/MEOPAR/XIOS-ARCH/UBC-EOAS/arch-GCC_SALISH.fcm
-    ln -sf /data/$USER/MEOPAR/XIOS-ARCH/UBC-EOAS/arch-GCC_SALISH.path
-    cd /data/$USER/MEOPAR/XIOS-2
-    ./make_xios --full --arch GCC_SALISH --netcdf_lib netcdf4_seq --job 8
+    $ cd /data/$USER/MEOPAR/XIOS-2/arch
+    $ ln -sf /data/$USER/MEOPAR/XIOS-ARCH/UBC-EOAS/arch-GCC_SALISH.fcm
+    $ ln -sf /data/$USER/MEOPAR/XIOS-ARCH/UBC-EOAS/arch-GCC_SALISH.path
+    $ cd /data/$USER/MEOPAR/XIOS-2
+    $ ./make_xios --full --arch GCC_SALISH --netcdf_lib netcdf4_seq --job 8
 
 To build NEMO you will need an environment variable named :envvar:`XIOS_HOME`
 whose value is the absolute path to you :file:`XIOS-2` directory.
 For the ``MEOPAR`` project it is:
 
-.. code-block:: bash
+.. code-block:: console
 
     XIOS_HOME=/data/$USER/MEOPAR/XIOS-2
 

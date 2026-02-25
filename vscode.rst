@@ -171,15 +171,16 @@ etc.:
    create a conda environment called ``fortls`` with the ``fortls`` package and its dependencies
    installed in it:
 
-   .. code-block:: bash
+   .. code-block:: console
 
-    conda create -n fortls fortls
+    $ conda create -n fortls fortls
 
 #. Confirm the path of that new ``fortls`` environment by looking at the output of
    :command:`conda env list`.
    You should see a line like:
 
-   .. code-block:: text
+   .. code-block:: output
+      :class: no-copybutton
 
       fortls                   /home/dlatorne/miniforge3/envs/fortls
 

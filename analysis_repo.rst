@@ -91,14 +91,14 @@ Clone Your Analysis Repository
 #. Create a top level directory for MOAD work.
    On a Waterhole workstation do:
 
-   .. code-block:: bash
+   .. code-block:: console
 
        $ mkdir -p /ocean/$USER/MOAD
 
    Or,
    if you want to set things up on your laptop do:
 
-   .. code-block:: bash
+   .. code-block:: console
 
        $ mkdir -p $HOME/MOAD
 
@@ -115,14 +115,17 @@ Clone Your Analysis Repository
    "Quick setup — if you’ve done this kind of thing before".
    Below that there are 2 buttons that say :guilabel:`HTTPS` and :guilabel:`SSH`.
    Please ensure that the :guilabel:`SSH` button is enabled,
-   and copy the repository URI string of text beside it that looks like::
+   and copy the repository URI string of text beside it that looks like:
 
-     git@github.com:SalishSeaCast/analysis-casey.git
+   .. code-block:: output
+      :class: no-copybutton
+
+      git@github.com:SalishSeaCast/analysis-casey.git
 
 #. Use that repository URI string to clone your analysis repository from GitHub.
    On a Waterhole workstation do:
 
-   .. code-block:: bash
+   .. code-block:: console
 
        $ cd /ocean/$USER/MOAD
        $ git clone git@github.com:SalishSeaCast/analysis-casey.git
@@ -130,7 +133,7 @@ Clone Your Analysis Repository
    Or,
    for laptop setup do:
 
-   .. code-block:: bash
+   .. code-block:: console
 
        $ cd $HOME/MOAD
        $ git clone git@github.com:SalishSeaCast/analysis-casey.git
@@ -158,7 +161,7 @@ Populate Your Analysis Repository
 
    .. _cookiecutter tool: https://cookiecutter.readthedocs.io/en/latest/
 
-   .. code-block:: bash
+   .. code-block:: console
 
        $ conda create -n cookiecutter -c conda-forge python=3 cookiecutter
 
@@ -167,26 +170,29 @@ Populate Your Analysis Repository
    and ask you if it is okay to proceed;
    hit ``y`` or ``Enter`` to go ahead.
 
-   After some more processing you should see the messages::
+   After some more processing you should see the messages:
 
-     Preparing transaction: done
-     Verifying transaction: done
-     Executing transaction: done
-     #
-     # To activate this environment, use
-     #
-     #     $ conda activate cookiecutter
-     #
-     # To deactivate an active environment, use
-     #
-     #     $ conda deactivate
+   .. code-block:: output
+      :class: no-copybutton
+
+      Preparing transaction: done
+      Verifying transaction: done
+      Executing transaction: done
+      #
+      # To activate this environment, use
+      #
+      #      $ conda activate cookiecutter
+      #
+      # To deactivate an active environment, use
+      #
+      #     $ conda deactivate
 
 #. Activate the ``cookiecutter`` environment,
    go to your :file:`MOAD/` directory,
    and populate your empty analysis repository clone with the following commands.
    On a Waterhole workstation do:
 
-   .. code-block:: bash
+   .. code-block:: console
 
        $ conda activate cookiecutter
        (cookiecutter)$ cd /ocean/$USER/MOAD
@@ -195,7 +201,7 @@ Populate Your Analysis Repository
    Or,
    for laptop setup do:
 
-   .. code-block:: bash
+   .. code-block:: console
 
        $ conda activate cookiecutter
        (cookiecutter)$ cd $HOME/MOAD
@@ -215,7 +221,10 @@ Populate Your Analysis Repository
    The ``-f`` option lets the :command:`cookiecutter` tool write directories and files
    into an already existing directory.
 
-   :command:`cookiecutter` will ask you for 2 pieces of input::
+   :command:`cookiecutter` will ask you for 2 pieces of input:
+
+   .. code-block:: output
+      :class: no-copybutton
 
       researcher_name [Casey Lawrence]:
       Select github_org:
@@ -230,7 +239,7 @@ Populate Your Analysis Repository
 
 #. Deactivate your ``cookiecutter`` environment with:
 
-   .. code-block:: bash
+   .. code-block:: console
 
        (cookiecutter)$ conda deactivate
 
@@ -239,7 +248,7 @@ Populate Your Analysis Repository
    and push them to GitHub.
    On a Waterhole workstation do:
 
-   .. code-block:: bash
+   .. code-block:: console
 
        $ cd /ocean/$USER/MOAD/analysis-casey
        $ git add .gitignore LICENSE README.rst notebooks/
@@ -249,7 +258,7 @@ Populate Your Analysis Repository
    Or,
    for laptop setup do:
 
-   .. code-block:: bash
+   .. code-block:: console
 
        $ cd $HOME/MOAD/analysis-casey
        $ git add .gitignore LICENSE README.rst notebooks/
@@ -275,7 +284,7 @@ and the names of the Python packages to install in the environment.
    and use :command:`conda` to create the environment.
    On a Waterhole workstation do:
 
-   .. code-block:: bash
+   .. code-block:: console
 
        $ cd /ocean/$USER/MOAD/analysis-casey/notebooks/
        $ conda env create -f environment.yaml
@@ -283,7 +292,7 @@ and the names of the Python packages to install in the environment.
    Or,
    for laptop setup do:
 
-   .. code-block:: bash
+   .. code-block:: console
 
        $ cd $HOME/MOAD/analysis-casey/notebooks/
        $ conda env create -f environment.yaml
@@ -294,19 +303,22 @@ and the names of the Python packages to install in the environment.
    and ask you if it is okay to proceed;
    hit ``y`` or ``Enter`` to go ahead.
 
-   After some more processing you should see messages like::
+   After some more processing you should see messages like:
 
-     Preparing transaction: done
-     Verifying transaction: done
-     Executing transaction: done
-     #
-     # To activate this environment, use
-     #
-     #     $ conda activate analysis-casey
-     #
-     # To deactivate an active environment, use
-     #
-     #     $ conda deactivate
+   .. code-block:: output
+      :class: no-copybutton
+
+      Preparing transaction: done
+      Verifying transaction: done
+      Executing transaction: done
+      #
+      # To activate this environment, use
+      #
+      #     $ conda activate analysis-casey
+      #
+      # To deactivate an active environment, use
+      #
+      #     $ conda deactivate
 
 Use the :command:`conda activate` command to activate your analysis environment so that you can
 run :ref:`MOAD-Jupyter`.
@@ -330,7 +342,7 @@ The `documentation for the package`_ contains documentation for most of its func
 #. Clone the `SalishSeaTools`_ repository beside your analysis repository.
    On a Waterhole workstation do:
 
-   .. code-block:: bash
+   .. code-block:: console
 
        $ cd /ocean/$USER/MOAD/
        $ git clone git@github.com:SalishSeaCast/tools.git
@@ -338,7 +350,7 @@ The `documentation for the package`_ contains documentation for most of its func
    Or,
    for laptop setup do:
 
-   .. code-block:: bash
+   .. code-block:: console
 
        $ cd $HOME/MOAD/
        $ git clone git@github.com:SalishSeaCast/tools.git
@@ -347,10 +359,10 @@ The `documentation for the package`_ contains documentation for most of its func
    (if you haven't already done so)
    and install the `SalishSeaTools`_ package in it:
 
-   .. code-block:: bash
+   .. code-block:: console
 
        $ conda activate analysis-casey
-       (analysis-casey)$ python3 -m pip install --editable tools/SalishSeaTools
+       (analysis-casey)$ python -m pip install --editable tools/SalishSeaTools
 
 The ``--editable`` option in the :command:`pip install` command installs the packages
 in a way that it can be updated when new features are pushed to GitHub by simply doing a

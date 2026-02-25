@@ -36,6 +36,7 @@ extensions = [
     'nbsphinx',
     "notfound.extension",
     'sphinx.ext.intersphinx',
+    "sphinx_copybutton",
 ]
 
 intersphinx_mapping = {
@@ -101,6 +102,15 @@ exclude_patterns = ['_build', '.pixi', 'Thumbs.db', '.DS_Store']
 
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = 'sphinx'
+
+
+# -- Options for sphinx_copybutton extension ------------------------------
+
+copybutton_prompt_text = r">>> |\.\.\. |\$ |In \[\d*\]: | {2,5}\.\.\.: | {5,8}: |PS> "
+copybutton_prompt_is_regexp = True
+copybutton_line_continuation_character = "\\"
+# Add a `no-copybutton` class that can be used to suppress the copy button
+copybutton_selector = "div:not(.no-copybutton) > div.highlight > pre"
 
 
 # -- Options for HTML output -------------------------------------------------

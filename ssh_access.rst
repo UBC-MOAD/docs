@@ -97,13 +97,14 @@ Here we tell it to use the Ed25519 algorithm to create the keys.
 Open your Terminal program to get a command-line interface,
 and type the command:
 
-.. code-block:: bash
+.. code-block:: console
 
     $ ssh-keygen -t ed25519
 
 The output should look like:
 
-.. code-block:: text
+.. code-block:: output
+   :class: no-copybutton
 
     Generating public/private rsa key pair.
     Enter file in which to save the key (/home/username/.ssh/id_ed25519):
@@ -116,7 +117,8 @@ Hit enter to accept the default key file path and name.
 
     If you get a message like:
 
-    .. code-block:: text
+    .. code-block:: output
+       :class: no-copybutton
 
         /home/username/.ssh/id_ed25519 already exists.
         Overwrite (y/n)?
@@ -126,7 +128,8 @@ Hit enter to accept the default key file path and name.
 
 You might see the message:
 
-.. code-block:: text
+.. code-block:: output
+   :class: no-copybutton
 
     Created directory '/home/username/.ssh'.
 
@@ -135,7 +138,8 @@ then,
 for sure,
 you should see the message:
 
-.. code-block:: text
+.. code-block:: output
+   :class: no-copybutton
 
     Enter passphrase (empty for no passphrase):
 
@@ -157,13 +161,15 @@ and that you won't have to type it very often...
 
 But you will have to type it again after the next prompt :-)
 
-.. code-block:: text
+.. code-block:: output
+   :class: no-copybutton
 
     Enter same passphrase again:
 
 When the key pair generation is finished you should see output like:
 
-.. code-block:: text
+.. code-block:: output
+   :class: no-copybutton
 
     Your identification has been saved in /home/username/.ssh/id_ed25519
     Your public key has been saved in /home/username/.ssh/id_ed25519.pub
@@ -216,7 +222,7 @@ We'll use :command:`nano` here because it is available almost everywhere.
 
 Open the file with :command:`nano`:
 
-.. code-block:: bash
+.. code-block:: console
 
     $ nano ~/.ssh/config
 
@@ -334,15 +340,15 @@ Your file should now look like:
 Now,
 instead of having to type:
 
-.. code-block:: text
+.. code-block:: console
 
-    ssh username@salish.eos.ubc.ca
+    $ ssh username@salish.eos.ubc.ca
 
 you will be able to type:
 
-.. code-block:: text
+.. code-block:: console
 
-    ssh salish
+    $ ssh salish
 
 (after we complete 1 more step of setup).
 
@@ -360,14 +366,15 @@ The command to do that is :command:`ssh-copy-id`.
 
 Copy your public key to ``salish`` with:
 
-.. code-block:: bash
+.. code-block:: console
 
     $ ssh-copy-id salish
 
 That command will use the information you put into :file:`~/.ssh/config` to expand ``salish`` to ``username@salish.eos.ca``.
 It should produce output like:
 
-.. code-block:: text
+.. code-block:: output
+   :class: no-copybutton
 
     /usr/bin/ssh-copy-id: INFO: Source of key(s) to be installed: "/home/username/.ssh/id_ed25519.pub"
     The authenticity of host 'salish.eos.ca (142.103.36.12)' can't be established.
@@ -378,7 +385,8 @@ Type ``yes`` to proceed.
 
 The output from :command:`ssh-copy-id` should continue with:
 
-.. code-block:: text
+.. code-block:: output
+   :class: no-copybutton
 
     /usr/bin/ssh-copy-id: INFO: attempting to log in with the new key(s), to filter out any that are already installed
     /usr/bin/ssh-copy-id: INFO: 1 key(s) remain to be installed -- if you are prompted now it is to install the new keys
@@ -387,7 +395,8 @@ The output from :command:`ssh-copy-id` should continue with:
 Type in your EOAS Linux systems password sent to you by EOAS IT,
 and the output from :command:`ssh-copy-id` should finish with:
 
-.. code-block:: text
+.. code-block:: output
+   :class: no-copybutton
 
     Number of key(s) added: 1
 
@@ -398,14 +407,15 @@ Now,
 as the output says,
 test the authentication with:
 
-.. code-block:: bash
+.. code-block:: console
 
     $ ssh salish
 
 Your ssh agent should ask you for your passphrase so that it can decrypt your private key,
 then you should find yourself at the command-line prompt on ``salish``:
 
-.. code-block:: text
+.. code-block:: output
+   :class: no-copybutton
 
     Welcome to Ubuntu 18.04.6 LTS (GNU/Linux 5.4.0-121-generic x86_64)
 
@@ -452,25 +462,25 @@ The first step is to connect to one of the Linux machines in Waterhole
 
 Connect to ``chum``:
 
-.. code-block:: bash
+.. code-block:: console
 
     $ ssh chum
 
 Then, navigate to your :file:`.ssh/` path:
 
-.. code-block:: bash
+.. code-block:: console
 
     $ cd .ssh/
 
 Create a new file named :file:`authorized_keys` :
 
-.. code-block:: bash
+.. code-block:: console
 
     $ touch authorized_keys
 
 Open the file named :file:`authorized_keys` with :command:`nano` to edit it:
 
-.. code-block:: bash
+.. code-block:: console
 
     $ nano authorized_keys
 
@@ -484,7 +494,7 @@ As a last step, we need to add the private key into the SSH authentication agent
 
 .. code-block:: pwsh
 
-    ssh-add $env:USERPROFILE\.ssh\id_ed25519
+    PS> ssh-add $env:USERPROFILE\.ssh\id_ed25519
 
 Disconnect from ``chum`` with ``exit``, and connect again with ``ssh chum``.
 This time you should connect without being asked for your password or your passphrase.
@@ -540,7 +550,7 @@ To get a short reminder of the option flags for any of these commands
 use the ``--help`` option;
 e.g.
 
-.. code-block:: bash
+.. code-block:: console
 
     $ ssh --help
 
@@ -549,7 +559,7 @@ To get a detailed description of a command
 use the :command:`man` command;
 e.g.
 
-.. code-block:: bash
+.. code-block:: console
 
     $ man scp
 
@@ -571,14 +581,14 @@ Most often you will use :command:`ssh` to open a terminal session
 on a remote computer;
 e.g.
 
-.. code-block:: bash
+.. code-block:: console
 
     $ ssh salish
 
 You can also use :command:`ssh` to execute a command on a remote computer without actually opening the terminal session;
 e.g.
 
-.. code-block:: bash
+.. code-block:: console
 
     $ ssh salish ls -lh /results2/SalishSea/nowcast-green.201905/09sep20/
 
@@ -590,7 +600,7 @@ of the files in the directory there called :file:`/results2/SalishSea/nowcast-gr
 If you get too fancy with the command that you want to execute remotely you may have to enclose it in quotes to prevent your local shell from messing it up;
 e.g.
 
-.. code-block:: bash
+.. code-block:: console
 
     $ ssh salish "find /results/forcing/atmospheric/GEM2.5/GRIB/20200909/12 -type f | wc -l"
 
@@ -598,7 +608,7 @@ If you have trouble with :command:`ssh` not making a connection,
 you can tell it to output debugging messages its progress by using the ``-v`` option;
 e.g.
 
-.. code-block:: bash
+.. code-block:: console
 
     $ ssh -v salish
 
@@ -632,7 +642,7 @@ or between two remote machines without bringing the file to your local machine.
 
 To copy a file from your current directory on your local computer to your home directory on ``salish`` use:
 
-.. code-block:: bash
+.. code-block:: console
 
     $ scp my-local-file salish:
 
@@ -643,7 +653,7 @@ all of those files will get copied to ``salish``.
 
 To copy a file from your current directory on your local computer to your ``/ocean/$USER/`` space on :command:`salish` use:
 
-.. code-block:: bash
+.. code-block:: console
 
     $ scp my-local-file "salish:/ocean/$USER/"
 
@@ -651,7 +661,7 @@ The quotes around ``"salish:/ocean/$USER/"`` are necessary to prevent your local
 
 To copy a file from your ``/ocean/$USER/`` space on ``salish`` to your current directory on your local computer use:
 
-.. code-block:: bash
+.. code-block:: console
 
     $ scp "salish:/ocean/$USER/my-remote-file" ./
 
@@ -666,7 +676,7 @@ If you have trouble with :command:`scp` not making a connection,
 you can tell it to output debugging messages its progress by using the ``-v`` option;
 e.g.
 
-.. code-block:: bash
+.. code-block:: console
 
     $ scp -v my-local-file salish:
 
@@ -701,7 +711,7 @@ or Google for more information about how to use :command:`sftp`.
 
 Here is a sample :command:`sftp` session to copy a file from your scratch space on ``salish`` to your current directory on your local computer:
 
-.. code-block:: text
+.. code-block:: console
 
     $ sftp salish
     Connected to salish.
@@ -716,7 +726,7 @@ If you have trouble with :command:`sftp` not making a connection,
 you can tell it to output debugging messages its progress by using the ``-v`` option;
 e.g.
 
-.. code-block:: bash
+.. code-block:: console
 
     $ sftp -v salish
 

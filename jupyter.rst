@@ -133,7 +133,7 @@ For example,
 if you are working in your analysis repo,
 the commands would be like:
 
-.. code-block:: bash
+.. code-block:: console
 
     $ conda activate analysis-doug
     (analysis-doug)$ cd analysis-doug/
@@ -144,13 +144,16 @@ You have to keep it open until you are finished with Jupyter and want to shut it
 
 The client part of Jupyter should have opened in a new browser tab.
 If not,
-follow the instructions in the terminal window that say something like::
+follow the instructions in the terminal window that say something like:
 
-  To access the notebook, open this file in a browser:
+.. code-block:: output
+   :class: no-copybutton
+
+    To access the notebook, open this file in a browser:
     file:///home/doug/.local/share/jupyter/runtime/nbserver-3581193-open.html
-  Or copy and paste one of these URLs:
+    Or copy and paste one of these URLs:
     http://localhost:8889/?token=f8b14419fc17ff93240a914930566fad4c2f69f064d4fdb9
-  or http://127.0.0.1:8889/?token=f8b14419fc17ff93240a914930566fad4c2f69f064d4fdb9
+    or http://127.0.0.1:8889/?token=f8b14419fc17ff93240a914930566fad4c2f69f064d4fdb9
 
 For the older ``notebook`` interface,
 the instructions are much the same,
@@ -274,7 +277,7 @@ To start the :command:`jupyter lab` server on ``salish``,
 open a terminal window on your laptop,
 and use :program:`ssh` to start a command-line session on ``salish``:
 
-.. code-block:: bash
+.. code-block:: console
 
     $ ssh salish
 
@@ -285,7 +288,7 @@ For example,
 if you are working in your analysis repo,
 the commands would be like:
 
-.. code-block:: bash
+.. code-block:: console
 
     $ cd analysis-doug/
     $ jupyter lab --no-browser --ip $(hostname -f)
@@ -296,7 +299,8 @@ The ``--ip $(hostname -f)`` causes the name of the machine you are running the s
 
 You should see output in that terminal window that looks something like:
 
-.. code-block:: text
+.. code-block:: output
+   :class: no-copybutton
 
     [I 09:30:01.331 LabApp] JupyterLab extension loaded from /home/dlatorne/conda_envs/dask-expts/lib/python3.8/site-packages/jupyterlab
     [I 09:30:01.332 LabApp] JupyterLab application directory is /home/dlatorne/conda_envs/dask-expts/share/jupyter/lab
@@ -321,9 +325,12 @@ You should see output in that terminal window that looks something like:
 
 The URLs on the last 2 lines are the important bit that we need to use to get the client running on our laptop.
 The second last one that contains the name of the machine that the server is running on is the important one for the rest of this setup.
-That is::
+That is:
 
-  http://salish:8888/?token=bbd686ffaa5398aacaee25c9fa44b5f9424889a81ad7d9f1
+.. code-block:: output
+   :class: no-copybutton
+
+    http://salish:8888/?token=bbd686ffaa5398aacaee25c9fa44b5f9424889a81ad7d9f1
 
 in the example output above.
 
@@ -340,7 +347,7 @@ To set up the :program:`ssh` tunnel,
 open a new terminal window on your laptop,
 and enter the command:
 
-.. code-block:: bash
+.. code-block:: console
 
     $ ssh -N -L 4343:salish:8888 salish
 
@@ -372,9 +379,12 @@ You may land on a Jupyter page that asks you to enter a :guilabel:`Password or t
 If so,
 copy the the long string of digits and letters from the URL in the Jupyter server terminal windows.
 For example,
-the in the URL::
+the in the URL:
 
-  http://sailsh:8888/?token=bbd686ffaa5398aacaee25c9fa44b5f9424889a81ad7d9f1
+.. code-block:: output
+   :class: no-copybutton
+
+    http://sailsh:8888/?token=bbd686ffaa5398aacaee25c9fa44b5f9424889a81ad7d9f1
 
 the token is ``bbd686ffaa5398aacaee25c9fa44b5f9424889a81ad7d9f1``.
 
@@ -451,13 +461,13 @@ Use the Compute Canada module system to load Python,
 preferably the most recent available version.
 On ``graham`` in Dec-2022 that is Python 3.10.2:
 
-.. code-block:: bash
+.. code-block:: console
 
     $ module load python/3.10.2
 
 Create a Python virtualenv in which to install ``jupyterlab`` and other packages:
 
-.. code-block:: bash
+.. code-block:: console
 
     $ python3 -m virtualenv --no-download ~/venvs/jupyter
 
@@ -471,7 +481,7 @@ This virtual environment will be created in the :file:`$HOME/venvs/jupyter/`.
 
 Activate the venv with:
 
-.. code-block:: bash
+.. code-block:: console
 
     $ source ~/venvs/jupyter/bin/activate
 
@@ -484,7 +494,7 @@ This rarely seems to have any effect,
 but it is recommended in the `Compute Canada venv docs`_,
 so we do it:
 
-.. code-block:: bash
+.. code-block:: console
 
     (jupyter)$ python3 -m pip install --no-index --upgrade pip
 
@@ -492,7 +502,7 @@ so we do it:
 
 Install the ``jupyterlab`` package and other packages that we routinely use for analysis into the venv:
 
-.. code-block:: bash
+.. code-block:: console
 
     (jupyter)$ python3 -m pip install jupyterlab xarray h5netcdf bottleneck matplotlib cmocean
 
@@ -528,7 +538,7 @@ they are installed from PyPI.
     perhaps to activate a venv with a different collection of packages installed,
     use:
 
-    .. code-block:: bash
+    .. code-block:: console
 
         (jupyter)$ deactivate
 
@@ -541,7 +551,7 @@ Running :command:`jupyter lab` in an Interactive Compute Session
 In an :program:`ssh` session on ``nibi``,
 start an interactive session on a compute node with:
 
-.. code-block:: bash
+.. code-block:: console
 
     $ salloc --time=1:00:00 --ntasks=1 --cpus-per-task=2 --mem-per-cpu=1024M --account=rrg-allen
 
@@ -553,7 +563,8 @@ On other clusters use ``--account=def-allen``.
 
 You should see output something like:
 
-.. code-block:: text
+.. code-block:: output
+   :class: no-copybutton
 
     salloc: Pending job allocation 40482784
     salloc: job 40482784 queued and waiting for resources
@@ -572,7 +583,7 @@ Eventually,
 your command-line prompt should re-appear showing that you are now connected to one of the compute nodes,
 ``c705`` in this case:
 
-.. code-block:: bash
+.. code-block:: console
 
     [your-user-id@c705 ~]$
 
@@ -581,7 +592,7 @@ Load a Alliance Python language module,
 and activate the Python virtual environment in which ``jupyterlab`` and the other packages that you need are installed.
 In this example we load Python 3.8.2 and activate our environment from the :file:`~/venvs/jupyter/` directory:
 
-.. code-block:: bash
+.. code-block:: console
 
     $ module load python/3.8.2
     $ source ~/venvs/jupyter/bin/activate
@@ -592,7 +603,7 @@ For example,
 if you are working in your analysis repo,
 the commands would be like:
 
-.. code-block:: bash
+.. code-block:: console
 
     (jupyter) [dlatorne@gra581 ~]$ cd $PROJECT/MEOPAR/analysis-doug/
     (jupyter) [dlatorne@gra581 ~]$ jupyter lab --no-browser --ip $(hostname -f)
@@ -603,7 +614,8 @@ The ``--ip $(hostname -f)`` causes the name of the node you are running the serv
 
 You should see output in that terminal window that looks something like:
 
-.. code-block:: text
+.. code-block:: output
+   :class: no-copybutton
 
     [I 17:26:04.998 LabApp] Writing notebook server cookie secret to /home/dlatorne/.local/share/jupyter/runtime/notebook_cookie_secret
     [I 17:26:07.186 LabApp] JupyterLab extension loaded from /home/dlatorne/venvs/jupyter/lib/python3.8/site-packages/jupyterlab
@@ -629,9 +641,12 @@ You should see output in that terminal window that looks something like:
 
 The URLs on the last 2 lines are the important bit that we need to use to get the client running on our laptop.
 The second last one that contains the name of the node that the server is running on is the important one for the rest of this setup.
-That is::
+That is:
 
-  http://c705.nibi.sharcnet:8888/?token=327caed3d832eefaad25a57cbf01de9f42685ced4306e036
+.. code-block:: output
+   :class: no-copybutton
+
+    http://c705.nibi.sharcnet:8888/?token=327caed3d832eefaad25a57cbf01de9f42685ced4306e036
 
 in the example output above.
 
@@ -650,7 +665,7 @@ To set up the :program:`ssh` tunnel,
 open a new terminal window on your laptop,
 and enter the command:
 
-.. code-block:: bash
+.. code-block:: console
 
     $ ssh -N -L 4343:c705.nibi.sharcnet:8888 nibi
 
@@ -678,9 +693,12 @@ You may land on a Jupyter page that asks you to enter a :guilabel:`Password or t
 If so,
 copy the the long string of digits and letters from the URL in the Jupyter server terminal windows.
 For example,
-the in the URL::
+the in the URL:
 
-  http://c705.nibi.sharcnet:8888/?token=327caed3d832eefaad25a57cbf01de9f42685ced4306e036
+.. code-block:: output
+   :class: no-copybutton
+
+    http://c705.nibi.sharcnet:8888/?token=327caed3d832eefaad25a57cbf01de9f42685ced4306e036
 
 the token is ``327caed3d832eefaad25a57cbf01de9f42685ced4306e036``.
 

@@ -45,7 +45,7 @@ Here is a prototype :file:`make_readme.py` module that provides that automation:
     or change the description of a notebook in its first Markdown cell,
     please generate a updated `README.md` file with:
 
-        python3 -m make_readme
+        python -m make_readme
 
     and commit and push the updated `README.md` to GitHub.
     """
@@ -201,9 +201,9 @@ Here's how to set up and use this script:
 
 #. Run the :file:`make_readme.py` script to create your :file:`README.md` file:
 
-   .. code-block:: bash
+   .. code-block:: console
 
-       $ python3 -m make_readme
+       $ python -m make_readme
 
 #. Use Git to add,
    commit,
@@ -211,7 +211,7 @@ Here's how to set up and use this script:
    the :file:`make_readme.py` script,
    and the :file:`README.md` file:
 
-   .. code-block:: bash
+   .. code-block:: console
 
        $ git add make_readme.py README.md MyNotebook.ipynb
        $ git commit -m"Add new notebook, make_readme script and README file."
@@ -220,12 +220,12 @@ Here's how to set up and use this script:
 #. Use your browser to navigate to the repository and directory on GitHub and you should see the rendered :file:`README.md` showing your notebook name(s) as a link to the nbviewer rendering(s) for your notebook(s).
 
 #. Each time you create a new notebook in the directory,
-   run :command:`python3 -m make_readme` to update the :file:`README.md` file and commit it along with your new notebook.
+   run :command:`python -m make_readme` to update the :file:`README.md` file and commit it along with your new notebook.
 
 The :file:`make_readme.py` script reads the first cell of each notebook in the directory and,
 if that cell contains text,
 adds it to the :file:`README.md` file.
 That lets you include a title and brief description of your notebooks along with the links on the GitHub page.
-If you change the contents of that 1st cell in an existing notebook you need to run :command:`python3 -m make_readme`,
+If you change the contents of that 1st cell in an existing notebook you need to run :command:`python -m make_readme`,
 commit the :file:`README.md` changes,
 and push them to GitHub in order to update the page there.

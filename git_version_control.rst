@@ -89,14 +89,14 @@ The :command:`git config --global` command is how you interact with the :file:`$
 Start by telling Git who you are.
 It will include this information as part of the metadata in every commit you make.
 
-.. code-block:: bash
+.. code-block:: console
 
     $ git config --global user.name "Your Name"
     $ git config --global user.email "you@example.com"
 
 Also do:
 
-.. code-block:: bash
+.. code-block:: console
 
     $ git config --global init.defaultbranch main
     $ git config --global pull.rebase true
@@ -116,9 +116,9 @@ We just have to tell Git what to do by default after :command:`git pull` so that
 If you want to see what is in your :file:`$HOME/.gitconfig` file,
 you can use:
 
-.. code-block:: bash
+.. code-block:: console
 
-    git config --global --list
+    $ git config --global --list
 
 You can also have per-repository config files that are stored in the :file:`.git/config` file in a repo.
 You interact with that file with :command:`git config --local`.
@@ -144,7 +144,7 @@ Git opens :program:`vi`.
 If you prefer to use a different editor,
 you can tell Git that with:
 
-.. code-block:: bash
+.. code-block:: console
 
     $ git config --global core.editor "your favourite editor"
 
@@ -166,7 +166,7 @@ You can also use :command:`git config` to create aliases for complicated Git com
 or commands that you want to give a short name to.
 Here are some examples:
 
-.. code-block:: bash
+.. code-block:: console
 
     $ git config --global alias.glog "log --graph"
 
@@ -174,7 +174,7 @@ This makes :command:`git glog` show you an ASCII-art graph version of the log of
 The graph shows branches that have diverged and merged.
 Mercurial users who relied on :command:`hg glog` will find this alias comforting.
 
-.. code-block:: bash
+.. code-block:: console
 
     $ git config --global alias.out "log --pretty=oneline --abbrev-commit --graph @{u}.."
 
@@ -182,7 +182,7 @@ makes :command:`git out` show you the commits that you have made locally but not
 You can get more information about the changes in each of those commits by adding the ``--stat`` option;
 i.e. :command:`git out --stat`.
 
-.. code-block:: bash
+.. code-block:: console
 
     $ git config --global alias.in '!git fetch && git log --pretty=oneline --abbrev-commit --graph ..@{u}'
 

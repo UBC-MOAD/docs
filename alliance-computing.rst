@@ -122,15 +122,15 @@ You should be able to follow these instructions to set up on any of the other Al
    On Mac or Linux your public key is stored in ``$HOME/.ssh/id_ed25519.pub`` and you can display
    it so that you can copy/paste it to CCDB with:
 
-   .. code-block:: bash
+   .. code-block:: console
 
-        cat $HOME/.ssh/id_ed25519.pub
+        $ cat $HOME/.ssh/id_ed25519.pub
 
    On Windows you can do that with:
 
-   .. code-block:: powershell
+   .. code-block:: console
 
-        type %USERPROFILE%/.ssh/id_ed25519.pub
+        PS> type %USERPROFILE%/.ssh/id_ed25519.pub
 
    Alternatively,
    you can open your :file:`id_ed25519.pub` in VS Code and copy it from there to the CCDB page.
@@ -139,7 +139,7 @@ You should be able to follow these instructions to set up on any of the other Al
 
    Confirm that you can :command:`ssh` into ``nibi`` with
 
-   .. code-block:: bash
+   .. code-block:: console
 
        $ ssh nibi
 
@@ -152,7 +152,7 @@ You should be able to follow these instructions to set up on any of the other Al
    To ensure that :envvar:`PROJECT` is set correctly every time you sign in to ``nibi``,
    use an editor to add the following line to your :file:`$HOME/.bash_profile` file:
 
-   .. code-block:: text
+   .. code-block:: bash
 
        export PROJECT=$HOME/projects/def-allen
 
@@ -160,7 +160,7 @@ You should be able to follow these instructions to set up on any of the other Al
    then :command:`ssh` in again,
    and confirm that :envvar:`PROJECT` is set correctly with:
 
-   .. code-block:: bash
+   .. code-block:: console
 
        $ echo $PROJECT
 
@@ -174,7 +174,7 @@ You should be able to follow these instructions to set up on any of the other Al
 
 #. Create a directory for yourself in :file:`$PROJECT/`:
 
-   .. code-block:: bash
+   .. code-block:: console
 
        $ mkdir $PROJECT/$USER
 
@@ -182,7 +182,7 @@ You should be able to follow these instructions to set up on any of the other Al
    ``def-allen`` group have access,
    and permissions from the top-level directory are inherited downward in the tree:
 
-   .. code-block:: bash
+   .. code-block:: console
 
        $ chgrp def-allen $PROJECT/$USER
        $ chmod g+rwxs $PROJECT/$USER
@@ -190,7 +190,7 @@ You should be able to follow these instructions to set up on any of the other Al
    Check the results of those operations with :command:`ls -al $PROJECT/$USER`.
    They should look like:
 
-   .. code-block:: text
+   .. code-block:: console
 
        $ ls -al $PROJECT/$USER
        total 90
@@ -203,7 +203,7 @@ You should be able to follow these instructions to set up on any of the other Al
    of the ``def-allen`` group have access,
    and permissions from the top-level directory are inherited downward in the tree:
 
-   .. code-block:: bash
+   .. code-block:: console
 
        $ chgrp def-allen $SCRATCH
        $ chmod g+rwxs $SCRATCH
@@ -211,7 +211,7 @@ You should be able to follow these instructions to set up on any of the other Al
    Check the results of those operations with :command:`ls -al $SCRATCH`.
    They should look like:
 
-   .. code-block:: text
+   .. code-block:: console
 
         $ ls -al $SCRATCH
         total 3015
@@ -225,11 +225,11 @@ You should be able to follow these instructions to set up on any of the other Al
 #. Alliance clusters use the :command:`module load` command to load software components.
    On ``nibi`` the module loads that are required to build and run NEMO are:
 
-   .. code-block:: bash
+   .. code-block:: console
 
-        module load StdEnv/2023
-        module load netcdf-fortran-mpi/4.6.1
-        module load perl/5.36.1
+        $ module load StdEnv/2023
+        $ module load netcdf-fortran-mpi/4.6.1
+        $ module load perl/5.36.1
 
    You can manually load the modules each time you log in,
    or you can add the above lines to your :file:`$HOME/.bashrc` file so that they are

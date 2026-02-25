@@ -105,9 +105,9 @@ In the top level :file:`docs/` directory
 or the :file:`docs/` sub-directory in a code repository)
 use the command:
 
-.. code-block:: bash
+.. code-block:: console
 
-    make clean html
+    $ make clean html
 
 to build the docs.
 You will be notified of any syntax or consistency errors.
@@ -116,9 +116,9 @@ The HTML pages produced by the :command:`make clean html` command are stored in 
 You can use your browser to open the :file:`index.html` file in that directory to preview them.
 The command:
 
-.. code-block:: bash
+.. code-block:: console
 
-    firefox _build/html/index.html
+    $ firefox _build/html/index.html
 
 will probably do the right thing.
 You can keep a browser tab open to the rendered docs and refresh after each build to see updates.
@@ -134,33 +134,36 @@ You can keep a browser tab open to the rendered docs and refresh after each buil
     and the directory :file:`_static/`.
     After the docs have been built it will also contain the :file:`_build/` sub-directory.
 
-The result of running :command:`make clean html` should look something like::
+The result of running :command:`make clean html` should look something like:
 
-  Removing everything under '_build'...
-  Running Sphinx v3.5.2
-  making output directory... done
-  loading intersphinx inventory from https://ubc-moad-tools.readthedocs.io/en/latest/objects.inv...
-  loading intersphinx inventory from https://nemo-cmd.readthedocs.io/en/latest/objects.inv...
-  loading intersphinx inventory from https://salishseacmd.readthedocs.io/en/latest/objects.inv...
-  loading intersphinx inventory from https://salishsea-meopar-docs.readthedocs.io/en/latest/objects.inv...
-  building [mo]: targets for 0 po files that are out of date
-  building [html]: targets for 20 source files that are out of date
-  updating environment: [new config] 20 added, 0 changed, 0 removed
-  reading sources... [100%] zzz_archival_docs/index
-  looking for now-outdated files... none found
-  pickling environment... done
-  checking consistency... done
-  preparing documents... done
-  writing output... [100%] zzz_archival_docs/index
-  generating indices... done
-  writing additional pages... search done
-  copying static files... done
-  copying extra files... done
-  dumping search index in English (code: en)... done
-  dumping object inventory... done
-  build succeeded.
+.. code-block:: output
+   :class: no-copybutton
 
-  The HTML pages are in _build/html.
+    Removing everything under '_build'...
+    Running Sphinx v3.5.2
+    making output directory... done
+    loading intersphinx inventory from https://ubc-moad-tools.readthedocs.io/en/latest/objects.inv...
+    loading intersphinx inventory from https://nemo-cmd.readthedocs.io/en/latest/objects.inv...
+    loading intersphinx inventory from https://salishseacmd.readthedocs.io/en/latest/objects.inv...
+    loading intersphinx inventory from https://salishsea-meopar-docs.readthedocs.io/en/latest/objects.inv...
+    building [mo]: targets for 0 po files that are out of date
+    building [html]: targets for 20 source files that are out of date
+    updating environment: [new config] 20 added, 0 changed, 0 removed
+    reading sources... [100%] zzz_archival_docs/index
+    looking for now-outdated files... none found
+    pickling environment... done
+    checking consistency... done
+    preparing documents... done
+    writing output... [100%] zzz_archival_docs/index
+    generating indices... done
+    writing additional pages... search done
+    copying static files... done
+    copying extra files... done
+    dumping search index in English (code: en)... done
+    dumping object inventory... done
+    build succeeded.
+
+    The HTML pages are in _build/html.
 
 
 .. _LinkCheckingDocumentation:
@@ -170,9 +173,9 @@ Link Checking the Documentation
 
 You can also check the documentation for broken links with the command:
 
-.. code-block:: bash
+.. code-block:: console
 
-    make clean linkcheck
+    $ make clean linkcheck
 
 Look for any errors in the output or in the :file:`_build/linkcheck/output.txt` file.
 
@@ -195,11 +198,13 @@ Links and Cross-references
 External Links
 --------------
 
-The preferred way to including external links is via markup like::
+The preferred way to including external links is via markup like:
 
-  This is a paragraph that contains `a link`_.
+.. code-block:: reStructuredText
 
-  .. _a link: http://example.com/
+    This is a paragraph that contains `a link`_.
+
+    .. _a link: http://example.com/
 
 If the link text should be the web address,
 you don't need special markup at all,
@@ -216,29 +221,33 @@ There are three ways in which you can refer to labels:
 
 #. If you place a label directly before a section title,
    you can reference to it with ``:ref:`label-name```.
-   Example::
+   Example:
 
-     .. _my-reference-label:
+   .. code-block:: reStructuredText
 
-     Section to cross-reference
-     --------------------------
+      .. _my-reference-label:
 
-     This is the text of the section.
+      Section to cross-reference
+      --------------------------
 
-     It refers to the section itself, see :ref:`my-reference-label`.
+      This is the text of the section.
+
+      It refers to the section itself, see :ref:`my-reference-label`.
 
    The ``:ref:`` role would then generate a link to the section,
    with the link title being "Section to cross-reference".
    This works just as well when sections and references are in different source files.
 
    Labels also work with figures.
-   Given::
+   Given:
 
-     .. _my-figure:
+   .. code-block:: reStructuredText
 
-     .. figure:: whatever
+      .. _my-figure:
 
-        Figure caption
+      .. figure:: whatever
+
+         Figure caption
 
    a reference ``:ref:`my-figure``` would insert a reference to the figure
    with link text "Figure caption".
@@ -251,16 +260,20 @@ There are three ways in which you can refer to labels:
    using this syntax: ``:ref:`Link title <label-name>```.
 
    The same syntax can be used to change the link text from what it would be automatically to something different that you want in a specific context.
-   Example::
+   Example:
 
-     :ref:`the section above <my-reference-label>`
+   .. code-block:: reStructuredText
+
+       :ref:`the section above <my-reference-label>`
 
    makes a link to the ``Section to cross-reference`` section with ``the section above`` as the link text.
 
 #. The `intersphinx`_ extension automatically generates links to labels and objects in Sphinx docs in other repositories.
-   Example::
+   Example:
 
-     :ref:`moadtools:moad_toolsPackagedDevelopment`
+   .. code-block:: reStructuredText
+
+      :ref:`moadtools:moad_toolsPackagedDevelopment`
 
    creates a link to the :ref:`moadtools:moad_toolsPackagedDevelopment` section in the `UBC-MOAD/moad_tools`_ docs.
 
@@ -273,11 +286,13 @@ and when section headings are changed.
 Links to Rendered Jupyter Notebooks
 -----------------------------------
 
-To link to a rendered representation of an Jupyter Notebook that has been pushed to a GitHub repo use markup like::
+To link to a rendered representation of an Jupyter Notebook that has been pushed to a GitHub repo use markup like:
 
-  * `SalishSeaBathy.ipynb`_: Documents the full domain bathymetry used for the Salish Sea NEMO runs.
+.. code-block:: reStructuredText
 
-  .. _SalishSeaBathy.ipynb: https://nbviewer.org/github/SalishSeaCast/tools/blob/main/bathymetry/SalishSeaBathy.ipynb
+    * `SalishSeaBathy.ipynb`_: Documents the full domain bathymetry used for the Salish Sea NEMO runs.
+
+    .. _SalishSeaBathy.ipynb: https://nbviewer.org/github/SalishSeaCast/tools/blob/main/bathymetry/SalishSeaBathy.ipynb
 
 
 Forcing Line Breaks
@@ -292,19 +307,21 @@ etc.
 Occasionally though you may need to force line breaks.
 The most common case for this is to add line breaks within table cells so as as to avoid excessive sideways scrolling of the rendered table.
 You can force a line break in the HTML that Sphinx renders by defining a substitution that will insert a break tag (`<br>`).
-Here's an example of doing that and using the substitution in a table cell::
+Here's an example of doing that and using the substitution in a table cell:
 
-  .. |br| raw:: html
+.. code-block:: reStructuredText
 
-      <br>
+    .. |br| raw:: html
 
-  ===========  ===================================================  ==============  ==================
-   Date                       Change                                New Value       Changeset
-  ===========  ===================================================  ==============  ==================
-  27-Oct-2014  1st :file:`nowcast/` run results                     N/A
-  20-Nov-2014  1st :file:`forecast/` run results                    N/A
-  26-Nov-2014  Changed to tidal forcing tuned for better |br|       see changeset   efa8c39a9a7c_
-               accuracy at Point Atkinson
-  ===========  ===================================================  ==============  ==================
+        <br>
+
+    ===========  ===================================================  ==============  ==================
+      Date                       Change                                New Value       Changeset
+    ===========  ===================================================  ==============  ==================
+    27-Oct-2014  1st :file:`nowcast/` run results                     N/A
+    20-Nov-2014  1st :file:`forecast/` run results                    N/A
+    26-Nov-2014  Changed to tidal forcing tuned for better |br|       see changeset   efa8c39a9a7c_
+                  accuracy at Point Atkinson
+    ===========  ===================================================  ==============  ==================
 
 .. note:: The ``|br|`` substitution needs to be defined once (but *only* once) per file.

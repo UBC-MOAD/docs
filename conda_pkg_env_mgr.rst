@@ -52,7 +52,7 @@ so you might as well get started that way by using :program:`wget` to download t
 
 On Linux, macOS and Windows Subsystem for Linux (WSL) use:
 
-.. code-block:: bash
+.. code-block:: console
 
     $ wget "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-$(uname)-$(uname -m).sh"
 
@@ -62,7 +62,7 @@ In short:
 
 #. Run the installer script via :program:`bash`:
 
-   .. code-block:: bash
+   .. code-block:: console
 
       $ bash Miniforge3-$(uname)-$(uname -m).sh
 
@@ -77,7 +77,8 @@ In short:
    A list of installed packages appears if it has been installed correctly;
    it looks something like:
 
-   .. code-block:: text
+   .. code-block:: output
+      :class: no-copybutton
 
         # packages in environment at /home/dlatorne/miniforge3:
         #
@@ -162,7 +163,7 @@ and on the Waterhole workstation that you use
 The :command:`conda config` command is how you interact with the :file:`$HOME/.condarc` file.
 Start by telling :program:`conda` where you want to store your environments:
 
-.. code-block:: bash
+.. code-block:: console
 
     $ conda config --prepend envs_dirs $HOME/conda_envs/
     $ mkdir $HOME/conda_envs/
@@ -179,7 +180,7 @@ If you want to see all of the :program:`conda` configuration settings
 and the supplements from your :file:`$HOME/.condarc` file,
 you can use:
 
-.. code-block:: bash
+.. code-block:: console
 
     $ conda config --show
 
