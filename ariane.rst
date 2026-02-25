@@ -39,10 +39,10 @@ The MOAD group maintains our own Git repository on GitHub of the Ariane code bas
 .. _Ariane website: http://ariane.lagrangian.free.fr/download.php
 .. _GitHub: https://github.com/UBC-MOAD/ariane-2.3.0_03
 
-.. code-block:: bash
+.. code-block:: console
 
-    cd /ocean/$USER/$PROJECT/
-    git clone git@github.com:UBC-MOAD/ariane-2.3.0_03.git
+    $ cd /ocean/$USER/$PROJECT/
+    $ git clone git@github.com:UBC-MOAD/ariane-2.3.0_03.git
 
 
 Installing on ``salish``
@@ -50,29 +50,29 @@ Installing on ``salish``
 
 Configure the installation by going to the folder of your clone of the MOAD Ariane repo:
 
-.. code-block:: bash
+.. code-block:: console
 
-    cd /ocean/$USER/$PROJECT/ariane-2.3.0_03
-    ./configure --prefix=$PWD
+    $ cd /ocean/$USER/$PROJECT/ariane-2.3.0_03
+    $ ./configure --prefix=$PWD
 
 The ``prefix`` argument overwrites the default install directory into a customized directory.
 
 Make and install Ariane (you will need to do this every time you make changes to the code):
 
-.. code-block:: bash
+.. code-block:: console
 
-    cd /ocean/$USER/$PROJECT/ariane-2.3.0_03
-    make
-    make check
-    make install
+    $ cd /ocean/$USER/$PROJECT/ariane-2.3.0_03
+    $ make
+    $ make check
+    $ make install
 
 Add the path for the Ariane executable to your ``PATH`` environment variable:
 
-.. code-block:: bash
+.. code-block:: console
 
     export PATH=$PWD/bin:$PATH
 
-Now you can run Ariane from any directory by typing ``ariane``.
+Now you can run Ariane from any directory by typing :command:`ariane`.
 
 
 Testing Ariane installation
@@ -81,10 +81,10 @@ Testing Ariane installation
 To test that you have everything set up correctly, run one of the Ariane examples.
 For instance, try:
 
-.. code-block:: bash
+.. code-block:: console
 
-    cd /ocean/$USER/$PROJECT/ariane-2.3.0_03/examples/qualitative
-    ariane
+    $ cd /ocean/$USER/$PROJECT/ariane-2.3.0_03/examples/qualitative
+    $ ariane
 
 You should notice several new files, such as :file:`results/ariane_trajectories_qualitative.nc` and :file:`validation/traj.txt`.
 These files contain the trajectory information.
@@ -100,7 +100,7 @@ Qualitative Mode
 
 This mode can be used to get the exact path of a set number of particles.
 
-:file:`intitial_positions.txt`
+:file:`initial_positions.txt`
 ------------------------------
 
 The :file:`initial_positions.txt` file specifies the initial positions and release times of the particles that you are tracking. This file consists of 5 columns and a row for each particle that you are running.
@@ -359,15 +359,15 @@ Ariane provides a couple of useful tools for defining the sections.
 
 * :kbd:`mkseg0`: This program reads your land-ocean mask and writes it as a text file. Run this program in the same directory as your namelist. You may need to add the ariane executables to your path.
 
-.. code-block:: bash
+.. code-block:: console
 
-    mkseg0
+    $ mkseg0
 
 * :file:`segrid`: After you run :kbd:`mkseg0`, you should see a new file called :file:`segrid`. Edit this file with
 
-.. code-block:: bash
+.. code-block:: console
 
-    nedit segrid
+    $ nedit segrid
 
 * If you turn off text wrapping, you might see something like this:
 
@@ -752,15 +752,15 @@ Calling the Run Ariane Script
 
 Calling this script takes a bit more information than most, in your command line type the following:
 
-.. code-block:: bash
+.. code-block:: console
 
-	python3 path_to_RunAriane.py startday number_of_loops days_with_particles_seeding total_days_in_run forward_or_backward target_subdirectory_name
+	$ python3 path_to_RunAriane.py startday number_of_loops days_with_particles_seeding total_days_in_run forward_or_backward target_subdirectory_name
 
 for example, the following was typed into the command line for 30 days of seeding, 30 days of run after seeding is completed, foward run, starting January 1st 2018:
 
-.. code-block:: bash
+.. code-block:: console
 
-	python3 ./RunAriane_manydays.py 2018-01-01 1 30 30 forward 201905_1hr
+	$ python3 ./RunAriane_manydays.py 2018-01-01 1 30 30 forward 201905_1hr
 
 
 Frequency Sensitivity Sample

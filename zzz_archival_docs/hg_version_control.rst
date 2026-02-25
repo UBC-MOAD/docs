@@ -304,9 +304,9 @@ Commit messages can be written on the command line with the :command:`hg commit 
 (``*``);
 e.g.
 
-.. code-block:: bash
+.. code-block:: console
 
-    hg commit -m"Add Salish Sea NEMO model quick-start section."
+    $ hg commit -m"Add Salish Sea NEMO model quick-start section."
 
 Assuming that you have the :envvar:`EDITOR` environment variable set :command:`hg commit` without the ``-m`` option will open your editor for you to write your commit message and the files to be committed will be shown in the editor.
 Using your editor for commit message also makes it easy to write multi-line commit messages.
@@ -344,11 +344,11 @@ For example,
 for the ``NEMO-3.6-code`` repo,
 the process to do that is:
 
-.. code-block:: bash
+.. code-block:: console
 
-    hg clone --rev 1 ssh://hg@bitbucket.org/salishsea/nemo-3.6-code NEMO-3.6-code
-    cd NEMO-3.6-code
-    hg pull --update
+    $ hg clone --rev 1 ssh://hg@bitbucket.org/salishsea/nemo-3.6-code NEMO-3.6-code
+    $ cd NEMO-3.6-code
+    $ hg pull --update
 
 We think that the root cause of the timeout during cloning is that after the initial repo bundle is downloaded from Bitbucket the local processing of the bundle is so slow on the $PROJECT file systems of some HPC clusters that Bitbucket assumes that the network connection being used for the cloning operation has failed.
 Clone just the first changeset avoids the bundle download operation.
