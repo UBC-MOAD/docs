@@ -133,7 +133,8 @@ To do a clean build of the documentation use:
 
 The output looks something like:
 
-.. code-block:: text
+.. code-block:: output
+   :class: no-copybutton
 
     ✨ Pixi task (docs): make clean html
     Removing everything under '_build'...
@@ -208,7 +209,8 @@ Run the link checker with:
 
 The output looks something like:
 
-.. code-block:: text
+.. code-block:: output
+   :class: no-copybutton
 
     ✨ Pixi task (linkcheck): make clean linkcheck
     Removing everything under '_build'...

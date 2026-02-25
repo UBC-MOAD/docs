@@ -183,24 +183,26 @@ Like your Mercurial configuration,
 you need to set this up on each machine that you use Mercurial on.
 The recommended path and name for that file is :file:`$HOME/.hgignore`.
 
-You should create or edit your :file:`$HOME/.hgignore` file to contain::
+You should create or edit your :file:`$HOME/.hgignore` file to contain:
 
-  syntax: glob
-  *~
-  *.pyc
-  *.egg-info
-  .ipynb_checkpoints
-  .DS_Store
-  .coverage
-  .cache
+.. code-block:: text
 
-  syntax: regexp
-  (.*/)?\#[^/]*\#$
-  ^docs/(.*)build/
+    syntax: glob
+    *~
+    *.pyc
+    *.egg-info
+    .ipynb_checkpoints
+    .DS_Store
+    .coverage
+    .cache
 
-The :``syntax: glob`` section uses shell wildcard expansion to define file patterns to be ignored.
+    syntax: regexp
+    (.*/)?\#[^/]*\#$
+    ^docs/(.*)build/
 
-The :``syntax: regexp`` section uses regular expressions to define ignore patterns.
+The ``syntax: glob`` section uses shell wildcard expansion to define file patterns to be ignored.
+
+The ``syntax: regexp`` section uses regular expressions to define ignore patterns.
 The ``^docs/(.*)build/`` pattern ignores the products of Sphinx documentation builds in :file:`docs/` directories.
 
 Most repos have their own :file:`.hgignore` file that defines patterns to ignore for that repo in addition to those specified globally.
@@ -269,9 +271,12 @@ Aborting a Merge
 ----------------
 
 You may find yourself having followed Mercurial's workflow suggestions have having merged changes from upstream but then realizing that you really should have rebased.
-At that point if you try to do almost anything other than commit the merge Mercurial will stop you with a message like::
+At that point if you try to do almost anything other than commit the merge Mercurial will stop you with a message like:
 
-  abort: outstanding uncommitted merges
+.. code-block:: output
+   :class: no-copybutton
+
+   abort: outstanding uncommitted merges
 
 You can use :command:`hg update --clean` to discard the uncommitted changes,
 effectively aborting the merge
@@ -311,25 +316,27 @@ e.g.
 Assuming that you have the :envvar:`EDITOR` environment variable set :command:`hg commit` without the ``-m`` option will open your editor for you to write your commit message and the files to be committed will be shown in the editor.
 Using your editor for commit message also makes it easy to write multi-line commit messages.
 
-Here are recommendations for commit message style::
+Here are recommendations for commit message style:
 
-  Short (70 chars or less) summary sentence.
+.. code-block:: text
 
-  More detailed explanatory text, if necessary.  Wrap it to about 72
-  characters or so. The blank line separating the summary from the body
-  is critical (unless you omit the body entirely).
+    Short (70 chars or less) summary sentence.
 
-  Write your commit message in the imperative: "Fix bug" and not "Fixed bug"
-  or "Fixes bug."
+    More detailed explanatory text, if necessary.  Wrap it to about 72
+    characters or so. The blank line separating the summary from the body
+    is critical (unless you omit the body entirely).
 
-  Further paragraphs come after blank lines.
+    Write your commit message in the imperative: "Fix bug" and not "Fixed bug"
+    or "Fixes bug."
 
-  - Bullet points are okay, too
+    Further paragraphs come after blank lines.
 
-  - Typically a hyphen or asterisk is used for the bullet, followed by a
-    single space, with blank lines in between
+    - Bullet points are okay, too
 
-  - Use a hanging indent
+    - Typically a hyphen or asterisk is used for the bullet, followed by a
+      single space, with blank lines in between
+
+    - Use a hanging indent
 
 
 .. _WorkAroundForCloningTimeout:

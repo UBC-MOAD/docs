@@ -77,7 +77,8 @@ In short:
    A list of installed packages appears if it has been installed correctly;
    it looks something like:
 
-   .. code-block:: text
+   .. code-block:: output
+      :class: no-copybutton
 
         # packages in environment at /home/dlatorne/miniforge3:
         #

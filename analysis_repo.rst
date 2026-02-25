@@ -115,9 +115,12 @@ Clone Your Analysis Repository
    "Quick setup — if you’ve done this kind of thing before".
    Below that there are 2 buttons that say :guilabel:`HTTPS` and :guilabel:`SSH`.
    Please ensure that the :guilabel:`SSH` button is enabled,
-   and copy the repository URI string of text beside it that looks like::
+   and copy the repository URI string of text beside it that looks like:
 
-     git@github.com:SalishSeaCast/analysis-casey.git
+   .. code-block:: output
+      :class: no-copybutton
+
+      git@github.com:SalishSeaCast/analysis-casey.git
 
 #. Use that repository URI string to clone your analysis repository from GitHub.
    On a Waterhole workstation do:
@@ -167,19 +170,22 @@ Populate Your Analysis Repository
    and ask you if it is okay to proceed;
    hit ``y`` or ``Enter`` to go ahead.
 
-   After some more processing you should see the messages::
+   After some more processing you should see the messages:
 
-     Preparing transaction: done
-     Verifying transaction: done
-     Executing transaction: done
-     #
-     # To activate this environment, use
-     #
-     #     $ conda activate cookiecutter
-     #
-     # To deactivate an active environment, use
-     #
-     #     $ conda deactivate
+   .. code-block:: output
+      :class: no-copybutton
+
+      Preparing transaction: done
+      Verifying transaction: done
+      Executing transaction: done
+      #
+      # To activate this environment, use
+      #
+      #      $ conda activate cookiecutter
+      #
+      # To deactivate an active environment, use
+      #
+      #     $ conda deactivate
 
 #. Activate the ``cookiecutter`` environment,
    go to your :file:`MOAD/` directory,
@@ -215,7 +221,10 @@ Populate Your Analysis Repository
    The ``-f`` option lets the :command:`cookiecutter` tool write directories and files
    into an already existing directory.
 
-   :command:`cookiecutter` will ask you for 2 pieces of input::
+   :command:`cookiecutter` will ask you for 2 pieces of input:
+
+   .. code-block:: output
+      :class: no-copybutton
 
       researcher_name [Casey Lawrence]:
       Select github_org:
@@ -294,19 +303,22 @@ and the names of the Python packages to install in the environment.
    and ask you if it is okay to proceed;
    hit ``y`` or ``Enter`` to go ahead.
 
-   After some more processing you should see messages like::
+   After some more processing you should see messages like:
 
-     Preparing transaction: done
-     Verifying transaction: done
-     Executing transaction: done
-     #
-     # To activate this environment, use
-     #
-     #     $ conda activate analysis-casey
-     #
-     # To deactivate an active environment, use
-     #
-     #     $ conda deactivate
+   .. code-block:: output
+      :class: no-copybutton
+
+      Preparing transaction: done
+      Verifying transaction: done
+      Executing transaction: done
+      #
+      # To activate this environment, use
+      #
+      #     $ conda activate analysis-casey
+      #
+      # To deactivate an active environment, use
+      #
+      #     $ conda deactivate
 
 Use the :command:`conda activate` command to activate your analysis environment so that you can
 run :ref:`MOAD-Jupyter`.
@@ -350,7 +362,7 @@ The `documentation for the package`_ contains documentation for most of its func
    .. code-block:: console
 
        $ conda activate analysis-casey
-       (analysis-casey)$ python3 -m pip install --editable tools/SalishSeaTools
+       (analysis-casey)$ python -m pip install --editable tools/SalishSeaTools
 
 The ``--editable`` option in the :command:`pip install` command installs the packages
 in a way that it can be updated when new features are pushed to GitHub by simply doing a

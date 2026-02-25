@@ -179,7 +179,8 @@ etc.:
    :command:`conda env list`.
    You should see a line like:
 
-   .. code-block:: text
+   .. code-block:: output
+      :class: no-copybutton
 
       fortls                   /home/dlatorne/miniforge3/envs/fortls
 

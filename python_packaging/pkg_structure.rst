@@ -78,7 +78,8 @@ Package Layout
 Using the `NEMO-Cmd`_ package as an example,
 the directories and files layout of a MOAD package looks like:
 
-.. code-block:: text
+.. code-block:: output
+   :class: no-copybutton
 
     NEMO-Cmd/
     ├── docs/

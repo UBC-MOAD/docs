@@ -134,33 +134,36 @@ You can keep a browser tab open to the rendered docs and refresh after each buil
     and the directory :file:`_static/`.
     After the docs have been built it will also contain the :file:`_build/` sub-directory.
 
-The result of running :command:`make clean html` should look something like::
+The result of running :command:`make clean html` should look something like:
 
-  Removing everything under '_build'...
-  Running Sphinx v3.5.2
-  making output directory... done
-  loading intersphinx inventory from https://ubc-moad-tools.readthedocs.io/en/latest/objects.inv...
-  loading intersphinx inventory from https://nemo-cmd.readthedocs.io/en/latest/objects.inv...
-  loading intersphinx inventory from https://salishseacmd.readthedocs.io/en/latest/objects.inv...
-  loading intersphinx inventory from https://salishsea-meopar-docs.readthedocs.io/en/latest/objects.inv...
-  building [mo]: targets for 0 po files that are out of date
-  building [html]: targets for 20 source files that are out of date
-  updating environment: [new config] 20 added, 0 changed, 0 removed
-  reading sources... [100%] zzz_archival_docs/index
-  looking for now-outdated files... none found
-  pickling environment... done
-  checking consistency... done
-  preparing documents... done
-  writing output... [100%] zzz_archival_docs/index
-  generating indices... done
-  writing additional pages... search done
-  copying static files... done
-  copying extra files... done
-  dumping search index in English (code: en)... done
-  dumping object inventory... done
-  build succeeded.
+.. code-block:: output
+   :class: no-copybutton
 
-  The HTML pages are in _build/html.
+    Removing everything under '_build'...
+    Running Sphinx v3.5.2
+    making output directory... done
+    loading intersphinx inventory from https://ubc-moad-tools.readthedocs.io/en/latest/objects.inv...
+    loading intersphinx inventory from https://nemo-cmd.readthedocs.io/en/latest/objects.inv...
+    loading intersphinx inventory from https://salishseacmd.readthedocs.io/en/latest/objects.inv...
+    loading intersphinx inventory from https://salishsea-meopar-docs.readthedocs.io/en/latest/objects.inv...
+    building [mo]: targets for 0 po files that are out of date
+    building [html]: targets for 20 source files that are out of date
+    updating environment: [new config] 20 added, 0 changed, 0 removed
+    reading sources... [100%] zzz_archival_docs/index
+    looking for now-outdated files... none found
+    pickling environment... done
+    checking consistency... done
+    preparing documents... done
+    writing output... [100%] zzz_archival_docs/index
+    generating indices... done
+    writing additional pages... search done
+    copying static files... done
+    copying extra files... done
+    dumping search index in English (code: en)... done
+    dumping object inventory... done
+    build succeeded.
+
+    The HTML pages are in _build/html.
 
 
 .. _LinkCheckingDocumentation:

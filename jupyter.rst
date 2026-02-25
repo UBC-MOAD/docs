@@ -144,13 +144,16 @@ You have to keep it open until you are finished with Jupyter and want to shut it
 
 The client part of Jupyter should have opened in a new browser tab.
 If not,
-follow the instructions in the terminal window that say something like::
+follow the instructions in the terminal window that say something like:
 
-  To access the notebook, open this file in a browser:
+.. code-block:: output
+   :class: no-copybutton
+
+    To access the notebook, open this file in a browser:
     file:///home/doug/.local/share/jupyter/runtime/nbserver-3581193-open.html
-  Or copy and paste one of these URLs:
+    Or copy and paste one of these URLs:
     http://localhost:8889/?token=f8b14419fc17ff93240a914930566fad4c2f69f064d4fdb9
-  or http://127.0.0.1:8889/?token=f8b14419fc17ff93240a914930566fad4c2f69f064d4fdb9
+    or http://127.0.0.1:8889/?token=f8b14419fc17ff93240a914930566fad4c2f69f064d4fdb9
 
 For the older ``notebook`` interface,
 the instructions are much the same,
@@ -296,7 +299,8 @@ The ``--ip $(hostname -f)`` causes the name of the machine you are running the s
 
 You should see output in that terminal window that looks something like:
 
-.. code-block:: text
+.. code-block:: output
+   :class: no-copybutton
 
     [I 09:30:01.331 LabApp] JupyterLab extension loaded from /home/dlatorne/conda_envs/dask-expts/lib/python3.8/site-packages/jupyterlab
     [I 09:30:01.332 LabApp] JupyterLab application directory is /home/dlatorne/conda_envs/dask-expts/share/jupyter/lab
@@ -321,9 +325,12 @@ You should see output in that terminal window that looks something like:
 
 The URLs on the last 2 lines are the important bit that we need to use to get the client running on our laptop.
 The second last one that contains the name of the machine that the server is running on is the important one for the rest of this setup.
-That is::
+That is:
 
-  http://salish:8888/?token=bbd686ffaa5398aacaee25c9fa44b5f9424889a81ad7d9f1
+.. code-block:: output
+   :class: no-copybutton
+
+    http://salish:8888/?token=bbd686ffaa5398aacaee25c9fa44b5f9424889a81ad7d9f1
 
 in the example output above.
 
@@ -372,9 +379,12 @@ You may land on a Jupyter page that asks you to enter a :guilabel:`Password or t
 If so,
 copy the the long string of digits and letters from the URL in the Jupyter server terminal windows.
 For example,
-the in the URL::
+the in the URL:
 
-  http://sailsh:8888/?token=bbd686ffaa5398aacaee25c9fa44b5f9424889a81ad7d9f1
+.. code-block:: output
+   :class: no-copybutton
+
+    http://sailsh:8888/?token=bbd686ffaa5398aacaee25c9fa44b5f9424889a81ad7d9f1
 
 the token is ``bbd686ffaa5398aacaee25c9fa44b5f9424889a81ad7d9f1``.
 
@@ -553,7 +563,8 @@ On other clusters use ``--account=def-allen``.
 
 You should see output something like:
 
-.. code-block:: text
+.. code-block:: output
+   :class: no-copybutton
 
     salloc: Pending job allocation 40482784
     salloc: job 40482784 queued and waiting for resources
@@ -603,7 +614,8 @@ The ``--ip $(hostname -f)`` causes the name of the node you are running the serv
 
 You should see output in that terminal window that looks something like:
 
-.. code-block:: text
+.. code-block:: output
+   :class: no-copybutton
 
     [I 17:26:04.998 LabApp] Writing notebook server cookie secret to /home/dlatorne/.local/share/jupyter/runtime/notebook_cookie_secret
     [I 17:26:07.186 LabApp] JupyterLab extension loaded from /home/dlatorne/venvs/jupyter/lib/python3.8/site-packages/jupyterlab
@@ -629,9 +641,12 @@ You should see output in that terminal window that looks something like:
 
 The URLs on the last 2 lines are the important bit that we need to use to get the client running on our laptop.
 The second last one that contains the name of the node that the server is running on is the important one for the rest of this setup.
-That is::
+That is:
 
-  http://c705.nibi.sharcnet:8888/?token=327caed3d832eefaad25a57cbf01de9f42685ced4306e036
+.. code-block:: output
+   :class: no-copybutton
+
+    http://c705.nibi.sharcnet:8888/?token=327caed3d832eefaad25a57cbf01de9f42685ced4306e036
 
 in the example output above.
 
@@ -678,9 +693,12 @@ You may land on a Jupyter page that asks you to enter a :guilabel:`Password or t
 If so,
 copy the the long string of digits and letters from the URL in the Jupyter server terminal windows.
 For example,
-the in the URL::
+the in the URL:
 
-  http://c705.nibi.sharcnet:8888/?token=327caed3d832eefaad25a57cbf01de9f42685ced4306e036
+.. code-block:: output
+   :class: no-copybutton
+
+    http://c705.nibi.sharcnet:8888/?token=327caed3d832eefaad25a57cbf01de9f42685ced4306e036
 
 the token is ``327caed3d832eefaad25a57cbf01de9f42685ced4306e036``.
 

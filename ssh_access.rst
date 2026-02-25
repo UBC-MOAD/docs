@@ -103,7 +103,8 @@ and type the command:
 
 The output should look like:
 
-.. code-block:: text
+.. code-block:: output
+   :class: no-copybutton
 
     Generating public/private rsa key pair.
     Enter file in which to save the key (/home/username/.ssh/id_ed25519):
@@ -116,7 +117,8 @@ Hit enter to accept the default key file path and name.
 
     If you get a message like:
 
-    .. code-block:: text
+    .. code-block:: output
+       :class: no-copybutton
 
         /home/username/.ssh/id_ed25519 already exists.
         Overwrite (y/n)?
@@ -126,7 +128,8 @@ Hit enter to accept the default key file path and name.
 
 You might see the message:
 
-.. code-block:: text
+.. code-block:: output
+   :class: no-copybutton
 
     Created directory '/home/username/.ssh'.
 
@@ -135,7 +138,8 @@ then,
 for sure,
 you should see the message:
 
-.. code-block:: text
+.. code-block:: output
+   :class: no-copybutton
 
     Enter passphrase (empty for no passphrase):
 
@@ -157,13 +161,15 @@ and that you won't have to type it very often...
 
 But you will have to type it again after the next prompt :-)
 
-.. code-block:: text
+.. code-block:: output
+   :class: no-copybutton
 
     Enter same passphrase again:
 
 When the key pair generation is finished you should see output like:
 
-.. code-block:: text
+.. code-block:: output
+   :class: no-copybutton
 
     Your identification has been saved in /home/username/.ssh/id_ed25519
     Your public key has been saved in /home/username/.ssh/id_ed25519.pub
@@ -367,7 +373,8 @@ Copy your public key to ``salish`` with:
 That command will use the information you put into :file:`~/.ssh/config` to expand ``salish`` to ``username@salish.eos.ca``.
 It should produce output like:
 
-.. code-block:: text
+.. code-block:: output
+   :class: no-copybutton
 
     /usr/bin/ssh-copy-id: INFO: Source of key(s) to be installed: "/home/username/.ssh/id_ed25519.pub"
     The authenticity of host 'salish.eos.ca (142.103.36.12)' can't be established.
@@ -378,7 +385,8 @@ Type ``yes`` to proceed.
 
 The output from :command:`ssh-copy-id` should continue with:
 
-.. code-block:: text
+.. code-block:: output
+   :class: no-copybutton
 
     /usr/bin/ssh-copy-id: INFO: attempting to log in with the new key(s), to filter out any that are already installed
     /usr/bin/ssh-copy-id: INFO: 1 key(s) remain to be installed -- if you are prompted now it is to install the new keys
@@ -387,7 +395,8 @@ The output from :command:`ssh-copy-id` should continue with:
 Type in your EOAS Linux systems password sent to you by EOAS IT,
 and the output from :command:`ssh-copy-id` should finish with:
 
-.. code-block:: text
+.. code-block:: output
+   :class: no-copybutton
 
     Number of key(s) added: 1
 
@@ -405,7 +414,8 @@ test the authentication with:
 Your ssh agent should ask you for your passphrase so that it can decrypt your private key,
 then you should find yourself at the command-line prompt on ``salish``:
 
-.. code-block:: text
+.. code-block:: output
+   :class: no-copybutton
 
     Welcome to Ubuntu 18.04.6 LTS (GNU/Linux 5.4.0-121-generic x86_64)
 
@@ -701,7 +711,7 @@ or Google for more information about how to use :command:`sftp`.
 
 Here is a sample :command:`sftp` session to copy a file from your scratch space on ``salish`` to your current directory on your local computer:
 
-.. code-block:: text
+.. code-block:: console
 
     $ sftp salish
     Connected to salish.

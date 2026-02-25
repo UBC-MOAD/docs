@@ -30,9 +30,12 @@ You can find out what shell you are using in most terminal sessions with the com
     $ echo $SHELL
 
 If the shell you are using is :command:`bash`,
-the output of that command will most likely be::
+the output of that command will most likely be:
 
-  /bin/bash
+.. code-block:: output
+   :class: no-copybutton
+
+    /bin/bash
 
 In order to make :command:`bash` work well for us on the Waterhole workstations and other MOAD computers,
 we have to create or edit two configuration files in our home directory:

@@ -382,7 +382,10 @@ Land points are :kbd:`#` and ocean points are :kbd:`-`.
 * Run :kbd:`mkseg`
 
 * This will print out whether you succeeded or not and let you know the extent of the sections you defined. If something went wrong in editing :file:`segrid` the message will let you know how, this usually entails accidentally deleting a land point, not closing your boundaries, or forgetting to place the :kbd:`@` symbol somewhere!
-* Once you have that without errors, section definitions will be copied automatically into a file called :file:`sections.txt`. The section definitions should look something like this::
+* Once you have that without errors, section definitions will be copied automatically into a file called :file:`sections.txt`.
+  The section definitions should look something like this:
+
+  .. code-block:: text
 
      1   250   313  -409  -409     1    40 "1section"
      2   264   312   386   386     1    40 "2section"
@@ -394,50 +397,53 @@ You can rename :kbd:`"1section"` and :kbd:`"2section"` to something more intuiti
 Analyzing quantitative output
 -----------------------------
 
-A new file called :file:`stats.txt` contains statistics about the initial and final particles through each section and the transport calculations. It might look something like this::
+A new file called :file:`stats.txt` contains statistics about the initial and final particles through each section and the transport calculations.
+It might look something like this:
 
- total transport (in m3/s):    230033.88767527405       ( x lmt =   5520813.3042065771      )
-     max_transport (in m3/s)  :    1000000000.0000000
-     # particles              :        20380
+.. code-block:: text
 
-     initial state                #  20380
-      stats. for:          x         y         z         a
-             min:   -123.457    48.946     0.500     0.000
-             max:   -123.134    49.063   226.275     0.000
-            mean:   -123.347    48.986    74.893     0.000
-       std. dev.:      0.062     0.022    61.722     0.000
+    total transport (in m3/s):    230033.88767527405       ( x lmt =   5520813.3042065771      )
+        max_transport (in m3/s)  :    1000000000.0000000
+        # particles              :        20380
 
-     meanders        166079.1572 0
-     1section        .0000 1
-     2section        63952.7799 2
-     Surface         .0000 3
-               total 230033.8877
-         except mnds 63954.7305
-                lost 1.9506
+        initial state                #  20380
+        stats. for:          x         y         z         a
+                min:   -123.457    48.946     0.500     0.000
+                max:   -123.134    49.063   226.275     0.000
+                mean:   -123.347    48.986    74.893     0.000
+        std. dev.:      0.062     0.022    61.722     0.000
 
-     final state        meanders #  11094
-     stats. ini:          x         y         z         a
-            min:   -123.457    48.946     0.500     0.006
-            max:   -123.134    49.063   226.275    16.858
-           mean:   -123.343    48.987    91.665     0.606
-      std. dev.:      0.055     0.020    61.438     1.010
-     stats. fin:          x         y         z         a
-            min:   -123.458    48.945     0.019     0.006
-            max:   -123.132    49.064   238.621    16.858
-           mean:   -123.329    48.992    91.483     0.606
-      std. dev.:      0.052     0.019    62.670     1.010
+        meanders        166079.1572 0
+        1section        .0000 1
+        2section        63952.7799 2
+        Surface         .0000 3
+                total 230033.8877
+            except mnds 63954.7305
+                    lost 1.9506
 
-     final state        2section #   9285
-     stats. ini:          x         y         z         a
-            min:   -123.457    48.946     0.500     0.191
-            max:   -123.134    49.063   226.275    16.074
-           mean:   -123.357    48.982    31.337     1.715
-      std. dev.:      0.075     0.028    35.675     1.639
-     stats. fin:          x         y         z         a
-            min:   -123.317    48.883     0.058     0.191
-            max:   -123.079    48.970   151.722    16.074
-           mean:   -123.192    48.929    25.504     1.715
-      std. dev.:      0.068     0.025    25.477     1.639
+        final state        meanders #  11094
+        stats. ini:          x         y         z         a
+                min:   -123.457    48.946     0.500     0.006
+                max:   -123.134    49.063   226.275    16.858
+            mean:   -123.343    48.987    91.665     0.606
+        std. dev.:      0.055     0.020    61.438     1.010
+        stats. fin:          x         y         z         a
+                min:   -123.458    48.945     0.019     0.006
+                max:   -123.132    49.064   238.621    16.858
+            mean:   -123.329    48.992    91.483     0.606
+        std. dev.:      0.052     0.019    62.670     1.010
+
+        final state        2section #   9285
+        stats. ini:          x         y         z         a
+                min:   -123.457    48.946     0.500     0.191
+                max:   -123.134    49.063   226.275    16.074
+            mean:   -123.357    48.982    31.337     1.715
+        std. dev.:      0.075     0.028    35.675     1.639
+        stats. fin:          x         y         z         a
+                min:   -123.317    48.883     0.058     0.191
+                max:   -123.079    48.970   151.722    16.074
+            mean:   -123.192    48.929    25.504     1.715
+        std. dev.:      0.068     0.025    25.477     1.639
 
 * :kbd:`lost` are the particles not intercepted by any section.
 * :kbd:`meanders` are the particles that go back out the source section (section 1). Note that this is actually a bad translation from the original french Ariane was writen in. It would be more accurate to think of these particles as :kbd:`loop`.
