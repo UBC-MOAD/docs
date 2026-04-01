@@ -47,11 +47,11 @@ Set Up Your Analysis Repository
 
 The steps to set up your own analysis repository are:
 
-#. Create an empty public repository on GitHub and clone it to your laptop or MOAD workstation
+#. Create an empty public repository on GitHub and clone it on ``salish`` or one of the MOAD workstations
 #. Use the MOAD `analysis repository cookiecutter`_ to generate the directory structure and
    initial files for your repository
+#. Use Pixi to install Python and the packages needed to start working in your analysis repository
 #. Commit and push the initial files to GitHub
-#. Create the conda environment to use for working in your analysis repository
 
 .. _analysis repository cookiecutter: https://github.com/UBC-MOAD/cookiecutter-analysis-repo
 
@@ -88,31 +88,22 @@ Clone Your Analysis Repository
     :ref:`SecureRemoteAccess` section to :ref:`GenerateSshKeys`,
     and to :ref:`CopyYourPublicSshKeyToGitHub`.
 
-#. Create a top level directory for MOAD work.
-   On a Waterhole workstation do:
+#. On ``salish`` or a Waterhole workstation,
+   create a top level directory for MOAD work:
 
    .. code-block:: console
 
        $ mkdir -p /ocean/$USER/MOAD
 
-   Or,
-   if you want to set things up on your laptop do:
-
-   .. code-block:: console
-
-       $ mkdir -p $HOME/MOAD
-
    The ``-p`` option tell :command:`mkdir` to not show an error message
    if the directory already exists,
    and to create any necessary parent directories as needed.
-
-   :envvar:`$HOME` expands to your home directory.
 
    :envvar:`$USER` expands to your user name.
 
 #. Go back to the browser tab in which you created your analysis repository on GitHub and find
    the section of the page near the top that says
-   "Quick setup — if you’ve done this kind of thing before".
+   "Quick setup — if you've done this kind of thing before".
    Below that there are 2 buttons that say :guilabel:`HTTPS` and :guilabel:`SSH`.
    Please ensure that the :guilabel:`SSH` button is enabled,
    and copy the repository URI string of text beside it that looks like:
@@ -122,99 +113,43 @@ Clone Your Analysis Repository
 
       git@github.com:SalishSeaCast/analysis-casey.git
 
-#. Use that repository URI string to clone your analysis repository from GitHub.
-   On a Waterhole workstation do:
+   but with your name instead of ``casey`` in the repository URI string.
+
+#. Use that repository URI string to clone your analysis repository from GitHub:
 
    .. code-block:: console
 
        $ cd /ocean/$USER/MOAD
        $ git clone git@github.com:SalishSeaCast/analysis-casey.git
 
-   Or,
-   for laptop setup do:
-
-   .. code-block:: console
-
-       $ cd $HOME/MOAD
-       $ git clone git@github.com:SalishSeaCast/analysis-casey.git
+   replacing ``git@github.com:SalishSeaCast/analysis-casey.git`` with the repository URI string that
+   you copied from GitHub.
 
 
 Populate Your Analysis Repository
 ---------------------------------
 
 .. note::
-    This section assumes that you have :ref:`Installed Miniforge <InstallingMiniforge>`
-    on your laptop.
+    This section assumes that you have :ref:`Installed Pixi <InstallingPixi>`.
 
     It also assumes that you have set up your :ref:`GitConfiguration`.
 
 .. note::
-    You only need to do the steps in the section in the clone of your analysis repository
-    on *either* your laptop *or* on a Waterhole machine.
-    Once you have done these steps to create the basic directories and files in your repository,
+    You only need to do the steps in this section once in the clone of your analysis repository
+    on ``salish`` or a Waterhole machine.
+    After you have done these steps to create the directories and files in your repository,
     committed them in Git,
     and pushed them to GitHub,
-    you can pull the changes from GitHub into other clones of your repository.
+    you can pull the changes from GitHub into clones of your repository on the Alliance HPC clusters
+    or your laptop.
 
-#. Create a :program:`conda` environment with the latest version of Python
-   and the `cookiecutter tool`_ installed in it with the command:
-
-   .. _cookiecutter tool: https://cookiecutter.readthedocs.io/en/latest/
-
-   .. code-block:: console
-
-       $ conda create -n cookiecutter -c conda-forge python=3 cookiecutter
-
-   That command will do some processing and then show you a list of packages
-   that will be downloaded and installed,
-   and ask you if it is okay to proceed;
-   hit ``y`` or ``Enter`` to go ahead.
-
-   After some more processing you should see the messages:
-
-   .. code-block:: output
-      :class: no-copybutton
-
-      Preparing transaction: done
-      Verifying transaction: done
-      Executing transaction: done
-      #
-      # To activate this environment, use
-      #
-      #      $ conda activate cookiecutter
-      #
-      # To deactivate an active environment, use
-      #
-      #     $ conda deactivate
-
-#. Activate the ``cookiecutter`` environment,
-   go to your :file:`MOAD/` directory,
-   and populate your empty analysis repository clone with the following commands.
-   On a Waterhole workstation do:
+#. Go to your :file:`MOAD/` directory,
+   and populate your empty analysis repository clone with the following commands:
 
    .. code-block:: console
 
-       $ conda activate cookiecutter
-       (cookiecutter)$ cd /ocean/$USER/MOAD
-       (cookiecutter)$ cookiecutter -f gh:UBC-MOAD/cookiecutter-analysis-repo
-
-   Or,
-   for laptop setup do:
-
-   .. code-block:: console
-
-       $ conda activate cookiecutter
-       (cookiecutter)$ cd $HOME/MOAD
-       (cookiecutter)$ cookiecutter -f gh:UBC-MOAD/cookiecutter-analysis-repo
-
-   .. note::
-      When you activate a conda environment the name of the environment in parentheses is
-      added to the front of your command-line prompt.
-      So,
-      in the above commands,
-      the command-line prompt changed from ``$``
-      (or perhaps ``(base)$``)
-      to ``(cookiecutter)$``.
+       $ cd /ocean/$USER/MOAD
+       $ pixi exec cookiecutter -f gh:UBC-MOAD/cookiecutter-analysis-repo
 
    Those command use our `analysis repository cookiecutter`_ template repository
    to create directories and files in the empty analysis repository that you cloned earlier.
@@ -237,142 +172,26 @@ Populate Your Analysis Repository
    and accept the default ``1`` for ``github_org`` so that :command:`cookiecutter` set things up
    to use your repository in the the `SalishSeaCast`_ GitHub organization.
 
-#. Deactivate your ``cookiecutter`` environment with:
-
-   .. code-block:: console
-
-       (cookiecutter)$ conda deactivate
-
 #. Go into your new analysis repository,
-   add and commit the files that :command:`cookiecutter` created for you,
+   use Pixi to install the Python packages that are needed to work in it,
+   add and commit the files that :command:`cookiecutter` and Pixi created for you,
    and push them to GitHub.
-   On a Waterhole workstation do:
 
    .. code-block:: console
 
        $ cd /ocean/$USER/MOAD/analysis-casey
-       $ git add .gitignore LICENSE README.rst notebooks/
+       $ pixi install
+       $ git add .gitattributes .gitignore pixi.toml pixi.lock LICENSE README.rst notebooks/
        $ git commit -m "Initialize repo from MOAD cookiecutter"
        $ git push
-
-   Or,
-   for laptop setup do:
-
-   .. code-block:: console
-
-       $ cd $HOME/MOAD/analysis-casey
-       $ git add .gitignore LICENSE README.rst notebooks/
-       $ git commit -m "Initialize repo from MOAD cookiecutter"
-       $ git push
-
-
-Create Your Analysis Repository Conda Environment
--------------------------------------------------
-
-.. note::
-    This section assumes that you have :ref:`Installed Miniforge <InstallingMiniforge>`
-    on whatever machine you are working on.
-
-One of the files that :command:`cookiecutter` created for you is :file:`notebooks/environment.yaml`.
-It is an environment description file that you use to tell :command:`conda` how to set up the
-environment that you will use to work in your analysis repository.
-That information includes things like the name of the environment,
-the version of Python to install in it,
-and the names of the Python packages to install in the environment.
-
-#. Go into the :file:`notebooks/` directory of your analysis repository,
-   and use :command:`conda` to create the environment.
-   On a Waterhole workstation do:
-
-   .. code-block:: console
-
-       $ cd /ocean/$USER/MOAD/analysis-casey/notebooks/
-       $ conda env create -f environment.yaml
-
-   Or,
-   for laptop setup do:
-
-   .. code-block:: console
-
-       $ cd $HOME/MOAD/analysis-casey/notebooks/
-       $ conda env create -f environment.yaml
-
-   As was the case when you created the ``cookiecutter`` environment above,
-   that command will do some processing and then show you a list of packages
-   that will be downloaded and installed,
-   and ask you if it is okay to proceed;
-   hit ``y`` or ``Enter`` to go ahead.
-
-   After some more processing you should see messages like:
-
-   .. code-block:: output
-      :class: no-copybutton
-
-      Preparing transaction: done
-      Verifying transaction: done
-      Executing transaction: done
-      #
-      # To activate this environment, use
-      #
-      #     $ conda activate analysis-casey
-      #
-      # To deactivate an active environment, use
-      #
-      #     $ conda deactivate
-
-Use the :command:`conda activate` command to activate your analysis environment so that you can
-run :ref:`MOAD-Jupyter`.
-
-
-Install `SalishSeaTools`_ in Your Analysis Environment
-------------------------------------------------------
-
-.. _SalishSeaTools: https://github.com/SalishSeaCast/tools
-
-The `SalishSeaTools`_ package is a collection of Python modules for working with the SalishSeaCast
-NEMO model results, and associated data.
-The functions in it have been written by various members of the MOAD group to do common tasks.
-Please see `this notebook about visualization`_ for one of many examples of in our docs and repositories of uses of modules and functions from the `SalishSeaTools`_ package.
-The `documentation for the package`_ contains documentation for most of its functions that is automatically generated from the function docstrings in the code.
-
-.. _this notebook about visualization: https://salishsea-meopar-tools.readthedocs.io/en/latest/visualisation/visualization_workflows_xarray.html
-
-.. _documentation for the package: https://salishsea-meopar-tools.readthedocs.io/en/latest/SalishSeaTools/index.html
-
-#. Clone the `SalishSeaTools`_ repository beside your analysis repository.
-   On a Waterhole workstation do:
-
-   .. code-block:: console
-
-       $ cd /ocean/$USER/MOAD/
-       $ git clone git@github.com:SalishSeaCast/tools.git
-
-   Or,
-   for laptop setup do:
-
-   .. code-block:: console
-
-       $ cd $HOME/MOAD/
-       $ git clone git@github.com:SalishSeaCast/tools.git
-
-#. Activate your analysis environment
-   (if you haven't already done so)
-   and install the `SalishSeaTools`_ package in it:
-
-   .. code-block:: console
-
-       $ conda activate analysis-casey
-       (analysis-casey)$ python -m pip install --editable tools/SalishSeaTools
-
-The ``--editable`` option in the :command:`pip install` command installs the packages
-in a way that it can be updated when new features are pushed to GitHub by simply doing a
-:command:`git pull` in the :file:`tools/` directory.
 
 
 Use Your Analysis Repository on Other Machines
 ----------------------------------------------
 
-Once you have created your analysis repository and pushed it to GitHub you can clone it on other
+After you have created your analysis repository and pushed it to GitHub you can clone it on other
 machines,
-create a conda environment work working in it,
-and pull changes that you push to GitHub on one machine to update your repository on another machine.
+and set up the environment for working in it with `pixi install`.
+Then,
+when you make changes to your repository on one machine and push those changes to GitHub,
+you can pull those changes on another machine to update the repository there.
