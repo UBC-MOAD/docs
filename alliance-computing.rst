@@ -240,8 +240,9 @@ You should be able to follow these instructions to set up on any of the other Al
    and run NEMO.
 
 #. Follow the :ref:`salishseadocs:InstallCommandProcessorPackages` docs to install the
-   :ref:`salishseacmd:SalishSeaCmdProcessor` and its dependencies in a
-   :command:`conda`  environment.
+   :ref:`salishseacmd:SalishSeaCmdProcessor` and its dependencies with `Pixi`_.
+
+   .. _Pixi: https://pixi.prefix.dev/latest/
 
 #. Follow the :ref:`BuildXIOS-MEOPAR-nibi` docs to build ``XIOS-2``.
 
