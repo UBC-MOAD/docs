@@ -12,7 +12,12 @@
 UBC EOAS MOAD Group Documentation
 *********************************
 
-This is documentation by and for members of the MOAD (Mesoscale Ocean and Atmospheric Dynamics) group in the EOAS (Earth, Ocean, and Atmospheric Sciences) department at UBC (the University of British Columbia).
+This is documentation by and for members of the MOAD
+(Mesoscale Ocean and Atmospheric Dynamics)
+group in the EOAS
+(Earth, Ocean, and Atmospheric Sciences)
+department at UBC
+(University of British Columbia).
 
 
 .. toctree::
@@ -24,6 +29,7 @@ This is documentation by and for members of the MOAD (Mesoscale Ocean and Atmosp
    vcs_repos
    git_version_control
    bash_config
+   pixi/index
    analysis_repo
    python
    jupyter
