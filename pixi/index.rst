@@ -30,3 +30,4 @@ Pixi simplifies many complex tasks into a single tool.
    :caption: Contents:
 
    pixi_pkg_env_mgr
+   pixi_SalishSeaCmd
