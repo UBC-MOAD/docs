@@ -37,9 +37,9 @@ The easiest way to install Pixi is using their official installer script.
 On macOS and Linux:
 -------------------
 
-.. code-block:: bash
+.. code-block:: console
 
-    curl -fsSL https://pixi.sh/install.sh | bash
+    $ curl -fsSL https://pixi.sh/install.sh | bash
 
 
 On Windows (PowerShell):
@@ -53,13 +53,13 @@ On Windows (PowerShell):
 Autocompletion
 --------------
 
-having Pixi autocomplete its sub-commands,
+Having Pixi autocomplete its sub-commands,
 option flags,
 environment names,
 etc.
 when you hit :kbd:`Tab` is very convenient.
 To enable that for :program:`bash`,
-Add the following line to your :file:`$HOME/.bashrc` file:
+add the following line to your :file:`$HOME/.bashrc` file:
 
 .. code-block:: bash
 
@@ -84,9 +84,9 @@ Installing an Environment
 
 After you have cloned a Pixi-powered repository, navigate to your project folder and run:
 
-.. code-block:: bash
+.. code-block:: console
 
-    pixi install
+    $ pixi install
 
 This downloads the packages required by the project and installs them in an isolated environment
 for you to use.
@@ -97,9 +97,9 @@ Adding Packages
 
 To add a package (like ``numpy`` or ``pandas``) to your project:
 
-.. code-block:: bash
+.. code-block:: console
 
-    pixi add numpy
+    $ pixi add numpy
 
 This will update your :file:`pixi.toml` and :file:`pixi.lock` files,
 and automatically install the package into the project-specific environment.
@@ -112,9 +112,9 @@ Running Commands
 
 To run a script or a command within your Pixi environment:
 
-.. code-block:: bash
+.. code-block:: console
 
-    pixi run python my_script.py
+    $ pixi run python my_script.py
 
 
 Using the Pixi Shell
@@ -124,9 +124,9 @@ If you are doing a lot of command-line work and don't want to have to type :comm
 before every command,
 you can work inside the environment interactively by doing:
 
-.. code-block:: bash
+.. code-block:: console
 
-    pixi shell
+    $ pixi shell
 
 This "activates" the environment in your current terminal session.
 You can exit the shell by typing ``exit``.
