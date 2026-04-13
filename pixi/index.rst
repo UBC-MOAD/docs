@@ -31,3 +31,4 @@ Pixi simplifies many complex tasks into a single tool.
 
    pixi_pkg_env_mgr
    pixi_SalishSeaCmd
+   pixi_analysis_repo
