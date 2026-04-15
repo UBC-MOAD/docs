@@ -89,6 +89,10 @@ Microsoft's Python Extension
 
     https://marketplace.visualstudio.com/items?itemName=ms-python.python
 
+Pixi Code
+    Pixi support for the Python Environments extension
+
+    https://marketplace.visualstudio.com/items?itemName=renan-r-santos.pixi-code
 
 Microsoft's Jupyter Notebook Renderers
     Renderers for various image/graph formats output in Jupyter notebooks

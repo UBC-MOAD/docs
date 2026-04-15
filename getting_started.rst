@@ -35,7 +35,7 @@ Here's the Getting Started checklist:
 #. :ref:`SetUpSecureRemoteAccess`
 #. :ref:`SetUpGit`
 #. :ref:`SetUpBash`
-#. :ref:`InstallMiniforge`
+#. :ref:`InstallPixi`
 #. :ref:`SetUpYourAnalysisRepository`
 
 
@@ -109,16 +109,15 @@ before you can:
 on a Waterhole workstation.
 
 
-.. _InstallMiniforge:
+.. _InstallPixi:
 
-Install Miniforge
-=================
+Install Pixi
+============
 
 You will need to:
 
-#. Learn about :ref:`MOAD-CondaPkgAndEnvMgr`
-#. :ref:`Install Miniforge<InstallingMiniforge>` on your laptop
-#. :ref:`Install Miniforge<InstallingMiniforge>` in your workspace on the EOAS Ocean collection of Linux computers
+#. Learn about :ref:`MOAD-PixiPkgAndEnvMgr`
+#. :ref:`Install Pixi<InstallingPixi>` in your workspace on the EOAS Ocean collection of Linux computers
 
 
 .. _SetUpYourAnalysisRepository:
@@ -129,6 +128,6 @@ Set Up Your Analysis Repository
 You will need to have:
 
 #. :ref:`SetUpGit`
-#. :ref:`Installed Miniforge<InstallMiniforge>`
+#. :ref:`Installed Pixi<InstallPixi>`
 
 before you can set up your :ref:`analysis repository<MOAD-AnalysisRepository>`.
