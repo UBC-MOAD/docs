@@ -33,3 +33,4 @@ Pixi simplifies many complex tasks into a single tool.
    pixi_SalishSeaCmd
    pixi_analysis_repo
    pixi_import_conda_env
+   pixi_add_new_env
