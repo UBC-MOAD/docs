@@ -255,7 +255,7 @@ The output looks something like:
     (python_packaging/pkg_structure: line  296) ok        https://click.palletsprojects.com/en/latest/
     (alliance-computing: line   85) redirect  https://ccdb.alliancecan.ca/me/access_systems - with Found to https://ccdb.alliancecan.ca/security/login
     (    contributing: line   46) ok        https://app.readthedocs.org/projects/ubc-moad-docs/builds/
-    (          xios-2: line  405) ok        https://cfconventions.org/Data/cf-standard-names/29/build/cf-standard-name-table.html
+    (          xios-2: line  405) ok        https://cf-convention.github.io/Data/cf-standard-names/29/build/cf-standard-name-table.html
     (alliance-computing: line   55) ok        https://ccdb.alliancecan.ca/account_application
     (   analysis_repo: line  156) ok        https://cookiecutter.readthedocs.io/en/latest/
     (python_packaging/pkg_structure: line  164) ok        https://coverage.readthedocs.io/en/latest/
