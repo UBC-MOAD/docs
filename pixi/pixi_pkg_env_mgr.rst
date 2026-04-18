@@ -34,8 +34,8 @@ Installing Pixi
 The easiest way to install Pixi is using their official installer script.
 
 
-On macOS and Linux:
--------------------
+On macOS and Linux including the Alliance machines:
+---------------------------------------------------
 
 .. code-block:: console
 
