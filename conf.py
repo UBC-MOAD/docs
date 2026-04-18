@@ -70,10 +70,13 @@ if os.environ.get("GITHUB_ACTIONS") == "true":
         ]
     )
 linkcheck_anchors_ignore_for_url = [
-    # We get false failures from the Alliance wiki; i.e. anchors that do exist
+    # We get false failures from the some sites; i.e. anchors that do exist
     # are reported to be broken links. This allows the page URL to be confirmed
     # even if the anchor is not.
-    r"https://docs\.alliancecan\.ca/wiki/.*"
+    # Alliance wiki:
+    r"https://docs\.alliancecan\.ca/wiki/.*",
+    # conda-forge docs:
+    r"https://github\.com/conda-forge/miniforge.*",
 ]
 
 
