@@ -116,7 +116,7 @@ Cleanup
 
    .. code-block:: console
 
-      $ conda deactivate salishsea-cmd
+      $ conda deactivate
       $ conda env remove -n salishsea-cmd
 
 #. Remove your :py:obj:`NEMO-Cmd` repository clone
