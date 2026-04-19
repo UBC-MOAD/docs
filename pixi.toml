@@ -17,14 +17,16 @@ python = "3.14.*"
 pip = "*"
 pre-commit = "*"
 # For building the docs
-nbsphinx = "==0.9.5"
-sphinx = "==8.1.3"
-sphinx-notfound-page = "==1.0.4"
-sphinx-rtd-theme = "==3.0.0"
-sphinx-copybutton = ">=0.5.2,<0.6"
+docutils = "==0.22.4"
+nbsphinx = "==0.9.8"
+sphinx = "==9.1.0"
+sphinx-notfound-page = "==1.1.0"
+sphinx-copybutton = "==0.5.2"
+commonmark = "==0.9.1"
+recommonmark = "==0.7.1"
+mock = "==5.2.0"
+pillow = "==12.2.0"
 
 [pypi-dependencies]
-# For build on readthedocs
-commonmark = ">=0.9.1, <0.10"
-recommonmark = ">=0.7.1, <0.8"
-readthedocs-sphinx-ext = ">=2.2.5, <3"
+# Have to use PyPI because of a bug re: Sphinx<9 in the conda-forge recipe
+sphinx-rtd-theme = "==3.1.0"
