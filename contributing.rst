@@ -296,10 +296,10 @@ The output looks something like:
    (git_version_control: line  127) ok        https://git-scm.com/docs/git-config
    ( getting_started: line   55) ok        https://github.com/
    (       vcs_repos: line   19) ok        https://github.com/MIDOSS/
-   (          xios-2: line  297) ok        https://forge.ipsl.fr/ioserver/raw-attachment/wiki/WikiStart/XIOS_user_guide.pdf
+   (          xios-2: line   15) ok        https://ipsl.pages.in2p3.fr/projets/xios-projects/xios/
+   (          xios-2: line  297) ok        https://ipsl.pages.in2p3.fr/projets/xios-projects/xios/XIOS_user_guide/
    (     sphinx_docs: line   36) ok        https://github.com/MIDOSS/docs
    (oceanparcels/index: line   21) ok        https://github.com/Parcels-code/Parcels/discussions
-   (          xios-2: line   15) ok        https://forge.ipsl.fr/ioserver/wiki
    (   analysis_repo: line   62) ok        https://github.com/SalishSeaCast
    (       vcs_repos: line   18) ok        https://github.com/SalishSeaCast/
    (          xios-2: line  417) ok        https://github.com/SalishSeaCast/SS-run-sets/tree/main/v201702

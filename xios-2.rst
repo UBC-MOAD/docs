@@ -15,7 +15,7 @@ XIOS-2
 `XIOS`_ is the output management library that is used by NEMO to produce netCDF results files.
 NEMO-3.6 uses XIOS-2.
 
-.. _XIOS: https://forge.ipsl.fr/ioserver/wiki
+.. _XIOS: https://ipsl.pages.in2p3.fr/projets/xios-projects/xios/
 
 XIOS operates as a server process that multiple NEMO calculation processes communicate with
 to write results to netCDF files.
@@ -297,9 +297,9 @@ and units.
 This section provides some information about the structure and contents of a :file:`field_def.xml` file.
 This is *not* an exhaustive reference guide for all of the possible attribute values;
 for that,
-please see chapter 3 of the `XIOS User Guide`_.
+please see Fields and Variables section of the `XIOS User Guide`_.
 
-.. _XIOS User Guide: https://forge.ipsl.fr/ioserver/raw-attachment/wiki/WikiStart/XIOS_user_guide.pdf
+.. _XIOS User Guide: https://ipsl.pages.in2p3.fr/projets/xios-projects/xios/XIOS_user_guide/
 
 :file:`NEMO-3.6-code/NEMOGCM/CONFIG/SHARED/field_def.xml` is the reference version of the file
 that is provided with the NEMO code.
@@ -433,9 +433,9 @@ regardless of the depth of the sub-domain.
 This section provides some information about the structure and contents of a :file:`domain_def.xml` file.
 This is *not* an exhaustive reference guide for all of the possible attribute values;
 for that,
-please see chapter 5 of the `XIOS User Guide`_.
+please see Domain section of the `XIOS User Guide`_.
 
-.. _XIOS User Guide: https://forge.ipsl.fr/ioserver/raw-attachment/wiki/WikiStart/XIOS_user_guide.pdf
+.. _XIOS User Guide: https://ipsl.pages.in2p3.fr/projets/xios-projects/xios/XIOS_user_guide/
 
 :file:`NEMO-3.6-code/NEMOGCM/CONFIG/SHARED/domain_def.xml` is the reference version of the file
 that is provided with the NEMO code.
