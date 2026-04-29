@@ -1,6 +1,5 @@
 {
     "restructuredtext.confPath": "${workspaceFolder}",
-    "python.defaultInterpreterPath": "~/conda_envs/moad-docs",
     "cSpell.words": [
         "abspath",
         "alliancecan",
