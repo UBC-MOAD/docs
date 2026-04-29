@@ -30,6 +30,13 @@ tags
 [._]*.un~
 
 
+## IntelliJ project files
+.idea
+*.iml
+out
+gen
+
+
 ### VisualStudioCode template
 .vscode/*
 !.vscode/settings.json
