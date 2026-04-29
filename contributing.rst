@@ -257,7 +257,7 @@ The output looks something like:
    (python_packaging/pkg_structure: line  297) ok        https://click.palletsprojects.com/en/latest/
    (alliance-computing: line   85) redirect  https://ccdb.alliancecan.ca/me/access_systems - with Found to https://ccdb.alliancecan.ca/security/login
    (github_notebooks_readme: line    7) ok        https://commonmark.org/
-   (          xios-2: line  405) ok        https://cf-convention.github.io/Data/cf-standard-names/29/build/cf-standard-name-table.html
+   (          xios-2: line  405) ok        https://cfconventions.org/Data/cf-standard-names/29/build/cf-standard-name-table.html
    (    contributing: line   13) ok        https://creativecommons.org/licenses/by/4.0/
    (zzz_archival_docs/conda_pkg_env_mgr: line   39) ok        https://conda-forge.org/
    (python_packaging/pkg_structure: line  165) ok        https://coverage.readthedocs.io/en/latest/
