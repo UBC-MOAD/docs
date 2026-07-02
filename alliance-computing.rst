@@ -154,7 +154,7 @@ You should be able to follow these instructions to set up on any of the other Al
 
    .. code-block:: bash
 
-       export PROJECT=$HOME/projects/def-allen
+       export PROJECT=$HOME/projects/rrg-allen
 
    Exit your session on ``nibi`` with :command:`exit`,
    then :command:`ssh` in again,
