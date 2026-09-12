@@ -2,6 +2,9 @@
 # repo to Doug
 
 name: Assign Issue/PR
+
+permissions: {}
+
 on:
   issues:
     types:
@@ -11,6 +14,7 @@ on:
     types:
       - reopened
       - opened
+
 jobs:
   auto_assign:
     permissions:
