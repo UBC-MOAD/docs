@@ -12,7 +12,7 @@
 Adding a New Pixi Environment
 *****************************
 
-As an example of adding a new Pixi environment to and existing workspace,
+As an example of adding a new Pixi environment to an existing workspace,
 we'll add an environment for running `Parcels`_
 
 .. _Parcels: https://docs.parcels-code.org/en/latest/installation.html#basic-installation
