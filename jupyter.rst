@@ -433,6 +433,11 @@ Things to note about working in that context:
   * When the time requested for your session runs out,
     the session shuts down after a 2 minute warning to give you time to save your work before it is lost.
 
+Running :command:`jupyter lab` on a login node is not recommended because login nodes are shared resources
+and you will be competing with other users for memory and CPU cores.
+It is very easy to accidentally use too much memory on a login node.
+That results in the kernel crashing unexpectedly.
+
 
 .. _JupyterComputeCanadaPythonVenv:
 
