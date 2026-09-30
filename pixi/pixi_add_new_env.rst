@@ -15,7 +15,7 @@ Adding a New Pixi Environment
 As an example of adding a new Pixi environment to an existing workspace,
 we'll add an environment for running `Parcels`_
 
-.. _Parcels: https://docs.parcels-code.org/en/latest/installation.html#basic-installation
+.. _Parcels: https://docs.parcels-code.org/en/stable/user_guide/getting_started/installation.html
 
 The installation instructions that `Parcels`_ provides include the instruction to create a
 Conda environment with:
