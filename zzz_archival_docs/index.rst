@@ -24,4 +24,3 @@ it will remain available after deletion in the `Git repository`_.
    :caption: Contents:
 
    conda_pkg_env_mgr
-   hg_version_control
