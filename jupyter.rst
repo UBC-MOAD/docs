@@ -290,7 +290,7 @@ the commands would be like:
 .. code-block:: console
 
     $ cd analysis-doug/
-    $ jupyter lab --no-browser --ip $(hostname -f)
+    $ pixi run jupyter lab --no-browser --ip $(hostname -f)
 
 The ``--no-browser`` option in that command tells :program:`jupyter` to start the server part only,
 and not to start the client part in a browser.
