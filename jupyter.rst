@@ -135,9 +135,8 @@ the commands would be like:
 
 .. code-block:: console
 
-    $ conda activate analysis-doug
-    (analysis-doug)$ cd analysis-doug/
-    (analysis-doug)$ jupyter lab
+    $ cd analysis-doug/
+    $ pixi run jupyter lab
 
 The terminal window that you typed those commands into is now running the server part of Jupyter.
 You have to keep it open until you are finished with Jupyter and want to shut it down.
