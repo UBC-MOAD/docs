@@ -17,15 +17,14 @@ This section is about the UBC MOAD group's use of the `OceanParcels package`_ fo
 Useful links:
 
 * `OceanParcels project site`_
-* Our `#oceanparcels Slack channel`_
+* Our ``#oceanparcels`` Slack channel
 * `OceanParcels GitHub Discussion forum`_
 * `Ocean Sciences 2021 paper comparing OceanParcels and Ariane`_
 * `Advection kernels`_
 * `Ben's notebook`_ that demonstrates a complete workflow of using OceanParcels simulations with SalishSeaCast and related model configurations
 
 .. _OceanParcels project site: https://parcels-code.org/
-.. _#oceanparcels Slack channel: https://salishseacast.slack.com/?redir=%2Farchives%2FC02ETTPHFPX
 .. _OceanParcels GitHub Discussion forum: https://github.com/Parcels-code/Parcels/discussions
 .. _Ocean Sciences 2021 paper comparing OceanParcels and Ariane: https://os.copernicus.org/articles/17/1067/2021/
-.. _Advection kernels: https://docs.oceanparcels.org/en/latest/reference/predefined_kernels.html
+.. _Advection kernels: https://docs.parcels-code.org/en/v2.4.1/#module-parcels.application_kernels.advection
 .. _Ben's notebook: https://nbviewer.org/github/UBC-MOAD/PythonNotes/blob/main/OceanParcelsRecipes.ipynb

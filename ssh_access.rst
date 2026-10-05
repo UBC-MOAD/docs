@@ -618,13 +618,11 @@ Adding more ``v``s
 or ``-vvv``,
 increases the verbosity of the messages.
 If you need help interpreting the output of :command:`ssh -v`,
-paste it into a message on the `SalishSeaCast #general`_ Slack channel.
-
-.. _SalishSeaCast #general: https://salishseacast.slack.com/?redir=%2Farchives%2FCFR6VU70S
+paste it into a message on the ``SalishSeaCast #general`` Slack channel.
 
 Please see :command:`ssh --help`,
 :command:`man ssh`,
-ask on the `SalishSeaCast #general`_ Slack channel,
+ask on the ``SalishSeaCast #general`` Slack channel,
 or Google for more information about how to use :command:`ssh`.
 
 
@@ -682,11 +680,11 @@ e.g.
 
 This is helpful in debugging connection, authentication, and configuration problems.
 If you need help interpreting the output of :command:`scp -v`,
-paste it into a message on the `SalishSeaCast #general`_ Slack channel.
+paste it into a message on the ``SalishSeaCast #general`` Slack channel.
 
 Please see :command:`scp --help`,
 :command:`man scp`,
-ask on the `SalishSeaCast #general`_ Slack channel,
+ask on the ``SalishSeaCast #general`` Slack channel,
 or Google for more information about how to use :command:`scp`.
 
 
@@ -706,7 +704,7 @@ and for downloading ``get``.
 
 Please see :command:`sftp --help`,
 :command:`man sftp`,
-ask on the `SalishSeaCast #general`_ Slack channel,
+ask on the ``SalishSeaCast #general`` Slack channel,
 or Google for more information about how to use :command:`sftp`.
 
 Here is a sample :command:`sftp` session to copy a file from your scratch space on ``salish`` to your current directory on your local computer:
@@ -732,7 +730,7 @@ e.g.
 
 This is helpful in debugging connection, authentication, and configuration problems.
 If you need help interpreting the output of :command:`sftp -v`,
-paste it into a message on the `SalishSeaCast #general`_ Slack channel.
+paste it into a message on the ``SalishSeaCast #general`` Slack channel.
 
 
 .. _X2GoRemoteDesktop:
@@ -781,7 +779,7 @@ After you click the :guilabel:`Okay` button you should see a new session tile ca
     Finding a :guilabel:`Session type` that works can take some trial and error.
     Most MOAD workstations have the Mate window manager installed,
     but you may have to try others.
-    Feel free to ask for help on the `SalishSeaCast #general`_ Slack channel,
+    Feel free to ask for help on the ``SalishSeaCast #general`` Slack channel,
 
 To connect to ``chum``,
 click the :guilabel:`chum` session tile on the right side of the X2Go window,

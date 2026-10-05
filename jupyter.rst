@@ -135,9 +135,8 @@ the commands would be like:
 
 .. code-block:: console
 
-    $ conda activate analysis-doug
-    (analysis-doug)$ cd analysis-doug/
-    (analysis-doug)$ jupyter lab
+    $ cd analysis-doug/
+    $ pixi run jupyter lab
 
 The terminal window that you typed those commands into is now running the server part of Jupyter.
 You have to keep it open until you are finished with Jupyter and want to shut it down.
@@ -239,7 +238,7 @@ so they are well up to the task of running the :command:`jupyter lab` for analys
 
 
 Using VS Code
--------------
+^^^^^^^^^^^^^
 
 #. Ensure that you have the Remote SSH extension installed in VS Code.
    See the :ref:`MOAD-VSCodeRemoteSSH-Extension` section for details.
@@ -271,7 +270,7 @@ Using VS Code
 
 
 Using a Terminal Window
------------------------
+^^^^^^^^^^^^^^^^^^^^^^^
 
 To start the :command:`jupyter lab` server on ``salish``,
 open a terminal window on your laptop,
@@ -291,7 +290,7 @@ the commands would be like:
 .. code-block:: console
 
     $ cd analysis-doug/
-    $ jupyter lab --no-browser --ip $(hostname -f)
+    $ pixi run jupyter lab --no-browser --ip $(hostname -f)
 
 The ``--no-browser`` option in that command tells :program:`jupyter` to start the server part only,
 and not to start the client part in a browser.
@@ -433,133 +432,30 @@ Things to note about working in that context:
   * When the time requested for your session runs out,
     the session shuts down after a 2 minute warning to give you time to save your work before it is lost.
 
-
-.. _JupyterComputeCanadaPythonVenv:
-
-Create a Python Virtual Environment
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-**TODO:** Update this section to use conda environment on ``nibi`` instead of a venv on ``graham``.
-
-The first step is to create a Python virtual environment with ``jupyterlab``
-(and probably other Python packages)
-installed in it.
+Running :command:`jupyter lab` on a login node is not recommended because login nodes are shared resources
+and you will be competing with other users for memory and CPU cores.
+It is very easy to accidentally use too much memory on a login node.
+That results in the kernel crashing unexpectedly.
 
 .. note::
-    You don't have to create a new virtual environment every time you want to run :command:`jupyter lab`.
-    Just be sure to activate your virtual environment before you launch :command:`jupyter lab`.
-
-Python virtual environments (venvs) are similar to :program:`conda` environments in that they facilitate isolated installation and management of Python packages in a repeatable way.
-Although :program:`conda` packages are MOAD's preferred tool for package isolation,
-Compute Canada `explicitly stipulates`_ that we should not use Anaconda or :program:`conda` environments on their clusters.
-So,
-this section describes how to use a Python venv to install and run :command:`jupyter lab`.
-
-.. _explicitly stipulates: https://docs.alliancecan.ca/wiki/Anaconda/en
-
-Use the Compute Canada module system to load Python,
-preferably the most recent available version.
-On ``graham`` in Dec-2022 that is Python 3.10.2:
-
-.. code-block:: console
-
-    $ module load python/3.10.2
-
-Create a Python virtualenv in which to install ``jupyterlab`` and other packages:
-
-.. code-block:: console
-
-    $ python3 -m virtualenv --no-download ~/venvs/jupyter
-
-The ``--no-download`` forces the ``pip``,
-``setuptools``,
-and ``wheel`` packages to be installed from the package collections
-(also known as "wheelhouses")
-maintained by Compute Canada.
-This virtual environment will be created in the :file:`$HOME/venvs/jupyter/`.
-:program:`virtualenv` takes care of creating all of the necessary directories.
-
-Activate the venv with:
-
-.. code-block:: console
-
-    $ source ~/venvs/jupyter/bin/activate
-
-The name of the venv will be prepended in parentheses to your command prompt:
-``(jupyter)``,
-in this case.
-
-Update the version of :program:`pip` installed in the venv.
-This rarely seems to have any effect,
-but it is recommended in the `Compute Canada venv docs`_,
-so we do it:
-
-.. code-block:: console
-
-    (jupyter)$ python3 -m pip install --no-index --upgrade pip
-
-.. _Compute Canada venv docs: https://docs.alliancecan.ca/wiki/Python#Creating_and_using_a_virtual_environment
-
-Install the ``jupyterlab`` package and other packages that we routinely use for analysis into the venv:
-
-.. code-block:: console
-
-    (jupyter)$ python3 -m pip install jupyterlab xarray h5netcdf bottleneck matplotlib cmocean
-
-This will cause the list of packages ``jupyterlab xarray h5netcdf bottleneck matplotlib cmocean``
-to be installed from the package collections maintained by Compute Canada,
-or from the `Python Package Index (PyPI)`_.
-Ideally all of the packages will be installed from the Compute Canada package collections,
-ensuring that they have been built for best compatibility and optimization for the cluster architecture.
-However,
-when packages are unavailable or not up to date in the Compute Canada collections,
-they are installed from PyPI.
-
-.. _Python Package Index (PyPI): https://pypi.org/
-
-.. important::
-    In late Sep-2021 we discovered that the ``netCDF4`` package maintained by Compute Canada had become incompatible with ``xarray``
-    (then at version 0.19.0).
-    The work-around is to change to use the `h5netcdf package`_ to access netCDF files.
-    The :command:`python3 -m pip install ...` command above will install ``h5netcdf``.
-    To use it,
-    add a ``engine="h5netcdf"`` argument to your ``xarray.open_dataset()``,
-    ``xarray.Dataset.to_netcdf()``,
-    etc. calls.
-
-    If you want to use ``h5netcdf`` at a lower level than ``xarray``
-    (as you may have used ``netCDF4`` elsewhere),
-    please see its legacy API that is designed for compatibility with ``netCDF4``.
-
-    .. _h5netcdf package: https://github.com/h5netcdf/h5netcdf
-
-.. note::
-    If you need to deactivate the venv,
-    perhaps to activate a venv with a different collection of packages installed,
-    use:
-
-    .. code-block:: console
-
-        (jupyter)$ deactivate
-
-
-.. _JupyterComputeCanadaInteractiveCompute:
-
-Running :command:`jupyter lab` in an Interactive Compute Session
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    The instructions in this section assume that you are using Pixi to manage your Python packages and environments.
+    If you are unfamiliar with Pixi,
+    see the :ref:`Pixi Package and Environment Manager <MOAD-PixiPkgAndEnvMgr>` section for an introduction to Pixi.
+    The :ref:`Migrating Your Analysis Repository to Pixi <MigratingYourAnalysisRepositoryToPixi>`
+    section has instructions for migrating your Conda-based analysis repository to Pixi.
 
 In an :program:`ssh` session on ``nibi``,
 start an interactive session on a compute node with:
 
 .. code-block:: console
 
-    $ salloc --time=1:00:00 --ntasks=1 --cpus-per-task=2 --mem-per-cpu=1024M --account=rrg-allen
+    $ salloc --time=1:00:00 --nodes=1 --ntasks-per-node=2 --mem-per-cpu=4096M --account=def-allen
 
 The ``--time=1:00:00`` option requests the compute node resources for 1 hour.
-``--ntasks=1 --cpus-per-task=2 --mem-per-cpu=1024M`` requests 2 cores with 1024 Mb of RAM each for the session and associates them with 1 scheduler task.
+``--nodes=1 --ntasks-per-node=2 --mem-per-cpu=4096M`` requests 2 cores with 4096 Mb of RAM each for the session
+and stipulates that the cores be on the same node.
 Those are good choices for typical interactive work on NEMO results files.
-The ``--account=rrg-allen`` uses the MOAD allocation on ``nibi`` to request the resources with better than default priority.
-On other clusters use ``--account=def-allen``.
+The ``--account=def-allen`` uses the MOAD allocation on ``nibi`` to request the resources.
 
 You should see output something like:
 
@@ -571,7 +467,7 @@ You should see output something like:
     salloc: job 40482784 has been allocated resources
     salloc: Granted job allocation 40482784
     salloc: Waiting for resource configuration
-    salloc: Nodes c705 are ready for job
+    salloc: Nodes c583 are ready for job
 
 as the requested session starts up.
 There may be a wait while the resources are allocated to you,
@@ -581,21 +477,15 @@ how many cores you have requested,
 and how much memory you have requested.
 Eventually,
 your command-line prompt should re-appear showing that you are now connected to one of the compute nodes,
-``c705`` in this case:
+``c583`` in this case:
 
 .. code-block:: console
 
-    [your-user-id@c705 ~]$
+    [your-user-id@c583.nibi ~]$
 
-
-Load a Alliance Python language module,
-and activate the Python virtual environment in which ``jupyterlab`` and the other packages that you need are installed.
-In this example we load Python 3.8.2 and activate our environment from the :file:`~/venvs/jupyter/` directory:
-
-.. code-block:: console
-
-    $ module load python/3.8.2
-    $ source ~/venvs/jupyter/bin/activate
+You will need the name of the compute node
+(``c583`` in this case)
+in subsequent steps.
 
 Navigate to the directory that you want to be at the top level of Jupyter's file navigation,
 and start the Jupyter server.
@@ -605,33 +495,35 @@ the commands would be like:
 
 .. code-block:: console
 
-    (jupyter) [dlatorne@gra581 ~]$ cd $PROJECT/MEOPAR/analysis-doug/
-    (jupyter) [dlatorne@gra581 ~]$ jupyter lab --no-browser --ip $(hostname -f)
+    [dlatorne@c583.nibi ~]$ cd MEOPAR/analysis-doug/
+    [dlatorne@c583.nibi analysis-doug]$ pixi run jupyter lab --no-browser --ip=0.0.0.0 --port=8888
 
 The ``--no-browser`` option in that command tells :program:`jupyter` to start the server part only,
 and not to start the client part in a browser.
-The ``--ip $(hostname -f)`` causes the name of the node you are running the server on to be used in the URLs that Jupyter sets up for the server.
+The ``--ip=0.0.0.0`` option causes the server to listen on all available network interfaces.
+The ``--port=8888`` option tells the server to listen on port 8888.
 
 You should see output in that terminal window that looks something like:
 
 .. code-block:: output
    :class: no-copybutton
 
-    [I 17:26:04.998 LabApp] Writing notebook server cookie secret to /home/dlatorne/.local/share/jupyter/runtime/notebook_cookie_secret
-    [I 17:26:07.186 LabApp] JupyterLab extension loaded from /home/dlatorne/venvs/jupyter/lib/python3.8/site-packages/jupyterlab
-    [I 17:26:07.186 LabApp] JupyterLab application directory is /home/dlatorne/venvs/jupyter/share/jupyter/lab
-    [I 17:26:07.191 LabApp] Serving notebooks from local directory: /home/dlatorne/projects/def-allen/dlatorne/MEOPAR/analysis-doug/
-    [I 17:26:07.191 LabApp] Jupyter Notebook 6.1.5 is running at:
-    [I 17:26:07.191 LabApp] http://c705.nibi.sharcnet:8888/?token=327caed3d832eefaad25a57cbf01de9f42685ced4306e036
-    [I 17:26:07.191 LabApp]  or http://127.0.0.1:8888/?token=327caed3d832eefaad25a57cbf01de9f42685ced4306e036
-    [I 17:26:07.191 LabApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
-    [C 17:26:07.203 LabApp]
+    [I 2026-09-30 17:56:09.761 LabApp] JupyterLab extension loaded from /home/dlatorne/MEOPAR/analysis-doug/.pixi/envs/default/lib/python3.14/site-packages/jupyterlab
+    [I 2026-09-30 17:56:09.761 LabApp] JupyterLab application directory is /home/dlatorne/MEOPAR/analysis-doug/.pixi/envs/default/share/jupyter/lab
+    [I 2026-09-30 17:56:09.769 LabApp] Extension Manager is 'pypi'.
+    [I 2026-09-30 17:56:13.318 ServerApp] jupyterlab | extension was successfully loaded.
+    [I 2026-09-30 17:56:13.319 ServerApp] Serving notebooks from local directory: /home/dlatorne/MEOPAR/analysis-doug
+    [I 2026-09-30 17:56:13.319 ServerApp] Jupyter Server 2.17.0 is running at:
+    [I 2026-09-30 17:56:13.319 ServerApp] http://c583.nibi.sharcnet:8888/lab?token=8f38c710eb2c5235f63a9930645f04d90340cdb9f413cc2f
+    [I 2026-09-30 17:56:13.319 ServerApp]     http://127.0.0.1:8888/lab?token=8f38c710eb2c5235f63a9930645f04d90340cdb9f413cc2f
+    [I 2026-09-30 17:56:13.319 ServerApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+    [C 2026-09-30 17:56:13.408 ServerApp]
 
-        To access the notebook, open this file in a browser:
-            file:///home/dlatorne/.local/share/jupyter/runtime/nbserver-24995-open.html
+        To access the server, open this file in a browser:
+            file:/home/dlatorne/.local/share/jupyter/runtime/jpserver-2008211-open.html
         Or copy and paste one of these URLs:
-            http://c705.nibi.sharcnet:8888/?token=327caed3d832eefaad25a57cbf01de9f42685ced4306e036
-         or http://127.0.0.1:8888/?token=327caed3d832eefaad25a57cbf01de9f42685ced4306e036
+            http://c583.nibi.sharcnet:8888/lab?token=8f38c710eb2c5235f63a9930645f04d90340cdb9f413cc2f
+            http://127.0.0.1:8888/lab?token=8f38c710eb2c5235f63a9930645f04d90340cdb9f413cc2f
 
 .. note::
     Keep this terminal window open.
@@ -646,20 +538,46 @@ That is:
 .. code-block:: output
    :class: no-copybutton
 
-    http://c705.nibi.sharcnet:8888/?token=327caed3d832eefaad25a57cbf01de9f42685ced4306e036
+    http://c583.nibi.sharcnet:8888/lab?token=8f38c710eb2c5235f63a9930645f04d90340cdb9f413cc2f
 
 in the example output above.
 
-The ``c705.nibi.sharcnet`` part is the name of the compute node on which your Jupyter server is running.
+
+Using VS Code
+^^^^^^^^^^^^^
+
+#. Open the notebook file you want to work on.
+
+#. If the Jupyter kernel that you want to use for the notebook is not already selected,
+   use the :guilabel:`Select Kernel` button in the upper right corner of the notebook editor pane
+   to choose the correct kernel.
+   Use the :guilabel:`Select Another Kernel -> Existing Jupyter Server` options to get to the place
+   where you can paste the URL from the Jupyter server output above.
+
+
+Using a Terminal Window
+^^^^^^^^^^^^^^^^^^^^^^^
+
+The URL from the Jupyter server output above is provides the information you need to use to set up
+the :program:`ssh` tunnel between your laptop and ``nibi`` for the Jupyter client to use.
+
+.. code-block:: output
+   :class: no-copybutton
+
+    http://c583.nibi.sharcnet:8888/lab?token=8f38c710eb2c5235f63a9930645f04d90340cdb9f413cc2f
+
+
+The ``c583`` part is the name of the compute node on which your Jupyter server is running.
 It will change from session to session.
-The number after ``c705.nibi.sharcnet:`` in the URL
+The number after ``c583.nibi.sharcnet:`` in the URL
 (``8888`` above)
 is the port number that the Jupyter server is running on.
 ``8888`` is the default,
 but if that port is busy,
 probably because somebody else is already running a Jupyter server on it,
 Jupyter will choose a different port number.
-You need to use the port number that *your* Jupyter server server is running on in the next step when we set up the :program:`ssh` tunnel between your laptop and ``nibi`` for the Jupyter client to use.
+You need to use the port number that *your* Jupyter server server is running on in the next step
+when we set up the :program:`ssh` tunnel between your laptop and ``nibi`` for the Jupyter client to use.
 
 To set up the :program:`ssh` tunnel,
 open a new terminal window on your laptop,
@@ -667,18 +585,24 @@ and enter the command:
 
 .. code-block:: console
 
-    $ ssh -N -L 4343:c705.nibi.sharcnet:8888 nibi
+    $ ssh -N -L 4343:c583:8888 dlatorne@nibi.alliancecan.ca
+
+with ``c583`` replaced by the name of the compute node that your Jupyter server is running on,
+``8888`` replaced by the port number that your Jupyter server is running on,
+and ``dlatorne`` replaced by your own Alliance username.
+
+Follow the prompts to complete the multi-factor authentication process to log in to ``nibi``.
 
 This use of :program:`ssh` is called "port forwarding", or "ssh tunnelling".
 It creates an ssh encrypted connection between a port on your laptop
 (port ``4343`` in this case)
 and a port on the remote host
-(port ``8888`` on the ``c705.nibi.sharcnet`` node in this case).
+(port ``8888`` on the ``c583.nibi.sharcnet`` node in this case).
 The ``-N`` option tells :program:`ssh` not to execute a command on the remote system because all we want to do is set up the port forwarding.
 The ``-L`` option tells :program:`ssh` that the next blob of text is the details of the port forwarding to set up.
 
 You can use any number ``≥1024`` you want instead of ``4343`` as the local port number on your laptop.
-The number after ``:c705.nibi.sharcnet:`` has to be the same as the port number in the URLs that the Jupyter server printed out.
+The number after ``:c583.nibi.sharcnet:`` has to be the same as the port number in the URLs that the Jupyter server printed out.
 
 .. note::
     Keep this terminal window open too.
@@ -698,7 +622,7 @@ the in the URL:
 .. code-block:: output
    :class: no-copybutton
 
-    http://c705.nibi.sharcnet:8888/?token=327caed3d832eefaad25a57cbf01de9f42685ced4306e036
+    http://c583.nibi.sharcnet:8888/?token=327caed3d832eefaad25a57cbf01de9f42685ced4306e036
 
 the token is ``327caed3d832eefaad25a57cbf01de9f42685ced4306e036``.
 
